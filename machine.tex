@@ -357,8 +357,36 @@ In this section we describe the data processing steps that were specific to the 
 \item incidence\symbol{92}yr2005.lo\_2nd\_half\symbol{92}COLRECT.txt
 \end{itemize}
 
-were imported into a pandas DataFrame object, \code{dfcolon}.
-The following columns were then selected:
+were imported into a pandas DataFrame object.
+The following filter was then applied:
+
+\begin{itemize}[noitemsep]
+\item \code{SEQUENCE NUMBER-CENTRAL $\neq$ "Unspecified"}
+\item \code{AGE AT DIAGNOSIS $\neq$ "Unknown age"}
+\item \code{BIRTHDATE-YEAR $\neq$ "Unknown year of birth"}
+\item \code{YEAR OF DIAGNOSIS $\geq 2004$}
+\item \code{CS TUMOR SIZE EXT/EVAL $\neq$ ""}
+\item \code{CS TUMOR SIZE $\neq 999$}
+\item \code{SEER RECORD NUMBER $= 1$}
+\item \code{PRIMARY SITE $=$ "LARGE INTESTINE, (EXCL. APPENDIX)"}
+\item \code{SEQUENCE NUMBER-CENTRAL $= 0$}
+\end{itemize}
+
+
+
+%\code{mask = ~(dfsmall['sequence\_number\_central'] == 'Unspecified') \& \\
+%      ~(dfsmall['age\_at\_diagnosis'] == 'Unknown age') \& \\
+%      ~(dfsmall['year\_of\_birth'] == 'Unknown year of birth') \& \\
+%        (dfsmall['year\_of\_diagnosis'] >= 2004) \& \\
+%        (dfsmall['survival\_months_flag'] == '1') \& \\
+%        (dfsmall['cs\_tumor\_size\_ext\_eval'] != ' ') \& \\
+%        (dfsmall['cs\_tumor\_size'] != 999) \& \\
+%        (dfsmall['seer\_record\_number'] == 1) \& \\
+%        (dfsmall['primary\_site'] == 'LARGE INTESTINE, (EXCL. APPENDIX)') \& \\
+%        (dfsmall['sequence\_number\_central'] == 0)}
+
+
+
 
 %['patient\_id\_number','sex','marital\_status\_at\_dx',
 %            'race\_ethnicity','spanish\_hispanic\_origin',
