@@ -391,8 +391,25 @@ section~\ref{subsec:dataprep}:
 %\end{itemize}
 The \code{STATE-COUNTY RECODE} variable was dropped and replaced with the \code{elevation}, \code{lat}, and \code{lng} variables as illustrated in Table~\ref{tab:nmhead}.
 
+With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
+After the above one-hot encoding procedure, the new variable
+\code{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
+\code{SURVIVAL MONTHS} and \code{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:colonkaplan}).
 
 
+
+
+\begin{figure}[tbp]
+\centering 
+%\begin{center}/\end{center} takes some additional vertical space
+%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
+%\hfill
+\begin{center}
+\includegraphics[width=.90\textwidth,origin=c]{colonkaplan.pdf}
+% "\includegraphics" is very powerful; the graphicx package is already loaded
+\caption{\label{fig:colonkaplan} Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients.}
+\end{center}
+\end{figure}
 
 
 
