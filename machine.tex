@@ -365,9 +365,10 @@ The following filter was then applied:
  \code{AGE AT DIAGNOSIS $\neq$ "Unknown age"},
 \code{BIRTHDATE-YEAR $\neq$ "Unknown year of birth"},
 \code{YEAR OF DIAGNOSIS $\geq 2004$}, \\
+\code{SURVIVAL MONTHS FLAG = "1"},
  \code{CS TUMOR SIZE EXT/EVAL $\neq$ ""},
 \code{CS TUMOR SIZE $\neq 999$},
-\code{SEER RECORD NUMBER $= 1$}, \\
+\code{SEER RECORD NUMBER $= 1$}, 
 \code{PRIMARY SITE $=$ "LARGE INTESTINE, (EXCL. APPENDIX)"},
 \code{SEQUENCE NUMBER-CENTRAL $= 0$}.
 %\end{itemize}
@@ -388,7 +389,7 @@ section~\ref{subsec:dataprep}:
 \code{MONTH OF DIAGNOSIS},
  \code{VITAL STATUS RECODE}.
 %\end{itemize}
-and the \code{STATE-COUNTY RECODE} variable was dropped and replaced with the \code{elevation}, \code{lat}, and \code{lng} variables as illustrated in Table~\ref{tab:nmhead}.
+The \code{STATE-COUNTY RECODE} variable was dropped and replaced with the \code{elevation}, \code{lat}, and \code{lng} variables as illustrated in Table~\ref{tab:nmhead}.
 
 
 
