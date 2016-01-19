@@ -28,6 +28,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methodology}{3}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data acquisition}{3}{subsection.2.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data preparation and preprocessing}{3}{subsection.2.2}}
+\newlabel{subsec:dataprep}{{2.2}{3}{Data preparation and preprocessing}{subsection.2.2}{}}
 \citation{bowles}
 \citation{census}
 \citation{geocode}
@@ -41,38 +42,36 @@
 \newlabel{tab:nmhead}{{2}{5}{Example of the transformation of \code {STATE-COUNTY RECODE} to \code {elevation}, \code {lat}, and \code {lng}}{table.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Colon Cancer Data}{5}{subsection.2.3}}
 \newlabel{subsec:coloncancerdata}{{2.3}{5}{Colon Cancer Data}{subsection.2.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Prediction Models}{5}{section.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Random Forests}{5}{subsection.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}MLP Neural Networks}{5}{subsection.3.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Performance Metrics}{5}{section.4}}
+\newlabel{sec:performancemetrics}{{4}{5}{Performance Metrics}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Model Agreement}{5}{subsection.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Web Applications}{5}{section.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Further Directions}{5}{section.6}}
+\bibstyle{plain}
+\bibdata{machinebib}
+\bibcite{kuhn}{{1}{}{{}}{{}}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces  AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details.}}{6}{table.3}}
 \newlabel{tab:AUC}{{3}{6}{AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details}{table.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces  Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type.}}{6}{table.4}}
 \newlabel{tab:agree}{{4}{6}{Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type}{table.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Prediction Models}{6}{section.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Random Forests}{6}{subsection.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}MLP Neural Networks}{6}{subsection.3.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Performance Metrics}{6}{section.4}}
-\newlabel{sec:performancemetrics}{{4}{6}{Performance Metrics}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Model Agreement}{6}{subsection.4.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Web Applications}{6}{section.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Further Directions}{6}{section.6}}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Selected Features}{6}{appendix.A}}
 \newlabel{sec:features}{{A}{6}{Selected Features}{appendix.A}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{6}{subsection.A.1}}
-\bibstyle{plain}
-\bibdata{machinebib}
-\bibcite{kuhn}{{1}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Model Architecture and Python Code}{6}{appendix.B}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}GitHub Repositories}{6}{appendix.C}}
+\@writefile{toc}{\contentsline {paragraph}{Note added.}{6}{section*.3}}
 \bibcite{bowles}{{2}{}{{}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data.}}{7}{figure.1}}
-\newlabel{fig:breastbox}{{1}{7}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data}{figure.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Model Architecture and Python Code}{7}{appendix.B}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}GitHub Repositories}{7}{appendix.C}}
-\@writefile{toc}{\contentsline {paragraph}{Note added.}{7}{section*.3}}
 \bibcite{census}{{3}{}{{}}{{}}}
 \bibcite{cam}{{4}{}{{}}{{}}}
 \bibcite{elevation}{{5}{}{{}}{{}}}
 \bibcite{geocode}{{6}{}{{}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data.}}{7}{figure.1}}
+\newlabel{fig:breastbox}{{1}{7}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data}{figure.1}{}}
 \bibcite{downey}{{7}{}{{}}{{}}}
 \bibcite{supp}{{8}{}{{}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data.}}{8}{figure.2}}
-\newlabel{fig:colonbox}{{2}{8}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data}{figure.2}{}}
 \bibcite{blackholes}{{9}{}{{}}{{}}}
 \bibcite{MShS:47}{{10}{}{{}}{{}}}
 \bibcite{seerwebsite}{{11}{}{{}}{{}}}
@@ -80,5 +79,7 @@
 \bibcite{pythonmachinelearning}{{13}{}{{}}{{}}}
 \citation{*}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data.}}{8}{figure.2}}
+\newlabel{fig:colonbox}{{2}{8}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data}{figure.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig\nobreakspace  {}\ref  {fig:breastbox} and fig\nobreakspace  {}\ref  {fig:colonbox}.}}{9}{figure.3}}
 \newlabel{fig:lungbox}{{3}{9}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig~\ref {fig:breastbox} and fig~\ref {fig:colonbox}}{figure.3}{}}

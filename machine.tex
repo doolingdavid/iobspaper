@@ -245,6 +245,7 @@ SEER requires that researchers submit a request for the data, which includes an 
 
 
 \subsection{Data preparation and preprocessing}
+\label{subsec:dataprep}
 
 A great deal of data munging is necessary before using these SEER incidence files as input into machine learning algorithms. A preprocessing step common to each of three cancer types studied involves the \code{STATE-COUNTY RECODE}.
 The \code{STATE-COUNTY RECODE} field is a state-county combination where the first two characters represent the state FIPS code and the last three digits represent the FIPS county code.  
@@ -341,49 +342,64 @@ For example, Table~(\ref{tab:nmhead}) shows how five entries of \code{STATE-COUN
 \end{center}
 \end{table}
 
-It is a simple exercise to construct the full lookup table from the SEER \code{STATE-COUNTY RECODE} variable to the corresponding three values \code{elevation}, \code{lat}, and \code{lng}. Using the publically available dafafile from the United States Census Bureau~\cite{census} to construct query strings like the values of the \code{address} field in Table (~\ref{tab:nmhead}), it is possible to then programmatically query the Google Maps Geocoding API for the latitude and longitude~\cite{geocode}, and the Google Maps Elevation API for the corresponding elevation~\cite{elevation}.
+It is a simple exercise to construct the full lookup table from the SEER \\  \code{STATE-COUNTY RECODE} variable to the corresponding three values \code{elevation}, \code{lat}, and \code{lng}. Using the publically available dafafile from the United States Census Bureau~\cite{census} to construct query strings like the values of the \code{address} field in Table (~\ref{tab:nmhead}), it is possible to then programmatically query the Google Maps Geocoding API for the latitude and longitude~\cite{geocode}, and the Google Maps Elevation API for the corresponding elevation~\cite{elevation}.
 An added benefit of this shift from the single categorical variable \code{STATE-COUNTY RECODE} to the three continuous numerical variables \code{lat}, \code{lng}, and \code{elevation} is that input into the web applications described later are not restricted to the states and counties covereed in the SEER registries. The full lookup table analogous to Table~\ref{tab:nmhead} is available from a GitHub repository containing supplemental information for this study~\cite{supp}.
 
 
 \subsection{Colon Cancer Data}
 \label{subsec:coloncancerdata}
 
-In this section we describe the data processing steps that were specific to the colon cancer model development. the files 
-
-\begin{itemize}[noitemsep]
-\item incidence\symbol{92}yr1973\_2012.seer9\symbol{92}COLRECT.txt
-\item incidence\symbol{92}yr1992\_2012.sj\_la\_rg\_ak\symbol{92}COLRECT.txt
-\item incidence\symbol{92}yr2000\_2012.ca\_ky\_lo\_nj\_ga\symbol{92}COLRECT.txt
-\item incidence\symbol{92}yr2005.lo\_2nd\_half\symbol{92}COLRECT.txt
-\end{itemize}
-
-were imported into a pandas DataFrame object.
+In this section we describe the data processing steps that were specific to the colon cancer model development. The four COLRECT.txt files were imported into a pandas DataFrame object.
 The following filter was then applied:
 
-\begin{itemize}[noitemsep]
-\item \code{SEQUENCE NUMBER-CENTRAL $\neq$ "Unspecified"}
-\item \code{AGE AT DIAGNOSIS $\neq$ "Unknown age"}
-\item \code{BIRTHDATE-YEAR $\neq$ "Unknown year of birth"}
-\item \code{YEAR OF DIAGNOSIS $\geq 2004$}
-\item \code{CS TUMOR SIZE EXT/EVAL $\neq$ ""}
-\item \code{CS TUMOR SIZE $\neq 999$}
-\item \code{SEER RECORD NUMBER $= 1$}
-\item \code{PRIMARY SITE $=$ "LARGE INTESTINE, (EXCL. APPENDIX)"}
-\item \code{SEQUENCE NUMBER-CENTRAL $= 0$}
-\end{itemize}
+%\begin{itemize}[noitemsep]
+%\item incidence\symbol{92}yr1973\_2012.seer9\symbol{92}COLRECT.txt
+%\item incidence\symbol{92}yr1992\_2012.sj\_la\_rg\_ak\symbol{92}COLRECT.txt
+%\item incidence\symbol{92}yr2000\_2012.ca\_ky\_lo\_nj\_ga\symbol{92}COLRECT.txt
+%\item incidence\symbol{92}yr2005.lo\_2nd\_half\symbol{92}COLRECT.txt
+%\end{itemize}
+
+
+%\begin{itemize}[noitemsep]
+\code{SEQUENCE NUMBER-CENTRAL $\neq$ "Unspecified"},
+ \code{AGE AT DIAGNOSIS $\neq$ "Unknown age"},
+\code{BIRTHDATE-YEAR $\neq$ "Unknown year of birth"},
+\code{YEAR OF DIAGNOSIS $\geq 2004$}, \\
+ \code{CS TUMOR SIZE EXT/EVAL $\neq$ ""},
+\code{CS TUMOR SIZE $\neq 999$},
+\code{SEER RECORD NUMBER $= 1$}, \\
+\code{PRIMARY SITE $=$ "LARGE INTESTINE, (EXCL. APPENDIX)"},
+\code{SEQUENCE NUMBER-CENTRAL $= 0$}.
+%\end{itemize}
+
+and the following categorical features were one-hot encoded as described in 
+section~\ref{subsec:dataprep}:
+
+%\begin{itemize}[noitemsep]
+\code{SEX},
+ \code{MARITAL STATUS AT DX},
+\code{RACE/ETHNICITY},
+ \code{SPANISH/HISPANIC ORIGIN},
+ \code{GRADE},
+ \code{PRIMARY SITE},
+\code{LATERALITY},
+\code{SEER HISTORIC STAGE A},
+\code{HISTOLOGY RECODE--BROAD GROUPINGS},
+\code{MONTH OF DIAGNOSIS},
+ \code{VITAL STATUS RECODE}.
+%\end{itemize}
+and the \code{STATE-COUNTY RECODE} variable was dropped and replaced with the \code{elevation}, \code{lat}, and \code{lng} variables as illustrated in Table~\ref{tab:nmhead}.
 
 
 
-%\code{mask = ~(dfsmall['sequence\_number\_central'] == 'Unspecified') \& \\
-%      ~(dfsmall['age\_at\_diagnosis'] == 'Unknown age') \& \\
-%      ~(dfsmall['year\_of\_birth'] == 'Unknown year of birth') \& \\
-%        (dfsmall['year\_of\_diagnosis'] >= 2004) \& \\
-%        (dfsmall['survival\_months_flag'] == '1') \& \\
-%        (dfsmall['cs\_tumor\_size\_ext\_eval'] != ' ') \& \\
-%        (dfsmall['cs\_tumor\_size'] != 999) \& \\
-%        (dfsmall['seer\_record\_number'] == 1) \& \\
-%        (dfsmall['primary\_site'] == 'LARGE INTESTINE, (EXCL. APPENDIX)') \& \\
-%        (dfsmall['sequence\_number\_central'] == 0)}
+
+
+
+
+
+
+
+
 
 
 
