@@ -103,11 +103,15 @@ The SEER program registries routinely collect data on patient demographics, prim
 \end{quote}
 
 
+
+
+
 One characterstic of the SEER data and that is shared by many datasets in the medical field 
 goes by the name of "censored data.'' The SEER data contains the number of months each patient survived, as well as an indicator variable showing whether or not the patient is still alive at the end of the data collection period.
 Methods to deal effectively with this kind of "right-censored data'' include Kaplan-Meier curves
 and Cox's Proportional Hazard models \cite{cam}. The Kaplan-Meier techniques only give estimates for cohorts of patients and are not applicable for predicting the surival curve for a single patient, and the Cox Proportional Hazard models require a fairly restrictive set ot assumptions to be satisifed in order to yield reliable results. In addition, the Cox Proportional Hazard models are not able to capture the nonlinear relationships between the given data fields that go into making predictions; they can only capture the first-order linear relationships.
 
+Previous work applying machine learning methods to subsets of the SEER data include creative attempts to deal with the problems presented by  "right-censored data." The authors of ~\cite{ISI:000337467400005} use semi-supervised learning techniques to predict 5 year survival, essentially imputing values for SEER records where the survival months infomation is censored at a value less than 5 years. The authors of ~\cite{ISI:000355882700012} investigate the effects of comordbidities; i.e., patients with two different cancer diagnosises, but their treatment of the censored data underestimates the survival probabilities. All records representing patients who survived at least 60 months as well as all those who died earlier than 60 months were considered, but patients alive prior to 60 months but censored out of the study before 60 months were not included. This treatment biases the data and the predictions, leading to overly pessimistic survival probablilites predicted by the trained models.
 
 To overcome these limitations of the traditional methods, IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed simply so as to make predictions for the hazard function, 
  probability of dying in the next month, given that the patient has not yet died.
@@ -539,7 +543,7 @@ After the above one-hot encoding procedure, the new variable
 
 
 
-\section{Data Transfomation for Machine Learning Survival Analysis with Censored Data}
+\section{Machine Learning Survival Analysis with Censored Data}
 
 
 
@@ -772,6 +776,10 @@ binary classifiers derived from the full survival curve predictions; see text fo
 
 
 \subsection{Model Agreement}
+
+TO DO: Check if comorbidites are contributing to the outliers in the agreement boxplots that follow.
+Could mesh with the prevous work~\cite{ISI:000355882700012}.
+
 
 \begin{table}[tbp]
 \begin{center}

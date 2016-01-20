@@ -21,33 +21,35 @@
 \newlabel{sec:intro}{{1}{1}{Introduction and Background}{section.1}{}}
 \citation{seerwebsite}
 \citation{cam}
+\citation{ISI:000337467400005}
+\citation{ISI:000355882700012}
 \citation{kuhn}
 \citation{seerdoc}
 \citation{bowles}
-\citation{downey}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methodology}{3}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data acquisition}{3}{subsection.2.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data preparation and preprocessing}{3}{subsection.2.2}}
 \newlabel{subsec:dataprep}{{2.2}{3}{Data preparation and preprocessing}{subsection.2.2}{}}
+\citation{downey}
 \citation{bowles}
-\citation{census}
-\citation{geocode}
-\citation{elevation}
-\citation{supp}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces  Encoding of gender in the SEER incidence files. These types of categorical variables need to be transformed via one-hot-encoding.}}{4}{table.1}}
 \newlabel{tab:sex}{{1}{4}{Encoding of gender in the SEER incidence files. These types of categorical variables need to be transformed via one-hot-encoding}{table.1}{}}
 \newlabel{eqn:onehotmale}{{2.1}{4}{Data preparation and preprocessing}{equation.2.1}{}}
 \newlabel{eqn:onehotfemale}{{2.2}{4}{Data preparation and preprocessing}{equation.2.2}{}}
+\citation{census}
+\citation{geocode}
+\citation{elevation}
+\citation{supp}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces  Example of the transformation of \color@box {}{light-gray}{\texttt  {STATE-COUNTY RECODE}} to \color@box {}{light-gray}{\texttt  {elevation}}, \color@box {}{light-gray}{\texttt  {lat}}, and \color@box {}{light-gray}{\texttt  {lng}}.}}{5}{table.2}}
 \newlabel{tab:nmhead}{{2}{5}{Example of the transformation of \code {STATE-COUNTY RECODE} to \code {elevation}, \code {lat}, and \code {lng}}{table.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces  Filters applied to the Colon Cancer data.}}{5}{table.3}}
-\newlabel{tab:colonfilter}{{3}{5}{Filters applied to the Colon Cancer data}{table.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Colon Cancer Data}{5}{subsection.2.3}}
 \newlabel{subsec:coloncancerdata}{{2.3}{5}{Colon Cancer Data}{subsection.2.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored.}}{6}{figure.1}}
-\newlabel{fig:colonkaplan}{{1}{6}{Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored}{figure.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces  Filters applied to the Colon Cancer data.}}{6}{table.3}}
+\newlabel{tab:colonfilter}{{3}{6}{Filters applied to the Colon Cancer data}{table.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Lung Cancer Data}{6}{subsection.2.4}}
 \newlabel{subsec:lungcancerdata}{{2.4}{6}{Lung Cancer Data}{subsection.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored.}}{7}{figure.1}}
+\newlabel{fig:colonkaplan}{{1}{7}{Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored}{figure.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces  Filters applied to the Lung Cancer data.}}{7}{table.4}}
 \newlabel{tab:lungfilter}{{4}{7}{Filters applied to the Lung Cancer data}{table.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Breast Cancer Data}{7}{subsection.2.5}}
@@ -56,22 +58,23 @@
 \newlabel{fig:lungkaplan}{{2}{8}{Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted with 177089 observatins, 47409 censored}{figure.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces  Filters applied to the Breast Cancer data.}}{8}{table.5}}
 \newlabel{tab:breastfilter}{{5}{8}{Filters applied to the Breast Cancer data}{table.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Data Transfomation for Machine Learning Survival Analysis with Censored Data}{8}{section.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Prediction Models}{8}{section.4}}
+\citation{ISI:000355882700012}
+\citation{supp}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Traditional Kaplan-Meier estimate of the survival curve for all breast cancer patients. Fitted with 329949 observatins, 292279 censored.}}{9}{figure.3}}
 \newlabel{fig:breastkaplan}{{3}{9}{Traditional Kaplan-Meier estimate of the survival curve for all breast cancer patients. Fitted with 329949 observatins, 292279 censored}{figure.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces  AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details.}}{9}{table.6}}
-\newlabel{tab:AUC}{{6}{9}{AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details}{table.6}{}}
-\citation{supp}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Machine Learning Survival Analysis with Censored Data}{9}{section.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Prediction Models}{9}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Decision Trees and Random Forests}{9}{subsection.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}MLP Neural Networks}{9}{subsection.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Performance Metrics}{9}{section.5}}
+\newlabel{sec:performancemetrics}{{5}{9}{Performance Metrics}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Model Agreement}{9}{subsection.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Web Applications}{9}{section.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Further Directions}{9}{section.7}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces  AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details.}}{10}{table.6}}
+\newlabel{tab:AUC}{{6}{10}{AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details}{table.6}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces  Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type.}}{10}{table.7}}
 \newlabel{tab:agree}{{7}{10}{Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type}{table.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Decision Trees and Random Forests}{10}{subsection.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}MLP Neural Networks}{10}{subsection.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Performance Metrics}{10}{section.5}}
-\newlabel{sec:performancemetrics}{{5}{10}{Performance Metrics}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Model Agreement}{10}{subsection.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Web Applications}{10}{section.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Further Directions}{10}{section.7}}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Selected Features}{10}{appendix.A}}
 \newlabel{sec:features}{{A}{10}{Selected Features}{appendix.A}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{10}{subsection.A.1}}
@@ -97,15 +100,17 @@
 \bibcite{seerwebsite}{{11}{}{{}}{{}}}
 \bibcite{seerdoc}{{12}{}{{}}{{}}}
 \bibcite{pythonmachinelearning}{{13}{}{{}}{{}}}
+\bibcite{ISI:000337467400005}{{14}{}{{}}{{}}}
+\bibcite{ISI:000355882700012}{{15}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {paragraph}{Note added.}{18}{section*.3}}
 \citation{*}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\@writefile{toc}{\contentsline {paragraph}{Note added.}{18}{section*.3}}
-\newlabel{RF1}{19}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  The top levels of a decision tree trained on the Lung Cancer training data.}}{19}{figure.4}}
-\newlabel{fig:lungdt}{{4}{19}{The top levels of a decision tree trained on the Lung Cancer training data}{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data.}}{20}{figure.5}}
-\newlabel{fig:breastbox}{{5}{20}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data.}}{21}{figure.6}}
-\newlabel{fig:colonbox}{{6}{21}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data}{figure.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig\nobreakspace  {}\ref  {fig:breastbox} and fig\nobreakspace  {}\ref  {fig:colonbox}.}}{22}{figure.7}}
-\newlabel{fig:lungbox}{{7}{22}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig~\ref {fig:breastbox} and fig~\ref {fig:colonbox}}{figure.7}{}}
+\newlabel{RF1}{20}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  The top levels of a decision tree trained on the Lung Cancer training data.}}{20}{figure.4}}
+\newlabel{fig:lungdt}{{4}{20}{The top levels of a decision tree trained on the Lung Cancer training data}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data.}}{21}{figure.5}}
+\newlabel{fig:breastbox}{{5}{21}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data.}}{22}{figure.6}}
+\newlabel{fig:colonbox}{{6}{22}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig\nobreakspace  {}\ref  {fig:breastbox} and fig\nobreakspace  {}\ref  {fig:colonbox}.}}{23}{figure.7}}
+\newlabel{fig:lungbox}{{7}{23}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig~\ref {fig:breastbox} and fig~\ref {fig:colonbox}}{figure.7}{}}

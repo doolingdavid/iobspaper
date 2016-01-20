@@ -80,4 +80,18 @@ Sebastian Raschka.
 \newblock {\em Python Machine Learning Essentials}.
 \newblock Packt Publishing, 2015.
 
+\bibitem{ISI:000337467400005}
+Hyunjung Shin and Yonghyun Nam.
+\newblock {A coupling approach of a predictor and a descriptor for breast
+  cancer prognosis}.
+\newblock {\em {BMC MEDICAL GENOMICS}}, {7}({1}), {MAY 8} {2014}.
+\newblock {3rd Annual Translational Bioinformatics Conference (TBC) /
+  ISCB-Asia, Seoul, SOUTH KOREA, OCT 02-04, 2013}.
+
+\bibitem{ISI:000355882700012}
+Hamed~Majidi Zolbanin, Dursun Delen, and Amir~Hassan Zadeh.
+\newblock {Predicting overall survivability in comorbidity of cancers: A data
+  mining approach}.
+\newblock {\em {DECISION SUPPORT SYSTEMS}}, {74}:{150--161}, {JUN} {2015}.
+
 \end{thebibliography}
