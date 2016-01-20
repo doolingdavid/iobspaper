@@ -505,19 +505,35 @@ The same list of categorical features as in the colon cancer case were then one-
 \codewhite{BIRTHDATE-YEAR} & \codewhite{$\neq$ "Unknown year of birth"} \\
 \codewhite{YEAR OF DIAGNOSIS} & \codewhite{$\geq 2004$} \\
 \codewhite{SURVIVAL MONTHS FLAG} & \codewhite{= "1"}\\
-\codewhite{CS TUMOR SIZE EXT/EVAL} & \codewhite{$\neq$ ""} \\
+\codewhite{CS TUMOR SIZE EXT/EVAL} & \codewhite{$\neq$ " "} \\
 \codewhite{CS TUMOR SIZE} & \codewhite{$\neq 999$} \\
 \codewhite{SEER RECORD NUMBER} & \codewhite{$= 1$} \\
-\codewhite{PRIMARY SITE} & \codewhite{ $=$ "LUNG \& BRONCHUS"} \\
 \codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$=0$} \\
 \bottomrule
 \end{tabular}
-\caption{\label{tab:breastfilter} Filters applied to the Lung Cancer data.}
+\caption{\label{tab:breastfilter} Filters applied to the Breast Cancer data.}
 \end{center}
 \end{table}
 
 
 
+
+With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
+After the above one-hot encoding procedure, the new variable
+\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
+\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:breastkaplan}).
+
+\begin{figure}[tbp]
+\centering 
+%\begin{center}/\end{center} takes some additional vertical space
+%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
+%\hfill
+\begin{center}
+\includegraphics[width=.90\textwidth,origin=c]{breastkaplan.pdf}
+% "\includegraphics" is very powerful; the graphicx package is already loaded
+\caption{\label{fig:breastkaplan} Traditional Kaplan-Meier estimate of the survival curve for all breast cancer patients. Fitted with 329949 observatins, 292279 censored.}
+\end{center}
+\end{figure}
 
 
 
@@ -842,7 +858,7 @@ Discussion of causality. A certain Marital status is not a "cause'' of a better 
 \appendix
 \section{Selected Features}
 \label{sec:features}
-In this Appendix we explicitly list the features chosen for each of the Colon, Breast and Lung cancer predictive models. For each cancer type, the features chosen for the random forest and neural network models were the same, so as to be best be able to compare the two models.
+In this Appendix we explicitly list the features chosen for each of the Colon, Breast and Lung cancer predictive models. For each cancer type, the features chosen for the random forest and neural network models were the same, so as to be best able to compare the two models.
 IPython notebooks explicitly providing all code, as well as html versions of the notebooks, are available from a GitHub repository providing supplemental material for thus study~\cite{supp}.
 
 
