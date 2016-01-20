@@ -432,42 +432,54 @@ After the above one-hot encoding procedure, the new variable
 \subsection{Lung Cancer Data}
 \label{subsec:lungcancerdata}
 
-In this section we describe the data processing steps that were specific to the colon cancer model development. The four RESPIR.txt files were imported into a pandas DataFrame object.
-The following filter was then applied:
-
-%\begin{itemize}[noitemsep]
-\code{SEQUENCE NUMBER-CENTRAL $\neq$ "Unspecified"},
- \code{AGE AT DIAGNOSIS $\neq$ "Unknown age"},
-\code{BIRTHDATE-YEAR $\neq$ "Unknown year of birth"},
-\code{YEAR OF DIAGNOSIS $\geq 2004$}, \\
-\code{SURVIVAL MONTHS FLAG = "1"},
- \code{CS TUMOR SIZE EXT/EVAL $\neq$ ""},
-\code{CS TUMOR SIZE $\neq 999$},
-\code{SEER RECORD NUMBER $= 1$}, 
-\code{PRIMARY SITE $=$ "LUNG \& BRONCHUS"},
-\code{SEQUENCE NUMBER-CENTRAL $= 0$}.
-%\end{itemize}
+In this section we describe the data processing steps that were specific to the lung cancer model development. The four RESPIR.txt files were imported into a pandas DataFrame object.
+This data was then filtered according to the conditions in Table~\ref{tab:lungfilter}.
+The same list of categorical features as in the colon cancer case were then one-hot encoded.
 
 
 
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+ Column &  Filter \\
+\midrule
+\codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$\neq$ "Unspecified"} \\
+\codewhite{AGE AT DIAGNOSIS} & \codewhite{$\neq$ "Unknown age"} \\
+\codewhite{BIRTHDATE-YEAR} & \codewhite{$\neq$ "Unknown year of birth"} \\
+\codewhite{YEAR OF DIAGNOSIS} & \codewhite{$\geq 2004$} \\
+\codewhite{SURVIVAL MONTHS FLAG} & \codewhite{= "1"}\\
+\codewhite{CS TUMOR SIZE EXT/EVAL} & \codewhite{$\neq$ ""} \\
+\codewhite{CS TUMOR SIZE} & \codewhite{$\neq 999$} \\
+\codewhite{SEER RECORD NUMBER} & \codewhite{$= 1$} \\
+\codewhite{PRIMARY SITE} & \codewhite{ $=$ "LUNG \& BRONCHUS"} \\
+\codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$=0$} \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:lungfilter} Filters applied to the Lung Cancer data.}
+\end{center}
+\end{table}
+
+
+With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
+After the above one-hot encoding procedure, the new variable
+\code{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
+\code{SURVIVAL MONTHS} and \code{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:lungkaplan}).
 
 
 
 
-%['patient\_id\_number','sex','marital\_status\_at\_dx',
-%            'race\_ethnicity','spanish\_hispanic\_origin',
-%            'year\_of\_birth','grade',
-%           'primary\_site','laterality','cause\_of\_death\_to\_seer\_site\_recode',
-%           'number\_of\_primaries','state\_county\_recode','seer\_historic\_stage\_a',
-%           'rx\_summ\_radiation','histology\_recode\_broad\_groupings',
-%           'age\_at\_diagnosis','sequence\_number\_central','month\_of\_diagnosis',
-%           'race\_recode\_white\_black\_other',
-%           'cs\_schema\_ajcc\_6th\_ed','year\_of\_diagnosis','cs\_tumor\_size\_ext\_eval',
- %           'cs\_tumor\_size','seer\_record\_number','cs\_schema\_v0204','vital\_status\_recode',
- %           'derived\_ajcc\_7\_stage\_grp','cs\_lymph\_nodes\_eval', 'cs\_lymph\_nodes',
- %           'number\_month\_of\_diagnosis','survival\_months\_flag',
- %          'survival\_months']
-
+\begin{figure}[tbp]
+\centering 
+%\begin{center}/\end{center} takes some additional vertical space
+%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
+%\hfill
+\begin{center}
+\includegraphics[width=.90\textwidth,origin=c]{lungkaplan.pdf}
+% "\includegraphics" is very powerful; the graphicx package is already loaded
+\caption{\label{fig:lungkaplan} Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted with 177089 observatins, 47409 censored.}
+\end{center}
+\end{figure}
 
 
 \section{Prediction Models}
