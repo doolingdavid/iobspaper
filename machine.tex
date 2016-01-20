@@ -703,18 +703,19 @@ After the above one-hot encoding procedure, the new variable
 
 \begin{table}[tbp]
 \begin{center}
-\begin{tabular}{|l|r|r|r|}
-\hline
-\rowcolors{1}{white}{yellow}
+\begin{tabular}{lrrr}
+\toprule
+%\rowcolors{1}{white}{yellow}
 %\hline
-Model & 6 Months AUC & 12 Months AUC & 60 Months AUC \\ \hline
-Breast RF &  .846       &     .885           &  .844 \\ \hline
-Breast NN &   .855      &     .867      &    .836 \\ \hline
-Colon RF  &     .804          &      .806           &      .828           \\ \hline
-Colon NN   &     .797          &          .804         &   .841  \\ \hline
-Lung RF    &      .772               &        .796               &   .874  \\ \hline
+Model & 6 Months AUC & 12 Months AUC & 60 Months AUC \\ 
+\midrule
+Breast RF &  .846       &     .885           &  .844 \\ 
+Breast NN &   .855      &     .867      &    .836 \\ 
+Colon RF  &     .804          &      .806           &      .828           \\ 
+Colon NN   &     .797          &          .804         &   .841  \\ 
+Lung RF    &      .772               &        .796               &   .874  \\ 
 Lung NN    &        .765              &        .796               &  .875  \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{\label{tab:AUC} AUC values for the Random Forest and Neural Networks model
 binary classifiers derived from the full survival curve predictions; see text for details.}
@@ -722,18 +723,45 @@ binary classifiers derived from the full survival curve predictions; see text fo
 \end{table}
 
 
+
+%\begin{table}[tbp]
+%\begin{center}
+%\begin{tabular}{lr}
+%\toprule
+% Column &  Filter \\
+%\midrule
+%\codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$\neq$ "Unspecified"} \\
+%\codewhite{AGE AT DIAGNOSIS} & \codewhite{$\neq$ "Unknown age"} \\
+%\codewhite{BIRTHDATE-YEAR} & \codewhite{$\neq$ "Unknown year of birth"} \\
+%\codewhite{YEAR OF DIAGNOSIS} & \codewhite{$\geq 2004$} \\
+%\codewhite{SURVIVAL MONTHS FLAG} & \codewhite{= "1"}\\
+%\codewhite{CS TUMOR SIZE EXT/EVAL} & \codewhite{$\neq$ " "} \\
+%\codewhite{CS TUMOR SIZE} & \codewhite{$\neq 999$} \\
+%\codewhite{SEER RECORD NUMBER} & \codewhite{$= 1$} \\
+%\codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$=0$} \\
+%\bottomrule
+%\end{tabular}
+%\caption{\label{tab:breastfilter} Filters applied to the Breast Cancer data.}
+%\end{center}
+%\end{table}
+
+
+
+
+
 \subsection{Model Agreement}
 
 \begin{table}[tbp]
 \begin{center}
-\begin{tabular}{|l|r|r|r|}
-\hline
-\rowcolors{1}{white}{yellow}
-Cancer Type & $\%$ agreement 6 months & $\%$ agreement 12 months & $\%$ agreement 60 months \\ \hline
-Colon & .981 & .971 & .915 \\  \hline
-Breast & .994 & .984 & .938 \\  \hline
+\begin{tabular}{lrrr}
+\toprule
+%\rowcolors{1}{white}{yellow}
+Cancer Type & $\%$ agreement 6 months & $\%$ agreement 12 months & $\%$ agreement 60 months \\ 
+\midrule
+Colon & .981 & .971 & .915 \\  
+Breast & .994 & .984 & .938 \\  
 Lung & .861 & .883 & .900 \\  
-\hline
+\bottomrule
 \end{tabular}
 \caption{\label{tab:agree} Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type.}
 \end{center}
