@@ -4,13 +4,14 @@
 \contentsline {subsection}{\numberline {2.2}Data preparation and preprocessing}{3}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Colon Cancer Data}{5}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Lung Cancer Data}{6}{subsection.2.4}
-\contentsline {section}{\numberline {3}Prediction Models}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Random Forests}{8}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}MLP Neural Networks}{8}{subsection.3.2}
-\contentsline {section}{\numberline {4}Performance Metrics}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Model Agreement}{8}{subsection.4.1}
-\contentsline {section}{\numberline {5}Web Applications}{8}{section.5}
-\contentsline {section}{\numberline {6}Further Directions}{8}{section.6}
+\contentsline {subsection}{\numberline {2.5}Breast Cancer Data}{7}{subsection.2.5}
+\contentsline {section}{\numberline {3}Prediction Models}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Random Forests}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}MLP Neural Networks}{7}{subsection.3.2}
+\contentsline {section}{\numberline {4}Performance Metrics}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Model Agreement}{7}{subsection.4.1}
+\contentsline {section}{\numberline {5}Web Applications}{7}{section.5}
+\contentsline {section}{\numberline {6}Further Directions}{7}{section.6}
 \contentsline {section}{\numberline {A}Selected Features}{8}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{9}{subsection.A.1}
 \contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{13}{subsection.A.2}

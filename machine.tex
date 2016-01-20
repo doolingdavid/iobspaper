@@ -407,8 +407,8 @@ The \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \
 
 With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
 After the above one-hot encoding procedure, the new variable
-\code{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
-\code{SURVIVAL MONTHS} and \code{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:colonkaplan}).
+\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
+\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:colonkaplan}).
 
 
 
@@ -421,7 +421,7 @@ After the above one-hot encoding procedure, the new variable
 \begin{center}
 \includegraphics[width=.90\textwidth,origin=c]{colonkaplan.pdf}
 % "\includegraphics" is very powerful; the graphicx package is already loaded
-\caption{\label{fig:colonkaplan} Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients.}
+\caption{\label{fig:colonkaplan} Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored.}
 \end{center}
 \end{figure}
 
@@ -463,8 +463,10 @@ The same list of categorical features as in the colon cancer case were then one-
 
 With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
 After the above one-hot encoding procedure, the new variable
-\code{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
-\code{SURVIVAL MONTHS} and \code{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:lungkaplan}).
+\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
+\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:lungkaplan}).
+
+
 
 
 
@@ -480,6 +482,43 @@ After the above one-hot encoding procedure, the new variable
 \caption{\label{fig:lungkaplan} Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted with 177089 observatins, 47409 censored.}
 \end{center}
 \end{figure}
+
+
+
+\subsection{Breast Cancer Data}
+\label{subsec:breastcancerdata}
+
+In this section we describe the data processing steps that were specific to the lung cancer model development. The four BREAST.txt files were imported into a pandas DataFrame object.
+This data was then filtered according to the conditions in Table~\ref{tab:breastfilter}.
+The same list of categorical features as in the colon cancer case were then one-hot encoded.
+
+
+
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+ Column &  Filter \\
+\midrule
+\codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$\neq$ "Unspecified"} \\
+\codewhite{AGE AT DIAGNOSIS} & \codewhite{$\neq$ "Unknown age"} \\
+\codewhite{BIRTHDATE-YEAR} & \codewhite{$\neq$ "Unknown year of birth"} \\
+\codewhite{YEAR OF DIAGNOSIS} & \codewhite{$\geq 2004$} \\
+\codewhite{SURVIVAL MONTHS FLAG} & \codewhite{= "1"}\\
+\codewhite{CS TUMOR SIZE EXT/EVAL} & \codewhite{$\neq$ ""} \\
+\codewhite{CS TUMOR SIZE} & \codewhite{$\neq 999$} \\
+\codewhite{SEER RECORD NUMBER} & \codewhite{$= 1$} \\
+\codewhite{PRIMARY SITE} & \codewhite{ $=$ "LUNG \& BRONCHUS"} \\
+\codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$=0$} \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:breastfilter} Filters applied to the Lung Cancer data.}
+\end{center}
+\end{table}
+
+
+
+
 
 
 \section{Prediction Models}
@@ -871,7 +910,7 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \item month\_of\_diagnosis\_Oct
 \item month\_of\_diagnosis\_Sep
 \item number\_of\_primaries
-\item patient\_id\_number
+%\item patient\_id\_number
 \item race\_ethnicity\_Amerian Indian, Aleutian, Alaskan Native or Eskimo
 \item race\_ethnicity\_Asian Indian
 \item race\_ethnicity\_Asian Indian or Pakistani
@@ -916,8 +955,8 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \item spanish\_hispanic\_origin\_Spanish surname only
 \item spanish\_hispanic\_origin\_Spanish, NOS; Hispanic, NOS; Latino, NOS
 \item spanish\_hispanic\_origin\_Uknown whether Spanish/Hispanic or not
-\item survival\_months
-\item vital\_status\_recode\_Dead
+%\item survival\_months
+%\item vital\_status\_recode\_Dead
 \item year\_of\_birth
 \item year\_of\_diagnosis
 \item month
@@ -1058,24 +1097,24 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \codewhite{NewPatientBreastML.html}.
 
 \begin{itemize}[noitemsep]
-\item cs\_tmor\_size
+\item cs\_tumor\_size
 \item elevation
 \item grade\_moderately differentiated
 \item grade\_poorly differentiated
 \item grade\_ndifferentiated; anaplastic
 \item grade\_well differentiated
-\item histology\_recode\_broad\_gropings\_adenomas and adenocarcinomas
-\item histology\_recode\_broad\_gropings\_adnexal and skin appendage neoplasms
-\item histology\_recode\_broad\_gropings\_basal cell neoplasms
-\item histology\_recode\_broad\_gropings\_complex epithelial neoplasms
-\item histology\_recode\_broad\_gropings\_cystic, mcinos and seros neoplasms
-\item histology\_recode\_broad\_gropings\_dctal and loblar neoplasms
-\item histology\_recode\_broad\_gropings\_epithelial neoplasms, NOS
-\item histology\_recode\_broad\_gropings\_nerve sheath tmors
-\item histology\_recode\_broad\_gropings\_nspecified neoplasms
+\item histology\_recode\_broad\_groupings\_adenomas and adenocarcinomas
+\item histology\_recode\_broad\_groupings\_adnexal and skin appendage neoplasms
+\item histology\_recode\_broad\_groupings\_basal cell neoplasms
+\item histology\_recode\_broad\_groupings\_complex epithelial neoplasms
+\item histology\_recode\_broad\_groupings\_cystic, mucinous and serous neoplasms
+\item histology\_recode\_broad\_groupings\_ductal and lobular neoplasms
+\item histology\_recode\_broad\_groupings\_epithelial neoplasms, NOS
+\item histology\_recode\_broad\_groupings\_nerve sheath tumors
+\item histology\_recode\_broad\_groupings\_unspecified neoplasms
 \item lat
-\item laterality\_Bilateral involvement, lateral origin nknown; stated to be single primary
-\item laterality\_Paired site, bt no information concerning laterality; midline tmor
+\item laterality\_Bilateral involvement, lateral origin unknown; stated to be single primary
+\item laterality\_Paired site, but no information concerning laterality; midline tumor
 \item laterality\_Right: origin of primary
 \item lng
 \item marital\_stats\_at\_dx\_Divorced
@@ -1086,18 +1125,18 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \item marital\_stats\_at\_dx\_Unmarried or domestic partner
 \item marital\_stats\_at\_dx\_Widowed
 \item month\_of\_diagnosis\_Apr
-\item month\_of\_diagnosis\_Ag
+\item month\_of\_diagnosis\_Aug
 \item month\_of\_diagnosis\_Dec
 \item month\_of\_diagnosis\_Feb
 \item month\_of\_diagnosis\_Jan
-\item month\_of\_diagnosis\_Jl
-\item month\_of\_diagnosis\_Jn
+\item month\_of\_diagnosis\_Jul
+\item month\_of\_diagnosis\_Jun
 \item month\_of\_diagnosis\_Mar
 \item month\_of\_diagnosis\_May
 \item month\_of\_diagnosis\_Nov
 \item month\_of\_diagnosis\_Oct
 \item month\_of\_diagnosis\_Sep
-\item patient\_id\_nmber
+%\item patient\_id\_number
 \item race\_ethnicity\_Amerian Indian, Aletian, Alaskan Native or Eskimo
 \item race\_ethnicity\_Asian Indian
 \item race\_ethnicity\_Black
@@ -1116,14 +1155,14 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \item seer\_historic\_stage\_a\_Localized
 \item seer\_historic\_stage\_a\_Unstaged
 \item sex\_Female
-\item spanish\_hispanic\_origin\_Cban
+\item spanish\_hispanic\_origin\_Cuban
 \item spanish\_hispanic\_origin\_Mexican
 \item spanish\_hispanic\_origin\_Non-Spanish/Non-hispanic
-\item spanish\_hispanic\_origin\_Other specified Spanish/Hispanic origin (excldes Dominican Repclic)
-\item spanish\_hispanic\_origin\_Spanish srname only
+\item spanish\_hispanic\_origin\_Other specified Spanish/Hispanic origin (excldes Dominican Republic)
+\item spanish\_hispanic\_origin\_Spanish surname only
 \item spanish\_hispanic\_origin\_Spanish, NOS; Hispanic, NOS; Latino, NOS
-\item srvival\_months
-\item vital\_stats\_recode\_Dead
+%\item srvival\_months
+%\item vital\_stats\_recode\_Dead
 \item year\_of\_birth
 \item year\_of\_diagnosis
 \item month

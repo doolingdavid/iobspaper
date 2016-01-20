@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  20 JAN 2016 10:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  20 JAN 2016 11:14
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -435,69 +435,69 @@ Overfull \hbox (41.06541pt too wide) in paragraph at lines 333--344
  [] 
  []
 
-[4] [5] <colonkaplan.pdf, id=184, 433.62pt x 289.08pt>
+[4] [5] <colonkaplan.pdf, id=189, 433.62pt x 289.08pt>
 File: colonkaplan.pdf Graphic file (type pdf)
  <use colonkaplan.pdf>
 Package pdftex.def Info: colonkaplan.pdf used on input line 422.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-[6 <./colonkaplan.pdf>] <lungkaplan.pdf, id=234, 433.62pt x 289.08pt>
+[6 <./colonkaplan.pdf>] <lungkaplan.pdf, id=239, 433.62pt x 289.08pt>
 File: lungkaplan.pdf Graphic file (type pdf)
 
 <use lungkaplan.pdf>
-Package pdftex.def Info: lungkaplan.pdf used on input line 478.
+Package pdftex.def Info: lungkaplan.pdf used on input line 480.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-Underfull \vbox (badness 4859) has occurred while \output is active []
-
- [7 <./lungkaplan.pdf>]
-Overfull \hbox (19.05624pt too wide) in paragraph at lines 674--683
+Overfull \hbox (19.05624pt too wide) in paragraph at lines 713--722
  [] 
  []
 
-<breastbox.pdf, id=282, 433.62pt x 289.08pt>
+<breastbox.pdf, id=241, 433.62pt x 289.08pt>
 File: breastbox.pdf Graphic file (type pdf)
  <use breastbox.pdf>
-Package pdftex.def Info: breastbox.pdf used on input line 693.
+Package pdftex.def Info: breastbox.pdf used on input line 732.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<colonbox.pdf, id=283, 433.62pt x 289.08pt>
+<colonbox.pdf, id=242, 433.62pt x 289.08pt>
 File: colonbox.pdf Graphic file (type pdf)
  <use colonbox.pdf>
-Package pdftex.def Info: colonbox.pdf used on input line 707.
+Package pdftex.def Info: colonbox.pdf used on input line 746.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<lungbox.pdf, id=284, 433.62pt x 289.08pt>
+<lungbox.pdf, id=243, 433.62pt x 289.08pt>
 File: lungbox.pdf Graphic file (type pdf)
  <use lungbox.pdf>
-Package pdftex.def Info: lungbox.pdf used on input line 724.
+Package pdftex.def Info: lungbox.pdf used on input line 763.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
- [8] [9 <./breastbox.pdf>]
+ [7] [8 <./lungkaplan.pdf>] [9]
 Underfull \vbox (badness 5652) has occurred while \output is active []
 
- [10 <./colonbox.pdf>]
+ [10 <./breastbox.pdf>]
 Underfull \vbox (badness 5652) has occurred while \output is active []
 
- [11 <./lungbox.pdf>] [12] [13] [14] [15] [16] [17] (machine.bbl [18])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1200.
+ [11 <./colonbox.pdf>]
+Underfull \vbox (badness 5652) has occurred while \output is active []
+
+ [12 <./lungbox.pdf>] [13] [14] [15] [16] [17] (machine.bbl [18])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1239.
  [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1200.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1239.
  (machine.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1200.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1200.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1239.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1239.
 
 Package rerunfilecheck Info: File `machine.out' has not changed.
-(rerunfilecheck)             Checksum: A0CE3E7488AA1DDC362F5D5B3E2E5E42;1239.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1200.
+(rerunfilecheck)             Checksum: 1B48F24C5E9380DDB74B4318E9713C98;1308.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1239.
  ) 
 Here is how much of TeX's memory you used:
- 7638 strings out of 493634
- 107080 string characters out of 3141304
- 206555 words of memory out of 3000000
- 10833 multiletter control sequences out of 15000+200000
+ 7643 strings out of 493634
+ 107160 string characters out of 3141304
+ 213843 words of memory out of 3000000
+ 10836 multiletter control sequences out of 15000+200000
  23844 words of font info for 61 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 41i,12n,35p,1174b,517s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,35p,1174b,489s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
 00\ectt1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
 appen\ec\dpi600\ecrm1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\
@@ -517,9 +517,9 @@ ooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk>
 cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 r10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb>
-Output written on machine.pdf (20 pages, 361075 bytes).
+Output written on machine.pdf (20 pages, 364177 bytes).
 PDF statistics:
- 1011 PDF objects out of 1200 (max. 8388607)
- 70 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1020 PDF objects out of 1200 (max. 8388607)
+ 72 named destinations out of 1000 (max. 500000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 
