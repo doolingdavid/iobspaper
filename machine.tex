@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{booktabs}
+\usepackage{rotating}
 %\usepackage[dvipsnames]{xcolor}
 %\usepackage{natbib}
 %\usepackage{biblatex}
@@ -537,9 +538,30 @@ After the above one-hot encoding procedure, the new variable
 
 
 
+
+\section{Data Transfomation for Machine Learning Survival Analysis with Censored Data}
+
+
+
+
 \section{Prediction Models}
 
-\subsection{Random Forests}
+
+atex 
+\subsection{Decision Trees and Random Forests}
+
+\begin{sidewaysfigure}[tbp]
+\centering 
+%\begin{center}/\end{center} takes some additional vertical space
+%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
+%\hfill
+\begin{center}
+\includegraphics[width=.95\textwidth,origin=c]{lungdt.pdf}
+% "\includegraphics" is very powerful; the graphicx package is already loaded
+\caption{\label{fig:lungdt} The top levels of a decision tree trained on the Lung Cancer training data.}
+\end{center}
+\end{sidewaysfigure}
+
 
 \subsection{MLP Neural Networks}
 

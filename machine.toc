@@ -5,17 +5,18 @@
 \contentsline {subsection}{\numberline {2.3}Colon Cancer Data}{5}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Lung Cancer Data}{6}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Breast Cancer Data}{7}{subsection.2.5}
-\contentsline {section}{\numberline {3}Prediction Models}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Random Forests}{8}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}MLP Neural Networks}{8}{subsection.3.2}
-\contentsline {section}{\numberline {4}Performance Metrics}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Model Agreement}{8}{subsection.4.1}
-\contentsline {section}{\numberline {5}Web Applications}{8}{section.5}
-\contentsline {section}{\numberline {6}Further Directions}{8}{section.6}
+\contentsline {section}{\numberline {3}Data Transfomation for Machine Learning Survival Analysis with Censored Data}{8}{section.3}
+\contentsline {section}{\numberline {4}Prediction Models}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Decision Trees and Random Forests}{10}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}MLP Neural Networks}{10}{subsection.4.2}
+\contentsline {section}{\numberline {5}Performance Metrics}{10}{section.5}
+\contentsline {subsection}{\numberline {5.1}Model Agreement}{10}{subsection.5.1}
+\contentsline {section}{\numberline {6}Web Applications}{10}{section.6}
+\contentsline {section}{\numberline {7}Further Directions}{10}{section.7}
 \contentsline {section}{\numberline {A}Selected Features}{10}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{10}{subsection.A.1}
-\contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{14}{subsection.A.2}
-\contentsline {subsection}{\numberline {A.3}Breast Cancer Feature Selection}{17}{subsection.A.3}
-\contentsline {section}{\numberline {B}Model Architecture and Python Code}{19}{appendix.B}
-\contentsline {section}{\numberline {C}GitHub Repositories}{19}{appendix.C}
-\contentsline {paragraph}{Note added.}{19}{section*.3}
+\contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{13}{subsection.A.2}
+\contentsline {subsection}{\numberline {A.3}Breast Cancer Feature Selection}{16}{subsection.A.3}
+\contentsline {section}{\numberline {B}Model Architecture and Python Code}{17}{appendix.B}
+\contentsline {section}{\numberline {C}GitHub Repositories}{17}{appendix.C}
+\contentsline {paragraph}{Note added.}{18}{section*.3}
