@@ -11,12 +11,12 @@
 \contentsline {subsection}{\numberline {4.2}MLP Neural Networks}{9}{subsection.4.2}
 \contentsline {section}{\numberline {5}Performance Metrics}{9}{section.5}
 \contentsline {subsection}{\numberline {5.1}Model Agreement}{9}{subsection.5.1}
-\contentsline {section}{\numberline {6}Web Applications}{9}{section.6}
-\contentsline {section}{\numberline {7}Further Directions}{9}{section.7}
+\contentsline {section}{\numberline {6}Web Applications}{10}{section.6}
+\contentsline {section}{\numberline {7}Further Directions}{10}{section.7}
 \contentsline {section}{\numberline {A}Selected Features}{10}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{10}{subsection.A.1}
 \contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{13}{subsection.A.2}
 \contentsline {subsection}{\numberline {A.3}Breast Cancer Feature Selection}{16}{subsection.A.3}
-\contentsline {section}{\numberline {B}Model Architecture and Python Code}{17}{appendix.B}
-\contentsline {section}{\numberline {C}GitHub Repositories}{17}{appendix.C}
+\contentsline {section}{\numberline {B}Model Architecture and Python Code}{18}{appendix.B}
+\contentsline {section}{\numberline {C}GitHub Repositories}{18}{appendix.C}
 \contentsline {paragraph}{Note added.}{18}{section*.3}
