@@ -541,17 +541,61 @@ After the above one-hot encoding procedure, the new variable
 \end{figure}
 
 
-Before applying machine learning models trained with these data sets, we review in section~(\ref{sec:surv}) the sailent features of censored data. We then describe in detail a means to take full advantage of all the data, including the right-censored data, which involves a simple and intuitive transformation, leading to the full set of features and target variables listed in sections~(\ref{subsec:colonfeatures},~\ref{subsec:lungfeatures},~\ref{subsec:breastfeatures}).
+Before applying machine learning models trained with these data sets, we review in section~(\ref{sec:surv}) the sailent features of survival analysis and censored data. We then describe in detail a method that takes full advantage of all the data, including the right-censored data, and which involves a simple and intuitive transformation, culminating in the full set of features and target variables listed in sections~(\ref{subsec:colonfeatures},~\ref{subsec:lungfeatures},~\ref{subsec:breastfeatures}).
 
 \section{Machine Learning Survival Analysis with Censored Data}
 \label{sec:surv}
+
+
+The above Kaplan-Meier estimates of the survival curves for colon (Figure~(\ref{fig:colonkaplan}), lung 
+(Figure~(\ref{fig:lungkaplan}), and breast cancer (Figure~(\ref{fig:breastkaplan}) are constructed from the full population of cancer patients in the respective datasets.
+An unsatisfactory consequence is that these estimates are highly course-grained, and not very meaningful to an indivual. Patients with very disparate characteristics are given the same prognosis by these Kaplan-Meier survival curve estimates. Therefore it is desirable to find robust predictors for survival curves of individual where the input is an individual record where the predictors are trained on larger populations.
+
+
+% https://openaccess.leidenuniv.nl/bitstream/handle/1887/11456/01.pdf?sequence=6
+
+\subsection{Survival Analysis}
+\label{subsec:survprimer}
+
+Survival analysis allows us to model the time until an event happens. Time-to-event measures pose unique problems for the analyst. Suppose that you want to predict the survival time for patients receiving an experimental cancer treatment. After three years, some of the patients in the study have died, and you can compute the survival time for each of these patients. However, many of the patients are still living at the end of three years; you do not know their ultimate survival time. Statisticians call this problem \textit{censoring}, a problem that surfaces when you try to model time-to-event reopnse measures using data captured over a limited time period.
+
+The two kinds of censoring are right censoring and left censoring. If you only know that the pertinent event is 
+\textit{after} some date, as is the case for patients in the preceding example who survive to the end of the study, the data is right-censored. On the other hand, if you only know that the beginning of the pertinent time-to-event took place before a certain date, the data is left-censored. For example, if you know that every patient in the study received the experimental treatment before the study started but do not know the exact date of treatment, the data is left-censored. Data can be both right-censored and left-censored.
+
+
+\textit{Survival analysis} is a family of techniques developed to work with censored time-to-event response measures. Note that if censoring is not present, you may be able to model time-to-event using standard modeling techniques. For some studies, however, you would have to wait a very long time before every sampled observation has a terminal event; in the case of the experimental cancer treatment, some patients might live another 20 years. Hence, survival analysis techniques enable the analyst to take full advantage of available data without waiting until every treated patient dies, every sampled part fails, or every tracked account closes.
+
+%\textbf{Survival analysis} is a way to describe how long things last. It is often used to study %human lifetimes, but %it also applies to "survival'' of mechanical and electronic components, or more generally to intervals in time before %an event.
+
+%If someone you know has been diagnosed with a life-threatening disease, you might have seen a "5-year survival %rate,'' which is the probability of surviving five years after diagnosis. %That estimate and related statistics are the %result of survival analysis.
+
+
+The fundamental concept in survival analysis is the \textbf{survival curve}, $S(t)$, which is a %function that maps from a duration, $t$, to the probability of surviving longer than $t$. If you know the distribution of durations, or "lifetimes,'' finding the survival curve is easy; it's just the complement  of the CDF:
+
+\begin{equation}
+\label{eq:s}
+S(t) = 1 - CDF(t)
+\end{equation}
+where $CDF(t)$ is the probability of a lifetime less than or equal to $t$.
+From the survival curve we can derive the \textbf{hazard function}; for pregnancy lengths, %the 
+hazard function maps from a time, $t$, to the fraction of pregnancies that continue until $t$ %and then end at $t$. To be more precise:
+
+\begin{equation}
+\label{eq:hazard}
+\lambda(t) = \frac{ S(t) - S(t+1)}{S(t)}
+\end{equation}
+The numerator is the fraction of lifetimes that end at $t$, which is also $PMF(t)$.
+If someone gives you the CDF of lifetimes, it is easy to compute the survival and hazard functions. But in many real-world scenarios, we can't measure the distribution of lifetimes directly. We have to infer it.
+For example, suppose you are following a group of patients to see how long they survive after diagnosis. Not all patients are diagnosed on the same day, so at any point in time, some patients have survived longer than others. If some patients have died, we know their survival %times. For patients who are still alive, we don't know survival times, but we have a lower bound.
+
+If we wait until all patients are dead, we can compute the survival curve, but it we are evaluating the effectiveness of a new treatment, we can't wait that long! We need a way to %estimate survival curves using incomplete information. 
+
 
 
 
 \section{Prediction Models}
 
 
-atex 
 \subsection{Decision Trees and Random Forests}
 
 \begin{sidewaysfigure}[tbp]
