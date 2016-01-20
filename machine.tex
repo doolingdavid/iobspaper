@@ -353,46 +353,57 @@ An added benefit of this shift from the single categorical variable \code{STATE-
 \label{subsec:coloncancerdata}
 
 In this section we describe the data processing steps that were specific to the colon cancer model development. The four COLRECT.txt files were imported into a pandas DataFrame object.
-The following filter was then applied:
-
-%\begin{itemize}[noitemsep]
-%\item incidence\symbol{92}yr1973\_2012.seer9\symbol{92}COLRECT.txt
-%\item incidence\symbol{92}yr1992\_2012.sj\_la\_rg\_ak\symbol{92}COLRECT.txt
-%\item incidence\symbol{92}yr2000\_2012.ca\_ky\_lo\_nj\_ga\symbol{92}COLRECT.txt
-%\item incidence\symbol{92}yr2005.lo\_2nd\_half\symbol{92}COLRECT.txt
-%\end{itemize}
+This data was then filtered according to the conditions in Table~\ref{tab:colonfilter}.
 
 
-%\begin{itemize}[noitemsep]
-\code{SEQUENCE NUMBER-CENTRAL $\neq$ "Unspecified"},
- \code{AGE AT DIAGNOSIS $\neq$ "Unknown age"},
-\code{BIRTHDATE-YEAR $\neq$ "Unknown year of birth"},
-\code{YEAR OF DIAGNOSIS $\geq 2004$}, \\
-\code{SURVIVAL MONTHS FLAG = "1"},
- \code{CS TUMOR SIZE EXT/EVAL $\neq$ ""},
-\code{CS TUMOR SIZE $\neq 999$},
-\code{SEER RECORD NUMBER $= 1$}, 
-\code{PRIMARY SITE $=$ "LARGE INTESTINE, (EXCL. APPENDIX)"},
-\code{SEQUENCE NUMBER-CENTRAL $= 0$}.
-%\end{itemize}
 
-and the following categorical features were one-hot encoded as described in 
+
+
+
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+ Column &  Filter \\
+\midrule
+\codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$\neq$ "Unspecified"} \\
+\codewhite{AGE AT DIAGNOSIS} & \codewhite{$\neq$ "Unknown age"} \\
+\codewhite{BIRTHDATE-YEAR} & \codewhite{$\neq$ "Unknown year of birth"} \\
+\codewhite{YEAR OF DIAGNOSIS} & \codewhite{$\geq 2004$} \\
+\codewhite{SURVIVAL MONTHS FLAG} & \codewhite{= "1"}\\
+\codewhite{CS TUMOR SIZE EXT/EVAL} & \codewhite{$\neq$ ""} \\
+\codewhite{CS TUMOR SIZE} & \codewhite{$\neq 999$} \\
+\codewhite{SEER RECORD NUMBER} & \codewhite{$= 1$} \\
+\codewhite{PRIMARY SITE} & \codewhite{ $=$ "LARGE INTESTINE, (EXCL. APPENDIX)"} \\
+\codewhite{SEQUENCE NUMBER-CENTRAL} & \codewhite{$=0$} \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:colonfilter} Filters applied to the Colon Cancer data.}
+\end{center}
+\end{table}
+
+
+
+
+
+
+The following categorical features were one-hot encoded as described in 
 section~\ref{subsec:dataprep}:
 
-%\begin{itemize}[noitemsep]
-\code{SEX},
- \code{MARITAL STATUS AT DX},
-\code{RACE/ETHNICITY},
- \code{SPANISH/HISPANIC ORIGIN},
- \code{GRADE},
- \code{PRIMARY SITE},
-\code{LATERALITY},
-\code{SEER HISTORIC STAGE A},
-\code{HISTOLOGY RECODE--BROAD GROUPINGS},
-\code{MONTH OF DIAGNOSIS},
- \code{VITAL STATUS RECODE}.
-%\end{itemize}
-The \code{STATE-COUNTY RECODE} variable was dropped and replaced with the \code{elevation}, \code{lat}, and \code{lng} variables as illustrated in Table~\ref{tab:nmhead}.
+\begin{itemize}[noitemsep]
+\item \codewhite{SEX},
+\item  \codewhite{MARITAL STATUS AT DX},
+\item \codewhite{RACE/ETHNICITY},
+\item \codewhite{SPANISH/HISPANIC ORIGIN},
+\item \codewhite{GRADE},
+\item \codewhite{PRIMARY SITE},
+\item \codewhite{LATERALITY},
+\item \codewhite{SEER HISTORIC STAGE A},
+\item \codewhite{HISTOLOGY RECODE--BROAD GROUPINGS},
+\item \codewhite{MONTH OF DIAGNOSIS},
+\item  \codewhite{VITAL STATUS RECODE}.
+\end{itemize}
+The \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng} variables as illustrated in Table~\ref{tab:nmhead}.
 
 With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
 After the above one-hot encoding procedure, the new variable
@@ -418,6 +429,24 @@ After the above one-hot encoding procedure, the new variable
 
 
 
+\subsection{Lung Cancer Data}
+\label{subsec:lungcancerdata}
+
+In this section we describe the data processing steps that were specific to the colon cancer model development. The four RESPIR.txt files were imported into a pandas DataFrame object.
+The following filter was then applied:
+
+%\begin{itemize}[noitemsep]
+\code{SEQUENCE NUMBER-CENTRAL $\neq$ "Unspecified"},
+ \code{AGE AT DIAGNOSIS $\neq$ "Unknown age"},
+\code{BIRTHDATE-YEAR $\neq$ "Unknown year of birth"},
+\code{YEAR OF DIAGNOSIS $\geq 2004$}, \\
+\code{SURVIVAL MONTHS FLAG = "1"},
+ \code{CS TUMOR SIZE EXT/EVAL $\neq$ ""},
+\code{CS TUMOR SIZE $\neq 999$},
+\code{SEER RECORD NUMBER $= 1$}, 
+\code{PRIMARY SITE $=$ "LUNG \& BRONCHUS"},
+\code{SEQUENCE NUMBER-CENTRAL $= 0$}.
+%\end{itemize}
 
 
 
@@ -1003,6 +1032,86 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \item spanish\_hispanic\_origin\_Spanish surname only
 \item spanish\_hispanic\_origin\_Spanish, NOS; Hispanic, NOS; Latino, NOS
 \item spanish\_hispanic\_origin\_Uknown whether Spanish/Hispanic or not
+\item year\_of\_birth
+\item year\_of\_diagnosis
+\item month
+\item newtarget
+\end{itemize}
+
+
+\subsection{Breast Cancer Feature Selection}
+\label{subsec:breastfeatures}
+
+The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in Section is given below and also available in full detail in the file 
+\codewhite{NewPatientBreastML.html}.
+
+\begin{itemize}[noitemsep]
+\item cs\_tmor\_size
+\item elevation
+\item grade\_moderately differentiated
+\item grade\_poorly differentiated
+\item grade\_ndifferentiated; anaplastic
+\item grade\_well differentiated
+\item histology\_recode\_broad\_gropings\_adenomas and adenocarcinomas
+\item histology\_recode\_broad\_gropings\_adnexal and skin appendage neoplasms
+\item histology\_recode\_broad\_gropings\_basal cell neoplasms
+\item histology\_recode\_broad\_gropings\_complex epithelial neoplasms
+\item histology\_recode\_broad\_gropings\_cystic, mcinos and seros neoplasms
+\item histology\_recode\_broad\_gropings\_dctal and loblar neoplasms
+\item histology\_recode\_broad\_gropings\_epithelial neoplasms, NOS
+\item histology\_recode\_broad\_gropings\_nerve sheath tmors
+\item histology\_recode\_broad\_gropings\_nspecified neoplasms
+\item lat
+\item laterality\_Bilateral involvement, lateral origin nknown; stated to be single primary
+\item laterality\_Paired site, bt no information concerning laterality; midline tmor
+\item laterality\_Right: origin of primary
+\item lng
+\item marital\_stats\_at\_dx\_Divorced
+\item marital\_stats\_at\_dx\_Married (inclding common law)
+\item marital\_stats\_at\_dx\_Separated
+\item marital\_stats\_at\_dx\_Single (never married)
+\item marital\_stats\_at\_dx\_Unknown
+\item marital\_stats\_at\_dx\_Unmarried or domestic partner
+\item marital\_stats\_at\_dx\_Widowed
+\item month\_of\_diagnosis\_Apr
+\item month\_of\_diagnosis\_Ag
+\item month\_of\_diagnosis\_Dec
+\item month\_of\_diagnosis\_Feb
+\item month\_of\_diagnosis\_Jan
+\item month\_of\_diagnosis\_Jl
+\item month\_of\_diagnosis\_Jn
+\item month\_of\_diagnosis\_Mar
+\item month\_of\_diagnosis\_May
+\item month\_of\_diagnosis\_Nov
+\item month\_of\_diagnosis\_Oct
+\item month\_of\_diagnosis\_Sep
+\item patient\_id\_nmber
+\item race\_ethnicity\_Amerian Indian, Aletian, Alaskan Native or Eskimo
+\item race\_ethnicity\_Asian Indian
+\item race\_ethnicity\_Black
+\item race\_ethnicity\_Chinese
+\item race\_ethnicity\_Japanese
+\item race\_ethnicity\_Melanesian
+\item race\_ethnicity\_Other
+\item race\_ethnicity\_Other Asian
+\item race\_ethnicity\_Pacific Islander
+\item race\_ethnicity\_Thai
+\item race\_ethnicity\_Unknown
+\item race\_ethnicity\_Vietnamese
+\item race\_ethnicity\_White
+\item seer\_historic\_stage\_a\_Distant
+\item seer\_historic\_stage\_a\_In sit
+\item seer\_historic\_stage\_a\_Localized
+\item seer\_historic\_stage\_a\_Unstaged
+\item sex\_Female
+\item spanish\_hispanic\_origin\_Cban
+\item spanish\_hispanic\_origin\_Mexican
+\item spanish\_hispanic\_origin\_Non-Spanish/Non-hispanic
+\item spanish\_hispanic\_origin\_Other specified Spanish/Hispanic origin (excldes Dominican Repclic)
+\item spanish\_hispanic\_origin\_Spanish srname only
+\item spanish\_hispanic\_origin\_Spanish, NOS; Hispanic, NOS; Latino, NOS
+\item srvival\_months
+\item vital\_stats\_recode\_Dead
 \item year\_of\_birth
 \item year\_of\_diagnosis
 \item month
