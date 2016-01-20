@@ -21,6 +21,9 @@
 
 \definecolor{light-gray}{gray}{0.95}
 \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\newcommand{\codewhite}[1]{\colorbox{white}{\texttt{#1}}}
+
+
 
 
 %%\title{\boldmath A title with some math: $x=1$}
@@ -760,10 +763,254 @@ Discussion of causality. A certain Marital status is not a "cause'' of a better 
 \section{Selected Features}
 \label{sec:features}
 In this Appendix we explicitly list the features chosen for each of the Colon, Breast and Lung cancer predictive models. For each cancer type, the features chosen for the random forest and neural network models were the same, so as to be best be able to compare the two models.
+IPython notebooks explicitly providing all code, as well as html versions of the notebooks, are available from a GitHub repository providing supplemental material for thus study~\cite{supp}.
+
+
 
 \subsection{Colon Cancer Feature Selection}
+\label{subsec:colonfeatures}
 
-Reference the GitHub Repository containing the notebooks.
+The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in Section is given below and also available in full detail in the file 
+\codewhite{NewPatientColonML.html}.
+
+
+\begin{itemize}[noitemsep]
+\item cs\_tumor\_size
+\item elevation
+\item grade\_cell type not determined
+\item grade\_moderately differentiated
+\item grade\_poorly differentiated
+\item grade\_undifferentiated; anaplastic
+\item grade\_well differentiated
+\item histology\_recode\_broad\_groupings\_acinar cell neoplasms
+\item histology\_recode\_broad\_groupings\_adenomas and adenocarcinomas
+\item histology\_recode\_broad\_groupings\_blood vessel tumors
+\item histology\_recode\_broad\_groupings\_complex epithelial neoplasms
+\item histology\_recode\_broad\_groupings\_complex mixed and stromal neoplasms
+\item histology\_recode\_broad\_groupings\_cystic, mucinous and serous neoplasms
+\item histology\_recode\_broad\_groupings\_ductal and lobular neoplasms
+\item histology\_recode\_broad\_groupings\_epithelial neoplasms, NOS
+\item histology\_recode\_broad\_groupings\_fibromatuos neoplasms
+\item histology\_recode\_broad\_groupings\_germ cell neoplasms
+\item histology\_recode\_broad\_groupings\_lipomatous neplasms
+\item histology\_recode\_broad\_groupings\_miscellaneous bone tumors
+\item histology\_recode\_broad\_groupings\_myomatous neoplasms
+\item histology\_recode\_broad\_groupings\_neuroepitheliomatous neoplasms
+\item histology\_recode\_broad\_groupings\_nevi and melanomas
+\item histology\_recode\_broad\_groupings\_paragangliomas and glumus tumors
+\item histology\_recode\_broad\_groupings\_soft tissue tumors and sarcomas, NOS
+\item histology\_recode\_broad\_groupings\_squamous cell neoplasms
+\item histology\_recode\_broad\_groupings\_synovial-like neoplasms
+\item histology\_recode\_broad\_groupings\_transistional cell papillomas and carcinomas
+\item histology\_recode\_broad\_groupings\_unspecified neoplasms
+\item lat
+\item laterality\_Left: origin of primary
+\item laterality\_Not a paired site
+\item laterality\_Only one side involved, right or left origin unspecified
+\item laterality\_Paired site, but no information concerning laterality; midline tumor
+\item laterality\_Right: origin of primary
+\item lng
+\item marital\_status\_at\_dx\_Divorced
+\item marital\_status\_at\_dx\_Married (including common law)
+\item marital\_status\_at\_dx\_Separated
+\item marital\_status\_at\_dx\_Single (never married)
+\item marital\_status\_at\_dx\_Unknown
+\item marital\_status\_at\_dx\_Unmarried or domestic partner
+\item marital\_status\_at\_dx\_Widowed
+\item month\_of\_diagnosis\_Apr
+\item month\_of\_diagnosis\_Aug
+\item month\_of\_diagnosis\_Dec
+\item month\_of\_diagnosis\_Feb
+\item month\_of\_diagnosis\_Jan
+\item month\_of\_diagnosis\_Jul
+\item month\_of\_diagnosis\_Jun
+\item month\_of\_diagnosis\_Mar
+\item month\_of\_diagnosis\_May
+\item month\_of\_diagnosis\_Nov
+\item month\_of\_diagnosis\_Oct
+\item month\_of\_diagnosis\_Sep
+\item number\_of\_primaries
+\item patient\_id\_number
+\item race\_ethnicity\_Amerian Indian, Aleutian, Alaskan Native or Eskimo
+\item race\_ethnicity\_Asian Indian
+\item race\_ethnicity\_Asian Indian or Pakistani
+\item race\_ethnicity\_Black
+\item race\_ethnicity\_Chinese
+\item race\_ethnicity\_Fiji Islander
+\item race\_ethnicity\_Filipino
+\item race\_ethnicity\_Guamanian
+\item race\_ethnicity\_Hawaiian
+\item race\_ethnicity\_Hmong
+\item race\_ethnicity\_Japanese
+\item race\_ethnicity\_Kampuchean
+\item race\_ethnicity\_Korean
+\item race\_ethnicity\_Laotian
+\item race\_ethnicity\_Melanesian
+\item race\_ethnicity\_Micronesian
+\item race\_ethnicity\_New Guinean
+\item race\_ethnicity\_Other
+\item race\_ethnicity\_Other Asian
+\item race\_ethnicity\_Pacific Islander
+\item race\_ethnicity\_Pakistani
+\item race\_ethnicity\_Polynesian
+\item race\_ethnicity\_Samoan
+\item race\_ethnicity\_Thai
+\item race\_ethnicity\_Tongan
+\item race\_ethnicity\_Unknown
+\item race\_ethnicity\_Vietnamese
+\item race\_ethnicity\_White
+\item seer\_historic\_stage\_a\_Distant
+\item seer\_historic\_stage\_a\_In situ
+\item seer\_historic\_stage\_a\_Localized
+\item seer\_historic\_stage\_a\_Regional
+\item seer\_historic\_stage\_a\_Unstaged
+\item sex\_Female
+\item spanish\_hispanic\_origin\_Cuban
+\item spanish\_hispanic\_origin\_Dominican Republic
+\item spanish\_hispanic\_origin\_Mexican
+\item spanish\_hispanic\_origin\_Non-Spanish/Non-hispanic
+\item spanish\_hispanic\_origin\_Other specified Spanish/Hispanic origin (excludes Dominican Repuclic)
+\item spanish\_hispanic\_origin\_Puerto Rican
+\item spanish\_hispanic\_origin\_South or Central American (except Brazil)
+\item spanish\_hispanic\_origin\_Spanish surname only
+\item spanish\_hispanic\_origin\_Spanish, NOS; Hispanic, NOS; Latino, NOS
+\item spanish\_hispanic\_origin\_Uknown whether Spanish/Hispanic or not
+\item survival\_months
+\item vital\_status\_recode\_Dead
+\item year\_of\_birth
+\item year\_of\_diagnosis
+\item month
+\item newtarget
+\end{itemize}
+
+
+
+\subsection{Lung Cancer Feature Selection}
+\label{subsec:lungfeatures}
+
+The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in Section is given below and also available in full detail in the file 
+\codewhite{NewPatientLungML.html}.
+
+\begin{itemize}[noitemsep]
+\item cs\_tumor\_size
+\item elevation
+\item grade\_cell type not determined
+\item grade\_moderately differentiated
+\item grade\_poorly differentiated
+\item grade\_undifferentiated; anaplastic
+\item grade\_well differentiated
+\item histology\_recode\_broad\_groupings\_acinar cell neoplasms
+\item histology\_recode\_broad\_groupings\_adenomas and adenocarcinomas
+\item histology\_recode\_broad\_groupings\_blood vessel tumors
+\item histology\_recode\_broad\_groupings\_complex epithelial neoplasms
+\item histology\_recode\_broad\_groupings\_complex mixed and stromal neoplasms
+\item histology\_recode\_broad\_groupings\_cystic, mucinous and serous neoplasms
+\item histology\_recode\_broad\_groupings\_ductal and lobular neoplasms
+\item histology\_recode\_broad\_groupings\_epithelial neoplasms, NOS
+\item histology\_recode\_broad\_groupings\_fibroepithelial neoplasms
+\item histology\_recode\_broad\_groupings\_fibromatuos neoplasms
+\item histology\_recode\_broad\_groupings\_germ cell neoplasms
+\item histology\_recode\_broad\_groupings\_gliomas
+\item histology\_recode\_broad\_groupings\_granular cell tumors \& alveolar soft part sarcomas
+\item histology\_recode\_broad\_groupings\_lipomatous neplasms
+\item histology\_recode\_broad\_groupings\_miscellaneous bone tumors
+\item histology\_recode\_broad\_groupings\_miscellaneous tumors
+\item histology\_recode\_broad\_groupings\_mucoepidermoid neoplasms
+\item histology\_recode\_broad\_groupings\_myomatous neoplasms
+\item histology\_recode\_broad\_groupings\_myxomatous neoplasms
+\item histology\_recode\_broad\_groupings\_nerve sheath tumors
+\item histology\_recode\_broad\_groupings\_neuroepitheliomatous neoplasms
+\item histology\_recode\_broad\_groupings\_nevi and melanomas
+\item histology\_recode\_broad\_groupings\_osseous and chondromatous neoplasms
+\item histology\_recode\_broad\_groupings\_paragangliomas and glumus tumors
+\item histology\_recode\_broad\_groupings\_soft tissue tumors and sarcomas, NOS
+\item histology\_recode\_broad\_groupings\_squamous cell neoplasms
+\item histology\_recode\_broad\_groupings\_synovial-like neoplasms
+\item histology\_recode\_broad\_groupings\_thymic epithelial neoplasms
+\item histology\_recode\_broad\_groupings\_transistional cell papillomas and carcinomas
+\item histology\_recode\_broad\_groupings\_trophoblastic neoplasms
+\item histology\_recode\_broad\_groupings\_unspecified neoplasms
+\item lat
+\item laterality\_Bilateral involvement, lateral origin unknown; stated to be single primary
+\item laterality\_Left: origin of primary
+\item laterality\_Not a paired site
+\item laterality\_Only one side involved, right or left origin unspecified
+\item laterality\_Paired site, but no information concerning laterality; midline tumor
+\item laterality\_Right: origin of primary
+\item lng
+\item marital\_status\_at\_dx\_Divorced
+\item marital\_status\_at\_dx\_Married (including common law)
+\item marital\_status\_at\_dx\_Separated
+\item marital\_status\_at\_dx\_Single (never married)
+\item marital\_status\_at\_dx\_Unknown
+\item marital\_status\_at\_dx\_Unmarried or domestic partner
+\item marital\_status\_at\_dx\_Widowed
+\item month\_of\_diagnosis\_Apr
+\item month\_of\_diagnosis\_Aug
+\item month\_of\_diagnosis\_Dec
+\item month\_of\_diagnosis\_Feb
+\item month\_of\_diagnosis\_Jan
+\item month\_of\_diagnosis\_Jul
+\item month\_of\_diagnosis\_Jun
+\item month\_of\_diagnosis\_Mar
+\item month\_of\_diagnosis\_May
+\item month\_of\_diagnosis\_Nov
+\item month\_of\_diagnosis\_Oct
+\item month\_of\_diagnosis\_Sep
+\item number\_of\_primaries
+\item race\_ethnicity\_Amerian Indian, Aleutian, Alaskan Native or Eskimo
+\item race\_ethnicity\_Asian Indian
+\item race\_ethnicity\_Asian Indian or Pakistani
+\item race\_ethnicity\_Black
+\item race\_ethnicity\_Chamorran
+\item race\_ethnicity\_Chinese
+\item race\_ethnicity\_Fiji Islander
+\item race\_ethnicity\_Filipino
+\item race\_ethnicity\_Guamanian
+\item race\_ethnicity\_Hawaiian
+\item race\_ethnicity\_Hmong
+\item race\_ethnicity\_Japanese
+\item race\_ethnicity\_Kampuchean
+\item race\_ethnicity\_Korean
+\item race\_ethnicity\_Laotian
+\item race\_ethnicity\_Melanesian
+\item race\_ethnicity\_Micronesian
+\item race\_ethnicity\_New Guinean
+\item race\_ethnicity\_Other
+\item race\_ethnicity\_Other Asian
+\item race\_ethnicity\_Pacific Islander
+\item race\_ethnicity\_Pakistani
+\item race\_ethnicity\_Polynesian
+\item race\_ethnicity\_Samoan
+\item race\_ethnicity\_Thai
+\item race\_ethnicity\_Tongan
+\item race\_ethnicity\_Unknown
+\item race\_ethnicity\_Vietnamese
+\item race\_ethnicity\_White
+\item seer\_historic\_stage\_a\_Distant
+\item seer\_historic\_stage\_a\_In situ
+\item seer\_historic\_stage\_a\_Localized
+\item seer\_historic\_stage\_a\_Regional
+\item seer\_historic\_stage\_a\_Unstaged
+\item sex\_Female
+\item spanish\_hispanic\_origin\_Cuban
+\item spanish\_hispanic\_origin\_Dominican Republic
+\item spanish\_hispanic\_origin\_Mexican
+\item spanish\_hispanic\_origin\_Non-Spanish/Non-hispanic
+\item spanish\_hispanic\_origin\_Other specified Spanish/Hispanic origin (excludes Dominican Repuclic)
+\item spanish\_hispanic\_origin\_Puerto Rican
+\item spanish\_hispanic\_origin\_South or Central American (except Brazil)
+\item spanish\_hispanic\_origin\_Spanish surname only
+\item spanish\_hispanic\_origin\_Spanish, NOS; Hispanic, NOS; Latino, NOS
+\item spanish\_hispanic\_origin\_Uknown whether Spanish/Hispanic or not
+\item year\_of\_birth
+\item year\_of\_diagnosis
+\item month
+\item newtarget
+\end{itemize}
+
+
+
 
 
 

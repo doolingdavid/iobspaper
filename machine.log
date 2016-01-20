@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  19 JAN 2016 15:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  20 JAN 2016 08:57
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -349,20 +349,20 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 (machine.aux)
 \openout1 = `machine.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count118
@@ -378,7 +378,7 @@ LaTeX Font Info:    ... okay on input line 78.
 \everyMPtoPDFconversion=\toks27
 )
 \AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring ON on input line 78.
+Package hyperref Info: Link coloring ON on input line 81.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -387,30 +387,30 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count124
 )
-LaTeX Info: Redefining \ref on input line 78.
-LaTeX Info: Redefining \pageref on input line 78.
-LaTeX Info: Redefining \nameref on input line 78.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
 
 (machine.out) (machine.out)
 \@outlinefile=\write3
 \openout3 = `machine.out'.
 
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 79.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 82.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 79.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 82.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 79.
+LaTeX Font Info:    Try loading font information for U+msa on input line 82.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 79.
+LaTeX Font Info:    Try loading font information for U+msb on input line 82.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -423,77 +423,77 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [1]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2088) has occurred while \output is active []
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 231.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 234.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 231.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 234.
  [3]
-Overfull \hbox (41.06541pt too wide) in paragraph at lines 330--341
+Overfull \hbox (41.06541pt too wide) in paragraph at lines 333--344
  [] 
  []
 
 [4]
-Overfull \hbox (18.37013pt too wide) in paragraph at lines 364--375
+Overfull \hbox (18.37013pt too wide) in paragraph at lines 367--378
 [][][][][][][]\T1/cmr/m/n/10.95 , [][][][][][],
  []
 
 
-Overfull \hbox (12.1512pt too wide) in paragraph at lines 364--375
+Overfull \hbox (12.1512pt too wide) in paragraph at lines 367--378
 [][][][][][]\T1/cmr/m/n/10.95 , [][][][][][], [][][][][][],
  []
 
 
-Overfull \hbox (0.82843pt too wide) in paragraph at lines 364--375
+Overfull \hbox (0.82843pt too wide) in paragraph at lines 367--378
 [][][][][][]\T1/cmr/m/n/10.95 , [][][][][][],
  []
 
 
-Overfull \hbox (13.77176pt too wide) in paragraph at lines 380--393
+Overfull \hbox (13.77176pt too wide) in paragraph at lines 383--396
 [][][][][][][]\T1/cmr/m/n/10.95 , [][][][][][], [][][][][][], [][][][][][], [][
 ][][][][],
  []
 
 
-Overfull \hbox (38.26602pt too wide) in paragraph at lines 380--393
+Overfull \hbox (38.26602pt too wide) in paragraph at lines 383--396
 [][][][][][]\T1/cmr/m/n/10.95 , [][][][][][], [][][][][][], [][][][][][],
  []
 
-<colonkaplan.pdf, id=161, 433.62pt x 289.08pt>
+<colonkaplan.pdf, id=166, 433.62pt x 289.08pt>
 File: colonkaplan.pdf Graphic file (type pdf)
  <use colonkaplan.pdf>
-Package pdftex.def Info: colonkaplan.pdf used on input line 408.
+Package pdftex.def Info: colonkaplan.pdf used on input line 411.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
-Overfull \hbox (19.05624pt too wide) in paragraph at lines 630--639
+Overfull \hbox (19.05624pt too wide) in paragraph at lines 633--642
  [] 
  []
 
-<breastbox.pdf, id=169, 433.62pt x 289.08pt>
+<breastbox.pdf, id=174, 433.62pt x 289.08pt>
 File: breastbox.pdf Graphic file (type pdf)
  <use breastbox.pdf>
-Package pdftex.def Info: breastbox.pdf used on input line 649.
+Package pdftex.def Info: breastbox.pdf used on input line 652.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<colonbox.pdf, id=170, 433.62pt x 289.08pt>
+<colonbox.pdf, id=175, 433.62pt x 289.08pt>
 File: colonbox.pdf Graphic file (type pdf)
  <use colonbox.pdf>
-Package pdftex.def Info: colonbox.pdf used on input line 663.
+Package pdftex.def Info: colonbox.pdf used on input line 666.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<lungbox.pdf, id=171, 433.62pt x 289.08pt>
+<lungbox.pdf, id=176, 433.62pt x 289.08pt>
 File: lungbox.pdf Graphic file (type pdf)
  <use lungbox.pdf>
-Package pdftex.def Info: lungbox.pdf used on input line 680.
+Package pdftex.def Info: lungbox.pdf used on input line 683.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -502,26 +502,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (36.39127pt too high) has occurred while \output is active []
 
 
-[7 <./breastbox.pdf>] [8 <./colonbox.pdf>] (machine.bbl [9 <./lungbox.pdf>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 832.
+[7 <./breastbox.pdf>] [8 <./colonbox.pdf>]
+Underfull \vbox (badness 5652) has occurred while \output is active []
 
-[10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 832.
+ [9 <./lungbox.pdf>] [10] [11] [12] [13] [14] (machine.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1079.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1079.
  (machine.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 832.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 832.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1079.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1079.
+
 Package rerunfilecheck Info: File `machine.out' has not changed.
-(rerunfilecheck)             Checksum: 551D5DEFC43BC26290DBCA3CE165E8AC;1008.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 832.
+(rerunfilecheck)             Checksum: FBD466938C24E6C40041D0D30E722BDD;1089.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1079.
  ) 
 Here is how much of TeX's memory you used:
- 7607 strings out of 493634
- 106669 string characters out of 3141304
- 206033 words of memory out of 3000000
- 10818 multiletter control sequences out of 15000+200000
+ 7617 strings out of 493634
+ 106786 string characters out of 3141304
+ 206170 words of memory out of 3000000
+ 10822 multiletter control sequences out of 15000+200000
  23844 words of font info for 61 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 41i,12n,35p,1174b,493s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,35p,1174b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
 00\ectt1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
 appen\ec\dpi600\ecrm1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\
@@ -541,9 +544,9 @@ ooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk>
 cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 r10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb>
-Output written on machine.pdf (11 pages, 323163 bytes).
+Output written on machine.pdf (16 pages, 332296 bytes).
 PDF statistics:
- 902 PDF objects out of 1000 (max. 8388607)
- 55 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 932 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
