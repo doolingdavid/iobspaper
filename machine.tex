@@ -718,7 +718,12 @@ newindex &                &                &        &            \\
 \end{center}
 \end{table}
 
-
+One obvious side effect of this transformation is that it explodes the data size.
+For this study, the original, untransformed colon cancer DataFrame has shape $(113072, 106)$, and the total transformed colon cancer DataFrame has shape $(4165251, 106)$.
+Similary, the original, untransformed lung cancer DataFrame has shape $(177089, 118)$, and the total transformed colon cancer DataFrame has shape $(3079931, 118)$.
+The biggest explosion in data size occured with the breast cancer data. 
+The original, untransformed breast cancer DataFrame has shape $(329949, 70)$, and the total transformed breast cancer DataFrame has shape $(15085711, 70)$.
+Traning machine learning algorithms on such large datasets, even after splitting into training and testing sets described below, require large RAM. All computations for this study were performed on a Dell XPS 8700 Desktop with 32BG of RAM.
 
 
 \section{Prediction Models}
