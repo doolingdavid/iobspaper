@@ -607,7 +607,116 @@ The numerator is the fraction of lifetimes that end at $t$, which is also $PMF(t
 If someone gives you the CDF of lifetimes, it is easy to compute the survival and hazard functions. But in many real-world scenarios, we can't measure the distribution of lifetimes directly. We have to infer it.
 For example, suppose you are following a group of patients to see how long they survive after diagnosis. Not all patients are diagnosed on the same day, so at any point in time, some patients have survived longer than others. If some patients have died, we know their survival %times. For patients who are still alive, we don't know survival times, but we have a lower bound.
 
-If we wait until all patients are dead, we can compute the survival curve, but it we are evaluating the effectiveness of a new treatment, we can't wait that long! We need a way to %estimate survival curves using incomplete information. 
+If we wait until all patients are dead, we can compute the survival curve, but it we are evaluating the effectiveness of a new treatment, we can't wait that long! We need a way to estimate survival curves using incomplete information. 
+
+
+The general idea is that we can use the data to estimate the hazard function, then convert the hazard function to a survival curve. 
+Once we have the hazard function, we can estimate the survival curve. The chance of surviving past time $t$ is the chance of surviving all times up through $t$, which is the cumulative product of the complementary hazard function:
+
+\begin{equation}
+\label{eq:hazardtosurvival}
+[ 1 - \lambda(0)][1 - \lambda(1)] \cdots [1 - \lambda(t)]
+\end{equation}
+
+
+\subsection{Transformation of Censored Data for Machine Learning}
+\label{subsec:transformation}
+
+In this section we describe an inuitive way to transform right-censored data appropriately so that it may be used as input to machine learning algorithms that learn the hazard fuction described in section~\ref{subsec:survprimer}. The full details of this transformation, and a large inspiration for this study, can be flound in this blog post~\cite{kuhn}.
+
+The overall philosophy of the Kaplan-Meier estimate of the survival curve for a population differs fundamentally from the methods described below and used in this study. 
+The Kaplan-Meier estimate of the survival curve is given by
+\begin{equation}
+\label{eq:kaplanmeier}
+\hat{S}(t) = \prod_{t_i < t} \frac{n_i - d_i}{n_i}
+\end{equation}
+where $d_i$ are the number of death events at time $t$ and $n_t$ is the number of subjects at risk of death just priot to time $t$. 
+Equation~\ref{eq:kaplanmeier} uses the entire data set to arrive at an estimate of the entire population survival curve. In contrast, the method described below uses the entire data set to learn a model so as to predict hazard and survival curves for all of the individual records in the data set.
+
+The key observation is to note that the hazard function in Equation~\ref{eq:hazard} can be readily learned via machine learning methods. It can be rewritten as
+\begin{equation}
+\label{eq:hhazard}
+h(\mathbf{X}, t) = P(Y = t|Y \geq t, \mathbf{X}),
+\end{equation}
+the probability that, if someone has survived up until month $t$, they will die in that month.
+where $\mathbf{X}$ represents all of the data for that particular record, and in our case $Y$ represents the true, uncensored number of survival months of the patient.
+What is actually provided in the SEER data is the related variable \codewhite{SURVIVAL MONTHS} $T$ (how long each subject was in the study), and whether they exited by dying or being censored ($D$), \codewhite{VITAL STATUS RECODE}. 
+$D$ is a Boolean variable, so $D = 1$ if $T = Y$, and $D = 0$ if $T < Y$.
+
+Treating $T$ is just another covariate is the key to the transformation. Each datapoint in the hidden classification problem is the combination of an $\mathbf{X}_{i}$ in hte orginal dataset plut some month $t$, and the classification problem is "did point $\mathbf{X}_{i}$ die in month $t$.'' We will call this new variable $D_{it}$ (\codewhite{newtarget}).
+We can transformation our original data set into a new one, with one row for each month that each $\mathbf{X}_{i}$ is in the sample; train a standard classifier on this new dataset with $D_{it}$ as the target, and derive a survival model from the orginal dataset.
+Psuedocode for this transformation is found in section~\ref{subsec:pseudocode}.
+
+Explicit examples will help make this transformation clear.
+The untransformed datapoint represented Table~(\ref{tab:originaldead}) is transformed to the multiple records shown in Table~(\ref{tab:transformeddead}). All uncensored data is transformed in this way. All censored data is similar transformed. 
+The untransformed datapoint represented Table~(\ref{tab:originalalive}) is transformed to the multiple records shown in Table~(\ref{tab:transformedalive}).
+
+
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+{} &  \codewhite{cs\_tumor\_size} &  \codewhite{year\_of\_birth} &  \codewhite{survival\_months} &  \codewhite{vital\_status\_recode\_Dead} \\
+\midrule
+newindex &                &                &        &            \\
+205      &             60 &           1951 &      3 &          1 \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:originaldead} Example of four columns in an uncensored record in the untransformed dataset.}
+\end{center}
+\end{table}
+
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+{} &  \codewhite{cs\_tumor\_size} &  \codewhite{year\_of\_birth} &  \codewhite{survival\_months} &  \codewhite{vital\_status\_recode\_Dead} \\
+\midrule
+newindex &                &                &        &            \\
+205      &             40 &           1950 &      3 &          0 \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:originalalive} Example of four columns in a censored record in the untransformed dataset.}
+\end{center}
+\end{table}
+
+
+
+
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+{} &  \codewhite{cs\_tumor\_size} &  \codewhite{year\_of\_birth} &  \codewhite{month} &  \codewhite{newtarget} \\
+\midrule
+newindex &                &                &        &            \\
+205      &             60 &           1951 &      0 &          0 \\
+205      &             60 &           1951 &      1 &          0 \\
+205      &             60 &           1951 &      2 &          0 \\
+205      &             60 &           1951 &      3 &          1 \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:transformeddead} Example of four columns in an uncensored record in the transformed dataset.}
+\end{center}
+\end{table}
+
+
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+{} &  \codewhite{cs\_tumor\_size} &  \codewhite{year\_of\_birth} &  \codewhite{month} &  \codewhite{newtarget} \\
+\midrule
+newindex &                &                &        &            \\
+205      &             40 &           1950 &      0 &          0 \\
+205      &             40 &           1950 &      1 &          0 \\
+205      &             40 &           1950 &      2 &          0 \\
+205      &             40 &           1950 &      3 &          0 \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:transformedalive} Example of four columns in a censored record in the transformed dataset.}
+\end{center}
+\end{table}
 
 
 
@@ -969,6 +1078,8 @@ Lung & .861 & .883 & .900 \\
 
 \section{Web Applications}
 
+CF this guy \url{http://kmplot.com/analysis/index.php?p=service&cancer=lung}
+
 
 
 \section{Further Directions}
@@ -1307,6 +1418,37 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \end{itemize}
 
 
+\subsection{Pseudocode for the Data Transformation}
+\label{subsec:pseudocode}
+
+\begin{verbatim}
+def train(X, T, D)
+    // X, T, D are the original dataset
+    X' = []
+    D' = []
+
+    // the transformation
+    for each index i in X:
+        for t=1 to T[i]:
+            new_D = (0 if t < T[i], else D[i])
+            append new_D to D'
+            new_X = (X[i], t)
+            append new_X to X'
+
+    return a decision tree trained on (X', D')
+
+def pmf(h, X)
+    // X is a single datapoint
+    // returns an array A where A[i] = P(Y = i | X)
+    A = []
+    p_so_far = 1 // this is p(T >= t | X)
+    for t = 1 to (the last month where h has any data):
+        // h knows p(T = t | T >= t, X), we call this p_cur
+        p_cur = h's prediction for (X, t)
+        append (p_so_far * p_cur) to A
+        p_so_far *= (1 - p_cur)
+
+\end{verbatim}
 
 
 
