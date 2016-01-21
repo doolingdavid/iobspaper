@@ -287,26 +287,44 @@ As a simple example of how to correctly treat categorical variables in a mchine 
 
 
 \begin{equation}
-\left[ \begin{array}{l}
-\mbox{SEX} \\ \hline
-1 \end{array} \right]
-\rightarrow 
-\left[ \begin{array}{l|l}
-\mbox{sex$\_$Male} & \mbox{sex$\_$Female} \\ \hline
-1 & 0 \end{array} \right]
+\begin{tabular}{c}
+\toprule
+\codewhite{Sex} \\
+\midrule
+1 \\
+\bottomrule
+\end{tabular}
+\longrightarrow
+\begin{tabular}{cc}
+\toprule
+\codewhite{sex\_Male} & \codewhite{sex\_Female} \\
+\midrule 
+1 &  0 \\
+\bottomrule
+\end{tabular}
 \label{eqn:onehotmale}
 \end{equation}
 
 and 
 
+
+
 \begin{equation}
-\left[ \begin{array}{l}
-\mbox{SEX} \\ \hline
-2 \end{array} \right]
-\rightarrow 
-\left[ \begin{array}{l|l}
-\mbox{sex$\_$Male} & \mbox{sex$\_$Female} \\ \hline
-0 & 1 \end{array} \right]
+\begin{tabular}{c}
+\toprule
+\codewhite{Sex} \\
+\midrule
+2 \\
+\bottomrule
+\end{tabular}
+\longrightarrow
+\begin{tabular}{cc}
+\toprule
+\codewhite{sex\_Male} & \codewhite{sex\_Female} \\
+\midrule 
+0 & 1 \\
+\bottomrule
+\end{tabular}
 \label{eqn:onehotfemale}
 \end{equation}
 
@@ -331,8 +349,8 @@ Code & Description \\
 The procedure outlined in Equations~(\ref{eqn:onehotmale},~\ref{eqn:onehotfemale}) needs to be applied to all of the nominal categorical variables in the SEER data that we wish to include in our predictive models.
 In particular, in order to include the geophgraphical information contained in the SEER categorical variable \codewhite{STATE-COUNTY RECODE}, it becomes necessary to create a new feature variable for each of the distinct (state,county) pairs in the data. In the United States, there are approximately 3,000 counties. Clearly, transforming the \codewhite{STATE-COUNTY RECODE} data representation into distinct (state$\_$county) columns will explode the data to become wider than is optimal for machine learning. Adding extra columns to your dataset, making it wider, requires more data rows (making it taller) in order for machine learning algorithms to effectively learn~\cite{bowles}. Because one-hot coding \codewhite{STATE-COUNTY RECODE} would cause such drastic shape changes in our data, we wish to avoid doing so. Fortunately, this variable, though given as a categorical variable, is actually an ordinal variable. There is an ordering among the (state$\_$county) columns, name longitude, latitude, and elevation. We can transform the data in \codewhite{STATE-COUNTY RECODE} into three new numerical columns: \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation}.
 
-For example, Table~(\ref{tab:nmhead}) shows how five entries of \code{STATE-COUNTY RECODE} corresponding to counties within New Mexico would can be represented by the 
-\code{elevation}, \code{lat}, and \code{lng} features.
+For example, Table~(\ref{tab:nmhead}) shows how five entries of \codewhite{STATE-COUNTY RECODE} corresponding to counties within New Mexico would can be represented by the 
+\codewhite{elevation}, \codewhite{lat}, and \codewhite{lng} features.
 
 \begin{table}[tbp]
 \begin{center}
@@ -347,12 +365,12 @@ For example, Table~(\ref{tab:nmhead}) shows how five entries of \code{STATE-COUN
 35007 &      Colfax+county+NM &  6147.749089 &  36.579976 & -104.472330 \\
 \bottomrule
 \end{tabular}
-\caption{\label{tab:nmhead} Example of the transformation of \code{STATE-COUNTY RECODE} to \code{elevation}, \code{lat}, and \code{lng}.}
+\caption{\label{tab:nmhead} Example of the transformation of \codewhite{STATE-COUNTY RECODE} to \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng}.}
 \end{center}
 \end{table}
 
-It is a simple exercise to construct the full lookup table from the SEER \\  \code{STATE-COUNTY RECODE} variable to the corresponding three values \code{elevation}, \code{lat}, and \code{lng}. Using the publically available dafafile from the United States Census Bureau~\cite{census} to construct query strings like the values of the \code{address} field in Table (~\ref{tab:nmhead}), it is possible to then programmatically query the Google Maps Geocoding API for the latitude and longitude~\cite{geocode}, and the Google Maps Elevation API for the corresponding elevation~\cite{elevation}.
-An added benefit of this shift from the single categorical variable \code{STATE-COUNTY RECODE} to the three continuous numerical variables \code{lat}, \code{lng}, and \code{elevation} is that input into the web applications described later are not restricted to the states and counties covereed in the SEER registries. The full lookup table analogous to Table~\ref{tab:nmhead} is available from a GitHub repository containing supplemental information for this study~\cite{supp}.
+It is a simple exercise to construct the full lookup table from the SEER \\  \codewhite{STATE-COUNTY RECODE} variable to the corresponding three values \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng}. Using the publically available dafafile from the United States Census Bureau~\cite{census} to construct query strings like the values of the \codewhite{address} field in Table (~\ref{tab:nmhead}), it is possible to then programmatically query the Google Maps Geocoding API for the latitude and longitude~\cite{geocode}, and the Google Maps Elevation API for the corresponding elevation~\cite{elevation}.
+An added benefit of this shift from the single categorical variable \codewhite{STATE-COUNTY RECODE} to the three continuous numerical variables \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation} is that input into the web applications described later are not restricted to the states and counties covereed in the SEER registries. The full lookup table analogous to Table~\ref{tab:nmhead} is available from a GitHub repository containing supplemental information for this study~\cite{supp}.
 
 
 \subsection{Colon Cancer Data}
