@@ -255,11 +255,11 @@ SEER requires that researchers submit a request for the data, which includes an 
 \subsection{Data preparation and preprocessing}
 \label{subsec:dataprep}
 
-A great deal of data munging is necessary before using these SEER incidence files as input into machine learning algorithms. A preprocessing step common to each of three cancer types studied involves the \code{STATE-COUNTY RECODE}.
-The \code{STATE-COUNTY RECODE} field is a state-county combination where the first two characters represent the state FIPS code and the last three digits represent the FIPS county code.  
+A great deal of data munging is necessary before using these SEER incidence files as input into machine learning algorithms. A preprocessing step common to each of three cancer types studied involves the \codewhite{STATE-COUNTY RECODE}.
+The \codewhite{STATE-COUNTY RECODE} field is a state-county combination where the first two characters represent the state FIPS code and the last three digits represent the FIPS county code.  
 This particular field illustrates an important feature of machine learning, that between \textit{categorical features} and \textit{numeric features}. All input into a machine learning algorithm must be numeric, but real numbers carry with them the usually extremely useful property known as the well-ordering property of the real numbers. But if one is tasked with encoding a categorical feature into suitable numeric format for machine learning, it is necessary to do so in a way that removes the well-ordering property~\cite{bowles}. 
 
-As a simple example of how to correctly treat categorical variables in a mchine learning context, consider the SEER variable \code{SEX}. This variable is encoded with a numeric 1 for males and a numeric 2 for females as shown in Table ~\ref{tab:sex}. Values such as "Male" and "Female" encoded as numbers are dangerous because if not handled properly, they can generate bogus results \cite{downey}. The proper way to transform the SEER \code{SEX} variable is to create two additional variables: \code{sex$\_$Male} and \code{sex$\_$Female}, and then to eliminate the variable \code{SEX}. For example,
+As a simple example of how to correctly treat categorical variables in a mchine learning context, consider the SEER variable \codewhite{SEX}. This variable is encoded with a numeric 1 for males and a numeric 2 for females as shown in Table ~\ref{tab:sex}. Values such as "Male" and "Female" encoded as numbers are dangerous because if not handled properly, they can generate bogus results \cite{downey}. The proper way to transform the SEER \codewhite{SEX} variable is to create two additional variables: \codewhite{sex$\_$Male} and \codewhite{sex$\_$Female}, and then to eliminate the variable \codewhite{SEX}. For example,
 
 
 %%\begin{displaymath}
@@ -315,12 +315,13 @@ and
 
 \begin{table}[tbp]
 \begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\rowcolors{1}{white}{yellow}
-Code & Description \\ \hline
-1 & Male \\  \hline
-2 & Female \\  \hline
+\begin{tabular}{cc}
+\toprule
+Code & Description \\ 
+\midrule
+1 & Male \\  
+2 & Female \\  
+\bottomrule
 \end{tabular}
 \caption{\label{tab:sex} Encoding of gender in the SEER incidence files. These types of categorical variables need to be transformed via one-hot-encoding.}
 \end{center}
@@ -328,7 +329,7 @@ Code & Description \\ \hline
 
 
 The procedure outlined in Equations~(\ref{eqn:onehotmale},~\ref{eqn:onehotfemale}) needs to be applied to all of the nominal categorical variables in the SEER data that we wish to include in our predictive models.
-In particular, in order to include the geophgraphical information contained in the SEER categorical variable \code{STATE-COUNTY RECODE}, it becomes necessary to create a new feature variable for each of the distinct (state,county) pairs in the data. In the United States, there are approximately 3,000 counties. Clearly, transforming the \code{STATE-COUNTY RECODE} data representation into distinct (state$\_$county) columns will explode the data to become wider than is optimal for machine learning. Adding extra columns to your dataset, making it wider, requires more data rows (making it taller) in order for machine learning algorithms to effectively learn~\cite{bowles}. Because one-hot coding \code{STATE-COUNTY RECODE} would cause such drastic shape changes in our data, we wish to avoid doing so. Fortunately, this variable, though given as a categorical variable, is actually an ordinal variable. There is an ordering among the (state$\_$county) columns, name longitude, latitude, and elevation. We can transform the data in \code{STATE-COUNTY RECODE} into three new numerical columns: \code{lat}, \code{lng}, and \code{elevation}.
+In particular, in order to include the geophgraphical information contained in the SEER categorical variable \codewhite{STATE-COUNTY RECODE}, it becomes necessary to create a new feature variable for each of the distinct (state,county) pairs in the data. In the United States, there are approximately 3,000 counties. Clearly, transforming the \codewhite{STATE-COUNTY RECODE} data representation into distinct (state$\_$county) columns will explode the data to become wider than is optimal for machine learning. Adding extra columns to your dataset, making it wider, requires more data rows (making it taller) in order for machine learning algorithms to effectively learn~\cite{bowles}. Because one-hot coding \codewhite{STATE-COUNTY RECODE} would cause such drastic shape changes in our data, we wish to avoid doing so. Fortunately, this variable, though given as a categorical variable, is actually an ordinal variable. There is an ordering among the (state$\_$county) columns, name longitude, latitude, and elevation. We can transform the data in \codewhite{STATE-COUNTY RECODE} into three new numerical columns: \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation}.
 
 For example, Table~(\ref{tab:nmhead}) shows how five entries of \code{STATE-COUNTY RECODE} corresponding to counties within New Mexico would can be represented by the 
 \code{elevation}, \code{lat}, and \code{lng} features.
