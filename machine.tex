@@ -728,6 +728,14 @@ Traning machine learning algorithms on such large datasets, even after splitting
 
 \section{Prediction Models}
 
+With the datasets transformed as described in section~(\ref{subsec:transformation}), we are now able to split them into training and testing sets in the usual manner.
+The classifier models described in this section are learning the hazard function: given all of the data given in sections~(\ref{subsec:lungfeatures}, ~\ref{subsec:colonfeatures}, ~\ref{subsec:breastfeatures}), which includes the field \codewhite{months} (the months after diagnosis), the models predict the target variable \codewhite{newtarget}, which represents the probability of dying in that month, given that the patient represented by the record has survived up to that month. This prediction task should not be confused with the regression problem of trying to predict precisely in what month a patient will die.
+The hazard functions thus learned and predicted are intermediary products; what we are really pursuing are the survival functions for each patient that are derived from the learned and predicted hazard functions.
+From the resulting hazard functions for each unique patient, we can construct the
+resulting survival functions as presented in section~(\ref{subsec:pseudocode}) and explicitly given in python code in the notebooks at the github repository containing supplemental material for this study~\cite{supp}.
+
+
+
 
 \subsection{Decision Trees and Random Forests}
 
