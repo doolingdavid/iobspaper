@@ -635,7 +635,7 @@ For the survival times shown in Table~(\ref{tab:censoredexample}), a natural cho
 
 
 Next, count how many people died during each slice and how many were \textit{censored} (that is, last seen alive during that slice, either because they became lost to follow-up 
-or were still alive at the end of the study). From Table~(\ref{tab:censoredexample} you see that
+or were still alive at the end of the study). From Table~(\ref{tab:censoredexample}) you see that
 
 \begin{itemize}[noitemsep]
 \item During the first year after surgery, one subjects died (\#0) and one subject was censored ( \#4) 
@@ -669,6 +669,27 @@ or were still alive at the end of the study). From Table~(\ref{tab:censoredexamp
 \caption{\label{tab:lifetable} Lifetable corresponding to the example data in Table~(\ref{tab:censoredexample}).}
 \end{center}
 \end{table}
+
+
+To construct a lifetable, one proceeds as follows:
+
+\begin{itemize}[noitemsep]
+\item Enter the total number of subjects alive at the start into column \textbf{Alive at Start}, in the \textbf{0-1 yr} row
+\item Enter the counts of people who died within each time slice into column \textbf{Died}
+\item Enter the counts of people who were censored during each time slice into \textbf{Censored}
+\item The column \textbf{At Risk} shows the number of subjects known to be alive at the start of each year after surgery. This is equal to the number of subjects alive at the start of the preceding year minus the number of subjects who died (\textbf{Died}) or were censored (\textbf{Censored}) during the preceding year. 
+\item The Column \textbf{At Risk} shows the number of subjects "at risk for dying'' during each year. You may guess that this is the number of people alive at the start of the interval, but there's one minor correction. ( COMPLETELY DISAGREE WITH THIS; A WEAKNESS OF THE METHOD) If any people were censured during that year, then they weren't really "available to die'' (to use an awful expression) for the entire year. If you don't know exactly when, during that year, they became censored, then it's reasonable to "split the difference'' and consider them at risk for aonly half the year. So the number at risk can be estimated as the number alive at the start of the year, minus one-half of the number who became censored during that year. (ONLY MAKES SENSE FOR LOST TO FOLLOW UP).
+\item The column \textbf{Prob of Dying} shows the probability of dying during each interval, assuming the subject has survived up to the start of that interval. This is simply the number of people who died divided by the number of people at risk during each interval. 
+\item The column \textbf{Prob of Surviving} shows the probability of surviving during each interval, assuming the subject has survived up to the start of that interval. Surviving means not dying, so the probability of surviving is simply 1 - the probability of dying.
+\item The column \textbf{Cum Survival} shows the cumulative probability of surviving from the time of the operation all the way through the end of this time slice. To survive from the time of the operation through the end of any given year (year $N$), the subject must survive each of the years from Year 1 through Year $N$. Because surviving each year is an independent accomplishment, the probability of surviving all $N$ of the years is the product of the individual years' probabilities.
+\end{itemize}
+
+
+The sample hazard and survival values obtained from a life table are only sample estimates (in this example, at 1-year time slices) of the true population hazard and survival functions.
+The hazard rate obtained from a life table is equal to the probability of dying during each time slice (column \textbf{Prob of Dying}) divided by the width of the slice, so the hazard rate for the first year would be expressed as .105 per year, or 10.5 percent per year. The 
+cumulative survival probability in column \textbf{Cum Survival}, is the probability of surviving from the operation date through to the end of the interval. It has no units, and it can be expressed as a fraction or as a percentage. 
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
