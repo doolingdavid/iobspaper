@@ -576,6 +576,19 @@ An unsatisfactory consequence is that these estimates are highly course-grained,
 \subsection{Survival Analysis}
 \label{subsec:survprimer}
 
+
+
+To understand survival analysis, you first have to understand survival data - that survival times are \textit{intervals} between certain kinds of events, that these intervals are often affected by a peculiar kind of "partial missingness'' called \textit{censoring}, and that censored data must be analyzed in a special way to avoid biased estimates and incorrect conclusions.
+
+In the case of the SEER data, the starting point of the time interval is the diagnosis date. Even though survival times are continuous or nearly continuous numerial quantities, they're never almost never normally distributed. If non-normality were the only problem with survival data, you would be able to summarize survival times as medians and centiles instead of means and standard deviations, and you could compare survival between groups with nonparametric Mann-Whitney and Kruksal-Wallis testse instead of t tests and ANOVAs. But time-to-event data is susceptible to a special situation called \textit{censoring}, which the usual parametric and non-parametric methods cannot handle. Therefore special methods have been developed to analyze censored data properly. 
+
+With survival data, including the SEER data considered in this study, you may not know the exact time of death for some subjects. Some of the SEER subjects are still alive at the the time of the latest SEER data release. When the \codewhite{VITAL STATUS RECODE} variable indicates that the subject is still alive, the \codewhite{SURVIVAL MONTHS} variable is only a lower bound on the true number of survival months; this is called the \textit{date of last contact} mode of censoring. 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Survival analysis allows us to model the time until an event happens. Time-to-event measures pose unique problems for the analyst. Suppose that you want to predict the survival time for patients receiving an experimental cancer treatment. After three years, some of the patients in the study have died, and you can compute the survival time for each of these patients. However, many of the patients are still living at the end of three years; you do not know their ultimate survival time. Statisticians call this problem \textit{censoring}, a problem that surfaces when you try to model time-to-event reopnse measures using data captured over a limited time period.
 
 The two kinds of censoring are right censoring and left censoring. If you only know that the pertinent event is 
