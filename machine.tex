@@ -690,6 +690,37 @@ The hazard rate obtained from a life table is equal to the probability of dying 
 cumulative survival probability in column \textbf{Cum Survival}, is the probability of surviving from the operation date through to the end of the interval. It has no units, and it can be expressed as a fraction or as a percentage. 
 
 
+Using very narrow time slices doesn't hurt life-table calculations. In fact, you can define slices so narrow that each subject's survival time falls within its own private little slice. With $N$ subjects, $N$ rows would have one subject each; all the rest of the rows would be empty. And because empty rows don't affect the life-table calculations, you can delete them entirely, leaving a table with only $N$ rows, one for each subject. 
+(If you happen to have two or more subjects with exactly the same survival or censoring time, it's okay to put each of the subjects in a separate row). The life-table calculations work fine with only one subject per row and produce what's called \textit{Kaplan-Meier (K-M) survival estimates}.
+You can think of the K-M method as a very fine-grained life table or a life table as a grouped K-M calculation.
+
+The Kaplan-Meier survival estimate corresponding to the data given in Table~(\ref{tab:censoredexample}) is shown in Table~(\ref{tab:kaplanexample}).
+
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{lrrrrrr}
+\toprule
+{} &  Censored Status &  Survival Times &  Alive at Start &  Prob of Dying &  Prob of Surv &  Cum Survival \\
+\midrule
+4 &                0 &            0.50 &              10 &       0.000000 &      1.000000 &      1.000000 \\
+0 &                1 &            0.75 &               9 &       0.111111 &      0.888889 &      0.888889 \\
+8 &                1 &            2.30 &               8 &       0.125000 &      0.875000 &      0.777778 \\
+3 &                1 &            2.40 &               7 &       0.142857 &      0.857143 &      0.666667 \\
+6 &                0 &            3.50 &               6 &       0.000000 &      1.000000 &      0.666667 \\
+5 &                1 &            4.50 &               5 &       0.200000 &      0.800000 &      0.533333 \\
+9 &                1 &            5.20 &               4 &       0.250000 &      0.750000 &      0.400000 \\
+7 &                0 &            5.80 &               3 &       0.000000 &      1.000000 &      0.400000 \\
+1 &                1 &            6.10 &               2 &       0.500000 &      0.500000 &      0.200000 \\
+2 &                0 &            7.00 &               1 &       0.000000 &      1.000000 &      0.200000 \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:kaplanexample} Kaplan-Meier table corresponding to the example data in Table~(\ref{tab:censoredexample}).}
+\end{center}
+\end{table}
+
+
+Shouldn't the column \textbf{Alive at Start} only decrease when the previous row has definitely died?? Why is it decreasing for the censored data?? Seems like a poor estimate of the hazard rate and survival curve. A knock against the cases where the data has no lost to follow up censored cases, such as the SEER data. Again, leads to overly pessimistic estimates of survival.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
