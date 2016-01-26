@@ -770,7 +770,7 @@ We can transform our original data set into a new one, with one row for each mon
 Psuedocode for this transformation is found in section~\ref{subsec:pseudocode}.
 
 Explicit examples will help make this transformation clear.
-The untransformed datapoint represented Table~(\ref{tab:originaldead}) is transformed to the multiple records shown in Table~(\ref{tab:transformeddead}). All uncensored data is transformed in this way. All censored data is similar transformed. 
+The untransformed datapoint represented Table~(\ref{tab:originaldead}) is transformed to the multiple records shown in Table~(\ref{tab:transformeddead}). All uncensored data is transformed in this way. All censored data is similarly transformed. 
 The untransformed datapoint represented Table~(\ref{tab:originalalive}) is transformed to the multiple records shown in Table~(\ref{tab:transformedalive}).
 
 
@@ -846,7 +846,7 @@ newindex &                &                &        &            \\
 
 One obvious side effect of this transformation is that it explodes the data size.
 For this study, the original, untransformed colon cancer DataFrame has shape $(113072, 106)$, and the total transformed colon cancer DataFrame has shape $(4165251, 106)$.
-Similary, the original, untransformed lung cancer DataFrame has shape $(177089, 118)$, and the total transformed colon cancer DataFrame has shape $(3079931, 118)$.
+Similary, the original, untransformed lung cancer DataFrame has shape $(177089, 118)$, and the total transformed lung cancer DataFrame has shape $(3079931, 118)$.
 The biggest explosion in data size occured with the breast cancer data. 
 The original, untransformed breast cancer DataFrame has shape $(329949, 70)$, and the total transformed breast cancer DataFrame has shape $(15085711, 70)$.
 Traning machine learning algorithms on such large datasets, even after splitting into training and testing sets described below, require large RAM. All computations for this study were performed on a Dell XPS 8700 Desktop with 32BG of RAM.
@@ -864,6 +864,29 @@ resulting survival functions as presented in section~(\ref{subsec:pseudocode}) a
 
 
 \subsection{Decision Trees and Random Forests}
+
+\textbf{Decision tree} classifiers are attractive models because they can be intrepeted easily. Like the name decision tree suggests, we can think of this model as breaking down our data by making decisions based on asking a series of questions.
+Based on the features in our training set, the decision tree model learns a series of questions to infer the class labels of the samples. 
+
+\textbf{Random forests} have gained huge popularity in applications of machine learning during the last decade due to their good classification performance, scalability, and ease of use. Intuitively, a random forest can be considered as an \textit{ensemble of decision trees}. The idea behind ensemble learning is to combine \textbf{weak learners} to build a more robust model, a \textbf{strong learner}, that has a better generalization error and is less susceptible to overfitting. 
+
+The goal behind \textbf{ensemble methods} is to combine different classifiers into a meta-classifier that has a better generalization performance than each individual classifier alone. For example, assuming that we collected predictions from 10 experts, ensemble methods would allow us to strategically combine these predictions by the 10 experts to come up with a prediction that is more accurate and robust than the predictions by each individual expert. The individual decision trees that make an ensemble are called base learners, and as long as the error rate of each base learner is less than .50, the combined random forest will benefit from the affects of combining predictions to achieve a far greater accuracy.
+
+
+
+Figure~(\ref{fig:ensemble}) illustrates the power of ensemble methods; the Figure illustrates how the ensemble error rate is much lower than the Base learner error rate, as long as the Base learner error rate is less than 0.5. The Figure illustrates this effect for an ensemble of 500 base learners.
+
+
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[scale=1.0]{ensemble}
+\caption{\label{fig:ensemble} Illustration of ensemble methods showing how a collection of base learners with poor accuracy can combine to produce an accurate ensemble learner.}
+\end{figure}
+
+
+
+
 
 \begin{sidewaysfigure}[tbp]
 \centering 
