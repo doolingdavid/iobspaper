@@ -260,7 +260,7 @@ A great deal of data munging is necessary before using these SEER incidence file
 The \codewhite{STATE-COUNTY RECODE} field is a state-county combination where the first two characters represent the state FIPS code and the last three digits represent the FIPS county code.  
 This particular field illustrates an important feature of machine learning, that between \textit{categorical features} and \textit{numeric features}. All input into a machine learning algorithm must be numeric, but real numbers carry with them the usually extremely useful property known as the well-ordering property of the real numbers. But if one is tasked with encoding a categorical feature into suitable numeric format for machine learning, it is necessary to do so in a way that removes the well-ordering property~\cite{bowles}. 
 
-As a simple example of how to correctly treat categorical variables in a mchine learning context, consider the SEER variable \codewhite{SEX}. This variable is encoded with a numeric 1 for males and a numeric 2 for females as shown in Table ~\ref{tab:sex}. Values such as "Male" and "Female" encoded as numbers are dangerous because if not handled properly, they can generate bogus results \cite{downey}. The proper way to transform the SEER \codewhite{SEX} variable is to create two additional variables: \codewhite{sex$\_$Male} and \codewhite{sex$\_$Female}, and then to eliminate the variable \codewhite{SEX}. For example,
+As a simple example of how to correctly treat categorical variables in a mchine learning context, consider the SEER variable \codewhite{SEX}. This variable is encoded with a numeric 1 for males and a numeric 2 for females as shown in Table ~\ref{tab:sex}. Values such as "Male" and "Female" encoded as numbers are dangerous because if not handled properly, they can generate bogus results \cite{downey}. The proper way to transform the SEER \codewhite{SEX} variable is to create two additional variables: \codewhite{sex$\_$Male} and \codewhite{sex$\_$Female}, and then to eliminate the variables \codewhite{SEX} and \codewhite{sex\_Male} (keeping both of the variables \codewhite{sex\_Male} and \codewhite{sex\_Female} is a redundant represetation). For example,
 
 
 %%\begin{displaymath}
@@ -287,26 +287,42 @@ As a simple example of how to correctly treat categorical variables in a mchine 
 
 
 
+%\begin{equation}
+%\begin{tabular}{c}
+%\toprule
+%\codewhite{Sex} \\
+%\midrule
+%1 \\
+%\bottomrule
+%\end{tabular}
+%\longrightarrow
+%\begin{tabular}{cc}
+%\toprule
+%\codewhite{sex\_Male} & \codewhite{sex\_Female} \\
+%\midrule 
+%1 &  0 \\
+%\bottomrule
+%\end{tabular}
+%\label{eqn:onehotmale}
+%\end{equation}
+
+%and 
+
 \begin{equation}
-\begin{tabular}{c}
-\toprule
-\codewhite{Sex} \\
-\midrule
-1 \\
-\bottomrule
-\end{tabular}
+\begin{array}{c}
+\mbox{\codewhite{Sex}} \\ \hline
+1 \end{array} 
 \longrightarrow
-\begin{tabular}{cc}
-\toprule
-\codewhite{sex\_Male} & \codewhite{sex\_Female} \\
-\midrule 
-1 &  0 \\
-\bottomrule
-\end{tabular}
+ \begin{array}{c|c}
+\mbox{\codewhite{sex\_Male}} & \mbox{\codewhite{sex\_Female}} \\ \hline
+1 & 0 \\
+\end{array} 
+\longrightarrow
+\begin{array}{c}
+\mbox{\codewhite{sex\_Female}} \\ \hline
+0 \end{array}
 \label{eqn:onehotmale}
 \end{equation}
-
-and 
 
 
 
