@@ -309,41 +309,62 @@ As a simple example of how to correctly treat categorical variables in a mchine 
 %and 
 
 \begin{equation}
-\begin{array}{c}
+\begin{array}{|c|} \hline
 \mbox{\codewhite{Sex}} \\ \hline
-1 \end{array} 
+1 \\ \hline \end{array} 
 \longrightarrow
- \begin{array}{c|c}
+ \begin{array}{|c|c|}  \hline
 \mbox{\codewhite{sex\_Male}} & \mbox{\codewhite{sex\_Female}} \\ \hline
-1 & 0 \\
+1 & 0 \\ \hline
 \end{array} 
 \longrightarrow
-\begin{array}{c}
+\begin{array}{|c|}  \hline
 \mbox{\codewhite{sex\_Female}} \\ \hline
-0 \end{array}
+0  \\ \hline \end{array}
 \label{eqn:onehotmale}
 \end{equation}
 
 
 
+and
+
+
 \begin{equation}
-\begin{tabular}{c}
-\toprule
-\codewhite{Sex} \\
-\midrule
-2 \\
-\bottomrule
-\end{tabular}
+\begin{array}{|c|} \hline
+\mbox{\codewhite{Sex}} \\ \hline
+2 \\ \hline \end{array} 
 \longrightarrow
-\begin{tabular}{cc}
-\toprule
-\codewhite{sex\_Male} & \codewhite{sex\_Female} \\
-\midrule 
-0 & 1 \\
-\bottomrule
-\end{tabular}
+ \begin{array}{|c|c|}  \hline
+\mbox{\codewhite{sex\_Male}} & \mbox{\codewhite{sex\_Female}} \\ \hline
+0 & 1 \\ \hline
+\end{array} 
+\longrightarrow
+\begin{array}{|c|}  \hline
+\mbox{\codewhite{sex\_Female}} \\ \hline
+1  \\ \hline \end{array}
 \label{eqn:onehotfemale}
 \end{equation}
+
+
+
+%\begin{equation}
+%\begin{tabular}{c}
+%\toprule
+%\codewhite{Sex} \\
+%\midrule
+%2 \\
+%\bottomrule
+%\end{tabular}
+%\longrightarrow
+%\begin{tabular}{cc}
+%\toprule
+%\codewhite{sex\_Male} & \codewhite{sex\_Female} \\
+%\midrule 
+%0 & 1 \\
+%\bottomrule
+%\end{tabular}
+%\label{eqn:onehotfemale}
+%\end{equation}
 
 
 
