@@ -884,9 +884,13 @@ An additional characteristic of this transformed data that requires careful trea
 This ratio turns out to be $\approx 396$ for the breast cancer data, $\approx  99$ for the colon cancer data, and 
 $\approx 22.75$ for the lung cancer data. 
 
+
  
 The models described below are trained to learn the values of \codewhite{newtarget}, which is a binary variable: a value of '0' indicating that the subject is still alive at the given month, while a value of '1' indicates that the patient died at that particular value of \codewhite{months}. The random forests and neural networks described below are binary classifiers with the target \codewhite{newtarget}. Fortunately, both the random forests and neural networks are capable of not only performing strict class prediction, i.e. predicting whether \codewhite{newtarget} is '0' or '1', but are also able to predict the \textit{probablity} of \codewhite{newtarget} being '0' or '1'., and thus learning the hazard function.
 
+
+Finally, we emphasize the crucial point that features \codewhite{survival\_months} and \\
+\codewhite{vital\_status\_recode\_Dead} are dropped from both the training and and testing data, and are replaced with the features \codewhite{months} and \codewhite{newtarget}, as illustrated in Tables~(\ref{tab:originaldead},~\ref{tab:originalalive},~\ref{tab:transformeddead},~\ref{tab:transformedalive}). The information of which subjects represent censored data (\codewhite{vital\_status\_recode\_Dead} == 0) and which died is retained and recoverable trough the \codewhite{newindex} variable and is needed for proper evaluation of the performance metrics; when evaluating AUC curves for the 6, 12, and 60 month binary classifiers, we need to limit the test data to those subjects that we know definitively whether or not they survived 6, 12 or 60 months respectively. This requirement will necessitate the elmination of some of the censored data when computing some of the performance metrics.
 
 %\begin{equation}
 %(\codewhite{survival\_months} >= 6 \& \codewhite{vital\_status\_recode\_Dead} == 0) \| 
@@ -977,7 +981,12 @@ Keras is a minimalist, highly modular neural networks library, written in Python
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Performance Metrics}
+\section{Results}
+\label{sec:results}
+
+
+
+\subsection{Performance Metrics}
 \label{sec:performancemetrics}
 
 % NewPatientBreastML.html
@@ -1011,7 +1020,7 @@ binary classifiers derived from the full survival curve predictions; see text fo
 \end{table}
 
 The AUC scores for each of the 18 different binary classifiers are listed in Table~(\ref{tab:AUC}). We emphasize the treatment explained in section~(\ref{sec:predmodels})  concering the correct treatment of the censored test data when evaluating performance metrics.
-Namely, when computing the AUC for the 12 month survival curve classifiers, we restrict the test data subjects in the untransformed data set that satisfy either of the following mutually exlusive conditions:
+Namely, when computing the AUC for the 12 month survival curve classifiers, we restrict the test data subjects to those that in the untransformed data set that satisfy either of the following mutually exlusive conditions:
 
 \begin{itemize}[noitemsep]
 \item \codewhite{survival\_months} >= 12 AND \codewhite{vital\_status\_recode} == 0
@@ -1051,6 +1060,23 @@ We limit evaluation data to subsets of the data where we know for certain whethe
 
 TO DO: Check if comorbidites are contributing to the outliers in the agreement boxplots that follow.
 Could mesh with the prevous work~\cite{ISI:000355882700012}.
+
+
+An additional means of validating the predictions of these models is by comparing their predictions to each other for the same set of input data. 
+Table~(\ref{tab:agree}) shows the strong agreement between the random forest and neural network classifiers for each cancer type. Python code showing how the values in Table~(\ref{tab:agree}) are computed is available in the files 
+\codewhite{NewPatientBreastCF.html}, \codewhite{NewPatientColonCF.html}, and \codewhite{NewPatientLung.html} in the GitHub repository containing supplemental matierial for this study~\cite{supp}. This table is computed as follows. 
+For each cancer type (breast,colon, and lung), do the following:
+
+\begin{itemize}[noitemsep]
+\item use the corresponding Random Forest and Neural Network models to compute the survival curves for all of the test subjects
+\item extract the values of the survival curve evaluted for 6, 12, and 60 months for both both models
+\item if both models predict less than .5 or both models predict greater than or equal to .5, that counts as agreement
+\item otherwise, the models disagree
+\end{itemize}
+
+
+This high level of agreement between two models lends confidence to the notion that they have both learned from the training data and are generalizing well. Figures~(\ref{fig:colonbox},~\ref{fig:breastbox},~\ref{fig:lungbox}) 
+show box plots of the value of the random forest prediction subtracted from the neural network prediction.
 
 
 \begin{table}[tbp]
@@ -1208,27 +1234,13 @@ Changing the data in Table~(\ref{tab:boston1940}) so that the address field is c
 Behind the scenes, the apps use the input to the address field to make a call to the Google Maps API to convert the address into a latitude, longitude and elevation.
 These probablities are noticeably higher and reflect the documented effects of both longitude and elevation on cancer treatment and prognosis in the United States.
 
-An additional means of validating the predictions of these models is by comparing their predictions to each other for the same set of input data. 
-Table~(\ref{tab:agree}) shows the strong agreement between the random forest and neural network classifiers for each cancer type. Python code showing how the values in Table~(\ref{tab:agree}) are computed is available in the files 
-\codewhite{NewPatientBreastCF.html}, \codewhite{NewPatientColonCF.html}, and \codewhite{NewPatientLung.html} in the GitHub repository containing supplemental matierial for this study~\cite{supp}. This table is computed as follows. 
-For each cancer type (breast,colon, and lung), do the following:
-
-\begin{itemize}[noitemsep]
-\item use the corresponding Random Forest and Neural Network models to compute the survival curves for all of the test subjects
-\item extract the values of the survival curve evaluted for 6, 12, and 60 months for both both models
-\item if both models predict less than .5 or both models predict greater than or equal to .5, that counts as agreement
-\item otherwise, the models disagree
-\end{itemize}
-
-
-This high level of agreement between two models lends confidence to the notion that they have both learned from the training data and are generalizing well. Figures~(\ref{fig:colonbox},~\ref{fig:breastbox},~\ref{fig:lungbox}) 
-show box plots of the value of the random forest prediction subtracted from the neural network prediction.
-
 
 \section{Further Directions}
 
 Discussion of causality. A certain Marital status is not a "cause'' of a better prognosis; c.f. Simpson's Paradox. Implementation of Judea Pearl's Causality Calculus.
 
+The leap from observation to causality can be hazardous, however, if not analyzed correctly\footnote{``Simpson's Paradox,'' \url{http://www.intuitor.com/statistics/SimpsonsParadox.html}, accessed 11 Jan 2016.}.
+ IOBS is looking into making these conclusions drawn from evidence-based, machine learning models more rigorous by firmly vetting them within the cutting-edge methods of Causality Calculus as pioneered by Judea Pearl.\footnote{Judea Pearl homepage at the University of California, Los Angeles, \url{http://bayes.cs.ucla.edu/jp_home.html}, accessed 11 Jan 2016.}
 
 \appendix
 \section{Selected Features}
@@ -1789,10 +1801,11 @@ after the paper has been written.
 
 %\end{thebibliography}
 
-\bibliographystyle{plain}
+%%\bibliographystyle{plain}
 %%\bibliographystyle{plainnat}
+\bibliographystyle{ieeetr}
 \bibliography{machinebib}
-\nocite{*}
+%\nocite{*}
 
 %\printbibliography
 

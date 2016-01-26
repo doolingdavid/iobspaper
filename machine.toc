@@ -12,20 +12,21 @@
 \contentsline {subsection}{\numberline {4.1}Training and Test Partitions}{17}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Decision Trees and Random Forests}{17}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}MLP Neural Networks}{18}{subsection.4.3}
-\contentsline {section}{\numberline {5}Performance Metrics}{19}{section.5}
-\contentsline {subsection}{\numberline {5.1}Model Agreement}{19}{subsection.5.1}
-\contentsline {section}{\numberline {6}Survival Curve Prediction Apps}{19}{section.6}
+\contentsline {section}{\numberline {5}Results}{19}{section.5}
+\contentsline {subsection}{\numberline {5.1}Performance Metrics}{19}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Model Agreement}{20}{subsection.5.2}
+\contentsline {section}{\numberline {6}Survival Curve Prediction Apps}{20}{section.6}
 \contentsline {section}{\numberline {7}Further Directions}{22}{section.7}
 \contentsline {section}{\numberline {A}Selected Features}{22}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{22}{subsection.A.1}
 \contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{25}{subsection.A.2}
-\contentsline {subsection}{\numberline {A.3}Breast Cancer Feature Selection}{27}{subsection.A.3}
-\contentsline {section}{\numberline {B}Pseudocode for the Data Transformation}{29}{appendix.B}
+\contentsline {subsection}{\numberline {A.3}Breast Cancer Feature Selection}{28}{subsection.A.3}
+\contentsline {section}{\numberline {B}Pseudocode for the Data Transformation}{30}{appendix.B}
 \contentsline {section}{\numberline {C}Model Architecture and Python Code}{30}{appendix.C}
 \contentsline {subsection}{\numberline {C.1}Breast Random Forest Model}{30}{subsection.C.1}
 \contentsline {subsection}{\numberline {C.2}Colon Random Forest Model}{30}{subsection.C.2}
-\contentsline {subsection}{\numberline {C.3}Lung Random Forest Model}{30}{subsection.C.3}
-\contentsline {subsection}{\numberline {C.4}Breast Neural Network Model}{30}{subsection.C.4}
+\contentsline {subsection}{\numberline {C.3}Lung Random Forest Model}{31}{subsection.C.3}
+\contentsline {subsection}{\numberline {C.4}Breast Neural Network Model}{31}{subsection.C.4}
 \contentsline {subsection}{\numberline {C.5}Colon Cancer Neural Network Model}{31}{subsection.C.5}
 \contentsline {subsection}{\numberline {C.6}Lung Cancer Neural Network Model}{32}{subsection.C.6}
-\contentsline {paragraph}{Note added.}{32}{section*.3}
+\contentsline {paragraph}{Note added.}{33}{section*.3}
