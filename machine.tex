@@ -879,8 +879,11 @@ That is, we restrict ourselves to subsets of the data where we know for certain 
 
 After performing the data transformation adumbrated in section~(\ref{subsec:transformation}), it is necessarily to be mindful of how we partition the data into training and testing data. Each subject that was represented by a single row in the original untransformed dataset now potentially is represented by multiple rows in the transformed dataset, and care must be taken to ensure that all of the rows corresponding to a particular subject are either assigned exclusively to the training set or to the testing set. 
 An additional characteristic of this transformed data that requires careful treatment involves balancing. The transformation results in many new records with the target variable \codewhite{newtarget} == 0. The training and test sets must be chosen such that the ratio of the number of records with \codewhite{newtarget} == 0 to that of the number of records with \codewhite{newtarget} == 1 is the same in the training and test datasets.
+This ratio turns out to be $\approx 396$ for the breast cancer data, $\approx  99$ for the colon cancer data, and 
+$\approx 22.75$ for the lung cancer data. 
 
  
+The models described below are trained to learn the values of \codewhite{newtarget}, which is a binary variable: a value of '0' indicating that the subject is still alive at the given month, while a value of '1' indicates that the patient died at that particular value of \codewhite{months}. The random forests and neural networks described below are binary classifiers with the target \codewhite{newtarget}. Fortunately, both the random forests and neural networks are capable of not only performing strict class prediction, i.e. predicting whether \codewhite{newtarget} is '0' or '1', but are also able to predict the \textit{probablity} of \codewhite{newtarget} being '0' or '1'., and thus learning the hazard function.
 
 
 %\begin{equation}
@@ -932,6 +935,43 @@ Random Forests are frequent winners of the Kaggle machine learning competitions~
 \caption{\label{fig:lungdt} The top levels of a decision tree trained on the Lung Cancer training data.}
 \end{center}
 \end{sidewaysfigure}
+
+
+
+\subsubsection{Breast Random Forest Model}
+
+
+\begin{verbatim}
+f = RandomForestClassifier(n_estimators=20,min_samples_split=3,
+                             max_depth = 15,
+                            max_features = .8,
+                             n_jobs=5,verbose=2,random_state=33)
+\end{verbatim}
+
+
+\subsubsection{Colon Random Forest Model}
+
+\begin{verbatim}
+rf = RandomForestClassifier(n_estimators=25,min_samples_split=3,
+                             max_depth = 10,
+                            max_features = .5,
+                             n_jobs=5,verbose=2,random_state=3)
+\end{verbatim}
+
+
+
+
+\subsubsection{Lung Random Forest Model}
+
+
+\begin{verbatim}
+rf = RandomForestClassifier(n_estimators=25,min_samples_split=3,
+                             max_depth = 11,
+                            max_features = .8,
+                             n_jobs=5,verbose=2,random_state=3)
+\end{verbatim}
+
+
 
 
 \subsection{MLP Neural Networks}
