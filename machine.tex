@@ -854,6 +854,7 @@ Traning machine learning algorithms on such large datasets, even after splitting
 
 
 \section{Prediction Models}
+\label{sec:predmodels}
 
 With the datasets transformed as described in section~(\ref{subsec:transformation}), we are now able to split them into training and testing sets in the usual manner.
 The classifier models described in this section are learning the hazard function: given all of the data given in sections~(\ref{subsec:lungfeatures}, ~\ref{subsec:colonfeatures}, ~\ref{subsec:breastfeatures}), which includes the field \codewhite{months} (the months after diagnosis), the models predict the target variable \codewhite{newtarget}, which represents the probability of dying in that month, given that the patient represented by the record has survived up to that month. This prediction task should not be confused with the regression problem of trying to predict precisely in what month a patient will die.
@@ -954,7 +955,7 @@ In addition, the pharmaceutical industry recently started to use deep learning t
 
 IOBS has chosen to use the neural network implementation Keras developed at MIT.
 Keras was initially developed as part of the research effort of project ONEIROS (Open-ended Neuro-Electronic Intelligent Robot Operating System)~\cite{keras}.
-Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano. The model architecture for each cancer type are given in sections~(\ref{subsec:breastnn}).
+Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano. The model architecture for each cancer type are given in sections~(\ref{subsec:breastnn},~\ref{subsec:colonnn},~\ref{subsec:lungnn}). Training a neural network and choosing an appropriate architecture is as much art as science~\cite{deeplearning}, and the search for a good neural network architecture for the lung cancer case was more demanding than for the breast and colon. 
 
 
 
@@ -1008,6 +1009,16 @@ Lung NN    &        .765              &        .796               &  .875  \\
 binary classifiers derived from the full survival curve predictions; see text for details.}
 \end{center}
 \end{table}
+
+The AUC scores for each of the 18 different binary classifiers are listed in Table~(\ref{tab:AUC}). We emphasize the treatment explained in section~(\ref{sec:predmodels})  concering the correct treatment of the censored test data when evaluating performance metrics.
+Namely, when computing the AUC for the 12 month survival curve classifiers, we restrict the test data subjects in the untransformed data set that satisfy either of the following mutually exlusive conditions:
+
+\begin{itemize}[noitemsep]
+\item \codewhite{survival\_months} >= 12 AND \codewhite{vital\_status\_recode} == 0
+\item \codewhite{vivtal\_status\_recode} == 1
+\end{itemize}
+
+We limit evaluation data to subsets of the data where we know for certain whether or not the subject survived at least 12 months. Similar considerations apply to the 12 and 60 months AUC calculations. The lowest AUC in Table~(\ref{tab:AUC}) is .765, corresponding to the lung neural network model predictions for 6 months survival, while the highest AUC in Table~(\ref{tab:AUC}) is .885, corresponding to the breast random forest model predictions for 12 months survival.
 
 
 
@@ -1230,7 +1241,7 @@ IPython notebooks explicitly providing all code, as well as html versions of the
 \subsection{Colon Cancer Feature Selection}
 \label{subsec:colonfeatures}
 
-The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in Section is given below and also available in full detail in the file 
+The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in section~(\ref{subsec:transformation}) is given below and also available in full detail in the file 
 \codewhite{NewPatientColonML.html}.
 
 
@@ -1340,15 +1351,15 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \item year\_of\_birth
 \item year\_of\_diagnosis
 \item month
-\item newtarget
 \end{itemize}
 
-
+and 
+\codewhite{newtarget} is the target variable, indicating whether or not the subject died in month given by the value of the \codewhite{month} variable.
 
 \subsection{Lung Cancer Feature Selection}
 \label{subsec:lungfeatures}
 
-The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in Section is given below and also available in full detail in the file 
+The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in section~(\ref{subsec:transformation}) is given below and also available in full detail in the file 
 \codewhite{NewPatientLungML.html}.
 
 \begin{itemize}[noitemsep]
@@ -1466,14 +1477,17 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \item year\_of\_birth
 \item year\_of\_diagnosis
 \item month
-\item newtarget
 \end{itemize}
+
+
+and 
+\codewhite{newtarget} is the target variable, indicating whether or not the subject died in month given by the value of the \codewhite{month} variable.
 
 
 \subsection{Breast Cancer Feature Selection}
 \label{subsec:breastfeatures}
 
-The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in Section is given below and also available in full detail in the file 
+The feature set used as input into both the Random Forest and Neural Network models, after the transformation described in section~(\ref{subsec:transformation}) is given below and also available in full detail in the file 
 \codewhite{NewPatientBreastML.html}.
 
 \begin{itemize}[noitemsep]
@@ -1546,8 +1560,10 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \item year\_of\_birth
 \item year\_of\_diagnosis
 \item month
-\item newtarget
 \end{itemize}
+
+and 
+\codewhite{newtarget} is the target variable, indicating whether or not the subject died in month given by the value of the \codewhite{month} variable.
 
 
 \section{Pseudocode for the Data Transformation}
@@ -1626,15 +1642,11 @@ rf = RandomForestClassifier(n_estimators=25,min_samples_split=3,
 
 
 
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Breast Neural Network Model}
 \label{subsec:breastnn}
 
-The archictecture of the Keras multilayer perceptron neural notebook is given explicitly below:
+The archictecture of the Keras multilayer perceptron neural network model 
+trained on the breast cancer data is given explicitly below:
 
 \begin{verbatim}
 modelbreast = Sequential()
@@ -1658,8 +1670,74 @@ modelbreast.compile(loss='binary_crossentropy', optimizer=rms, class_mode="binar
 
 \end{verbatim}
 
+and trained with a batch size of 1500 for 200 epochs.
+
+\subsection{Colon Cancer Neural Network Model}
+\label{subsec:colonnn}
+
+The archictecture of the Keras multilayer perceptron neural network model 
+trained on the colon cancer data is given explicitly below:
+
+\begin{verbatim}
 
 
+modelcolon = Sequential()
+modelcolon.add(Dense(114, input_shape=(102,) ,init='normal'))
+modelcolon.add(Activation('relu'))
+modelcolon.add(Dropout(0.05))
+modelcolon.add(Dense(50, init='normal'))
+modelcolon.add(Activation('relu'))
+modelcolon.add(Dropout(0.05))
+
+
+modelcolon.add(Dense(35, init='normal'))
+modelcolon.add(Activation('relu'))
+modelcolon.add(Dropout(0.05))
+
+modelcolon.add(Dense(2, init='normal'))
+modelcolon.add(Activation('softmax'))
+
+rms = RMSprop(lr=0.001)
+
+modelcolon.compile(loss='binary_crossentropy', optimizer=rms, class_mode="binary")
+
+\end{verbatim}
+
+and trained with a batch size of 1500 for 200 epochs.
+
+
+\subsection{Lung Cancer Neural Network Model}
+\label{subsec:lungnn}
+
+
+The archictecture of the Keras multilayer perceptron neural network model 
+trained on the lung cancer data is given explicitly below:
+
+\begin{verbatim}
+
+modellung = Sequential()
+modellung.add(Dense(114, input_shape=(114,) ,init='normal'))
+modellung.add(Activation('relu'))
+modellung.add(Dropout(0.1))
+modellung.add(Dense(80, init='normal'))
+modellung.add(Activation('relu'))
+modellung.add(Dropout(0.1))
+modellung.add(Dense(40, init='normal'))
+modellung.add(Activation('relu'))
+modellung.add(Dropout(0.1))
+
+
+modellung.add(Dense(2, init='normal'))
+modellung.add(Activation('softmax'))
+
+
+rms = RMSprop(lr=0.001)
+
+modellung.compile(loss='binary_crossentropy', optimizer=rms, class_mode="binary")
+
+\end{verbatim}
+
+and trained with a batch size of 2000 for 50 epochs.
 
 %\section{GitHub Repositories}
 %Please always give a title also for appendices.
