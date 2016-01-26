@@ -114,8 +114,8 @@ and Cox's Proportional Hazard models \cite{cam}. The Kaplan-Meier techniques onl
 
 Previous work applying machine learning methods to subsets of the SEER data include creative attempts to deal with the problems presented by  "right-censored data." The authors of ~\cite{ISI:000337467400005} use semi-supervised learning techniques to predict 5 year survival, essentially imputing values for SEER records where the survival months infomation is censored at a value less than 5 years. The authors of ~\cite{ISI:000355882700012} investigate the effects of comordbidities; i.e., patients with two different cancer diagnosises, but their treatment of the censored data underestimates the survival probabilities. All records representing patients who survived at least 60 months as well as all those who died earlier than 60 months were considered, but patients alive prior to 60 months but censored out of the study before 60 months were not included. This treatment biases the data and the predictions, leading to overly pessimistic survival probablilites predicted by the trained models.
 
-To overcome these limitations of the traditional methods, IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed simply so as to make predictions for the hazard function, 
- probability of dying in the next month, given that the patient has not yet died.
+To overcome these limitations of the traditional methods, IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed simply so as to make predictions for the hazard function (
+ probability of dying in the next month, given that the patient has not yet died).
 The full survival function can then be derived from the hazard function.
 Details of this transformation can be found in this blog post \cite{kuhn}.
 
@@ -581,7 +581,7 @@ An unsatisfactory consequence is that these estimates are highly course-grained,
 \subsection{Survival Analysis}
 \label{subsec:survprimer}
 
-
+%%%  will need to tighten this up a lot lot lot 
 
 To understand survival analysis, you first have to understand survival data - that survival times are \textit{intervals} between certain kinds of events, that these intervals are often affected by a peculiar kind of "partial missingness'' called \textit{censoring}, and that censored data must be analyzed in a special way to avoid biased estimates and incorrect conclusions.
 
@@ -913,7 +913,7 @@ Figure~(\ref{fig:ensemble}) illustrates the power of ensemble methods; the Figur
 
 \begin{figure}[!ht]
   \centering
-    \includegraphics[scale=1.0]{ensemble}
+    \includegraphics[scale=.75]{ensemble}
 \caption{\label{fig:ensemble} Illustration of ensemble methods showing how a collection of base learners with poor accuracy can combine to produce an accurate ensemble learner.}
 \end{figure}
 
@@ -921,6 +921,9 @@ Figure~(\ref{fig:ensemble}) illustrates the power of ensemble methods; the Figur
 IOBS has chosen to use the Python scikit-learn implemenation of the Random Forest machine 
 learning classifier~\cite{rf}.
 Random Forests are frequent winners of the Kaggle machine learning competitions~\cite{kagglerf}.
+The model parameters for each cancer type are given in sections~(\ref{subsec:breastrf},~\ref{subsec:colonrf},~\ref{subsec:lungrf}).
+
+
 
 
 
@@ -939,41 +942,6 @@ Random Forests are frequent winners of the Kaggle machine learning competitions~
 
 
 
-\subsubsection{Breast Random Forest Model}
-
-
-\begin{verbatim}
-f = RandomForestClassifier(n_estimators=20,min_samples_split=3,
-                             max_depth = 15,
-                            max_features = .8,
-                             n_jobs=5,verbose=2,random_state=33)
-\end{verbatim}
-
-
-\subsubsection{Colon Random Forest Model}
-
-\begin{verbatim}
-rf = RandomForestClassifier(n_estimators=25,min_samples_split=3,
-                             max_depth = 10,
-                            max_features = .5,
-                             n_jobs=5,verbose=2,random_state=3)
-\end{verbatim}
-
-
-
-
-\subsubsection{Lung Random Forest Model}
-
-
-\begin{verbatim}
-rf = RandomForestClassifier(n_estimators=25,min_samples_split=3,
-                             max_depth = 11,
-                            max_features = .8,
-                             n_jobs=5,verbose=2,random_state=3)
-\end{verbatim}
-
-
-
 
 \subsection{MLP Neural Networks}
 
@@ -986,140 +954,18 @@ In addition, the pharmaceutical industry recently started to use deep learning t
 
 IOBS has chosen to use the neural network implementation Keras developed at MIT.
 Keras was initially developed as part of the research effort of project ONEIROS (Open-ended Neuro-Electronic Intelligent Robot Operating System)~\cite{keras}.
-Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano.
+Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano. The model architecture for each cancer type are given in sections~(\ref{subsec:breastnn}).
 
 
 
 
-%\subsection{Survival function}
-
-%Let $T$ be a (possibly infinite, but always non-negative) random lifetime taken from the %population under study. For example, the amount of time a couple is married. Or the time it %takes a user to enter a webpage (an infinite time it they never do). The survival function, $S(t)%$, of a population is defined as
-
-
-%\begin{equation}
-%S(t) = \mbox{Pr}(T \ge t)
-%\end{equation}
-
-
-
-%In human language: the survival function defines the probability the death event has not %occured yet at time $t$, or equivalently, the probability of surviving until at least
-% time $t$. Note the following properties of the survival function:
-
-%\begin{enumerate}
-%\item $0 \leq S(t) \leq 1$
-%\item $F_{T}(t) = 1 - S(t)$, where $F_{T}(t)$ is the CDF of $T$, which implies 
-%\item $S(t)$ is a non-increasing function of $t$.
-%\end{enumerate}
-
-
-%\subsection{Hazard curve}
-
-%We are also interested in the probability of dying in the next instant, given we haven't expired %yet. Mathematically, that is:
-
-%\begin{equation}
-%\begin{split}\lim_{\delta t \rightarrow 0 } \; Pr( t \le T \le t + \delta t | T > t)\end{split}
-%\end{equation}
-
-
-%This quantity goes to 0 as $\delta t$ shrinks, so we divide this by the interval $\delta t$ (like %we might do in calculus). This defines the hazard function at time $t, \lambda(t)$:
-
-
-%\begin{equation}
-%\begin{split}\lambda(t) =  \lim_{\delta t \rightarrow 0 } \; \frac{Pr( t \le T \le t + \delta t | T %> t)}{\delta t}\end{split}
-%\end{equation}
 
 
 
 
-%It can be shown with quite elementary probability that this is equal to:
-
-%\begin{equation}
-%\lambda(t) = \frac{-S'(t)}{S(t)}
-%\end{equation}
-
-
-%and solving this differential equation, we get:
-
-%\begin{equation}
-%S(t) = \exp\left( -\int_0^t \lambda(z) dz \right)
-%\end{equation}
-
-%What I love about hte above equation is that it defines \textbf{all} survival functions, and %because the hazard function is arbitrary (i.e., there is no parametric form), the entire function %is non-parametric (this allows for very flexible curves). Notice that we can now speak either %about the survival function, $S(t)$, or the hazard function, $\lambda(t)$, and we can convert %back and forth quite easily. It also gives us another, albeit less useful, expression for
-% $f_T(t)$: Upon differentiation and some algebra, we recover:
-
-%\begin{equation}
-%f_T(t) = \lambda(t)\exp\left( -\int_0^t \lambda(z) dz \right)
-%\end{equation}
-
-%Of course, we do not observe the true survival curve of a population. We must use the %observed data to estimate it. We also want to continue to be non-parametric, that is not %assume anything about how the survival curve looks. The \textit{best} method to recreate the %survival function non-parametrically from the data is known as the Kaplan-Meier estimate.
 
 
 
-%To estimate the survival function, we use the Kaplan-Meier Estimate, defined as:
-
-%\begin{equation}
-%\hat{S}(t) = \prod_{t_i < t} \frac{n_i - d_i}{n_i}
-%\end{equation}
-
-%\begin{equation}
-%\hat{S}(t) = \prod_{t_i \lt t} \frac{n_i - d_i}{n_i}
-%\end{equation}
-
-%where $d_{i}$ are the number of death events at time $t$ and $n_{i}$ is the number of %subjects at risk of death just prior to time $t$.
-
-
-%Put in discussion about how the methods presented by us are \textbf{personalized} survival %curves. Much more interesting, pragmatic, actionable.
-
-
-
-%\section{Decision trees for survival analysis}
-
-%Survival analysis is an interesting problem in machine leanring, but it doesn't get nearly as %much attention as the usual classification and regression tasks, so there aren't as many tools %for it. Here I describe a nifty reduction that allows us to bring more traditional machine-%learning tools to bear on the problem. Combined with the view of decision trees as greedy %piecewise-constant loss-minimizing classifiers, it enables a number of powerful and flexible %algorithms for large-scale discrete survival analysis.
-
-%Discrete survival analysis is motivated by problems like disease prognosis. Suppose we're %trying to predict survival times from a rare disease. We enroll some subjects who were just %diagnosed, and we check up on them monthly until they die. Then we try to predict the time %until recurrence, $\mathbf{Y}$, from data about the patient, $\mathbf{X}$.
-
-%We could use standard regression algorithms, but there are a couple of wrinkles:
-
-%\begin{itemize}
-%\item We only know the recurrence times up to the month, because that's how often we check %up on them, so $\mathbf{Y}$ isn't actually continuous. This is where the "discrete'' part of the %name comes from. (We could porbably get the exact death rate if we tried, but that's too %complex for us right now. Plus, it'll make the analysis harder later, as we'll see.)
-%\item $\mathbf{Y}$ is known to be greater than zero. Most regression algorithms don't have a %natural way to take this account.
-%\item Most importantly, \textbf{we won't be able to observe a recurrence for everyone}. Some %people will be lost to follow-up. Some people will be cured. Even some of those who die might %outlast the study period. This leads to a problem called \textit{right-censored data}, where for %certain patients we know that, say, $\mathbf{Y} > 60$ (months), but we don't know the exact %value of $\mathbf{Y}$.
-%\end{itemize}
-
-%We could get around the last one by discarding all data points that don't experience a %recurrence, but this would introduce severe selection bias. CRITICIZE THAT OTHER GUYs %PAPER THAT DOES EXACTLY THIS. Plus, it would throw away of lot of information on healthy %people. So instead we'll do something more clever.
-
-%\subsection{The Hazard Function}
-
-%If we were doing ordinary regression, where we had observed the $\mathbf{Y}$ for each $%%\mathbf{X}$, we would try to learn a function $f(\mathbf{X}) = E(\mathbf{Y} | \mathbf{X})$ %(or sometimes some other property of the conditional distribution of $\mathbf{Y}$, like the %median). But we don't have enough information about $\mathbf{Y}$ for that to work.
-
-%So instead of thinking in terms of $E(\mathbf{Y} | \mathbf{X})$, we'll instead think about %something more granular called the \textit{hazard function}. The hazard function is
-
-%\begin{equation}
-%h(X, t) = P(Y=t | Y \ge t, X),
-%\end{equation}
-%the probability that, if someone has survived up until month $t$, they will die in that month.
-
-%In fact, leaning $h$ will tell us \textit{more} about the disease than leaning $f$, because it %will give us not only the expected survival time but the entire distribution of survival times:
-
-%\begin{equation}
-%P(Y = t|X) = h(X, t)\prod_{i=1}^{t-1} (1 - h(X, i)),
-%\end{equation}
-%so we can recover the entire probability mass function.
-
-
-%\subsection{A Loss Function}
-
-%So we want to learn some approximation $\hat h(X, t) \approx h(X, t)$. But how do we decide %what a good approximation is? The obvious thing to try is maximizing the expected log-%likelihood.
-
-%The other wrinkle is that we don't actually see $\mathbf{Y}$. Instead we see some related %variables - how long each subject was in the study $(\mathbf{T})$, and whether they exited %by dying or by being censored $(\mathbf{D})$. ($\mathbf{D}$ is a Boolean variable, so 
-%$\mathbf{D} = 1$ if $\mathbf{T} = \mathbf{Y}$, and $\mathbf{D} = 0$ if $\mathbf{T} < %%\mathbf{Y}$).
-
-%We could try to evaluate the log-likelihood of the exact data we see - that is, 
-%$P(T, D|X)$. But that would require us to build a model not only of the time of death but also %the time of censorship (because we'd need the likelihood of getting censored data at time $%%\mathbf{T}$). Usually the censorship distribution is a property of the data-collection %mechanism, not the underlying reality - for instance, in clinical studies it's a property of the %follow-up time. So a prediction of it probably won't generalize well to other settings.
-
-%For that reason, instead of evaluating the likelihood of the entire data point $(\mathbf{T}, %%\mathbf{D})$, we pretend that censorship just exogenously removes some information about %$\mathbf{Y}$. So we'll split our likelihood into two pieces:
-%$P(\mathbf{Y} = \mathbf{T})$ for uncensored data, and $P(\mathbf{Y} > \mathbf{T})$ for %censored data. Given this, we can write down the log-likelihood of seeing a particular datum if 
-%$\hat{h}$ were correct:
 
 
 
@@ -1259,66 +1105,12 @@ Lung & .861 & .883 & .900 \\
 
 
 
-%\begin{table}[tbp]
-%\centering
-%\begin{tabular}{|lr|c|}
-%\hline
-%x&y&x and y\\
-%\hline 
-%a & b & a and b\\
-%1 & 2 & 1 and 2\\
-%$\alpha$ & $\beta$ & $\alpha$ and $\beta$\\
-%\hline
-%\end{tabular}
-%\caption{\label{tab:i} We prefer to have borders around the tables.}
-%\end{table}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\begin{figure}[tbp]
-%\centering % \begin{center}/\end{center} takes some additional vertical space
-%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
-%\hfill
-%\includegraphics[width=.45\textwidth,origin=c,angle=180]{img2.pdf}
-% "\includegraphics" is very powerful; the graphicx package is already loaded
-%\caption{\label{fig:i} Always give a caption.}
-%\end{figure}
-
-%\begin{table}[tbp]
-%\centering
-%\begin{tabular}{|lr|c|}
-%\hline
-%x&y&x and y\\
-%\hline 
-%a & b & a and b\\
-%1 & 2 & 1 and 2\\
-%$\alpha$ & $\beta$ & $\alpha$ and $\beta$\\
-%\hline
-%\end{tabular}
-%\caption{\label{tab:i} We prefer to have borders around the tables.}
-%\end{table}
-
-%We discourage the use of inline figures (wrapfigure), as they may be
-%difficult to position if the page layout changes.
-
-%We suggest not to abbreviate: ``section'', ``appendix'', ``figure''
-%and ``table'', but ``eq.'' and ``ref.'' are welcome. Also, please do
-%not use \texttt{\textbackslash emph} or \texttt{\textbackslash it} for
-%latin abbreviaitons: i.e., et al., e.g., vs., etc.
 
 
-
-%\section{Sections}
-%\subsection{And subsequent}
-%\subsubsection{Sub-sections}
-%\paragraph{Up to paragraphs.} We find that having more levels usually
-%reduces the clarity of the article. Also, we strongly discourage the
-%use of non-numbered sections (e.g.~\texttt{\textbackslash
-%  subsubsection*}).  Please also see the use of
-%``\texttt{\textbackslash texorpdfstring\{\}\{\}}'' to avoid warnings
-%from the hyperref package when you have math in the section titles
 
 \section{Survival Curve Prediction Apps}
 
@@ -1401,7 +1193,25 @@ at least 6, 12, and 60 months are .89, .83, and .50, respectively.
 Table~(\ref{tab:boston1940}) using the neural network web app \url{http://coloncancer.herokuapp.com/}.}
 \end{figure}
 
+Changing the data in Table~(\ref{tab:boston1940}) so that the address field is changed from Boston, Massachusetts to Denver, Colorado but keeping all other variables are unchanged results in the predicted probabilities of living at least 6, 12, and 60 months: .945, .902, .665. 
+Behind the scenes, the apps use the input to the address field to make a call to the Google Maps API to convert the address into a latitude, longitude and elevation.
+These probablities are noticeably higher and reflect the documented effects of both longitude and elevation on cancer treatment and prognosis in the United States.
 
+An additional means of validating the predictions of these models is by comparing their predictions to each other for the same set of input data. 
+Table~(\ref{tab:agree}) shows the strong agreement between the random forest and neural network classifiers for each cancer type. Python code showing how the values in Table~(\ref{tab:agree}) are computed is available in the files 
+\codewhite{NewPatientBreastCF.html}, \codewhite{NewPatientColonCF.html}, and \codewhite{NewPatientLung.html} in the GitHub repository containing supplemental matierial for this study~\cite{supp}. This table is computed as follows. 
+For each cancer type (breast,colon, and lung), do the following:
+
+\begin{itemize}[noitemsep]
+\item use the corresponding Random Forest and Neural Network models to compute the survival curves for all of the test subjects
+\item extract the values of the survival curve evaluted for 6, 12, and 60 months for both both models
+\item if both models predict less than .5 or both models predict greater than or equal to .5, that counts as agreement
+\item otherwise, the models disagree
+\end{itemize}
+
+
+This high level of agreement between two models lends confidence to the notion that they have both learned from the training data and are generalizing well. Figures~(\ref{fig:colonbox},~\ref{fig:breastbox},~\ref{fig:lungbox}) 
+show box plots of the value of the random forest prediction subtracted from the neural network prediction.
 
 
 \section{Further Directions}
@@ -1776,8 +1586,83 @@ def pmf(h, X)
 
 
 \section{Model Architecture and Python Code}
-\section{GitHub Repositories}
-Please always give a title also for appendices.
+
+\subsection{Breast Random Forest Model}
+\label{subsec:breastrf}
+
+\begin{verbatim}
+f = RandomForestClassifier(n_estimators=20,min_samples_split=3,
+                             max_depth = 15,
+                            max_features = .8,
+                             n_jobs=5,verbose=2,random_state=33)
+\end{verbatim}
+
+
+\subsection{Colon Random Forest Model}
+\label{subsec:colonrf}
+
+
+\begin{verbatim}
+rf = RandomForestClassifier(n_estimators=25,min_samples_split=3,
+                             max_depth = 10,
+                            max_features = .5,
+                             n_jobs=5,verbose=2,random_state=3)
+\end{verbatim}
+
+
+
+
+\subsection{Lung Random Forest Model}
+\label{subsec:lungrf}
+
+
+
+\begin{verbatim}
+rf = RandomForestClassifier(n_estimators=25,min_samples_split=3,
+                             max_depth = 11,
+                            max_features = .8,
+                             n_jobs=5,verbose=2,random_state=3)
+\end{verbatim}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Breast Neural Network Model}
+\label{subsec:breastnn}
+
+The archictecture of the Keras multilayer perceptron neural notebook is given explicitly below:
+
+\begin{verbatim}
+modelbreast = Sequential()
+modelbreast.add(Dense(114, input_shape=(66,) ,init='normal'))
+modelbreast.add(Activation('relu'))
+modelbreast.add(Dropout(0.05))
+modelbreast.add(Dense(50, init='normal'))
+modelbreast.add(Activation('relu'))
+modelbreast.add(Dropout(0.05))
+
+modelbreast.add(Dense(36, init='normal'))
+modelbreast.add(Activation('relu'))
+modelbreast.add(Dropout(0.05))
+
+modelbreast.add(Dense(2, init='normal'))
+modelbreast.add(Activation('softmax'))
+
+rms = RMSprop(lr=0.001)
+
+modelbreast.compile(loss='binary_crossentropy', optimizer=rms, class_mode="binary")
+
+\end{verbatim}
+
+
+
+
+%\section{GitHub Repositories}
+%Please always give a title also for appendices.
 
 
 
