@@ -572,7 +572,7 @@ Before applying machine learning models trained with these data sets, we review 
 
 The above Kaplan-Meier estimates of the survival curves for colon (Figure~(\ref{fig:colonkaplan}), lung 
 (Figure~(\ref{fig:lungkaplan}), and breast cancer (Figure~(\ref{fig:breastkaplan}) are constructed from the full population of cancer patients in the respective datasets.
-An unsatisfactory consequence is that these estimates are highly course-grained, and not very meaningful to an indivual. Patients with very disparate characteristics are given the same prognosis by these Kaplan-Meier survival curve estimates. Therefore it is desirable to find robust predictors for survival curves of individual where the input is an individual record where the predictors are trained on larger populations.
+An unsatisfactory consequence is that these estimates are highly course-grained, and not very meaningful to an indivual. Patients with very disparate characteristics are given the same prognosis by these Kaplan-Meier survival curve estimates. Therefore it is desirable to find robust predictors for survival curves of individual where the input is an individual record as opposed to a population.
 
 
 % https://openaccess.leidenuniv.nl/bitstream/handle/1887/11456/01.pdf?sequence=6
@@ -617,6 +617,7 @@ For the survival times shown in Table~(\ref{tab:censoredexample}), a natural cho
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrr}
 \toprule
 {} &  Survival Time (Years) &  Censored Status \\
@@ -657,6 +658,7 @@ or were still alive at the end of the study). From Table~(\ref{tab:censoredexamp
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrrrrrr}
 \toprule
 {} &  Died &  Censored &  Alive at Start &  At Risk &  Prob of Dying &  Prob of Surviving &  Cum Survival \\
@@ -702,6 +704,7 @@ The Kaplan-Meier survival estimate corresponding to the data given in Table~(\re
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrrrrr}
 \toprule
 {} &  Censored Status &  Survival Times &  Alive at Start &  Prob of Dying &  Prob of Surv &  Cum Survival \\
@@ -723,52 +726,19 @@ The Kaplan-Meier survival estimate corresponding to the data given in Table~(\re
 \end{table}
 
 
-Shouldn't the column \textbf{Alive at Start} only decrease when the previous row has definitely died?? Why is it decreasing for the censored data?? Seems like a poor estimate of the hazard rate and survival curve. A knock against the cases where the data has no lost to follow up censored cases, such as the SEER data. Again, leads to overly pessimistic estimates of survival.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Survival analysis allows us to model the time until an event happens. Time-to-event measures pose unique problems for the analyst. Suppose that you want to predict the survival time for patients receiving an experimental cancer treatment. After three years, some of the patients in the study have died, and you can compute the survival time for each of these patients. However, many of the patients are still living at the end of three years; you do not know their ultimate survival time. Statisticians call this problem \textit{censoring}, a problem that surfaces when you try to model time-to-event reopnse measures using data captured over a limited time period.
-
-The two kinds of censoring are right censoring and left censoring. If you only know that the pertinent event is 
-\textit{after} some date, as is the case for patients in the preceding example who survive to the end of the study, the data is right-censored. On the other hand, if you only know that the beginning of the pertinent time-to-event took place before a certain date, the data is left-censored. For example, if you know that every patient in the study received the experimental treatment before the study started but do not know the exact date of treatment, the data is left-censored. Data can be both right-censored and left-censored.
 
 
-\textit{Survival analysis} is a family of techniques developed to work with censored time-to-event response measures. Note that if censoring is not present, you may be able to model time-to-event using standard modeling techniques. For some studies, however, you would have to wait a very long time before every sampled observation has a terminal event; in the case of the experimental cancer treatment, some patients might live another 20 years. Hence, survival analysis techniques enable the analyst to take full advantage of available data without waiting until every treated patient dies, every sampled part fails, or every tracked account closes.
-
-%\textbf{Survival analysis} is a way to describe how long things last. It is often used to study %human lifetimes, but %it also applies to "survival'' of mechanical and electronic components, or more generally to intervals in time before %an event.
-
-%If someone you know has been diagnosed with a life-threatening disease, you might have seen a "5-year survival %rate,'' which is the probability of surviving five years after diagnosis. %That estimate and related statistics are the %result of survival analysis.
 
 
-The fundamental concept in survival analysis is the \textbf{survival curve}, $S(t)$, which is a %function that maps from a duration, $t$, to the probability of surviving longer than $t$. If you know the distribution of durations, or "lifetimes,'' finding the survival curve is easy; it's just the complement  of the CDF:
-
-\begin{equation}
-\label{eq:s}
-S(t) = 1 - CDF(t)
-\end{equation}
-where $CDF(t)$ is the probability of a lifetime less than or equal to $t$.
-From the survival curve we can derive the \textbf{hazard function}; for pregnancy lengths, %the 
-hazard function maps from a time, $t$, to the fraction of pregnancies that continue until $t$ %and then end at $t$. To be more precise:
-
-\begin{equation}
-\label{eq:hazard}
-\lambda(t) = \frac{ S(t) - S(t+1)}{S(t)}
-\end{equation}
-The numerator is the fraction of lifetimes that end at $t$, which is also $PMF(t)$.
-If someone gives you the CDF of lifetimes, it is easy to compute the survival and hazard functions. But in many real-world scenarios, we can't measure the distribution of lifetimes directly. We have to infer it.
-For example, suppose you are following a group of patients to see how long they survive after diagnosis. Not all patients are diagnosed on the same day, so at any point in time, some patients have survived longer than others. If some patients have died, we know their survival %times. For patients who are still alive, we don't know survival times, but we have a lower bound.
-
-If we wait until all patients are dead, we can compute the survival curve, but it we are evaluating the effectiveness of a new treatment, we can't wait that long! We need a way to estimate survival curves using incomplete information. 
 
 
-The general idea is that we can use the data to estimate the hazard function, then convert the hazard function to a survival curve. 
-Once we have the hazard function, we can estimate the survival curve. The chance of surviving past time $t$ is the chance of surviving all times up through $t$, which is the cumulative product of the complementary hazard function:
 
-\begin{equation}
-\label{eq:hazardtosurvival}
-[ 1 - \lambda(0)][1 - \lambda(1)] \cdots [1 - \lambda(t)]
-\end{equation}
+
+
 
 
 \subsection{Transformation of Censored Data for Machine Learning}
@@ -785,7 +755,7 @@ The Kaplan-Meier estimate of the survival curve is given by
 where $d_i$ are the number of death events at time $t$ and $n_t$ is the number of subjects at risk of death just priot to time $t$. 
 Equation~\ref{eq:kaplanmeier} uses the entire data set to arrive at an estimate of the entire population survival curve. In contrast, the method described below uses the entire data set to learn a model so as to predict hazard and survival curves for all of the individual records in the data set.
 
-The key observation is to note that the hazard function in Equation~\ref{eq:hazard} can be readily learned via machine learning methods. It can be rewritten as
+The key observation is to note that the hazard function can be readily learned via machine learning methods. It can be rewritten as
 \begin{equation}
 \label{eq:hhazard}
 h(\mathbf{X}, t) = P(Y = t|Y \geq t, \mathbf{X}),
@@ -795,8 +765,8 @@ where $\mathbf{X}$ represents all of the data for that particular record, and in
 What is actually provided in the SEER data is the related variable \codewhite{SURVIVAL MONTHS} $T$ (how long each subject was in the study), and whether they exited by dying or being censored ($D$), \codewhite{VITAL STATUS RECODE}. 
 $D$ is a Boolean variable, so $D = 1$ if $T = Y$, and $D = 0$ if $T < Y$.
 
-Treating $T$ is just another covariate is the key to the transformation. Each datapoint in the hidden classification problem is the combination of an $\mathbf{X}_{i}$ in hte orginal dataset plut some month $t$, and the classification problem is "did point $\mathbf{X}_{i}$ die in month $t$.'' We will call this new variable $D_{it}$ (\codewhite{newtarget}).
-We can transformation our original data set into a new one, with one row for each month that each $\mathbf{X}_{i}$ is in the sample; train a standard classifier on this new dataset with $D_{it}$ as the target, and derive a survival model from the orginal dataset.
+Treating $T$ is just another covariate is the key to the transformation. Each datapoint in the hidden classification problem is the combination of an $\mathbf{X}_{i}$ in the orginal dataset plus some month $t$, and the classification problem is "did point $\mathbf{X}_{i}$ die in month $t$.'' We will call this new variable $D_{it}$ (\codewhite{newtarget}).
+We can transform our original data set into a new one, with one row for each month that each $\mathbf{X}_{i}$ is in the sample; train a standard classifier on this new dataset with $D_{it}$ as the target, and derive a survival model from the orginal dataset.
 Psuedocode for this transformation is found in section~\ref{subsec:pseudocode}.
 
 Explicit examples will help make this transformation clear.
@@ -806,6 +776,7 @@ The untransformed datapoint represented Table~(\ref{tab:originalalive}) is trans
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrrr}
 \toprule
 {} &  \codewhite{cs\_tumor\_size} &  \codewhite{year\_of\_birth} &  \codewhite{survival\_months} &  \codewhite{vital\_status\_recode\_Dead} \\
@@ -820,6 +791,7 @@ newindex &                &                &        &            \\
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrrr}
 \toprule
 {} &  \codewhite{cs\_tumor\_size} &  \codewhite{year\_of\_birth} &  \codewhite{survival\_months} &  \codewhite{vital\_status\_recode\_Dead} \\
@@ -837,6 +809,7 @@ newindex &                &                &        &            \\
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrrr}
 \toprule
 {} &  \codewhite{cs\_tumor\_size} &  \codewhite{year\_of\_birth} &  \codewhite{month} &  \codewhite{newtarget} \\
@@ -855,6 +828,7 @@ newindex &                &                &        &            \\
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrrr}
 \toprule
 {} &  \codewhite{cs\_tumor\_size} &  \codewhite{year\_of\_birth} &  \codewhite{month} &  \codewhite{newtarget} \\
