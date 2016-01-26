@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  26 JAN 2016 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  26 JAN 2016 13:22
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -277,6 +277,14 @@ LaTeX Font Info:    Try loading font information for OT1+phv on input line 162.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 ))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count112
+\float@exts=\toks23
+\float@box=\box28
+\@float@everytoks=\toks24
+\@floatcapt=\box29
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
@@ -299,15 +307,15 @@ Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen120
 \extrarowheight=\dimen121
-\NC@list=\toks23
+\NC@list=\toks25
 \extratabsurround=\skip50
 \backup@length=\skip51
 )
-\everycr=\toks24
+\everycr=\toks26
 \minrowclearance=\skip52
 )
 LaTeX Info: Redefining \color on input line 702.
-\rownum=\count112
+\rownum=\count113
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
@@ -322,9 +330,9 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip53
 \enit@outerparindent=\dimen122
-\enit@toks=\toks25
-\enit@inbox=\box28
-\enitdp@description=\count113
+\enit@toks=\toks27
+\enit@inbox=\box30
+\enitdp@description=\count114
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
@@ -338,12 +346,12 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen130
 \cmidrulekern=\dimen131
 \defaultaddspace=\dimen132
-\@cmidla=\count114
-\@cmidlb=\count115
+\@cmidla=\count115
+\@cmidlb=\count116
 \@aboverulesep=\dimen133
 \@belowrulesep=\dimen134
-\@thisruleclass=\count116
-\@lastruleclass=\count117
+\@thisruleclass=\count117
+\@lastruleclass=\count118
 \@thisrulewidth=\dimen135
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\rotating\rotating.sty"
@@ -352,77 +360,77 @@ Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count118
+\c@r@tfl@t=\count119
 \rotFPtop=\skip54
 \rotFPbot=\skip55
-\rot@float@box=\box29
-\rot@mess@toks=\toks26
+\rot@float@box=\box31
+\rot@mess@toks=\toks28
 ) (machine.aux)
 \openout1 = `machine.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count119
+\scratchcounter=\count120
 \scratchdimen=\dimen136
-\scratchbox=\box30
-\nofMPsegments=\count120
-\nofMParguments=\count121
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count122
+\scratchbox=\box32
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count123
 \MPscratchDim=\dimen137
-\MPnumerator=\count123
-\makeMPintoPDFobject=\count124
-\everyMPtoPDFconversion=\toks28
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks30
 )
-\AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring ON on input line 82.
+\AtBeginShipoutBox=\box33
+Package hyperref Info: Link coloring ON on input line 83.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count125
+\c@section@level=\count126
 )
-LaTeX Info: Redefining \ref on input line 82.
-LaTeX Info: Redefining \pageref on input line 82.
-LaTeX Info: Redefining \nameref on input line 82.
+LaTeX Info: Redefining \ref on input line 83.
+LaTeX Info: Redefining \pageref on input line 83.
+LaTeX Info: Redefining \nameref on input line 83.
 
 (machine.out) (machine.out)
 \@outlinefile=\write3
 \openout3 = `machine.out'.
 
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 83.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 84.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 83.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 84.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 83.
+LaTeX Font Info:    Try loading font information for U+msa on input line 84.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 83.
+LaTeX Font Info:    Try loading font information for U+msb on input line 84.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -435,147 +443,302 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [1] [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 239.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 240.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 239.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 240.
  [3]
-[4]
-Overfull \hbox (41.06541pt too wide) in paragraph at lines 358--369
+[4pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.352 
+      ]
+Overfull \hbox (41.06541pt too wide) in paragraph at lines 359--370
  [] 
  []
 
-[5] <colonkaplan.pdf, id=231, 433.62pt x 289.08pt>
+[5pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.422 \item  \codewhite
+                       {MARITAL STATUS AT DX},]
+<colonkaplan.pdf, id=231, 433.62pt x 289.08pt>
 File: colonkaplan.pdf Graphic file (type pdf)
  <use colonkaplan.pdf>
-Package pdftex.def Info: colonkaplan.pdf used on input line 448.
+Package pdftex.def Info: colonkaplan.pdf used on input line 449.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
+ [6pdfTeX warning (ext4): destination with the same identifier (name{table.3}) 
+has been already used, duplicate ignored
 
-[6]
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.496 
+      ]
 Underfull \vbox (badness 4859) has occurred while \output is active []
 
- [7 <./colonkaplan.pdf>] <lungkaplan.pdf, id=286, 433.62pt x 289.08pt>
+ [7pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.496 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.4
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.496 
+       <./colonkaplan.pdf>] <lungkaplan.pdf, id=286, 433.62pt x 289.08pt>
 File: lungkaplan.pdf Graphic file (type pdf)
 
 <use lungkaplan.pdf>
-Package pdftex.def Info: lungkaplan.pdf used on input line 507.
+Package pdftex.def Info: lungkaplan.pdf used on input line 508.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
  <breastkaplan.pdf, id=289, 433.62pt x 289.08pt>
 File: breastkaplan.pdf Graphic file (type pdf)
 
 <use breastkaplan.pdf>
-Package pdftex.def Info: breastkaplan.pdf used on input line 560.
+Package pdftex.def Info: breastkaplan.pdf used on input line 561.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
- [8 <./lungkaplan.pdf>] [9 <./breastkaplan.pdf>] [10]
-Overfull \hbox (79.81006pt too wide) in paragraph at lines 662--675
+ [8pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.577 
+       <./lungkaplan.pdf>] [9pdfTeX warning (ext4): destination with the same i
+dentifier (name{table.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.577 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.577 
+       <./breastkaplan.pdf>] [10]
+Overfull \hbox (79.81006pt too wide) in paragraph at lines 663--676
  [] 
  []
 
-[11]
-Underfull \vbox (badness 2990) has occurred while \output is active []
+[11] [12pdfTeX warning (ext4): destination with the same identifier (name{table
+.6}) has been already used, duplicate ignored
 
- [12]
-Overfull \hbox (68.17871pt too wide) in paragraph at lines 708--724
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.689 \item T
+             he column \textbf{Prob of Dying} shows the probability of dying...
+pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
+ been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.689 \item T
+             he column \textbf{Prob of Dying} shows the probability of dying...
+]
+Overfull \hbox (68.17871pt too wide) in paragraph at lines 709--725
  [] 
  []
 
-[13] [14]
-Overfull \hbox (66.0459pt too wide) in paragraph at lines 780--788
+[13] [14pdfTeX warning (ext4): destination with the same identifier (name{table
+.8}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.773 E
+       xplicit examples will help make this transformation clear.]
+Overfull \hbox (66.0459pt too wide) in paragraph at lines 781--789
  [] 
  []
 
 
-Overfull \hbox (66.0459pt too wide) in paragraph at lines 795--803
+Overfull \hbox (66.0459pt too wide) in paragraph at lines 796--804
  [] 
  []
 
-[15] [16] <ensemble.png, id=455, 397.485pt x 279.0425pt>
+[15pdfTeX warning (ext4): destination with the same identifier (name{table.9}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.854 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.1
+0}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.854 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.1
+1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.854 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.1
+2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.854 
+      ] [16] [17] <ensemble.png, id=459, 397.485pt x 279.0425pt>
 File: ensemble.png Graphic file (type png)
- <use ensemble.png>
-Package pdftex.def Info: ensemble.png used on input line 915.
-(pdftex.def)             Requested size: 397.48402pt x 279.04181pt.
 
-[17] <lungdt.pdf, id=464, 3033.3325pt x 490.83376pt>
+<use ensemble.png>
+Package pdftex.def Info: ensemble.png used on input line 916.
+(pdftex.def)             Requested size: 397.48402pt x 279.04181pt.
+ <lungdt.pdf, id=463, 3033.3325pt x 490.83376pt>
 File: lungdt.pdf Graphic file (type pdf)
- <use lungdt.pdf>
-Package pdftex.def Info: lungdt.pdf used on input line 933.
+
+<use lungdt.pdf>
+Package pdftex.def Info: lungdt.pdf used on input line 934.
 (pdftex.def)             Requested size: 607.35535pt x 98.27734pt.
- [18 <./ensemble.png>]
-Overfull \hbox (17.05627pt too wide) in paragraph at lines 1199--1209
+ [18pdfTeX warning (ext4): destination with the same identifier (name{figure.4}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.973 \end{verbatim}
+                     <./ensemble.png>]
+Overfull \hbox (17.05627pt too wide) in paragraph at lines 1202--1212
  [] 
  []
 
 <breastbox.pdf, id=477, 433.62pt x 289.08pt>
 File: breastbox.pdf Graphic file (type pdf)
  <use breastbox.pdf>
-Package pdftex.def Info: breastbox.pdf used on input line 1219.
+Package pdftex.def Info: breastbox.pdf used on input line 1222.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
 <colonbox.pdf, id=478, 433.62pt x 289.08pt>
 File: colonbox.pdf Graphic file (type pdf)
  <use colonbox.pdf>
-Package pdftex.def Info: colonbox.pdf used on input line 1233.
+Package pdftex.def Info: colonbox.pdf used on input line 1236.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
 <lungbox.pdf, id=479, 433.62pt x 289.08pt>
 File: lungbox.pdf Graphic file (type pdf)
  <use lungbox.pdf>
-Package pdftex.def Info: lungbox.pdf used on input line 1250.
+Package pdftex.def Info: lungbox.pdf used on input line 1253.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
- [19] [20] [21]
-[22] [23] [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [19pdfTeX warning (ext4): destination with the same identifier (name{table.13}
+) has been already used, duplicate ignored
 
- [25]
-[26] [27] (machine.bbl [28])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1759.
- [29] [30 <./lungdt.pdf>] [31 <./breastbox.pdf>]
-[32 <./colonbox.pdf>] [33 <./lungbox.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1759.
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1328 B
+        elow is a list of some web applications developed by IOBS.] [20pdfTeX w
+arning (ext4): destination with the same identifier (name{table.14}) has been a
+lready used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1392 
+       ] <boston1940.png, id=528, 511.9125pt x 481.8pt>
+File: boston1940.png Graphic file (type png)
+ <use boston1940.png>
+Package pdftex.def Info: boston1940.png used on input line 1399.
+(pdftex.def)             Requested size: 409.53056pt x 385.4405pt.
+
+[21pdfTeX warning (ext4): destination with the same identifier (name{table.15})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1434 \item g
+              rade\_well differentiated] [22] [23] [24] [25] [26] [27] [28]
+(machine.bbl [29] [30])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1840.
+ [31] [32pdfTeX warning (ext4): destination with the same identifier (name{figu
+re.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1840 \end{document}
+                      <./lungdt.pdf>] [33pdfTeX warning (ext4): destination wit
+h the same identifier (name{figure.6}) has been already used, duplicate ignored
+
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1840 \end{document}
+                      <./breastbox.pdf>] [34pdfTeX warning (ext4): destination 
+with the same identifier (name{figure.7}) has been already used, duplicate igno
+red
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1840 \end{document}
+                      <./colonbox.pdf>] [35pdfTeX warning (ext4): destination w
+ith the same identifier (name{figure.8}) has been already used, duplicate ignor
+ed
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1840 \end{document}
+                      <./lungbox.pdf>] [36pdfTeX warning (ext4): destination wi
+th the same identifier (name{figure.9}) has been already used, duplicate ignore
+d
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1840 \end{document}
+                      <./boston1940.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1840.
  (machine.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1759.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1759.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1840.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1840.
 
 Package rerunfilecheck Info: File `machine.out' has not changed.
-(rerunfilecheck)             Checksum: B83ADAD9596EC51A789356BA00AC48A2;2001.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1759.
+(rerunfilecheck)             Checksum: 9CBCBEC1A83B7F37D9DA69AF500E2DDA;2015.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1840.
  ) 
 Here is how much of TeX's memory you used:
- 7866 strings out of 493634
- 110219 string characters out of 3141304
- 214991 words of memory out of 3000000
- 11002 multiletter control sequences out of 15000+200000
- 25700 words of font info for 67 fonts, out of 3000000 for 9000
+ 7970 strings out of 493634
+ 111474 string characters out of 3141304
+ 216714 words of memory out of 3000000
+ 11077 multiletter control sequences out of 15000+200000
+ 28631 words of font info for 76 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 41i,11n,35p,1209b,493s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,35p,1209b,549s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
-00\ectt1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
-appen\ec\dpi600\ecrm1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\
-pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\ddooling\AppData\Local\MiKT
-eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\ddooling\AppDa
-ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\d
-dooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk
+00\ectt0900.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
+appen\ec\dpi600\ecrm0900.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\
+pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk> <C:\Users\ddooling\AppData\Local\MiKT
+eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\ddooling\AppDa
+ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\d
+dooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
 > <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ecrm1095.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
-ppen\ec\dpi600\ectt1095.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\p
-k\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\ddooling\AppData\Local\MiKTe
-X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\ddooling\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1095.pk> <C:\Users\dd
-ooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk>
+0\ecbx1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
+ppen\ec\dpi600\ecbx1095.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\ddooling\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Users\ddooling\AppDat
+a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\dd
+ooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk>
  <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\eccc1000.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-ex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.
-pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on machine.pdf (34 pages, 534125 bytes).
+\ecti1095.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
+pen\ec\dpi600\ecti1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk
+\ljfour\jknappen\ec\dpi600\ecsx1095.pk> <C:\Users\ddooling\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk> <C:\Users\ddooling\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1000.pk><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on machine.pdf (37 pages, 594713 bytes).
 PDF statistics:
- 1323 PDF objects out of 1440 (max. 8388607)
- 113 named destinations out of 1000 (max. 500000)
- 265 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1436 PDF objects out of 1440 (max. 8388607)
+ 130 named destinations out of 1000 (max. 500000)
+ 270 words of extra memory for PDF output out of 10000 (max. 10000000)
 

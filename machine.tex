@@ -5,6 +5,7 @@
 \usepackage{jheppub} % for details on the use of the package, please
                      % see the JHEP-author-manual
 
+\usepackage{float}
 \usepackage[T1]{fontenc} % if needed
 \usepackage[table]{xcolor}
 %\usepackage[dvipsnames]{xcolor}
@@ -1142,6 +1143,7 @@ Keras is a minimalist, highly modular neural networks library, written in Python
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrr}
 \toprule
 %\rowcolors{1}{white}{yellow}
@@ -1196,6 +1198,7 @@ Could mesh with the prevous work~\cite{ISI:000355882700012}.
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrr}
 \toprule
 %\rowcolors{1}{white}{yellow}
@@ -1317,9 +1320,87 @@ Lung & .861 & .883 & .900 \\
 %``\texttt{\textbackslash texorpdfstring\{\}\{\}}'' to avoid warnings
 %from the hyperref package when you have math in the section titles
 
-\section{Web Applications}
+\section{Survival Curve Prediction Apps}
 
 CF this guy \url{http://kmplot.com/analysis/index.php?p=service&cancer=lung}
+
+
+Below is a list of some web applications developed by IOBS.
+For each of the cancer types (colon, breast, lung, and prostate), a model has been developed using random forests and one using neural networks. The models were evaluted using the AUC (Area Under Curve) performance evaluation metric on test data (data not used in the training of the models), typically achieving AUC scores  $\approx .8$, as shown in Table~(\ref{tab:AUC}).\footnote{``AUC | Kaggle,'' Kaggle Website, \url{https://www.kaggle.com/wiki/AUC}, accessed 11 Jan 2016.}
+
+
+
+\begin{enumerate}[noitemsep]
+\item breast cancer 
+    \begin{enumerate}[noitemsep]
+    \item random forest: \url{http://ming-cancer.herokuapp.com/}
+    \item neural network: \url{http://breastcancer-neuralnetwork.herokuapp.com/}
+    \end{enumerate}
+\item lung cancer
+   \begin{enumerate}[noitemsep]
+   \item random forest: \url{http://lung-cancer.herokuapp.com/}
+   \item neural network: \url{http://lungnn.herokuapp.com/}
+    \end{enumerate}
+\item colon cancer
+  \begin{enumerate}[noitemsep]
+   \item random forest: \url{http://colon-cancer.herokuapp.com/}
+   \item neural network: \url{http://coloncancernn.herokuapp.com/}
+   \end{enumerate}
+\item prostate cancer
+  \begin{enumerate}[noitemsep]
+   \item random forest: \url{http://prostate-cancer.herokuapp.com/}
+   \end{enumerate}
+\end{enumerate}
+
+
+
+
+
+These machine learning models are used to predict survival curves for a given set of input data. 
+The resulting surival curves predict the probablitiy that a patient with the given input data will survive at least up to month $x$. For example, using the Colon Cancer neural network app, and 
+inputing the values listed in Table~(\ref{tab:boston1940}) results in the survival curve depicted in Figure~(\ref{fig:boston1940}); the predicted probablities of living 
+at least 6, 12, and 60 months are .89, .83, and .50, respectively.
+
+
+\begin{table}[H]
+\begin{center}
+\rowcolors{1}{white}{light-gray}
+\begin{tabular}{lr}
+\toprule
+  Variable  & Value \\ 
+\midrule
+  What is the tumor size (mm) & 300 \\  
+  What is the patient's address? & boston massachusetts \\ 
+  Grade & moderately differentiated \\  
+  Histology & adenomas and adenocarcinomas \\ 
+  Laterality & not a paired site \\  
+ Martial Status at Dx & Single, never married \\  
+ Month of Diagnosis & Jan \\  
+ How many primaries & 1 \\  
+  Race$\_$ethnicity & White \\  
+  seer$\_$historic$\_$stage$\_$a  & Regional \\ 
+  Gender & Male \\  
+  spanish$\_$hispanic$\_$origin & Non-spanish/Non-hispanic \\ 
+ Year of Birth & 1940 \\  
+  Year of Diagnosis & 2010 \\
+\bottomrule
+\end{tabular}
+\caption{Example input data to the Colon Cancer neural network app.}
+\label{tab:boston1940}
+\end{center}
+\end{table}
+
+
+
+\begin{figure}[!ht]
+%\caption{Colon Cancer Survival Curve.}
+%  \label{fig:boston1940}
+  \centering
+    \includegraphics[scale=.8]{boston1940}
+\caption{\label{fig:boston1940} Colon Cancer Survival Curve predicted from the data in 
+Table~(\ref{tab:boston1940}) using the neural network web app \url{http://coloncancer.herokuapp.com/}.}
+\end{figure}
+
 
 
 
