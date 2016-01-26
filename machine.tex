@@ -849,7 +849,7 @@ For this study, the original, untransformed colon cancer DataFrame has shape $(1
 Similary, the original, untransformed lung cancer DataFrame has shape $(177089, 118)$, and the total transformed lung cancer DataFrame has shape $(3079931, 118)$.
 The biggest explosion in data size occured with the breast cancer data. 
 The original, untransformed breast cancer DataFrame has shape $(329949, 70)$, and the total transformed breast cancer DataFrame has shape $(15085711, 70)$.
-Traning machine learning algorithms on such large datasets, even after splitting into training and testing sets described below, require large RAM. All computations for this study were performed on a Dell XPS 8700 Desktop with 32BG of RAM.
+Traning machine learning algorithms on such large datasets, even after splitting into training and testing sets described below, require large RAM. All computations for this study were performed on a Dell XPS 8700 Desktop with 32GB of RAM.
 
 
 \section{Prediction Models}
@@ -859,6 +859,35 @@ The classifier models described in this section are learning the hazard function
 The hazard functions thus learned and predicted are intermediary products; what we are really pursuing are the survival functions for each patient that are derived from the learned and predicted hazard functions.
 From the resulting hazard functions for each unique patient, we can construct the
 resulting survival functions as presented in section~(\ref{subsec:pseudocode}) and explicitly given in python code in the notebooks at the github repository containing supplemental material for this study~\cite{supp}.
+
+In order to evaluate the performance of the learned models, we first construct three binary classifiers corresponding to whether or not a subject survived 6, 12, or 60 months after diagnosis. 
+This is done by looping over all distinct patient indices in the test set, prediciting the full survival function, and capturing the values corresonding to 6, 12, and 60 months.  
+
+It is necessary to apply some Boolean filters to the data in order to correctly assess the resulting classifiers, again because of censoring. For example, to construct AUC curves for the 6 month classifier, we restrict ourselves to considering
+subjects in the test data where either of the following mutually exlusive conditiions holds:
+
+\begin{itemize}[noitemsep]
+\item \codewhite{survival\_months} >= 6 AND \codewhite{vital\_status\_recode} == 0
+\item \codewhite{vital\_status\_recode} == 1
+\end{itemize}
+
+That is, we restrict ourselves to subsets of the data where we know for certain whether or not the subject survived at least 6 months. Similarly for the 12 and 60 months surivival classifiers. 
+
+
+\subsection{Training and Test Partitions}
+\label{subsec:traintest}
+
+After performing the data transformation adumbrated in section~(\ref{subsec:transformation}), it is necessarily to be mindful of how we partition the data into training and testing data. Each subject that was represented by a single row in the original untransformed dataset now potentially is represented by multiple rows in the transformed dataset, and care must be taken to ensure that all of the rows corresponding to a particular subject are either assigned exclusively to the training set or to the testing set. 
+An additional characteristic of this transformed data that requires careful treatment involves balancing. The transformation results in many new records with the target variable \codewhite{newtarget} == 0. The training and test sets must be chosen such that the ratio of the number of records with \codewhite{newtarget} == 0 to that of the number of records with \codewhite{newtarget} == 1 is the same in the training and test datasets.
+
+ 
+
+
+%\begin{equation}
+%(\codewhite{survival\_months} >= 6 \& \codewhite{vital\_status\_recode\_Dead} == 0) \| 
+%\codewhite{vital\_status\_recode\_Dead} == 1
+%\end{equation}
+
 
 
 
@@ -885,6 +914,10 @@ Figure~(\ref{fig:ensemble}) illustrates the power of ensemble methods; the Figur
 \end{figure}
 
 
+IOBS has chosen to use the Python scikit-learn implemenation of the Random Forest machine 
+learning classifier~\cite{rf}.
+Random Forests are frequent winners of the Kaggle machine learning competitions~\cite{kagglerf}.
+
 
 
 
@@ -904,9 +937,15 @@ Figure~(\ref{fig:ensemble}) illustrates the power of ensemble methods; the Figur
 \subsection{MLP Neural Networks}
 
 
+Neural networks are a biologically-inspired programming paradigm that enable computers to learn from observational data~\cite{deeplearning}.
+%As you may know, \textbf{deep learning} is getting a lot of press and is without any doubt the %hottest topic in the machine learning field.
+Deep learning can be understood as a set of algorithms that were developed to train \textbf{artificial neural networks} with many layers most efficiently.
+ Neural networks are a hot topic not only in academic research, but also in big technology companies such as Facebook, Microsoft, and Google who invest heavily in artificial neural networks and deep learning research. As of today, complex neural networks powered by deep learning algorithms are considered as state-of-the-art when it comes to complex problem solving such as image and voice recognition.
+In addition, the pharmaceutical industry recently started to use deep learning techniques for drug discovery and toxicity prediction, and research has shown that these novel techniques substantially exceed the performance of traditional methods for virtual screening~\cite{toxicity}.
 
-
-
+IOBS has chosen to use the neural network implementation Keras developed at MIT.
+Keras was initially developed as part of the research effort of project ONEIROS (Open-ended Neuro-Electronic Intelligent Robot Operating System)~\cite{keras}.
+Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano.
 
 
 
@@ -1580,7 +1619,7 @@ The feature set used as input into both the Random Forest and Neural Network mod
 \end{itemize}
 
 
-\subsection{Pseudocode for the Data Transformation}
+\section{Pseudocode for the Data Transformation}
 \label{subsec:pseudocode}
 
 \begin{verbatim}

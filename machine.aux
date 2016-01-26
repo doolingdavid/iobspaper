@@ -17,23 +17,23 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{pythonmachinelearning}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction and Background}{1}{section.1}}
-\newlabel{sec:intro}{{1}{1}{Introduction and Background}{section.1}{}}
 \citation{seerwebsite}
 \citation{cam}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction and Background}{2}{section.1}}
+\newlabel{sec:intro}{{1}{2}{Introduction and Background}{section.1}{}}
 \citation{ISI:000337467400005}
 \citation{ISI:000355882700012}
 \citation{kuhn}
 \citation{seerdoc}
-\citation{bowles}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methodology}{3}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data acquisition}{3}{subsection.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data preparation and preprocessing}{3}{subsection.2.2}}
-\newlabel{subsec:dataprep}{{2.2}{3}{Data preparation and preprocessing}{subsection.2.2}{}}
+\citation{bowles}
 \citation{downey}
 \citation{bowles}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces  Encoding of gender in the SEER incidence files. These types of categorical variables need to be transformed via one-hot-encoding.}}{4}{table.1}}
 \newlabel{tab:sex}{{1}{4}{Encoding of gender in the SEER incidence files. These types of categorical variables need to be transformed via one-hot-encoding}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data preparation and preprocessing}{4}{subsection.2.2}}
+\newlabel{subsec:dataprep}{{2.2}{4}{Data preparation and preprocessing}{subsection.2.2}{}}
 \newlabel{eqn:onehotmale}{{2.1}{4}{Data preparation and preprocessing}{equation.2.1}{}}
 \newlabel{eqn:onehotfemale}{{2.2}{4}{Data preparation and preprocessing}{equation.2.2}{}}
 \citation{census}
@@ -52,20 +52,20 @@
 \newlabel{fig:colonkaplan}{{1}{7}{Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored}{figure.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces  Filters applied to the Lung Cancer data.}}{7}{table.4}}
 \newlabel{tab:lungfilter}{{4}{7}{Filters applied to the Lung Cancer data}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Breast Cancer Data}{7}{subsection.2.5}}
-\newlabel{subsec:breastcancerdata}{{2.5}{7}{Breast Cancer Data}{subsection.2.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted with 177089 observatins, 47409 censored.}}{8}{figure.2}}
 \newlabel{fig:lungkaplan}{{2}{8}{Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted with 177089 observatins, 47409 censored}{figure.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces  Filters applied to the Breast Cancer data.}}{8}{table.5}}
-\newlabel{tab:breastfilter}{{5}{8}{Filters applied to the Breast Cancer data}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Breast Cancer Data}{8}{subsection.2.5}}
+\newlabel{subsec:breastcancerdata}{{2.5}{8}{Breast Cancer Data}{subsection.2.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces  Filters applied to the Breast Cancer data.}}{9}{table.5}}
+\newlabel{tab:breastfilter}{{5}{9}{Filters applied to the Breast Cancer data}{table.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Traditional Kaplan-Meier estimate of the survival curve for all breast cancer patients. Fitted with 329949 observatins, 292279 censored.}}{9}{figure.3}}
 \newlabel{fig:breastkaplan}{{3}{9}{Traditional Kaplan-Meier estimate of the survival curve for all breast cancer patients. Fitted with 329949 observatins, 292279 censored}{figure.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Machine Learning Survival Analysis with Censored Data}{9}{section.3}}
 \newlabel{sec:surv}{{3}{9}{Machine Learning Survival Analysis with Censored Data}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Survival Analysis}{10}{subsection.3.1}}
 \newlabel{subsec:survprimer}{{3.1}{10}{Survival Analysis}{subsection.3.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces  Example data to illustate traditional Survival Analsyis.}}{11}{table.6}}
-\newlabel{tab:censoredexample}{{6}{11}{Example data to illustate traditional Survival Analsyis}{table.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces  Example data to illustate traditional Survival Analsyis.}}{12}{table.6}}
+\newlabel{tab:censoredexample}{{6}{12}{Example data to illustate traditional Survival Analsyis}{table.6}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces  Lifetable corresponding to the example data in Table\nobreakspace  {}(\ref  {tab:censoredexample}).}}{12}{table.7}}
 \newlabel{tab:lifetable}{{7}{12}{Lifetable corresponding to the example data in Table~(\ref {tab:censoredexample})}{table.7}{}}
 \citation{kuhn}
@@ -85,59 +85,71 @@
 \newlabel{tab:transformedalive}{{12}{15}{Example of four columns in a censored record in the transformed dataset}{table.12}{}}
 \citation{supp}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Prediction Models}{16}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Decision Trees and Random Forests}{16}{subsection.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Training and Test Partitions}{16}{subsection.4.1}}
+\newlabel{subsec:traintest}{{4.1}{16}{Training and Test Partitions}{subsection.4.1}{}}
+\citation{rf}
+\citation{kagglerf}
+\citation{deeplearning}
+\citation{toxicity}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Decision Trees and Random Forests}{17}{subsection.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}MLP Neural Networks}{17}{subsection.4.3}}
+\citation{keras}
 \citation{ISI:000355882700012}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Illustration of ensemble methods showing how a collection of base learners with poor accuracy can combine to produce an accurate ensemble learner.}}{17}{figure.4}}
-\newlabel{fig:ensemble}{{4}{17}{Illustration of ensemble methods showing how a collection of base learners with poor accuracy can combine to produce an accurate ensemble learner}{figure.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}MLP Neural Networks}{17}{subsection.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Performance Metrics}{17}{section.5}}
-\newlabel{sec:performancemetrics}{{5}{17}{Performance Metrics}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Model Agreement}{17}{subsection.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Web Applications}{17}{section.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Illustration of ensemble methods showing how a collection of base learners with poor accuracy can combine to produce an accurate ensemble learner.}}{18}{figure.4}}
+\newlabel{fig:ensemble}{{4}{18}{Illustration of ensemble methods showing how a collection of base learners with poor accuracy can combine to produce an accurate ensemble learner}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Performance Metrics}{18}{section.5}}
+\newlabel{sec:performancemetrics}{{5}{18}{Performance Metrics}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Model Agreement}{18}{subsection.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Web Applications}{18}{section.6}}
 \citation{supp}
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces  AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details.}}{18}{table.13}}
-\newlabel{tab:AUC}{{13}{18}{AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details}{table.13}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces  Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type.}}{18}{table.14}}
-\newlabel{tab:agree}{{14}{18}{Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type}{table.14}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Further Directions}{18}{section.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Selected Features}{18}{appendix.A}}
-\newlabel{sec:features}{{A}{18}{Selected Features}{appendix.A}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{18}{subsection.A.1}}
-\newlabel{subsec:colonfeatures}{{A.1}{18}{Colon Cancer Feature Selection}{subsection.A.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{21}{subsection.A.2}}
-\newlabel{subsec:lungfeatures}{{A.2}{21}{Lung Cancer Feature Selection}{subsection.A.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Breast Cancer Feature Selection}{24}{subsection.A.3}}
-\newlabel{subsec:breastfeatures}{{A.3}{24}{Breast Cancer Feature Selection}{subsection.A.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Pseudocode for the Data Transformation}{25}{subsection.A.4}}
-\newlabel{subsec:pseudocode}{{A.4}{25}{Pseudocode for the Data Transformation}{subsection.A.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces  AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details.}}{19}{table.13}}
+\newlabel{tab:AUC}{{13}{19}{AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details}{table.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces  Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type.}}{19}{table.14}}
+\newlabel{tab:agree}{{14}{19}{Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type}{table.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Further Directions}{19}{section.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Selected Features}{19}{appendix.A}}
+\newlabel{sec:features}{{A}{19}{Selected Features}{appendix.A}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{19}{subsection.A.1}}
+\newlabel{subsec:colonfeatures}{{A.1}{19}{Colon Cancer Feature Selection}{subsection.A.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{22}{subsection.A.2}}
+\newlabel{subsec:lungfeatures}{{A.2}{22}{Lung Cancer Feature Selection}{subsection.A.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Breast Cancer Feature Selection}{25}{subsection.A.3}}
+\newlabel{subsec:breastfeatures}{{A.3}{25}{Breast Cancer Feature Selection}{subsection.A.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Pseudocode for the Data Transformation}{26}{appendix.B}}
+\newlabel{subsec:pseudocode}{{B}{26}{Pseudocode for the Data Transformation}{appendix.B}{}}
 \bibstyle{plain}
 \bibdata{machinebib}
 \bibcite{kuhn}{{1}{}{{}}{{}}}
 \bibcite{bowles}{{2}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Model Architecture and Python Code}{27}{appendix.C}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}GitHub Repositories}{27}{appendix.D}}
+\@writefile{toc}{\contentsline {paragraph}{Note added.}{27}{section*.3}}
 \bibcite{census}{{3}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Model Architecture and Python Code}{26}{appendix.B}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}GitHub Repositories}{26}{appendix.C}}
-\@writefile{toc}{\contentsline {paragraph}{Note added.}{26}{section*.3}}
 \bibcite{cam}{{4}{}{{}}{{}}}
-\bibcite{elevation}{{5}{}{{}}{{}}}
-\bibcite{geocode}{{6}{}{{}}{{}}}
-\bibcite{downey}{{7}{}{{}}{{}}}
-\bibcite{supp}{{8}{}{{}}{{}}}
-\bibcite{blackholes}{{9}{}{{}}{{}}}
-\bibcite{MShS:47}{{10}{}{{}}{{}}}
-\bibcite{seerwebsite}{{11}{}{{}}{{}}}
-\bibcite{seerdoc}{{12}{}{{}}{{}}}
-\bibcite{pythonmachinelearning}{{13}{}{{}}{{}}}
-\bibcite{ISI:000337467400005}{{14}{}{{}}{{}}}
-\bibcite{ISI:000355882700012}{{15}{}{{}}{{}}}
+\bibcite{keras}{{5}{}{{}}{{}}}
+\bibcite{elevation}{{6}{}{{}}{{}}}
+\bibcite{geocode}{{7}{}{{}}{{}}}
+\bibcite{downey}{{8}{}{{}}{{}}}
+\bibcite{kagglerf}{{9}{}{{}}{{}}}
+\bibcite{supp}{{10}{}{{}}{{}}}
+\bibcite{blackholes}{{11}{}{{}}{{}}}
+\bibcite{MShS:47}{{12}{}{{}}{{}}}
+\bibcite{seerwebsite}{{13}{}{{}}{{}}}
+\bibcite{seerdoc}{{14}{}{{}}{{}}}
+\bibcite{deeplearning}{{15}{}{{}}{{}}}
+\bibcite{pythonmachinelearning}{{16}{}{{}}{{}}}
+\bibcite{rf}{{17}{}{{}}{{}}}
+\bibcite{ISI:000337467400005}{{18}{}{{}}{{}}}
+\bibcite{toxicity}{{19}{}{{}}{{}}}
+\bibcite{ISI:000355882700012}{{20}{}{{}}{{}}}
 \citation{*}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\newlabel{RF1}{28}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  The top levels of a decision tree trained on the Lung Cancer training data.}}{28}{figure.5}}
-\newlabel{fig:lungdt}{{5}{28}{The top levels of a decision tree trained on the Lung Cancer training data}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data.}}{29}{figure.6}}
-\newlabel{fig:breastbox}{{6}{29}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data}{figure.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data.}}{30}{figure.7}}
-\newlabel{fig:colonbox}{{7}{30}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data}{figure.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig\nobreakspace  {}\ref  {fig:breastbox} and fig\nobreakspace  {}\ref  {fig:colonbox}.}}{31}{figure.8}}
-\newlabel{fig:lungbox}{{8}{31}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig~\ref {fig:breastbox} and fig~\ref {fig:colonbox}}{figure.8}{}}
+\newlabel{RF1}{30}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  The top levels of a decision tree trained on the Lung Cancer training data.}}{30}{figure.5}}
+\newlabel{fig:lungdt}{{5}{30}{The top levels of a decision tree trained on the Lung Cancer training data}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data.}}{31}{figure.6}}
+\newlabel{fig:breastbox}{{6}{31}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data.}}{32}{figure.7}}
+\newlabel{fig:colonbox}{{7}{32}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for colon cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 5654 test patients in the colon cancer data}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig\nobreakspace  {}\ref  {fig:breastbox} and fig\nobreakspace  {}\ref  {fig:colonbox}.}}{33}{figure.8}}
+\newlabel{fig:lungbox}{{8}{33}{Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig~\ref {fig:breastbox} and fig~\ref {fig:colonbox}}{figure.8}{}}
