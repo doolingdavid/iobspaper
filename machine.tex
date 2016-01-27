@@ -146,32 +146,6 @@ Details of this transformation can be found in this blog post \cite{kuhn} and ar
 
 
 
-
-
-
-
-
-%Traditionally, survival analysis was developed to measure lifespans of individuals. An actuary or %health professional would ask questions like ``how long does this population live for?'', and %answer it using survival analysis. For example, the population may be a nation’s population (for actuaries), or a population sticken by a disease (in the medical professional’s case). %Traditionally, sort of a morbid subject.
-
-%The analysis can be further applied to not just traditional \textit{births} and 
-%\textit{deaths}, but any duration. Medical professional might be interested in the time %between childbirths, where a birth in this case is the event of having a child , and a death is %becoming pregnant again! (obviously, we are loose with our definitions of birth and death) %Another example is users subscribing to a service: a birth is a user who joins the service, and %a death is when the user leaves the service.
-
-
-%At the time you want to make inferences about durations, it is possible, likely true, that not all %the death events have occured yet. For example, a medical professional will not wait 50 years %for each individual in the study to pass away before investigating – he or she is interested in %the effectiveness of improving lifetimes after only a few years, or months possibly.
-
-%The individuals in a population who have not been subject to the death event are labeled as %right-censored, i.e. we did not (or can not) view the rest of their life history due to some %external circumstances. All the information we have on these individuals are their current %lifetime durations (which is naturally less than their actual lifetimes).
-
-
-%A common mistake data analysts make is choosing to ignore the right-censored individuals.
-%If we naively decide to \textit{not} include the right-censored individuals, it is clear that we %would be severely underestimating the true average lifespan. Furthermore, if we instead %simply took the mean of \textit{all} observed lifespans, including the current lifespans of right-%censored instances, we would \textit{still} be underestimating the true average lifespan.
-
-
-%Survival analysis was originally developed to solve this type of problem, that is, to deal with %estimation when our data is right-censored. Even in the case where all events have been %observed, i.e. no censorship, survival analysis is still a very useful to understand durations.
-
-
-%We next introduce the two fundamental objects in survival analysis, the \textit{survival %function} and the \textit{hazard function}.
-
-
 \section{Methodology}
 
 
@@ -201,57 +175,13 @@ SEER requires that researchers submit a request for the data, which includes an 
 \subsection{Data preparation and preprocessing}
 \label{subsec:dataprep}
 
-A great deal of data munging is necessary before using these SEER incidence files as input into machine learning algorithms. A preprocessing step common to each of three cancer types studied involves the \codewhite{STATE-COUNTY RECODE}.
+A great deal of data munging is necessary before using these SEER incidence files as input into machine learning algorithms. A preprocessing step common to each of the three cancer types studied involves the \codewhite{STATE-COUNTY RECODE} variable.
 The \codewhite{STATE-COUNTY RECODE} field is a state-county combination where the first two characters represent the state FIPS code and the last three digits represent the FIPS county code.  
-This particular field illustrates an important feature of machine learning, that between \textit{categorical features} and \textit{numeric features}. All input into a machine learning algorithm must be numeric, but real numbers carry with them the usually extremely useful property known as the well-ordering property of the real numbers. But if one is tasked with encoding a categorical feature into suitable numeric format for machine learning, it is necessary to do so in a way that removes the well-ordering property~\cite{bowles}. 
+This particular field illustrates an important characteristic of machine learning, that between \textit{categorical features} and \textit{numeric features}. All input into a machine learning algorithm must be numeric, but real numbers carry with them the usually extremely useful property known as the well-ordering property. But if one is tasked with encoding a categorical feature into suitable numeric format for machine learning, it is necessary to do so in a way that removes the well-ordering property~\cite{bowles}. 
 
-As a simple example of how to correctly treat categorical variables in a mchine learning context, consider the SEER variable \codewhite{SEX}. This variable is encoded with a numeric 1 for males and a numeric 2 for females as shown in Table ~\ref{tab:sex}. Values such as "Male" and "Female" encoded as numbers are dangerous because if not handled properly, they can generate bogus results \cite{downey}. The proper way to transform the SEER \codewhite{SEX} variable is to create two additional variables: \codewhite{sex$\_$Male} and \codewhite{sex$\_$Female}, and then to eliminate the variables \codewhite{SEX} and \codewhite{sex\_Male} (keeping both of the variables \codewhite{sex\_Male} and \codewhite{sex\_Female} is a redundant represetation). For example,
+As a simple example of how to correctly treat categorical variables in a machine learning context, consider the SEER variable \codewhite{SEX}. This variable is encoded with a numeric 1 for males and a numeric 2 for females as shown in Table~(\ref{tab:sex}). Values such as "Male" and "Female" encoded as numbers are dangerous because if not handled properly, they can generate bogus results \cite{downey}. The proper way to transform the SEER \codewhite{SEX} variable is to create two additional variables: \codewhite{sex$\_$Male} and \codewhite{sex$\_$Female}, and then to eliminate the variables \codewhite{SEX} and \codewhite{sex\_Male} (keeping both of the variables \codewhite{sex\_Male} and \codewhite{sex\_Female} is a redundant represetation). For example,
 
-
-%%\begin{displaymath}
-%%\begin{table}[tbp]
-%\begin{center}
-%%\begin{tabular}{|c|}
-%%\hline
-%%$\mathbf{SEX}$ \\ \hline
-%%1 \\ \hline
-%%\end{tabular}
-%\end{center}
-%%\end{table}
-%%$\rightarrow$
-%%\begin{table}[tbp]
-%%\begin{tabular}{|c|c|}
-%\begin{center}
-%\hline
-%$\mathbf{sex\_Male}$ & $\mathbf{sex\_Female}$ \\ \hline
-%1 & 0 \\
-%\end{tabular}
-%%\end{center}
-%\end{table}
-%\end{displaymath}
-
-
-
-%\begin{equation}
-%\begin{tabular}{c}
-%\toprule
-%\codewhite{Sex} \\
-%\midrule
-%1 \\
-%\bottomrule
-%\end{tabular}
-%\longrightarrow
-%\begin{tabular}{cc}
-%\toprule
-%\codewhite{sex\_Male} & \codewhite{sex\_Female} \\
-%\midrule 
-%1 &  0 \\
-%\bottomrule
-%\end{tabular}
-%\label{eqn:onehotmale}
-%\end{equation}
-
-%and 
+ 
 
 \begin{equation}
 \begin{array}{|c|} \hline
@@ -292,30 +222,10 @@ and
 
 
 
-%\begin{equation}
-%\begin{tabular}{c}
-%\toprule
-%\codewhite{Sex} \\
-%\midrule
-%2 \\
-%\bottomrule
-%\end{tabular}
-%\longrightarrow
-%\begin{tabular}{cc}
-%\toprule
-%\codewhite{sex\_Male} & \codewhite{sex\_Female} \\
-%\midrule 
-%0 & 1 \\
-%\bottomrule
-%\end{tabular}
-%\label{eqn:onehotfemale}
-%\end{equation}
-
-
-
 
 \begin{table}[tbp]
 \begin{center}
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{cc}
 \toprule
 Code & Description \\ 
