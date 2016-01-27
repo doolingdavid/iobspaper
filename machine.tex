@@ -97,7 +97,7 @@ Machine Learning has recently become a popular method to answer questions and so
 
 The objective of this study is to show how machine learning methods can be trained with data in cancer registries to produce personalized survival prognosis curves. Traditionally, cancer survival curves have been estimated using Kaplan-Meier methods~\cite{cam}. Kaplan-Meier methodology also uses large datasets to make predictions, but the resulting information is not personal; the resulting curves are summaries for a population and not necessarily relevant or particularly accurate for any given individual.  The methods described below also take full advantage of all relevant aggregate information, but are able to provide personalized suvival curves relevant to individual subjects. 
 The situation is analgous to consulting the New York Time's bestseller list for your next book\footnote{\url{http://www.nytimes.com/best-sellers-books/}}, or taking recommendations from your personalized Amazon "recommended for you'' service.
-The capability of providing individualized survival curve prognosis is a direct result of the recent advances in computing power and machine learning algorithms, and is becoming commonplace in many industries.
+This capability of providing individualized survival curve prognosis is a direct result of the recent advances in computing power and machine learning algorithms, and similar methodology is becoming commonplace in many industries.
  These techniques are slowly infiltrating the healthcare industry, in spite of some of the data aggregation challenges posed by the Health Insurance Portability and Accountability Act (HIPPA) of 1996.
 
 
@@ -263,8 +263,9 @@ For example, Table~(\ref{tab:nmhead}) shows how five entries of \codewhite{STATE
 \end{center}
 \end{table}
 
-It is a simple exercise to construct the full lookup table from the SEER \\  \codewhite{STATE-COUNTY RECODE} variable to the corresponding three values \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng}. Using the publically available dafafile from the United States Census Bureau~\cite{census} to construct query strings like the values of the \codewhite{address} field in Table (~\ref{tab:nmhead}), it is possible to then programmatically query the Google Maps Geocoding API for the latitude and longitude~\cite{geocode}, and the Google Maps Elevation API for the corresponding elevation~\cite{elevation}.
-An added benefit of this shift from the single categorical variable \codewhite{STATE-COUNTY RECODE} to the three continuous numerical variables \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation} is that input into the web applications described later are not restricted to the states and counties coverered in the SEER registries; in fact, the input to the models can be any address and calls to the Google Maps Geocoding API and the Google Maps Elevation API provide the conversion from the address string to the input variables \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation}. The full lookup table analogous to Table~\ref{tab:nmhead} is available from a GitHub repository containing supplemental information for this study~\cite{supp}.
+It is a simple exercise to construct the full lookup table from the SEER \\  \codewhite{STATE-COUNTY RECODE} variable to the corresponding three values \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng}. We use the publically available dafafile from the United States Census Bureau~\cite{census} to map the state FIPS and county FIPS codes to query strings like those in the \codewhite{address} field in Table (~\ref{tab:nmhead}). 
+It is then possible to programmatically query the Google Maps Geocoding API for the latitude and longitude~\cite{geocode}, and the Google Maps Elevation API for the corresponding elevation~\cite{elevation}.
+An added benefit of this shift from the single categorical variable \codewhite{STATE-COUNTY RECODE} to the three continuous numerical variables \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation} is that input into the web applications described in section~(\ref{sec:apps}) are not restricted to the states and counties coverered in the SEER registries; in fact, the input to the models can be any address you would enter into Google Maps and calls to the Google Maps Geocoding API and the Google Maps Elevation API provide the conversion from the address string to the input variables \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation}. The full lookup table analogous to Table~(\ref{tab:nmhead}) is available from a GitHub repository containing supplemental information for this study~\cite{supp}. 
 
 
 \subsection{Colon Cancer Data}
@@ -465,7 +466,7 @@ Before applying machine learning models trained with these data sets, we review 
 
 The above Kaplan-Meier estimates of the survival curves for colon (Figure~(\ref{fig:colonkaplan}), lung 
 (Figure~(\ref{fig:lungkaplan}), and breast cancer (Figure~(\ref{fig:breastkaplan}) are constructed from the full population of cancer patients in the respective datasets.
-An unsatisfactory consequence is that these estimates are highly course-grained, and not very meaningful to an indivual. Patients with very disparate characteristics are given the same prognosis by these Kaplan-Meier survival curve estimates. Therefore it is desirable to find robust predictors for survival curves of individual where the input is an individual record as opposed to a population.
+An unsatisfactory consequence is that these estimates are highly course-grained, and not very meaningful to an indivual. Patients with very disparate characteristics are given the same prognosis by these Kaplan-Meier survival curve estimates. Therefore it is desirable to find robust predictors for survival curves of individual subjects where the input is an individual record as opposed to a population. In section~(\ref{subsec:survprimer}) we briefly review the pertinent features of survival analyis, before presenting in section~(\ref{subsec:transformation}) the data transformation that allows for machine learning to be applied to censored data.
 
 
 % https://openaccess.leidenuniv.nl/bitstream/handle/1887/11456/01.pdf?sequence=6
@@ -1073,6 +1074,8 @@ Lung & .861 & .883 & .900 \\
 
 
 \section{Survival Curve Prediction Apps}
+\label{sec:apps}
+
 
 CF this guy \url{http://kmplot.com/analysis/index.php?p=service&cancer=lung}
 
