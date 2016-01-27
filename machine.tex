@@ -127,96 +127,26 @@ Observations are labeled censored when the survival time information is incomple
 Methods to deal effectively with this kind of "right-censored data'' include Kaplan-Meier curves
 and Cox Proportional Hazard models \cite{cam}. The Kaplan-Meier techniques only give estimates for cohorts of patients and are not applicable for predicting the surival curve for a single patient, and the Cox Proportional Hazard models require a fairly restrictive set ot assumptions to be satisifed in order to yield reliable results. The Cox Proportional Hazard models are not able to capture the nonlinear relationships between the given data fields that go into making predictions; they can only capture the first-order linear relationships.
 
-Previous work applying machine learning methods to subsets of the SEER data include creative attempts to deal with the problems presented by  "right-censored data." Shin et al. ~\cite{ISI:000337467400005} use semi-supervised learning techniques to predict 5 year survival, essentially imputing values for SEER records where the survival months infomation is censored at a value less than 5 years. Zolbanin et al. ~\cite{ISI:000355882700012} investigate the effects of comordbidities; i.e., patients with two different cancer diagnosises, but their treatment of the censored data underestimates the survival probabilities. All records representing patients who survived at least 60 months as well as all those who died earlier than 60 months were considered, but patients alive prior to 60 months but censored out of the study before 60 months were not included. This treatment biases the data and the predictions, leading to overly pessimistic survival probablilites predicted by the trained models.
+Previous work applying machine learning methods to subsets of the SEER data include creative attempts to deal with the problems presented by  "right-censored data." Shin et al. ~\cite{ISI:000337467400005} use semi-supervised learning techniques to predict 5 year survival, essentially imputing values for SEER records where the survival months infomation is censored at a value less than 5 years. Zolbanin et al. ~\cite{ISI:000355882700012} investigate the effects of comordbidities; i.e., patients with two different cancer diagnosises, but their treatment of the censored data underestimates the survival probabilities. All records representing patients who survived at least 60 months as well as all those who died earlier than 60 months were considered, but patients alive prior to 60 months but censored out of the study before 60 months were not included. This treatment biases the data and the predictions, leading to overly pessimistic survival probablilites predicted by the models.
 
-To overcome these limitations of the traditional methods, IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed simply so as to make predictions for the hazard function (
+IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed to make predictions for the hazard function (
  probability of dying in the next month, given that the patient has not yet died).
 The full survival function can then be derived from the hazard function.
-Details of this transformation can be found in this blog post \cite{kuhn}.
+Details of this transformation can be found in this blog post \cite{kuhn} and are presented in section~(\ref{subsec:transformation}).
 
 
-%For internal references use label-refs: see section~\ref{sec:intro}.
-%Bibliographic citations can be done with cite: refs.~\cite{a,b,c}.
-%When possible, align equations on the equal sign. The package
-%\texttt{amsmath} is already loaded. See \eqref{eq:x}.
-%\begin{equation}
-%\label{eq:x}
-%\begin{split}
-%x &= 1 \,,
-%\qquad
-%y = 2 \,,
-%\\
-%z &= 3 \,.
-%\end{split}
-%\end{equation}
-%Also, watch out for the punctuation at the end of the equations.
 
 
-%If you want some equations without the tag (number), please use the available
-%starred-environments. For example:
-%\begin{equation*}
-%x = 1
-%\end{equation*}
 
-%The amsmath package has many features. For example, you can use use
-%\texttt{subequations} environment:
-%\begin{subequations}\label{eq:y}
-%\begin{align}
-%\label{eq:y:1}
-%a & = 1
-%\\
-%\label{eq:y:2}
-%b & = 2
-%\end{align}
-%and it will continue to operate across the text also.
-%\begin{equation}
-%\label{eq:y:3}
-%c = 3
-%\end{equation}
-%\end{subequations}
-%The references will work as you'd expect: \eqref{eq:y:1},
-%\eqref{eq:y:2} and \eqref{eq:y:3} are all part of \eqref{eq:y}.
 
-%A similar solution is available for figures via the \texttt{subfigure}
-%package (not loaded by default and not shown here). 
-%All figures and tables should be referenced in the text and should be
-%placed at the top of the page where they are first cited or in
-%subsequent pages. Positioning them in the source file
-%after the paragraph where you first reference them usually yield good
-%results. See figure~\ref{fig:i} and table~\ref{tab:i}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%\section{Survival Analysis}
 
 
-%\textbf{Survival analysis} is a way to describe how long things last. It is often used to study %human lifetimes, but it also applies to "survival'' of mechanical and electronic components, or %more generally to intervals in time before an event.
-
-%If someone you know has been diagnosed with a life-threatening disease, you might have %seen a "5-year survival rate,'' which is the probability of surviving five years after diagnosis. %That estimate and related statistics are the result of survival analysis.
 
 
-%The fundamental concept in survival analysis is the \textbf{survival curve}, $S(t)$, which is a %function that maps from a duration, $t$, to the probability of surviving longer than $t$. If you %know the distribution of durations, or "lifetimes,'' finding the survival curve is easy; it's just the %complement  of the CDF:
-
-%\begin{equation}
-%S(t) = 1 - CDF(t)
-%\end{equation}
-
-%where $CDF(t)$ is the probability of a lifetime less than or equal to $t$.
-%From the survival curve we can derive the \textbf{hazard function}; for pregnancy lengths, %the 
-%hazard function maps from a time, $t$, to the fraction of pregnancies that continue until $t$ %and then end at $t$. To be more precise:
-
-%\begin{equation}
-%\lambda(t) = \frac{ S(t) - S(t+1)}{S(t)}
-%\end{equation}
-
-%The numerator is the fraction of lifetimes that end at $t$, which is also $PMF(t)$.
-
-%If someone gives you the CDF of lifetimes, it is easy to compute the survival and hazard %functoins. But in many real-world scenarios, we can't measure the distribution of lifetimes %directly. We have to infer it.
-
-%For example, suppose you are following a group of patients to see how long they survive after %diagnosis. Not all patients are diagnosed on the same day, so at any point in time, some %patients have survived longer than others. If some patients have died, we know their survival %times. For patients who are still alive, we don't know survival times, but we have a lower %bound.
-
-%If we wait until all patients are dead, we can compute the survival curve, but it we are %evaluating the effectiveness of a new treatment, we can't wait that long! We need a way to %estimate survival curves using incomplete information. 
 
 
 
