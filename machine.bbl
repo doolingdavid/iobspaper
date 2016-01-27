@@ -68,6 +68,11 @@ IOBS, ``Supplemental material | paperdata.''
   \url{https://github.com/doolingdavid/PAPERDATA.git}, 2016 (accessed 18 Jan
   2016.
 
+\bibitem{amstat}
+A.~S.~A. Northeastern Illinois~Chapter, ``Survival analysis: Introduction.''
+  \url{http://www.amstat.org/chapters/northeasternillinois/pastevents/presentations/summer05_Ibrahim_J.pdf},
+  2005 (accessed 27 Jan 2016).
+
 \bibitem{rf}
 scikit-learn developers, ``3.2.4.3.1.
   sklearn.ensemble.randomforestclassifier.''
