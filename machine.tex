@@ -476,13 +476,18 @@ An unsatisfactory consequence is that these estimates are highly course-grained,
 
 %%%  will need to tighten this up a lot lot lot 
 
-To understand survival analysis, you first have to understand survival data - that survival times are \textit{intervals} between certain kinds of events, that these intervals are often affected by a peculiar kind of "partial missingness'' called \textit{censoring}, and that censored data must be analyzed in a special way to avoid biased estimates and incorrect conclusions.
+%To understand survival analysis, you first have to understand survival data - that survival times are \textit{intervals} %between certain kinds of events, that these intervals are often affected by a peculiar kind of "partial missingness'' called %\textit{censoring}, and that censored data must be analyzed in a special way to avoid biased estimates and incorrect %conclusions.
 
-In the case of the SEER data, the starting point of the time interval is the diagnosis date. Even though survival times are continuous or nearly continuous numerial quantities, they're never almost never normally distributed. If non-normality were the only problem with survival data, you would be able to summarize survival times as medians and centiles instead of means and standard deviations, and you could compare survival between groups with nonparametric Mann-Whitney and Kruksal-Wallis testse instead of t tests and ANOVAs. But time-to-event data is susceptible to a special situation called \textit{censoring}, which the usual parametric and non-parametric methods cannot handle. Therefore special methods have been developed to analyze censored data properly. 
+
+Survival analysis pertains to data containing survival times, which are \emph{intervals} between certain kinds of events, e.g.; cancer diagnosis date and expiry date. These intervals are often affected by a kind of "partial missingness" called \emph{censoring}. Censored data must be analyzed in a special way to avoid biased estimates and bogus conclusions.
+Special methods have been developed long ago to analyze censored data properly.
+
+%In the case of the SEER data, the starting point of the time interval is the diagnosis date. Even though survival times are %continuous or nearly continuous numerial quantities, they're never almost never normally distributed. If non-normality %were the only problem with survival data, you would be able to summarize survival times as medians and centiles instead %of means and standard deviations, and you could compare survival between groups with nonparametric Mann-Whitney %and Kruksal-Wallis testse instead of t tests and ANOVAs. But time-to-event data is susceptible to a special situation called %\textit{censoring}, which the usual parametric and non-parametric methods cannot handle. Therefore special methods %have been developed to analyze censored data properly. 
 
 With survival data, including the SEER data considered in this study, you may not know the exact time of death for some subjects. Some of the SEER subjects are still alive at the the time of the latest SEER data release. When the \codewhite{VITAL STATUS RECODE} variable indicates that the subject is still alive, the \codewhite{SURVIVAL MONTHS} variable is only a lower bound on the true number of survival months; this is called the \textit{date of last contact} mode of censoring. You know that each subject either died on a certain date or was definitely alive up to some last-seen date (and you don't know how far beyond that date he or she may ultimately have lived). The latter situation is called a \textit{censored} observation. 
 
-Statisticians have developed some traditional techniques to utilize the partial information contained in censored observations: the life-table method and the Kaplan-Meier method. To understand these methods, you need to understand two fundamental concepts: - \textit{hazard} and \textit{survival}:
+Statisticians have developed some traditional techniques to utilize the partial information contained in censored observations: the life-table method and the Kaplan-Meier method. 
+Both of these methods make use of the partial information to provide unbiased estimates of the two fundamental concepts: - \textit{hazard} and \textit{survival}, both of which are functions of time:
 
 \begin{itemize}[noitemsep]
 \item \textbf{The hazard rate} is the probability of dying in the next small interval of time, assuming that the subject is alive right now.
@@ -490,14 +495,16 @@ Statisticians have developed some traditional techniques to utilize the partial 
 \end{itemize}
 
 
+Incorrect treatment of survival data still seen in practice, and leading to biased results, include simply excluding all subjects with a censored survival time from any survival analysis, and \emph{imputing} (replacing) the censored (last-seen) date with some reasonable value. Both of these techniques destroy the partial information contained in the censored observations and nullify the validity of the resulting estimates for the hazard rate and survival rate~\cite{cam}.
 
-The first task when analyzing survival data is usually to describe how the hazard and survival rates vary with time. 
-Here are two ways \textit{not} to handle censored survival data:
 
-\begin{itemize}[noitemsep]
-\item You shouldn't excude subjects with a censored surivival time from any survival analysis.
-\item You shouldn't \textit{impute} (replace) the censored (last-seen) date with some reasonable substitute value. One commonly used imputation scheme is to replace a missing value with the last observed value for that subject (called \textit{last observation carried forward}, or LOCF imputation). 
-\end{itemize}
+%The first task when analyzing survival data is usually to describe how the hazard and survival rates vary with time. 
+%Here are two ways \textit{not} to handle censored survival data:
+
+%\begin{itemize}[noitemsep]
+%\item You shouldn't excude subjects with a censored surivival time from any survival analysis.
+%\item You shouldn't \textit{impute} (replace) the censored (last-seen) date with some reasonable substitute value. One %commonly used imputation scheme is to replace a missing value with the last observed value for that subject (called %%\textit{last observation carried forward}, or LOCF imputation). 
+%\end{itemize}
 
 These techniques for dealing with missing data don't work for censored data. If you simply exclude all subjects with censored death dates from your analysis, you may be left with too few analyzable subjects, which weakens (underpowers) youe study. Worse, it will also bias your results in subtle and unpredictable ways. The problem is that a censored observation time isn't really missing. If you know that a person was last seen alive three years after treatment, you have partial information for that patient. You don't know exactly what the patient's true survival time is, but you do know that it's at least three years. 
 

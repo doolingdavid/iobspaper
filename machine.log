@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  27 JAN 2016 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  27 JAN 2016 15:58
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -527,18 +527,15 @@ Underfull \vbox (badness 4899) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.480 
-       <./breastkaplan.pdf>] [11]
-Underfull \vbox (badness 1946) has occurred while \output is active []
-
- [12pdfTeX warning (ext4): destination with the same identifier (name{table.6})
- has been already used, duplicate ignored
+l.484 
+       <./breastkaplan.pdf>] [11] [12pdfTeX warning (ext4): destination with th
+e same identifier (name{table.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.538 
-      ]
-Overfull \hbox (79.81006pt too wide) in paragraph at lines 556--569
+l.554 \end{itemize}
+                   ]
+Overfull \hbox (79.81006pt too wide) in paragraph at lines 563--576
  [] 
  []
 
@@ -547,32 +544,34 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.582 \item T
-             he column \textbf{Prob of Dying} shows the probability of dying...
-]
-Overfull \hbox (68.17871pt too wide) in paragraph at lines 602--618
+l.592 \end{itemize}
+                   ]
+Overfull \hbox (68.17871pt too wide) in paragraph at lines 609--625
  [] 
  []
 
-[14]
-Overfull \hbox (10.18616pt too wide) in paragraph at lines 663--665
+
+Underfull \vbox (badness 5403) has occurred while \output is active []
+
+ [14pdfTeX warning (ext4): destination with the same identifier (name{table.8})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.649 
+      ]
+Overfull \hbox (10.18616pt too wide) in paragraph at lines 670--672
 []\T1/cmr/m/n/10.95 In the dis-crete time vari-able case which holds for the SE
 ER data where [][][][][][]
  []
 
-[15pdfTeX warning (ext4): destination with the same identifier (name{table.8}) 
-has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.671 \end{eqnarray}
-                    ]
-Overfull \hbox (66.0459pt too wide) in paragraph at lines 687--695
+[15]
+Overfull \hbox (66.0459pt too wide) in paragraph at lines 694--702
  [] 
  []
 
 
-Overfull \hbox (66.0459pt too wide) in paragraph at lines 702--710
+Overfull \hbox (66.0459pt too wide) in paragraph at lines 709--717
  [] 
  []
 
@@ -581,180 +580,180 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.760 
+l.767 
       pdfTeX warning (ext4): destination with the same identifier (name{table.1
 0}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.760 
-      ] [17pdfTeX warning (ext4): destination with the same identifier (name{ta
-ble.11}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.775 
+l.767 
       pdfTeX warning (ext4): destination with the same identifier (name{table.1
-2}) has been already used, duplicate ignored
+1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.775 
-      ] <survivalexample.pdf, id=499, 433.62pt x 289.08pt>
+l.767 
+      ] <survivalexample.pdf, id=496, 433.62pt x 289.08pt>
 File: survivalexample.pdf Graphic file (type pdf)
 
 <use survivalexample.pdf>
-Package pdftex.def Info: survivalexample.pdf used on input line 783.
+Package pdftex.def Info: survivalexample.pdf used on input line 790.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
- [18pdfTeX warning (ext4): destination with the same identifier (name{figure.4}
+ [17pdfTeX warning (ext4): destination with the same identifier (name{table.12}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.810 
+l.805 \end{itemize}
+                   ] [18pdfTeX warning (ext4): destination with the same identi
+fier (name{figure.4}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.821 
        <./survivalexample.pdf>]
-Overfull \hbox (7.7633pt too wide) in paragraph at lines 816--818
+Overfull \hbox (7.7633pt too wide) in paragraph at lines 823--825
 \T1/cmr/m/n/10.95 are re-placed with the fea-tures [][][][][][] and [][][][][][
 ], as il-lus-trated in Ta-bles ([][]9[][], [][]10[][], [][]11[][], [][]12[][]).
 
  []
 
-[19] <ensemble.png, id=556, 397.485pt x 279.0425pt>
+<ensemble.png, id=553, 397.485pt x 279.0425pt>
 File: ensemble.png Graphic file (type png)
  <use ensemble.png>
-Package pdftex.def Info: ensemble.png used on input line 845.
+Package pdftex.def Info: ensemble.png used on input line 852.
 (pdftex.def)             Requested size: 298.113pt x 209.28136pt.
-
-<lungdt.pdf, id=563, 3033.3325pt x 490.83376pt>
+ [19]
+<lungdt.pdf, id=565, 3033.3325pt x 490.83376pt>
 File: lungdt.pdf Graphic file (type pdf)
  <use lungdt.pdf>
-Package pdftex.def Info: lungdt.pdf used on input line 866.
+Package pdftex.def Info: lungdt.pdf used on input line 873.
 (pdftex.def)             Requested size: 607.35535pt x 98.27734pt.
  [20pdfTeX warning (ext4): destination with the same identifier (name{figure.5}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.883 
-       <./ensemble.png>] [21pdfTeX warning (ext4): destination with the same id
-entifier (name{table.13}) has been already used, duplicate ignored
+l.951 \end{table}
+                  <./ensemble.png>] [21pdfTeX warning (ext4): destination with 
+the same identifier (name{table.13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.989 A
-       n additional means of validating the predictions of these models is b...
+l.1003 \item e
+              xtract the values of the survival curve evaluted for 6, 12, an...
 ]
-Overfull \hbox (17.05627pt too wide) in paragraph at lines 1009--1019
+Overfull \hbox (17.05627pt too wide) in paragraph at lines 1016--1026
  [] 
  []
 
-<breastbox.pdf, id=598, 433.62pt x 289.08pt>
+<breastbox.pdf, id=600, 433.62pt x 289.08pt>
 File: breastbox.pdf Graphic file (type pdf)
  <use breastbox.pdf>
-Package pdftex.def Info: breastbox.pdf used on input line 1029.
+Package pdftex.def Info: breastbox.pdf used on input line 1036.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<colonbox.pdf, id=599, 433.62pt x 289.08pt>
+<colonbox.pdf, id=601, 433.62pt x 289.08pt>
 File: colonbox.pdf Graphic file (type pdf)
  <use colonbox.pdf>
-Package pdftex.def Info: colonbox.pdf used on input line 1043.
+Package pdftex.def Info: colonbox.pdf used on input line 1050.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<lungbox.pdf, id=600, 433.62pt x 289.08pt>
+<lungbox.pdf, id=602, 433.62pt x 289.08pt>
 File: lungbox.pdf Graphic file (type pdf)
  <use lungbox.pdf>
-Package pdftex.def Info: lungbox.pdf used on input line 1060.
+Package pdftex.def Info: lungbox.pdf used on input line 1067.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
  [22pdfTeX warning (ext4): destination with the same identifier (name{table.14}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1092     \item n
-                  eural network: \url{http://breastcancer-neuralnetwork.hero...
-] <boston1940.png, id=627, 511.9125pt x 481.8pt>
+l.1114    \end{enumerate}
+                         ] <boston1940.png, id=637, 511.9125pt x 481.8pt>
 File: boston1940.png Graphic file (type png)
- <use boston1940.png>
-Package pdftex.def Info: boston1940.png used on input line 1154.
+
+<use boston1940.png>
+Package pdftex.def Info: boston1940.png used on input line 1161.
 (pdftex.def)             Requested size: 409.53056pt x 385.4405pt.
  [23pdfTeX warning (ext4): destination with the same identifier (name{table.15}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1162 
+l.1177 
        ] [24] [25] [26] [27] [28] [29] [30] [31] [32]
-Overfull \hbox (39.4384pt too wide) in paragraph at lines 1609--1609
+Overfull \hbox (39.4384pt too wide) in paragraph at lines 1616--1616
 []\T1/cmtt/m/n/10.95 modelbreast.compile(loss='binary_crossentropy', optimizer=
 rms, class_mode="binary")[] 
  []
 
-[33]
-Overfull \hbox (33.78003pt too wide) in paragraph at lines 1642--1642
+
+Overfull \hbox (33.78003pt too wide) in paragraph at lines 1649--1649
 []\T1/cmtt/m/n/10.95 modelcolon.compile(loss='binary_crossentropy', optimizer=r
 ms, class_mode="binary")[] 
  []
 
-
-Overfull \hbox (28.12166pt too wide) in paragraph at lines 1676--1676
+[33]
+Overfull \hbox (28.12166pt too wide) in paragraph at lines 1683--1683
 []\T1/cmtt/m/n/10.95 modellung.compile(loss='binary_crossentropy', optimizer=rm
 s, class_mode="binary")[] 
  []
 
-[34] (machine.bbl [35])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1742.
- [36] [37pdfTeX warning (ext4): destination with the same identifier (name{figu
+(machine.bbl [34])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1749.
+ [35] [36pdfTeX warning (ext4): destination with the same identifier (name{figu
 re.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1742 \end{document}
-                      <./lungdt.pdf>] [38pdfTeX warning (ext4): destination wit
+l.1749 \end{document}
+                      <./lungdt.pdf>] [37pdfTeX warning (ext4): destination wit
 h the same identifier (name{figure.7}) has been already used, duplicate ignored
 
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1742 \end{document}
-                      <./breastbox.pdf>] [39pdfTeX warning (ext4): destination 
+l.1749 \end{document}
+                      <./breastbox.pdf>] [38pdfTeX warning (ext4): destination 
 with the same identifier (name{figure.8}) has been already used, duplicate igno
 red
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1742 \end{document}
-                      <./colonbox.pdf>] [40pdfTeX warning (ext4): destination w
+l.1749 \end{document}
+                      <./colonbox.pdf>] [39pdfTeX warning (ext4): destination w
 ith the same identifier (name{figure.9}) has been already used, duplicate ignor
 ed
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1742 \end{document}
-                      <./lungbox.pdf>] [41pdfTeX warning (ext4): destination wi
+l.1749 \end{document}
+                      <./lungbox.pdf>] [40pdfTeX warning (ext4): destination wi
 th the same identifier (name{figure.10}) has been already used, duplicate ignor
 ed
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1742 \end{document}
+l.1749 \end{document}
                       <./boston1940.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1742.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1749.
  (machine.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1742.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1742.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1749.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1749.
 
 Package rerunfilecheck Info: File `machine.out' has not changed.
 (rerunfilecheck)             Checksum: 23A8B49DA0D3804E26B8E882E23A78A2;2237.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1742.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1749.
  ) 
 Here is how much of TeX's memory you used:
- 8001 strings out of 493634
- 111882 string characters out of 3141304
- 217557 words of memory out of 3000000
+ 8000 strings out of 493634
+ 111875 string characters out of 3141304
+ 216557 words of memory out of 3000000
  11092 multiletter control sequences out of 15000+200000
  28631 words of font info for 76 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 41i,13n,35p,1211b,564s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,35p,1211b,570s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
 00\ectt1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
 appen\ec\dpi600\ecrm1000.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\
@@ -783,9 +782,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on machine.pdf (42 pages, 664342 bytes).
+Output written on machine.pdf (41 pages, 663475 bytes).
 PDF statistics:
- 1635 PDF objects out of 1728 (max. 8388607)
- 145 named destinations out of 1000 (max. 500000)
+ 1630 PDF objects out of 1728 (max. 8388607)
+ 144 named destinations out of 1000 (max. 500000)
  299 words of extra memory for PDF output out of 10000 (max. 10000000)
 
