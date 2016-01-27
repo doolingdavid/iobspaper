@@ -1,35 +1,35 @@
 \begin{thebibliography}{10}
 
 \bibitem{pythonmachinelearning}
-S.~Raschka, {\em Python Machine Learning Essentials}.
+{Sebastian Raschka}, {\em Python Machine Learning Essentials}.
 \newblock Packt Publishing, 2015.
-
-\bibitem{seerwebsite}
-{National Cancer Institute, the Surveillance, Epidemiology, and End Results
-  Program}, ``{About the SEER Program - SEER}.''
-  \url{http://seer.cancer.gov/about}, 2016 (accessed 14 Jan 2016).
 
 \bibitem{cam}
 {Cam Davidson-Pilon}, ``{Quickstart -- lifelines 0.8.0.1 documentation}.''
   \url{http://lifelines.readthedocs.org/en/latest/Quickstart.html}, 2016
   (accessed 14 Jan 2016).
 
+\bibitem{seerwebsite}
+{National Cancer Institute, the Surveillance, Epidemiology, and End Results
+  Program}, ``{About the SEER Program - SEER}.''
+  \url{http://seer.cancer.gov/about}, 2016 (accessed 14 Jan 2016).
+
 \bibitem{ISI:000337467400005}
-H.~Shin and Y.~Nam, ``{A coupling approach of a predictor and a descriptor for
-  breast cancer prognosis},'' {\em {BMC MEDICAL GENOMICS}}, vol.~{7}, {MAY 8}
-  {2014}.
+{Shin, Hyunjung and Nam, Yonghyun}, ``{A coupling approach of a predictor and a
+  descriptor for breast cancer prognosis},'' {\em {BMC MEDICAL GENOMICS}},
+  vol.~{7}, {MAY 8} {2014}.
 \newblock {3rd Annual Translational Bioinformatics Conference (TBC) /
   ISCB-Asia, Seoul, SOUTH KOREA, OCT 02-04, 2013}.
 
 \bibitem{ISI:000355882700012}
-H.~M. Zolbanin, D.~Delen, and A.~H. Zadeh, ``{Predicting overall survivability
-  in comorbidity of cancers: A data mining approach},'' {\em {DECISION SUPPORT
-  SYSTEMS}}, vol.~{74}, pp.~{150--161}, {JUN} {2015}.
+{Zolbanin, Hamed Majidi and Delen, Dursun and Zadeh, Amir Hassan},
+  ``{Predicting overall survivability in comorbidity of cancers: A data mining
+  approach},'' {\em {DECISION SUPPORT SYSTEMS}}, vol.~{74}, pp.~{150--161},
+  {JUN} {2015}.
 
 \bibitem{kuhn}
 {Ben Kuhn}, ``{Decision trees for survival analysis}.''
-  \url{{http://www.benkuhn.net/survival-trees}}, year="2016 (accessed 14 Jan
-  2016)",.
+  \url{http://www.benkuhn.net/survival-trees}, 2016 (accessed 14 Jan 2016).
 
 \bibitem{seerdoc}
 {National Cancer Institute, the Surveillance, Epidemiology, and End Results
@@ -38,53 +38,55 @@ H.~M. Zolbanin, D.~Delen, and A.~H. Zadeh, ``{Predicting overall survivability
   2016).
 
 \bibitem{bowles}
-M.~Bowles, {\em Machine Learning in Python: Essential Techniques for Predictive
-  Analysis}.
+{Michael Bowles}, {\em Machine Learning in Python: Essential Techniques for
+  Predictive Analysis}.
 \newblock Wiley, 2015.
 
 \bibitem{downey}
-A.~Downey, {\em Think Stats}.
+{Allen Downey}, {\em Think Stats}.
 \newblock O'Reilly Media, 2014.
 
 \bibitem{census}
-U.~S.~C. Bureau, ``2010 fips code files for counties - geography - u.s. census
-  bureau.'' \url{https://www.census.gov/geo/reference/codes/cou.html}, 2016
-  (accessed 18 Jan 2016).
+{United States Census Bureau}, ``2010 fips code files for counties - geography
+  - u.s. census bureau.''
+  \url{https://www.census.gov/geo/reference/codes/cou.html}, 2016 (accessed 18
+  Jan 2016).
 
 \bibitem{geocode}
-G.~Developers, ``The google maps geocoding api | google maps geocoding api |
-  google developers.''
+{Google Developers}, ``The google maps geocoding api | google maps geocoding
+  api | google developers.''
   \url{https://developers.google.com/maps/documentation/geocoding/intro}, 2016
   (accessed 18 Jan 2016).
 
 \bibitem{elevation}
-G.~Developers, ``The google maps elevation api | google maps elevation api |
-  google developers.''
+{Google Developers}, ``The google maps elevation api | google maps elevation
+  api | google developers.''
   \url{https://developers.google.com/maps/documentation/elevation/intro?hl=en},
   2016 (accessed 18 Jan 2016).
 
 \bibitem{supp}
-IOBS, ``Supplemental material | paperdata.''
+{IOBS}, ``Supplemental material | paperdata.''
   \url{https://github.com/doolingdavid/PAPERDATA.git}, 2016 (accessed 18 Jan
   2016.
 
 \bibitem{amstat}
-A.~S.~A. Northeastern Illinois~Chapter, ``Survival analysis: Introduction.''
+{Northeastern Illinois Chapter, American Statistical Association}, ``Survival
+  analysis: Introduction.''
   \url{http://www.amstat.org/chapters/northeasternillinois/pastevents/presentations/summer05_Ibrahim_J.pdf},
   2005 (accessed 27 Jan 2016).
 
 \bibitem{rf}
-scikit-learn developers, ``3.2.4.3.1.
+{scikit-learn developers}, ``3.2.4.3.1.
   sklearn.ensemble.randomforestclassifier.''
   \url{http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html},
   2014 (accessed 25 Jan 2016).
 
 \bibitem{kagglerf}
-K.~Inc., ``Random forests | kaggle.''
+{Kaggle Inc.}, ``Random forests | kaggle.''
   \url{https://www.kaggle.com/wiki/RandomForests}, 2015 (accessed 25 Jan 2016.
 
 \bibitem{deeplearning}
-M.~Nielsen, ``Neural networks and deep learning.''
+{Michael Nielsen}, ``Neural networks and deep learning.''
   \url{http://neuralnetworksanddeeplearning.com/}, Jan 2016 (accessed 25 Jan
   2016).
 
@@ -94,7 +96,7 @@ M.~Nielsen, ``Neural networks and deep learning.''
   Mar 2015 (accessed 25 Jan 2016).
 
 \bibitem{keras}
-F.~Chollet, ``Keras documentation.'' \url{http://keras.io/}, 2015 (accessed 25
-  Jan 2016).
+{François Chollet}, ``Keras documentation.'' \url{http://keras.io/}, 2015
+  (accessed 25 Jan 2016).
 
 \end{thebibliography}
