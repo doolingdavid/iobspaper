@@ -790,13 +790,13 @@ The Kaplan-Meier estimate of the survival curve is given by
 \label{eq:kaplanmeier}
 \hat{S}(t) = \prod_{t_i < t} \frac{n_i - d_i}{n_i}
 \end{equation}
-where $d_i$ are the number of death events at time $t$ and $n_t$ is the number of subjects at risk of death just priot to time $t$. 
+where $d_i$ are the number of death events at time $t$ and $n_t$ is the number of subjects at risk of death just prior to time $t$. 
 Equation~\ref{eq:kaplanmeier} uses the entire data set to arrive at an estimate of the entire population survival curve. In contrast, the method described below uses the entire data set to learn a model so as to predict hazard and survival curves for all of the individual records in the data set.
 
 The key observation is to note that the hazard function can be readily learned via machine learning methods. It can be rewritten as
 \begin{equation}
 \label{eq:hhazard}
-h(\mathbf{X}, t) = P(Y = t|Y \geq t, \mathbf{X}),
+\lambda(\mathbf{X}, t) = P(Y = t|Y \geq t, \mathbf{X}),
 \end{equation}
 the probability that, if someone has survived up until month $t$, they will die in that month.
 where $\mathbf{X}$ represents all of the data for that particular record, and in our case $Y$ represents the true, uncensored number of survival months of the patient.
@@ -805,13 +805,13 @@ $D$ is a Boolean variable, so $D = 1$ if $T = Y$, and $D = 0$ if $T < Y$.
 
 
 In the discrete time variable case which holds for the SEER data where \codewhite{SURVIVAL MONTHS} takes on integer values, the relationship between the hazard function and the survival function is given as follows~\cite{amstat}. Supppose that 
-$a_{j} < t \leq a_{j+1}$. Then
+$a_{j} < t \leq a_{j+1}$ where $a_{j}$ represents $j$ months. Then
 
 \begin{eqnarray}
 S(t) &  = & P(T \geq a_{1}, T \geq a_{2}, \cdots , T \geq a_{j+1}) \\
    & = & P(T \geq a_{1}) P(T \geq a_{2} | T \geq a_{1}) \cdots P(T \geq a_{j+1} | T \geq a_{j}) \\
  & = & (1 - \lambda_{1}) \times \cdots \times (1 - \lambda_{j}) \\
- & = & \prod_{k: a_{k} < t}(1 - \lambda_{k})
+ & = & \prod_{k: a_{k} < t}(1 - \lambda_{k}) \label{eq:hazardtosurvival}
 \end{eqnarray}
 
 
@@ -907,10 +907,11 @@ Traning machine learning algorithms on such large datasets, even after splitting
 \label{sec:predmodels}
 
 With the datasets transformed as described in section~(\ref{subsec:transformation}), we are now able to split them into training and testing sets in the usual manner.
-The classifier models described in this section are learning the hazard function: given all of the data given in sections~(\ref{subsec:lungfeatures}, ~\ref{subsec:colonfeatures}, ~\ref{subsec:breastfeatures}), which includes the field \codewhite{months} (the months after diagnosis), the models predict the target variable \codewhite{newtarget}, which represents the probability of dying in that month, given that the patient represented by the record has survived up to that month. This prediction task should not be confused with the regression problem of trying to predict precisely in what month a patient will die.
+The classifier models described in this section are learning the hazard function: given all of the data given in sections~(\ref{subsec:lungfeatures}, ~\ref{subsec:colonfeatures}, ~\ref{subsec:breastfeatures}), which includes the field \codewhite{months} (the months after diagnosis), the models predict the target variable \codewhite{newtarget}, which represents the probability of dying in that month, given that the patient represented by the record has survived up to that month. The models learn $\lambda(\mathbf{X}, \codewhite{months})$.
+This prediction task should not be confused with the regression problem of trying to predict precisely in what month a patient will die.
 The hazard functions thus learned and predicted are intermediary products; what we are really pursuing are the survival functions for each patient that are derived from the learned and predicted hazard functions.
 From the resulting hazard functions for each unique patient, we can construct the
-resulting survival functions as presented in section~(\ref{subsec:pseudocode}) and explicitly given in python code in the notebooks at the github repository containing supplemental material for this study~\cite{supp}.
+resulting survival functions as presented in section~(\ref{subsec:pseudocode}) and Equation~(\ref{eq:hazardtosurvival}). %and explicitly given in python code in the notebooks at the github repository containing supplemental material for this study~\cite{supp}.
 
 In order to evaluate the performance of the learned models, we first construct three binary classifiers corresponding to whether or not a subject survived 6, 12, or 60 months after diagnosis. 
 This is done by iterating over all distinct patient indices in the test set, prediciting the full survival function, and capturing the values corresonding to 6, 12, and 60 months.  
