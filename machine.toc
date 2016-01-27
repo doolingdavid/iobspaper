@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {2.5}Breast Cancer Data}{8}{subsection.2.5}
 \contentsline {section}{\numberline {3}Machine Learning Survival Analysis with Censored Data}{10}{section.3}
 \contentsline {subsection}{\numberline {3.1}Survival Analysis}{11}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Transformation of Censored Data for Machine Learning}{15}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.2}Transformation of Censored Data for Machine Learning}{14}{subsection.3.2}
 \contentsline {section}{\numberline {4}Prediction Models}{17}{section.4}
 \contentsline {subsection}{\numberline {4.1}Training and Test Partitions}{18}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Decision Trees and Random Forests}{19}{subsection.4.2}
