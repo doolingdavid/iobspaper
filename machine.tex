@@ -239,10 +239,10 @@ Code & Description \\
 \end{table}
 
 
-The procedure outlined in Equations~(\ref{eqn:onehotmale},~\ref{eqn:onehotfemale}) needs to be applied to all of the nominal categorical variables in the SEER data that we wish to include in our predictive models.
+The procedure outlined in Equations~(\ref{eqn:onehotmale},~\ref{eqn:onehotfemale}) and known as one-hot encoding needs to be applied to all of the nominal categorical variables in the SEER data that we wish to include in our predictive models.
 In particular, in order to include the geophgraphical information contained in the SEER categorical variable \codewhite{STATE-COUNTY RECODE}, it becomes necessary to create a new feature variable for each of the distinct (state,county) pairs in the data. In the United States, there are approximately 3,000 counties. Clearly, transforming the \codewhite{STATE-COUNTY RECODE} data representation into distinct (state$\_$county) columns will explode the data to become wider than is optimal for machine learning. Adding extra columns to your dataset, making it wider, requires more data rows (making it taller) in order for machine learning algorithms to effectively learn~\cite{bowles}. Because one-hot coding \codewhite{STATE-COUNTY RECODE} would cause such drastic shape changes in our data, we wish to avoid doing so. Fortunately, this variable, though given as a categorical variable, is actually an ordinal variable. There is an ordering among the (state$\_$county) columns, namely longitude, latitude, and elevation. We can transform the data in \codewhite{STATE-COUNTY RECODE} into three new numerical columns: \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation}.
 
-For example, Table~(\ref{tab:nmhead}) shows how five entries of \codewhite{STATE-COUNTY RECODE} corresponding to counties within New Mexico would can be represented by the 
+For example, Table~(\ref{tab:nmhead}) shows how five entries of \codewhite{STATE-COUNTY RECODE} corresponding to counties within New Mexico can be represented by the 
 \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng} features.
 
 \begin{table}[tbp]
