@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  26 JAN 2016 16:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  27 JAN 2016 10:18
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -462,29 +462,29 @@ Overfull \hbox (41.06541pt too wide) in paragraph at lines 396--407
  [] 
  []
 
-[5pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
-as been already used, duplicate ignored
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.459 \item  \codewhite
-                       {MARITAL STATUS AT DX},]
-<colonkaplan.pdf, id=247, 433.62pt x 289.08pt>
-File: colonkaplan.pdf Graphic file (type pdf)
- <use colonkaplan.pdf>
-Package pdftex.def Info: colonkaplan.pdf used on input line 486.
-(pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
- [6pdfTeX warning (ext4): destination with the same identifier (name{table.3}) 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.533 
-      ]
-Underfull \vbox (badness 4859) has occurred while \output is active []
+l.420 
+      ] <colonkaplan.pdf, id=246, 433.62pt x 289.08pt>
+File: colonkaplan.pdf Graphic file (type pdf)
+ <use colonkaplan.pdf>
+Package pdftex.def Info: colonkaplan.pdf used on input line 486.
+(pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
- [7pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
- has been already used, duplicate ignored
+[6pdfTeX warning (ext4): destination with the same identifier (name{table.3}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.502 
+      ] [7pdfTeX warning (ext4): destination with the same identifier (name{fig
+ure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -512,9 +512,12 @@ Package pdftex.def Info: breastkaplan.pdf used on input line 598.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.614 
-       <./lungkaplan.pdf>] [9pdfTeX warning (ext4): destination with the same i
-dentifier (name{table.5}) has been already used, duplicate ignored
+l.606 
+       <./lungkaplan.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
+has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -525,13 +528,13 @@ l.614
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.614 
-       <./breastkaplan.pdf>] [10]
+       <./breastkaplan.pdf>] [10] [11]
 Overfull \hbox (79.81006pt too wide) in paragraph at lines 700--713
  [] 
  []
 
-[11] [12pdfTeX warning (ext4): destination with the same identifier (name{table
-.6}) has been already used, duplicate ignored
+[12pdfTeX warning (ext4): destination with the same identifier (name{table.6}) 
+has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -554,8 +557,8 @@ Overfull \hbox (68.17871pt too wide) in paragraph at lines 746--762
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.810 E
-       xplicit examples will help make this transformation clear.]
+l.809 
+      ]
 Overfull \hbox (66.0459pt too wide) in paragraph at lines 818--826
  [] 
  []
@@ -583,13 +586,13 @@ l.891
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.891 
-      pdfTeX warning (ext4): destination with the same identifier (name{table.1
-2}) has been already used, duplicate ignored
+      ] [16pdfTeX warning (ext4): destination with the same identifier (name{ta
+ble.12}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.891 
-      ] [16]
+l.910 \item \codewhite
+                      {vital\_status\_recode} == 1]
 Overfull \hbox (7.7633pt too wide) in paragraph at lines 929--931
 \T1/cmr/m/n/10.95 are re-placed with the fea-tures [][][][][][] and [][][][][][
 ], as il-lus-trated in Ta-bles ([][]9[][], [][]10[][], [][]11[][], [][]12[][]).
@@ -618,8 +621,8 @@ entifier (name{table.13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1068 
-       ]
+l.1064 \item \codewhite
+                       {vivtal\_status\_recode} == 1]
 Overfull \hbox (17.05627pt too wide) in paragraph at lines 1122--1132
  [] 
  []
@@ -646,24 +649,23 @@ Package pdftex.def Info: lungbox.pdf used on input line 1173.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1200 \item b
-              reast cancer] <boston1940.png, id=549, 511.9125pt x 481.8pt>
-File: boston1940.png Graphic file (type png)
+l.1194 B
+        elow is a list of some web applications developed by IOBS.]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use boston1940.png>
+ [21]
+<boston1940.png, id=571, 511.9125pt x 481.8pt>
+File: boston1940.png Graphic file (type png)
+ <use boston1940.png>
 Package pdftex.def Info: boston1940.png used on input line 1265.
 (pdftex.def)             Requested size: 409.53056pt x 385.4405pt.
- [21pdfTeX warning (ext4): destination with the same identifier (name{table.15}
+ [22pdfTeX warning (ext4): destination with the same identifier (name{table.15}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1273 
-       ] [22] [23] [24] [25] [26] [27] [28]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
-[30]
+l.1287 
+       ] [23] [24] [25] [26] [27] [28] [29] [30]
 Overfull \hbox (39.4384pt too wide) in paragraph at lines 1720--1720
 []\T1/cmtt/m/n/10.95 modelbreast.compile(loss='binary_crossentropy', optimizer=
 rms, class_mode="binary")[] 
@@ -675,13 +677,13 @@ Overfull \hbox (33.78003pt too wide) in paragraph at lines 1753--1753
 ms, class_mode="binary")[] 
  []
 
-
+[32]
 Overfull \hbox (28.12166pt too wide) in paragraph at lines 1787--1787
 []\T1/cmtt/m/n/10.95 modellung.compile(loss='binary_crossentropy', optimizer=rm
 s, class_mode="binary")[] 
  []
 
-[32] (machine.bbl [33])
+(machine.bbl [33])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1853.
  [34] [35pdfTeX warning (ext4): destination with the same identifier (name{figu
 re.5}) has been already used, duplicate ignored
@@ -730,11 +732,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1853.
 Here is how much of TeX's memory you used:
  7981 strings out of 493634
  111584 string characters out of 3141304
- 216985 words of memory out of 3000000
+ 215986 words of memory out of 3000000
  11082 multiletter control sequences out of 15000+200000
  28631 words of font info for 76 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 41i,13n,35p,1209b,525s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,35p,1211b,499s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
 00\ectt0900.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
 appen\ec\dpi600\ecrm0900.pk> <C:\Users\ddooling\AppData\Local\MiKTeX\2.9\fonts\
@@ -762,7 +764,7 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on machine.pdf (40 pages, 617364 bytes).
+Output written on machine.pdf (40 pages, 617563 bytes).
 PDF statistics:
  1518 PDF objects out of 1728 (max. 8388607)
  136 named destinations out of 1000 (max. 500000)
