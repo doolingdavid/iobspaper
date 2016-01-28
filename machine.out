@@ -1,29 +1,27 @@
 \BOOKMARK [1][-]{section.1}{Introduction and Background}{}% 1
-\BOOKMARK [1][-]{section.2}{Methodology}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Data acquisition}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Data preparation and preprocessing}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Data Filters}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Traditional Survival Analysis}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Machine Learning Survival Analysis with Censored Data}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{Transformation of Censored Data for Machine Learning}{section.3}% 8
-\BOOKMARK [1][-]{section.4}{Prediction Models}{}% 9
-\BOOKMARK [2][-]{subsection.4.1}{Training and Test Partitions}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.2}{Decision Trees and Random Forests}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.3}{MLP Neural Networks}{section.4}% 12
-\BOOKMARK [1][-]{section.5}{Results}{}% 13
-\BOOKMARK [2][-]{subsection.5.1}{Performance Metrics}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.2}{Model Agreement}{section.5}% 15
-\BOOKMARK [1][-]{section.6}{Survival Curve Prediction Apps}{}% 16
-\BOOKMARK [1][-]{section.7}{Further Directions}{}% 17
-\BOOKMARK [1][-]{appendix.A}{Selected Features}{}% 18
-\BOOKMARK [2][-]{subsection.A.1}{Colon Cancer Feature Selection}{appendix.A}% 19
-\BOOKMARK [2][-]{subsection.A.2}{Lung Cancer Feature Selection}{appendix.A}% 20
-\BOOKMARK [2][-]{subsection.A.3}{Breast Cancer Feature Selection}{appendix.A}% 21
-\BOOKMARK [1][-]{appendix.B}{Pseudocode for the Data Transformation}{}% 22
-\BOOKMARK [1][-]{appendix.C}{Model Architecture and Python Code}{}% 23
-\BOOKMARK [2][-]{subsection.C.1}{Breast Random Forest Model}{appendix.C}% 24
-\BOOKMARK [2][-]{subsection.C.2}{Colon Random Forest Model}{appendix.C}% 25
-\BOOKMARK [2][-]{subsection.C.3}{Lung Random Forest Model}{appendix.C}% 26
-\BOOKMARK [2][-]{subsection.C.4}{Breast Neural Network Model}{appendix.C}% 27
-\BOOKMARK [2][-]{subsection.C.5}{Colon Cancer Neural Network Model}{appendix.C}% 28
-\BOOKMARK [2][-]{subsection.C.6}{Lung Cancer Neural Network Model}{appendix.C}% 29
+\BOOKMARK [1][-]{section.2}{Data acquisition}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Data preparation and preprocessing}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Traditional Survival Analysis}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Machine Learning Survival Analysis with Censored Data}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Transformation of Censored Data for Machine Learning}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{Prediction Models}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Training and Test Partitions}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Decision Trees and Random Forests}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.3}{MLP Neural Networks}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Results}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{Performance Metrics}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.2}{Model Agreement}{section.5}% 13
+\BOOKMARK [1][-]{section.6}{Survival Curve Prediction Apps}{}% 14
+\BOOKMARK [1][-]{section.7}{Further Directions}{}% 15
+\BOOKMARK [1][-]{appendix.A}{Selected Features}{}% 16
+\BOOKMARK [2][-]{subsection.A.1}{Colon Cancer Feature Selection}{appendix.A}% 17
+\BOOKMARK [2][-]{subsection.A.2}{Lung Cancer Feature Selection}{appendix.A}% 18
+\BOOKMARK [2][-]{subsection.A.3}{Breast Cancer Feature Selection}{appendix.A}% 19
+\BOOKMARK [1][-]{appendix.B}{Pseudocode for the Data Transformation}{}% 20
+\BOOKMARK [1][-]{appendix.C}{Model Architecture and Python Code}{}% 21
+\BOOKMARK [2][-]{subsection.C.1}{Breast Random Forest Model}{appendix.C}% 22
+\BOOKMARK [2][-]{subsection.C.2}{Colon Random Forest Model}{appendix.C}% 23
+\BOOKMARK [2][-]{subsection.C.3}{Lung Random Forest Model}{appendix.C}% 24
+\BOOKMARK [2][-]{subsection.C.4}{Breast Neural Network Model}{appendix.C}% 25
+\BOOKMARK [2][-]{subsection.C.5}{Colon Cancer Neural Network Model}{appendix.C}% 26
+\BOOKMARK [2][-]{subsection.C.6}{Lung Cancer Neural Network Model}{appendix.C}% 27

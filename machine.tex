@@ -95,8 +95,8 @@ Extracting actionable information from data is changing the fabric of modern bus
 Machine Learning has recently become a popular method to answer questions and solve problems that are too complex to solve via traditional methods. 
 
 
-The primary objective of this study is to show how machine learning methods can be trained with data in cancer registries to produce personalized survival prognosis curves, but the methods presented below can be applied to any type of survival data. Traditionally, cancer survival curves have been estimated using Kaplan-Meier methods~\cite{cam}. Kaplan-Meier methodology also uses large datasets to make predictions, but the resulting information is not personal; the resulting curves are summaries for a population and not necessarily relevant or particularly accurate for any given individual.  The methods described below also take full advantage of all relevant aggregate information, but are able to provide personalized survival curves relevant to individual subjects. 
-The situation is analgous to consulting the New York Time's bestseller list for your next book\footnote{\url{http://www.nytimes.com/best-sellers-books/}}, or taking recommendations from your personalized Amazon "recommended for you'' service.
+The primary objective of this study is to show how machine learning methods can be trained with data in cancer registries to produce personalized survival prognosis curves, but the methods presented below can be applied to any type of survival data. Traditionally, cancer survival curves have been estimated using Kaplan-Meier methods~\cite{cam}. Kaplan-Meier methodology also uses large datasets to make predictions, but the resulting information is not personal; the resulting curves are summaries for a population and not necessarily relevant or particularly accurate for any given individual.  The methods described below also take full advantage of all relevant aggregate information, but are able to provide personalized survival curves relevant to individual subjects. This objective is in keeping with the recent movement in medicine known as Predictive, Preventive and Personalized Medicine (PPPM), which aims to leverage increasing amounts of health related data to maximize quality of care and to intelligenctly eliminate inefficient and unecessary use of resources ~\cite{VanPoucke2016}.
+The situation is analgous to consulting the paper copy of the New York Time's bestseller list for your next book\footnote{\url{http://www.nytimes.com/best-sellers-books/}} and throwing it in the trash because nothing is appealing, or taking recommendations from your personalized Amazon "recommended for you'' service.
 This capability of providing individualized survival curve prognosis is a direct result of the recent advances in computing power and machine learning algorithms, and similar methodology is becoming commonplace in many industries.
  These techniques are slowly infiltrating the healthcare industry, in spite of some of the data aggregation challenges posed by the Health Insurance Portability and Accountability Act (HIPPA) of 1996.
 
@@ -125,15 +125,16 @@ goes by the name of "censored data.''
 Observations are labeled censored when the survival time information is incomplete.
  The SEER data contains the number of months each patient survived, as well as an indicator variable showing whether or not the patient is still alive at the end of the data collection period.
 Methods to deal effectively with this kind of "right-censored data'' include Kaplan-Meier curves
-and Cox Proportional Hazard models \cite{cam}. The Kaplan-Meier techniques only give estimates for cohorts of patients and are not applicable for predicting the surival curve for a single patient, and the Cox Proportional Hazard models require a fairly restrictive set ot assumptions to be satisifed in order to yield reliable results. The Cox Proportional Hazard models are not able to capture the nonlinear relationships between the given data fields that go into making predictions; they can only capture the first-order linear relationships.
+and Cox Proportional Hazard models \cite{cam}. The Kaplan-Meier techniques only give estimates for cohorts of patients and are not applicable for predicting the surival curve for a single patient, and the Cox Proportional Hazard models require a fairly restrictive set ot assumptions to be satisifed in order to yield reliable results. 
+%The Cox Proportional Hazard models are not able to capture the nonlinear relationships between the given data fields that %go into making predictions; they can only capture the first-order linear relationships.
 
 Previous work applying machine learning methods to subsets of the SEER data include creative attempts to deal with the problems presented by  "right-censored data." Shin et al.~\cite{ISI:000337467400005} use semi-supervised learning techniques to predict 5 year survival, essentially imputing values for SEER records where the survival months infomation is censored at a value less than 5 years. Zolbanin et al.~\cite{ISI:000355882700012} investigate the effects of comordbidities; i.e., patients with two different cancer diagnosises, but their treatment of the censored data underestimates the survival probabilities. All records representing patients who survived at least 60 months as well as all those who died earlier than 60 months were considered, but patients alive prior to 60 months but censored out of the study before 60 months were not included. This treatment biases the data and the predictions, leading to overly pessimistic survival probablilites predicted by the models.
 
 
-Previous work applying machine learning methods based on decision trees to survival data in general have a long history, starting with Gordon et al.~\cite{Gordon19851065}. A summary of more recent developments concerning \emph{survival trees} is provided by Bou-Hamad et al.~\cite{Bou-Hamad201144}. These methods focus on altering the splitting critieria used in decision tree growth to account for the censoring, and use 1958 Kaplan-Meier methods at the resulting nodes for prediction purposes. These methods do not generalize non-tree-based machine learning algorithms, though Ishwaran et al. have extended the methodology to \emph{random survival forests}, ensembles of \emph{survival trees}~\cite{Ishwaran20101056}.
+Previous work applying machine learning methods based on decision trees to survival data in general have a long history, starting with Gordon et al.~\cite{Gordon19851065}. A summary of more recent developments concerning \emph{survival trees} is provided by Bou-Hamad et al.~\cite{Bou-Hamad201144}. These methods focus on altering the splitting critieria used in decision tree growth to account for the censoring, and use 1958 Kaplan-Meier methods at the resulting nodes for prediction purposes. These methods do not generalize to non-tree-based machine learning algorithms, though Ishwaran et al. have extended the methodology to \emph{random survival forests}, ensembles of \emph{survival trees}~\cite{Ishwaran20101056}.
 
 
-IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed to make predictions for the hazard function (
+IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. Instead of modifying existing learning algorithms in drastic ways, exploring \emph{FrankenModels}, we focus attention on the input data. This approach allows for different machine learning algorithms to use the same data with no modification. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed to make predictions for the hazard function (
  probability of dying in the next month, given that the patient has not yet died).
 The full survival function can then be derived from the hazard function.
 Details of this transformation can be found in this blog post \cite{kuhn} and are presented in section~(\ref{subsec:transformation}).
@@ -150,12 +151,14 @@ Details of this transformation can be found in this blog post \cite{kuhn} and ar
 
 
 
-\section{Methodology}
+%\section{Methodology}
 
 
-\subsection{Data acquisition}
+\section{Data acquisition}
+\label{sec:dataacquition}
 
-We used the publically available 1973-2012 SEER incidence data files corresponding to colon, breast and lung cancer contained in the following list.
+
+We use the publically available 1973-2012 SEER incidence data files corresponding to colon, breast and lung cancer contained in the list below.
 SEER requires that researchers submit a request for the data, which includes an agreement form. Detailed documentation explaining the contents of both the incidence data files used in this study as well as a data dictionary for the 1973-2012 SEER incidence data files are available without the need to register or submit a data request \cite{seerdoc}.
  
 
@@ -274,11 +277,11 @@ An added benefit of this shift from the single categorical variable \codewhite{S
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Data Filters}
-\label{subsect:datafilters}
+%\subsection{Data Filters}
+%\label{subsect:datafilters}
 
-The colon, lung, and breast datafiles were all aggregated separately into three distinct datasets. 
-Each of these datasets was then filtered slightly differently as described below.
+%The colon, lung, and breast datafiles were all aggregated separately into three distinct datasets. 
+%Each of these datasets was then filtered slightly differently as described below.
 
 %\subsection{Colon Cancer Data}
 %\label{subsec:coloncancerdata}
@@ -286,6 +289,10 @@ Each of these datasets was then filtered slightly differently as described below
 %In this section we describe the data processing steps that were specific to the colon cancer model development.
  The four COLRECT.txt files were imported into a pandas DataFrame object.
 This data was then filtered according to the conditions in Table~(\ref{tab:colonfilter}).
+The RESPIR.txt and BREAST.txt were imported into separate dataframes in similar fashion and filtered according
+to the conditions in Table~(\ref{tab:lungfilter}) and Table~(\ref{tab:breastfilter}), respectively.
+%Similarly, the RESPIR.txt files were filtered according to the conditions in Table~(\ref{tab:lungfilter}),
+%and the BREAST.txt files according to the those in Table~(\ref{tab:breastfilter}).
 
 
 
@@ -320,8 +327,9 @@ This data was then filtered according to the conditions in Table~(\ref{tab:colon
 
 
 
-The following categorical features were one-hot encoded as described in 
-section~(\ref{subsec:dataprep}):
+The following categorical features were one-hot encoded for each of the three datasets:
+%as described in 
+%section~(\ref{subsec:dataprep}):
 
 \begin{itemize}[noitemsep]
 \item \codewhite{SEX},
@@ -334,9 +342,9 @@ section~(\ref{subsec:dataprep}):
 \item \codewhite{SEER HISTORIC STAGE A},
 \item \codewhite{HISTOLOGY RECODE--BROAD GROUPINGS},
 \item \codewhite{MONTH OF DIAGNOSIS},
-\item  \codewhite{VITAL STATUS RECODE}.
+\item  \codewhite{VITAL STATUS RECODE},
 \end{itemize}
-The \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng} variables as illustrated in Table~(\ref{tab:nmhead}).
+and the \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng} variables for all three datasets as illustrated in Table~(\ref{tab:nmhead}).
 
 %With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves %for the colon cancer population represented by this subset of the data.
 %After the above one-hot encoding procedure, the new variable
@@ -366,9 +374,9 @@ The \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \
 %\label{subsec:lungcancerdata}
 
 %In this section we describe the data processing steps that were specific to the lung cancer model development. 
-The four RESPIR.txt files were imported into a pandas DataFrame object.
-This data was then filtered according to the conditions in Table~(\ref{tab:lungfilter}).
-The same list of categorical features as in the colon cancer case were then one-hot encoded.
+%The four RESPIR.txt files were imported into a pandas DataFrame object.
+%This data was then filtered according to the conditions in Table~(\ref{tab:lungfilter}).
+%The same list of categorical features as in the colon cancer case were then one-hot encoded.
 
 
 
@@ -424,9 +432,9 @@ The same list of categorical features as in the colon cancer case were then one-
 %\label{subsec:breastcancerdata}
 
 %In this section we describe the data processing steps that were specific to the lung cancer model development.
- The four BREAST.txt files were imported into a pandas DataFrame object.
-This data was then filtered according to the conditions in Table~(\ref{tab:breastfilter}).
-The same list of categorical features as in the colon cancer case were then one-hot encoded.
+% The four BREAST.txt files were imported into a pandas DataFrame object.
+%This data was then filtered according to the conditions in Table~(\ref{tab:breastfilter}).
+%The same list of categorical features as in the colon cancer case were then one-hot encoded.
 
 
 
