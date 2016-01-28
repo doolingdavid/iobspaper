@@ -27,6 +27,22 @@
   approach},'' {\em {DECISION SUPPORT SYSTEMS}}, vol.~{74}, pp.~{150--161},
   {JUN} {2015}.
 
+\bibitem{Gordon19851065}
+L.~Gordon and R.~Olshen, ``Tree-structured survival analysis,'' {\em Cancer
+  Treatment Reports}, vol.~69, no.~10, pp.~1065--1068, 1985.
+\newblock cited By 97.
+
+\bibitem{Bou-Hamad201144}
+I.~Bou-Hamad, D.~Larocque, and H.~Ben-Ameur, ``A review of survival trees,''
+  {\em Statistics Surveys}, vol.~5, pp.~44--71, 2011.
+\newblock cited By 15.
+
+\bibitem{Ishwaran20101056}
+H.~Ishwaran and U.~Kogalur, ``Consistency of random survival forests,'' {\em
+  Statistics and Probability Letters}, vol.~80, no.~13-14, pp.~1056--1064,
+  2010.
+\newblock cited By 26.
+
 \bibitem{kuhn}
 {Ben Kuhn}, ``{Decision trees for survival analysis}.''
   \url{http://www.benkuhn.net/survival-trees}, 2016 (accessed 14 Jan 2016).
