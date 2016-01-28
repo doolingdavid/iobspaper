@@ -5,9 +5,9 @@
 \contentsline {subsection}{\numberline {2.3}Colon Cancer Data}{6}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Lung Cancer Data}{7}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Breast Cancer Data}{8}{subsection.2.5}
-\contentsline {section}{\numberline {3}Machine Learning Survival Analysis with Censored Data}{10}{section.3}
-\contentsline {subsection}{\numberline {3.1}Survival Analysis}{11}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Transformation of Censored Data for Machine Learning}{13}{subsection.3.2}
+\contentsline {subsection}{\numberline {2.6}Traditional Survival Analysis}{10}{subsection.2.6}
+\contentsline {section}{\numberline {3}Machine Learning Survival Analysis with Censored Data}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Transformation of Censored Data for Machine Learning}{12}{subsection.3.1}
 \contentsline {section}{\numberline {4}Prediction Models}{15}{section.4}
 \contentsline {subsection}{\numberline {4.1}Training and Test Partitions}{16}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Decision Trees and Random Forests}{17}{subsection.4.2}
