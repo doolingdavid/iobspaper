@@ -137,8 +137,11 @@ Previous work applying machine learning methods based on decision trees to survi
 IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. Instead of modifying existing learning algorithms in drastic ways, exploring \emph{FrankenModels}, we focus attention on the input data. This approach allows for different machine learning algorithms to use the same data with no modification. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed to make predictions for the hazard function (
  probability of dying in the next month, given that the patient has not yet died).
 The full survival function can then be derived from the hazard function.
-Details of this transformation can be found in this blog post \cite{kuhn} and are presented in section~(\ref{subsec:transformation}).
+%Details of this transformation can be found in this blog post \cite{kuhn} and are presented in %section~(\ref{subsec:transformation}).
 
+
+This paper is organized as follows. In section~(\ref{sec:dataacquition}) we introduce the subsets of the SEER data used for this study, and present survival curves computed from traditional methods based on this data for the three cancer types \emph{lung}, \emph{breast}, and \emph{colon}.
+In section~(\ref{subsec:transformation}) we present the essential methodology of this work, the data trasnformation that allows censored survival data to be used as input to exisiting machine learning classifiers.  
 
 
 
@@ -277,22 +280,12 @@ An added benefit of this shift from the single categorical variable \codewhite{S
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\subsection{Data Filters}
-%\label{subsect:datafilters}
 
-%The colon, lung, and breast datafiles were all aggregated separately into three distinct datasets. 
-%Each of these datasets was then filtered slightly differently as described below.
-
-%\subsection{Colon Cancer Data}
-%\label{subsec:coloncancerdata}
-
-%In this section we describe the data processing steps that were specific to the colon cancer model development.
  The four COLRECT.txt files were imported into a pandas DataFrame object.
 This data was then filtered according to the conditions in Table~(\ref{tab:colonfilter}).
 The RESPIR.txt and BREAST.txt were imported into separate dataframes in similar fashion and filtered according
 to the conditions in Table~(\ref{tab:lungfilter}) and Table~(\ref{tab:breastfilter}), respectively.
-%Similarly, the RESPIR.txt files were filtered according to the conditions in Table~(\ref{tab:lungfilter}),
-%and the BREAST.txt files according to the those in Table~(\ref{tab:breastfilter}).
+
 
 
 
@@ -346,37 +339,11 @@ The following categorical features were one-hot encoded for each of the three da
 \end{itemize}
 and the \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng} variables for all three datasets as illustrated in Table~(\ref{tab:nmhead}).
 
-%With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves %for the colon cancer population represented by this subset of the data.
-%After the above one-hot encoding procedure, the new variable
-%\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the %patient's record is right-censored if this variable = 0.
-%\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the %Kaplan-Meier estimate shown in Figure~(\ref{fig:colonkaplan}).
-
-
-
-
-%\begin{figure}[tbp]
-%\centering 
-%\begin{center}/\end{center} takes some additional vertical space
-%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
-%\hfill
-%\begin{center}
-%\includegraphics[width=.90\textwidth,origin=c]{colonkaplan.pdf}
-% "\includegraphics" is very powerful; the graphicx package is already loaded
-%\caption{\label{fig:colonkaplan} Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted %with 113072 observations, 71804 censored.}
-%\end{center}
-%\end{figure}
 
 
 
 
 
-%\subsection{Lung Cancer Data}
-%\label{subsec:lungcancerdata}
-
-%In this section we describe the data processing steps that were specific to the lung cancer model development. 
-%The four RESPIR.txt files were imported into a pandas DataFrame object.
-%This data was then filtered according to the conditions in Table~(\ref{tab:lungfilter}).
-%The same list of categorical features as in the colon cancer case were then one-hot encoded.
 
 
 
@@ -404,37 +371,12 @@ and the \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with t
 \end{table}
 
 
-%With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves %for the colon cancer population represented by this subset of the data.
-%After the above one-hot encoding procedure, the new variable
-%\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the %patient's record is right-censored if this variable = 0.
-%\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the %Kaplan-Meier estimate shown in Figure~(\ref{fig:lungkaplan}).
 
 
 
 
 
 
-%\begin{figure}[tbp]
-%\centering 
-%\begin{center}/\end{center} takes some additional vertical space
-%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
-%\hfill
-%\begin{center}
-%\includegraphics[width=.90\textwidth,origin=c]{lungkaplan.pdf}
-% "\includegraphics" is very powerful; the graphicx package is already loaded
-%\caption{\label{fig:lungkaplan} Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted %with 177089 observatins, 47409 censored.}
-%\end{center}
-%\end{figure}
-
-
-
-%\subsection{Breast Cancer Data}
-%\label{subsec:breastcancerdata}
-
-%In this section we describe the data processing steps that were specific to the lung cancer model development.
-% The four BREAST.txt files were imported into a pandas DataFrame object.
-%This data was then filtered according to the conditions in Table~(\ref{tab:breastfilter}).
-%The same list of categorical features as in the colon cancer case were then one-hot encoded.
 
 
 
@@ -463,24 +405,6 @@ and the \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with t
 
 
 
-%With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves %for the colon cancer population represented by this subset of the data.
-%After the above one-hot encoding procedure, the new variable
-%\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the %patient's record is right-censored if this variable = 0.
-%\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the %Kaplan-Meier estimate shown in Figure~(\ref{fig:breastkaplan}).
-
-%\begin{figure}[tbp]
-%\centering 
-%\begin{center}/\end{center} takes some additional vertical space
-%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
-%\hfill
-%\begin{center}
-%\includegraphics[width=.90\textwidth,origin=c]{breastkaplan.pdf}
-% "\includegraphics" is very powerful; the graphicx package is already loaded
-%\caption{\label{fig:breastkaplan} Traditional Kaplan-Meier estimate of the survival curve for all breast cancer patients. %Fitted with 329949 observatins, 292279 censored.}
-%\end{center}
-%\end{figure}
-
-
 Before applying machine learning models trained with these data sets, we review in section~(\ref{subsec:survprimer}) the sailent features of survival analysis and censored data. We then describe in detail a method that takes full advantage of all the data, including the right-censored data, and which involves a simple and intuitive transformation, culminating in the full set of features and target variables listed in sections~(\ref{subsec:colonfeatures},~\ref{subsec:lungfeatures},~\ref{subsec:breastfeatures}).
 
 
@@ -488,8 +412,8 @@ Before applying machine learning models trained with these data sets, we review 
 \input{traditionalsurvival}
 \label{subsec:survprimer}
 
-\section{Machine Learning Survival Analysis with Censored Data}
-\label{sec:surv}
+%\section{Machine Learning Survival Analysis with Censored Data}
+%\label{sec:surv}
 
 
 
@@ -515,7 +439,7 @@ Before applying machine learning models trained with these data sets, we review 
 
 
 
-\subsection{Transformation of Censored Data for Machine Learning}
+\section{Transformation of Censored Data for Machine Learning}
 \label{subsec:transformation}
 
 In this section we describe an inuitive way to transform right-censored data appropriately so that it may be used as input to machine learning algorithms that learn the hazard fuction described in section~\ref{subsec:survprimer}. The full details of this transformation, and a large inspiration for this study, can be flound in this blog post~\cite{kuhn}.
@@ -529,7 +453,7 @@ The Kaplan-Meier estimate of the survival curve is given by
 where $d_i$ are the number of death events at time $t$ and $n_t$ is the number of subjects at risk of death just prior to time $t$. 
 Equation~\ref{eq:kaplanmeier} uses the entire data set to arrive at an estimate of the entire population survival curve. In contrast, the method described below uses the entire data set to learn a model so as to predict hazard and survival curves for all of the individual records in the data set.
 
-The key observation is to note that the hazard function can be readily learned via machine learning methods. It can be rewritten as
+The key observation is to note that the hazard function can be directly learned via standard machine learning methods. It can be rewritten as
 \begin{equation}
 \label{eq:hhazard}
 \lambda(\mathbf{X}, t) = P(Y = t|Y \geq t, \mathbf{X}),

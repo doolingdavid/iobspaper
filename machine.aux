@@ -28,11 +28,10 @@
 \citation{Gordon19851065}
 \citation{Bou-Hamad201144}
 \citation{Ishwaran20101056}
-\citation{kuhn}
 \citation{seerdoc}
-\citation{bowles}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Data acquisition}{4}{section.2}}
 \newlabel{sec:dataacquition}{{2}{4}{Data acquisition}{section.2}{}}
+\citation{bowles}
 \citation{downey}
 \citation{bowles}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces  Encoding of gender in the SEER incidence files. These types of categorical variables need to be transformed via one-hot-encoding.}}{5}{table.1}}
@@ -49,11 +48,11 @@
 \newlabel{tab:nmhead}{{2}{6}{Example of the transformation of \codewhite {STATE-COUNTY RECODE} to \codewhite {elevation}, \codewhite {lat}, and \codewhite {lng}}{table.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces  Filters applied to the Colon Cancer data.}}{7}{table.3}}
 \newlabel{tab:colonfilter}{{3}{7}{Filters applied to the Colon Cancer data}{table.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Traditional Survival Analysis}{7}{subsection.2.2}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces  Filters applied to the Lung Cancer data.}}{8}{table.4}}
 \newlabel{tab:lungfilter}{{4}{8}{Filters applied to the Lung Cancer data}{table.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces  Filters applied to the Breast Cancer data.}}{8}{table.5}}
 \newlabel{tab:breastfilter}{{5}{8}{Filters applied to the Breast Cancer data}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Traditional Survival Analysis}{8}{subsection.2.2}}
 \citation{cam}
 \citation{Kaplan1958457}
 \citation{kuhn}
@@ -62,12 +61,10 @@
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces  Kaplan-Meier table corresponding to the example data in Table\nobreakspace  {}(\ref  {tab:censoredexample}).}}{10}{table.7}}
 \newlabel{tab:kaplanexample}{{7}{10}{Kaplan-Meier table corresponding to the example data in Table~(\ref {tab:censoredexample})}{table.7}{}}
 \newlabel{subsec:survprimer}{{2.2}{10}{Traditional Survival Analysis}{figure.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Machine Learning Survival Analysis with Censored Data}{10}{section.3}}
-\newlabel{sec:surv}{{3}{10}{Machine Learning Survival Analysis with Censored Data}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Transformation of Censored Data for Machine Learning}{10}{subsection.3.1}}
-\newlabel{subsec:transformation}{{3.1}{10}{Transformation of Censored Data for Machine Learning}{subsection.3.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored.}}{11}{figure.1}}
 \newlabel{fig:colonkaplan}{{1}{11}{Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Transformation of Censored Data for Machine Learning}{11}{section.3}}
+\newlabel{subsec:transformation}{{3}{11}{Transformation of Censored Data for Machine Learning}{section.3}{}}
 \newlabel{eq:kaplanmeier}{{3.1}{11}{Transformation of Censored Data for Machine Learning}{equation.3.1}{}}
 \newlabel{eq:hhazard}{{3.2}{11}{Transformation of Censored Data for Machine Learning}{equation.3.2}{}}
 \citation{amstat}
@@ -78,8 +75,8 @@
 \newlabel{fig:lungkaplan}{{3}{13}{Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted with 177089 observatins, 47409 censored}{figure.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces  Example of four columns in an uncensored record in the untransformed dataset.}}{13}{table.8}}
 \newlabel{tab:originaldead}{{8}{13}{Example of four columns in an uncensored record in the untransformed dataset}{table.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces  Example of four columns in a censored record in the untransformed dataset.}}{13}{table.9}}
-\newlabel{tab:originalalive}{{9}{13}{Example of four columns in a censored record in the untransformed dataset}{table.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces  Example of four columns in a censored record in the untransformed dataset.}}{14}{table.9}}
+\newlabel{tab:originalalive}{{9}{14}{Example of four columns in a censored record in the untransformed dataset}{table.9}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces  Example of four columns in an uncensored record in the transformed dataset.}}{14}{table.10}}
 \newlabel{tab:transformeddead}{{10}{14}{Example of four columns in an uncensored record in the transformed dataset}{table.10}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces  Example of four columns in a censored record in the transformed dataset.}}{14}{table.11}}
@@ -90,13 +87,13 @@
 \newlabel{fig:survivalexample}{{4}{15}{Example of the construction of the binary classifiers for 6, 12, and 60 months survival. A subjects hazard curve $h(\mathbf {X}, t)$ is predicted by the predictions models for times out to 120 months. The survival curve is then readily computed as in section~(\ref {subsec:pseudocode}). For this example, the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry}{figure.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Training and Test Partitions}{16}{subsection.4.1}}
 \newlabel{subsec:traintest}{{4.1}{16}{Training and Test Partitions}{subsection.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Decision Trees and Random Forests}{16}{subsection.4.2}}
 \citation{rf}
 \citation{kagglerf}
-\citation{deeplearning}
-\citation{toxicity}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Decision Trees and Random Forests}{17}{subsection.4.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Illustration of ensemble methods showing how a collection of base learners with poor accuracy can combine to produce an accurate ensemble learner.}}{17}{figure.5}}
 \newlabel{fig:ensemble}{{5}{17}{Illustration of ensemble methods showing how a collection of base learners with poor accuracy can combine to produce an accurate ensemble learner}{figure.5}{}}
+\citation{deeplearning}
+\citation{toxicity}
 \citation{keras}
 \citation{deeplearning}
 \@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces  AUC values for the Random Forest and Neural Networks model binary classifiers derived from the full survival curve predictions; see text for details.}}{18}{table.12}}
@@ -108,11 +105,11 @@
 \newlabel{sec:performancemetrics}{{5.1}{18}{Performance Metrics}{subsection.5.1}{}}
 \citation{ISI:000355882700012}
 \citation{supp}
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces  Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type.}}{19}{table.13}}
-\newlabel{tab:agree}{{13}{19}{Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type}{table.13}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Model Agreement}{19}{subsection.5.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Survival Curve Prediction Apps}{20}{section.6}}
-\newlabel{sec:apps}{{6}{20}{Survival Curve Prediction Apps}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Survival Curve Prediction Apps}{19}{section.6}}
+\newlabel{sec:apps}{{6}{19}{Survival Curve Prediction Apps}{section.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces  Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type.}}{20}{table.13}}
+\newlabel{tab:agree}{{13}{20}{Percentage agreement for the Random Forest and Neural Network classifiers for 6, 12, and 60 month survival predictions on the test data for each cancer type}{table.13}{}}
 \citation{kob4}
 \citation{supp}
 \@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Example input data to the Colon Cancer neural network app.}}{21}{table.14}}
