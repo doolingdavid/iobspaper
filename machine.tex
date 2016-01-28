@@ -476,13 +476,12 @@ An unsatisfactory consequence is that these estimates are highly course-grained,
 
 %%%  will need to tighten this up a lot lot lot 
 
-%To understand survival analysis, you first have to understand survival data - that survival times are \textit{intervals} %between certain kinds of events, that these intervals are often affected by a peculiar kind of "partial missingness'' called %\textit{censoring}, and that censored data must be analyzed in a special way to avoid biased estimates and incorrect %conclusions.
 
 
 Survival analysis pertains to data containing survival times, which are \emph{intervals} between certain kinds of events, e.g.; cancer diagnosis date and expiry date. These intervals are often affected by a kind of "partial missingness" called \emph{censoring}. Censored data must be analyzed in a special way to avoid biased estimates and bogus conclusions.
 Special methods have been developed long ago to analyze censored data properly.
 
-%In the case of the SEER data, the starting point of the time interval is the diagnosis date. Even though survival times are %continuous or nearly continuous numerial quantities, they're never almost never normally distributed. If non-normality %were the only problem with survival data, you would be able to summarize survival times as medians and centiles instead %of means and standard deviations, and you could compare survival between groups with nonparametric Mann-Whitney %and Kruksal-Wallis testse instead of t tests and ANOVAs. But time-to-event data is susceptible to a special situation called %\textit{censoring}, which the usual parametric and non-parametric methods cannot handle. Therefore special methods %have been developed to analyze censored data properly. 
+
 
 With survival data, including the SEER data considered in this study, you may not know the exact time of death for some subjects. Some of the SEER subjects are still alive at the the time of the latest SEER data release. When the \codewhite{VITAL STATUS RECODE} variable indicates that the subject is still alive, the \codewhite{SURVIVAL MONTHS} variable is only a lower bound on the true number of survival months; this is called the \textit{date of last contact} mode of censoring. You know that each subject either died on a certain date or was definitely alive up to some last-seen date (and you don't know how far beyond that date he or she may ultimately have lived). The latter situation is called a \textit{censored} observation. 
 
@@ -495,25 +494,20 @@ Both of these methods make use of the partial information to provide unbiased es
 \end{itemize}
 
 
-Incorrect treatment of survival data still seen in practice, and leading to biased results, include simply excluding all subjects with a censored survival time from any survival analysis, and \emph{imputing} (replacing) the censored (last-seen) date with some reasonable value. Both of these techniques destroy the partial information contained in the censored observations and nullify the validity of the resulting estimates for the hazard rate and survival rate~\cite{cam}.
+Incorrect treatment of survival data still seen in practice, and leading to biased results, includes simply excluding all subjects with a censored survival time from any survival analysis, and \emph{imputing} (replacing) the censored (last-seen) date with some reasonable value. Both of these techniques destroy the partial information contained in the censored observations and nullify the validity of the resulting estimates for the hazard rate and survival rate~\cite{cam}.
 
-
-%The first task when analyzing survival data is usually to describe how the hazard and survival rates vary with time. 
-%Here are two ways \textit{not} to handle censored survival data:
-
-%\begin{itemize}[noitemsep]
-%\item You shouldn't excude subjects with a censored surivival time from any survival analysis.
-%\item You shouldn't \textit{impute} (replace) the censored (last-seen) date with some reasonable substitute value. One %commonly used imputation scheme is to replace a missing value with the last observed value for that subject (called %%\textit{last observation carried forward}, or LOCF imputation). 
-%\end{itemize}
-
-%These techniques for dealing with missing data don't work for censored data. If you simply exclude all subjects with %censored death dates from your analysis, you may be left with too few analyzable subjects, which weakens (underpowers) %youe study. Worse, it will also bias your results in subtle and unpredictable ways. The problem is that a censored %observation time isn't really missing. If you know that a person was last seen alive three years after treatment, you have %partial information for that patient. You don't know exactly what the patient's true survival time is, but you do know that %it's at least three years. 
-
-To estimate survival and hazard rates in a population from a set of observed survival times, some of which are censored, you must combine the information from censored and uncensored observations properly. You have to think of the process in terms of a series of small slices of time, and think of the probability of making it through each time slice, assuming that the subject is alive at the start of that slice. The cumulative survival probability can then be obtained by successively multiplying all these individual time-slice survival probabities together. For example, to survive three years, first the subject has to make it through Year 1, then she has to make it through Year 2, and then she has to make it through Year 3. The probability of making it through all three years is the product of the probabilities of making it through Year 1, Year 2, and Year 3. These calculations can be laid out very systematically in a \textit{life table}, sometimes called an \textit{actuarial life table} because of its early use by  insurance comparies. The calculations involce only addition, subtraction, multiplication, and division and are simple enough to do by hand.
+In 1958, Edward L. Kaplan and Paul Meier collaborated to publish the seminal paper on how to estimate the hazard and survival rates for data containing censored observations~\cite{Kaplan1958457}.
+The method is straightforward and for small datasets can be performed by hand. As an example, consider the survival data shown  in Table~(\ref{tab:censoredexample}). The Kaplan-Meier calculation of the survival curve, the first step is to  
+sort the subjects in Table~(\ref{tab:censoredexample}) labeled 0 through 9 by \emph{Survival Time} in ascending order.  
+This process results in the first two columns (\emph{Censored Status}, and \emph{Survival Times}) in Table~(\ref{tab:kaplanexample}).
+The \emph{At Risk} column decreases by one for each row; in every row a subject has either been censored out of the study or has died. The hazard rate is then computed for each value of \emph{Survival Time} (necessarily a discrete function because the number of subjects is countable), by dividing the value in \emph{Censored Status} by the value in 
+\emph{At Risk}. The hazard function is shown in \emph{Prob of Dying} in Table~(\ref{tab:kaplanexample}).
+It is then straightforward to calculate the survival function; 1 - hazard function represents the probability of not dying in the next interval of time, assuming that the subject has survived up until now and is represented by column \emph{Prob of Surv}. 
+The cumulative survival probability can then be obtained by sucessively multiplying all these individual time-slice probabilities together. In order to survive 2.4 years, first the subject has to survive .5 years, then survive .75 years, 2.3 years and 2.4 years. The probability of surviving 2.4 years is then the product of these 3 probabilities and is given as .666 in Table(\ref{tab:kaplanexample}) in the \emph{Survival Function} column.
 
 
 
-To create a life table from your survival-time data, first break the entire range of survival times into convenient time slices (months, quarters, or years, depending on the time scale of the event you're studying). You should try to have at least five slices, otherwise, your survival and hazard estimates will be too coarse to show any useful features. Having very fine slices doesn't hurt the calculations, although the table will have more rows and may become unweildly. Next, count how many people died during each slice and how many were \textit{censored} (that is, last seen alive during that slice, either because they became lost to follow-up or were still alive at the end of the study).
-For the survival times shown in Table~(\ref{tab:censoredexample}), a natural choice would be to use seven one-year time slices.
+
 
 
 \begin{table}[tbp]
@@ -540,66 +534,15 @@ For the survival times shown in Table~(\ref{tab:censoredexample}), a natural cho
 \end{table}
 
 
-Next, count how many people died during each slice and how many were \textit{censored} (that is, last seen alive during that slice, either because they became lost to follow-up 
-or were still alive at the end of the study). From Table~(\ref{tab:censoredexample}) you see that
-
-\begin{itemize}[noitemsep]
-\item During the first year after surgery, one subjects died (\#0) and one subject was censored ( \#4) 
-\item During the second year, nothing happened (no deaths, no censoring)
-\item During the third year, two subjects died (\#8 and \#3)
-\item During the fourth year, one subject was censored (\#6)
-\item During the fifth year, one subject died (\#5)
-\item During the sixth year, one subject died (\#9) one subject was censored (\#7)
-\item During the seventh year, one subjectdied (\#1) and one was censored (\#2)
-\end{itemize}
 
 
 
 
 
-\begin{table}[tbp]
-\begin{center}
-\rowcolors{1}{white}{light-gray}
-\begin{tabular}{lrrrrrrr}
-\toprule
-{} &  Died &  Censored &  Alive at Start &  At Risk &  Prob of Dying &  Prob of Surviving &  Cum Survival \\
-\midrule
-0-1 yr &     1 &                1 &              10 &      9.5 &              0.105263 &                  0.894737 &             0.894737 \\
-1-2 yr &     0 &                0 &               8 &      8.0 &              0.000000 &                  1.000000 &             0.894737 \\
-2-3 yr &     2 &                0 &               8 &      8.0 &              0.250000 &                  0.750000 &             0.671053 \\
-3-4 yr &     0 &                1 &               6 &      5.5 &              0.000000 &                  1.000000 &             0.671053 \\
-4-5 yr &     1 &                0 &               5 &      5.0 &              0.200000 &                  0.800000 &             0.536842 \\
-5-6 yr &     1 &                1 &               4 &      3.5 &              0.285714 &                  0.714286 &             0.383459 \\
-6-7 yr &     1 &                1 &               2 &      1.5 &              0.666667 &                  0.333333 &             0.127820 \\
-\bottomrule
-\end{tabular}
-\caption{\label{tab:lifetable} Lifetable corresponding to the example data in Table~(\ref{tab:censoredexample}).}
-\end{center}
-\end{table}
+%To construct a lifetable, one proceeds as follows:
 
 
-To construct a lifetable, one proceeds as follows:
 
-\begin{itemize}[noitemsep]
-\item Enter the total number of subjects alive at the start into column \textbf{Alive at Start}, in the \textbf{0-1 yr} row
-\item Enter the counts of people who died within each time slice into column \textbf{Died}
-\item Enter the counts of people who were censored during each time slice into \textbf{Censored}
-\item The column \textbf{At Risk} shows the number of subjects known to be alive at the start of each year after surgery. This is equal to the number of subjects alive at the start of the preceding year minus the number of subjects who died (\textbf{Died}) or were censored (\textbf{Censored}) during the preceding year. 
-\item The Column \textbf{At Risk} shows the number of subjects "at risk for dying'' during each year. You may guess that this is the number of people alive at the start of the interval, but there's one minor correction. ( COMPLETELY DISAGREE WITH THIS; A WEAKNESS OF THE METHOD) If any people were censured during that year, then they weren't really "available to die'' (to use an awful expression) for the entire year. If you don't know exactly when, during that year, they became censored, then it's reasonable to "split the difference'' and consider them at risk for aonly half the year. So the number at risk can be estimated as the number alive at the start of the year, minus one-half of the number who became censored during that year. (ONLY MAKES SENSE FOR LOST TO FOLLOW UP).
-\item The column \textbf{Prob of Dying} shows the probability of dying during each interval, assuming the subject has survived up to the start of that interval. This is simply the number of people who died divided by the number of people at risk during each interval. 
-\item The column \textbf{Prob of Surviving} shows the probability of surviving during each interval, assuming the subject has survived up to the start of that interval. Surviving means not dying, so the probability of surviving is simply 1 - the probability of dying.
-\item The column \textbf{Cum Survival} shows the cumulative probability of surviving from the time of the operation all the way through the end of this time slice. To survive from the time of the operation through the end of any given year (year $N$), the subject must survive each of the years from Year 1 through Year $N$. Because surviving each year is an independent accomplishment, the probability of surviving all $N$ of the years is the product of the individual years' probabilities.
-\end{itemize}
-
-
-The sample hazard and survival values obtained from a life table are only sample estimates (in this example, at 1-year time slices) of the true population hazard and survival functions.
-The hazard rate obtained from a life table is equal to the probability of dying during each time slice (column \textbf{Prob of Dying}) divided by the width of the slice, so the hazard rate for the first year would be expressed as .105 per year, or 10.5 percent per year. The 
-cumulative survival probability in column \textbf{Cum Survival}, is the probability of surviving from the operation date through to the end of the interval. It has no units, and it can be expressed as a fraction or as a percentage. 
-
-
-Using very narrow time slices doesn't hurt life-table calculations. In fact, you can define slices so narrow that each subject's survival time falls within its own private little slice. With $N$ subjects, $N$ rows would have one subject each; all the rest of the rows would be empty. And because empty rows don't affect the life-table calculations, you can delete them entirely, leaving a table with only $N$ rows, one for each subject. 
-(If you happen to have two or more subjects with exactly the same survival or censoring time, it's okay to put each of the subjects in a separate row). The life-table calculations work fine with only one subject per row and produce what's called \textit{Kaplan-Meier (K-M) survival estimates}.
-You can think of the K-M method as a very fine-grained life table or a life table as a grouped K-M calculation.
 
 The Kaplan-Meier survival estimate corresponding to the data given in Table~(\ref{tab:censoredexample}) is shown in Table~(\ref{tab:kaplanexample}).
 
@@ -608,7 +551,7 @@ The Kaplan-Meier survival estimate corresponding to the data given in Table~(\re
 \rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrrrrr}
 \toprule
-{} &  Censored Status &  Survival Times &  Alive at Start &  Prob of Dying &  Prob of Surv &  Cum Survival \\
+{} &  Censored Status &  Survival Time &  At Risk &  Prob of Dying &  Prob of Surv & Survival Function \\
 \midrule
 4 &                0 &            0.50 &              10 &       0.000000 &      1.000000 &      1.000000 \\
 0 &                1 &            0.75 &               9 &       0.111111 &      0.888889 &      0.888889 \\
@@ -810,7 +753,7 @@ That is, we restrict ourselves to subsets of the data where we know for certain 
 \subsection{Training and Test Partitions}
 \label{subsec:traintest}
 
-After performing the data transformation adumbrated in section~(\ref{subsec:transformation}), it is necessarily to be mindful of how we partition the data into training and testing data. Each subject that was represented by a single row in the original untransformed dataset now potentially is represented by multiple rows in the transformed dataset, and care must be taken to ensure that all of the rows corresponding to a particular subject are either assigned exclusively to the training set or to the testing set. 
+After performing the data transformation adumbrated in section~(\ref{subsec:transformation}), it is necessary to be mindful of how we partition the data into training and testing data. Each subject that was represented by a single row in the original untransformed dataset now potentially is represented by multiple rows in the transformed dataset, and care must be taken to ensure that all of the rows corresponding to a particular subject are either assigned exclusively to the training set or to the testing set. 
 An additional characteristic of this transformed data that requires careful treatment involves balancing. The transformation results in many new records with the target variable \codewhite{newtarget} == 0. The training and test sets must be chosen such that the ratio of the number of records with \codewhite{newtarget} == 0 to that of the number of records with \codewhite{newtarget} == 1 is the same in the training and test datasets.
 This ratio turns out to be $\approx 396$ for the breast cancer data, $\approx  99$ for the colon cancer data, and 
 $\approx 22.75$ for the lung cancer data. 

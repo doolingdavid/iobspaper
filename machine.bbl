@@ -69,6 +69,12 @@
   \url{https://github.com/doolingdavid/PAPERDATA.git}, 2016 (accessed 18 Jan
   2016.
 
+\bibitem{Kaplan1958457}
+E.~Kaplan and P.~Meier, ``Nonparametric estimation from incomplete
+  observations,'' {\em Journal of the American Statistical Association},
+  vol.~53, no.~282, pp.~457--481, 1958.
+\newblock cited By 34216.
+
 \bibitem{amstat}
 {Northeastern Illinois Chapter, American Statistical Association}, ``Survival
   analysis: Introduction.''
