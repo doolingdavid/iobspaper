@@ -142,6 +142,8 @@ The full survival function can then be derived from the hazard function.
 
 This paper is organized as follows. In section~(\ref{sec:dataacquition}) we introduce the subsets of the SEER data used for this study, and present survival curves computed from traditional methods based on this data for the three cancer types \emph{lung}, \emph{breast}, and \emph{colon}.
 In section~(\ref{subsec:transformation}) we present the essential methodology of this work, the data trasnformation that allows censored survival data to be used as input to exisiting machine learning classifiers.  
+Section~(\ref{sec:predmodels}) presents the details of the trained models, including some some subtelties arising from the data transformation pertaining to the partition into training and test datasets. The method of deriving binary classifiers associated the models is presented. In this paper, we have constructed binary classifiers corresponding to 6, 12, and 60 months, as these are standard metrics in cancer survival prognosis. 
+In section~(\ref{sec:results}) we present the evaluations of the trained models. The performance metrics are the 18 AUC curves associated with the 6, 12, and 60 month survival binary classifiers for the two models associated with each cancer type. We also present additional evidence supporting validity of the predictions by computing the levels of agreement between the random forest and neural network models for each of the 18 binary classifiers and find striking agreement.
 
 
 
@@ -905,10 +907,10 @@ For each of the cancer types (colon, breast, lung, and prostate), a model has be
    \item random forest: \url{http://colon-cancer.herokuapp.com/}
    \item neural network: \url{http://coloncancernn.herokuapp.com/}
    \end{enumerate}
-\item prostate cancer
-  \begin{enumerate}[noitemsep]
-   \item random forest: \url{http://prostate-cancer.herokuapp.com/}
-   \end{enumerate}
+%\item prostate cancer
+ % \begin{enumerate}[noitemsep]
+%   \item random forest: \url{http://prostate-cancer.herokuapp.com/}
+%   \end{enumerate}
 \end{enumerate}
 
 
