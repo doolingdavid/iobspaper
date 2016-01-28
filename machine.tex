@@ -89,13 +89,13 @@ Institute (NCI) to make it suitable input to standard machine learning classifie
 
 
 Oppurtunties are emerging in many indutries today to develop and deploy services that cater to individual needs and preferences. Music afficianados can create their own radio stations tailored to their individual tastes from Pandora\footnote{Pandora Internet Radio - Listen to Free Music You'll Love, \url{http://www.pandora.com/} (accessed 27 Jan 2016)}, bibliophiles can receive 
-highly trustworthy book recommendations from goodreads.com\footnote{Share Book Recommendations With Your Friends, Join Book Clubs, Answer Trivia, \url{https://www.goodreads.com/} (accessed 27 Jan 2016)}, and Google will provide directions between any two points, giving options such as mode as transportation and warnings of delays in realtime.\footnote{Google Maps, \url{https://goo.gl/lD7Jwf} (accessed 27 Jan 2016)}
+highly trustworthy book recommendations from goodreads.com\footnote{Share Book Recommendations With Your Friends, Join Book Clubs, Answer Trivia, \url{https://www.goodreads.com/} (accessed 27 Jan 2016)}, and Google will provide directions between any two points, giving options such as mode of transportation and as well as warnings of delays in realtime.\footnote{Google Maps, \url{https://goo.gl/lD7Jwf} (accessed 27 Jan 2016)}
 These individualized services share many common features. In particular, they leverage large databases of aggregated information to learn and extract information relevant to individuals.  
 Extracting actionable information from data is changing the fabric of modern business. A class of techniques that transforms data into actionable information goes by the name of Machine Learning \cite{pythonmachinelearning}.
 Machine Learning has recently become a popular method to answer questions and solve problems that are too complex to solve via traditional methods. 
 
 
-The objective of this study is to show how machine learning methods can be trained with data in cancer registries to produce personalized survival prognosis curves. Traditionally, cancer survival curves have been estimated using Kaplan-Meier methods~\cite{cam}. Kaplan-Meier methodology also uses large datasets to make predictions, but the resulting information is not personal; the resulting curves are summaries for a population and not necessarily relevant or particularly accurate for any given individual.  The methods described below also take full advantage of all relevant aggregate information, but are able to provide personalized suvival curves relevant to individual subjects. 
+The objective of this study is to show how machine learning methods can be trained with data in cancer registries to produce personalized survival prognosis curves. Traditionally, cancer survival curves have been estimated using Kaplan-Meier methods~\cite{cam}. Kaplan-Meier methodology also uses large datasets to make predictions, but the resulting information is not personal; the resulting curves are summaries for a population and not necessarily relevant or particularly accurate for any given individual.  The methods described below also take full advantage of all relevant aggregate information, but are able to provide personalized survival curves relevant to individual subjects. 
 The situation is analgous to consulting the New York Time's bestseller list for your next book\footnote{\url{http://www.nytimes.com/best-sellers-books/}}, or taking recommendations from your personalized Amazon "recommended for you'' service.
 This capability of providing individualized survival curve prognosis is a direct result of the recent advances in computing power and machine learning algorithms, and similar methodology is becoming commonplace in many industries.
  These techniques are slowly infiltrating the healthcare industry, in spite of some of the data aggregation challenges posed by the Health Insurance Portability and Accountability Act (HIPPA) of 1996.
@@ -105,7 +105,7 @@ This capability of providing individualized survival curve prognosis is a direct
 The Surveillance, Epidemiolgy, and End Results (SEER) Program of the National Cancer Institute (NCI) has been collecting data because intuitively 
 researchers feel confident
  that this data will eventually allow researches to detect information crucial to patients and providers including the relationships between the types of data collected (demographic as well as staging information, treatment and disease characteristics) and the survival outcomes.
-Though this relationship evades capture by traditional methods, it is possible to surface it with the two machine learning techniques known as \emph{Random Forests} and \emph{Neural Networks}. These two methods produce very similar results when applied to the SEER dataset, and are based on two almost diametrically opposed learning philosophies, which lends confidence in the validity of the results.
+Though these relationships evade capture by traditional methods, it is possible to surface them with two machine learning techniques known as \emph{Random Forests} and \emph{Neural Networks}. These two methods produce very similar results when applied to the SEER dataset, and are based on almost diametrically opposed learning philosophies, which lends confidence in the validity of the results.
 
 The Surveillance, Epidemiolgy, and End Results (SEER) Program of the National Cancer Institute (NCI) is the most recognized authoritative source of information on cancer incidence and survival in the United States. SEER currently collects and publishes cancer incidence and survival data from population-based cancer registries covering approximately 28 percent of the US population.
 
@@ -268,8 +268,16 @@ It is then possible to programmatically query the Google Maps Geocoding API for 
 An added benefit of this shift from the single categorical variable \codewhite{STATE-COUNTY RECODE} to the three continuous numerical variables \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation} is that input into the web applications described in section~(\ref{sec:apps}) are not restricted to the states and counties coverered in the SEER registries; in fact, the input to the models can be any address you would enter into Google Maps and calls to the Google Maps Geocoding API and the Google Maps Elevation API provide the conversion from the address string to the input variables \codewhite{lat}, \codewhite{lng}, and \codewhite{elevation}. The full lookup table analogous to Table~(\ref{tab:nmhead}) is available from a GitHub repository containing supplemental information for this study~\cite{supp}. 
 
 
-\subsection{Colon Cancer Data}
-\label{subsec:coloncancerdata}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Data Filters}
+\label{subsect:datafilters}
+
+The colon, lung, and breast datafiles were all aggregated separately into three distinct datasets. 
+Each of these datasets was then filtered slightly differently as described below.
+
+%\subsection{Colon Cancer Data}
+%\label{subsec:coloncancerdata}
 
 %In this section we describe the data processing steps that were specific to the colon cancer model development.
  The four COLRECT.txt files were imported into a pandas DataFrame object.
@@ -350,11 +358,12 @@ The \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \
 
 
 
-\subsection{Lung Cancer Data}
-\label{subsec:lungcancerdata}
+%\subsection{Lung Cancer Data}
+%\label{subsec:lungcancerdata}
 
-In this section we describe the data processing steps that were specific to the lung cancer model development. The four RESPIR.txt files were imported into a pandas DataFrame object.
-This data was then filtered according to the conditions in Table~\ref{tab:lungfilter}.
+%In this section we describe the data processing steps that were specific to the lung cancer model development. 
+The four RESPIR.txt files were imported into a pandas DataFrame object.
+This data was then filtered according to the conditions in Table~(\ref{tab:lungfilter}).
 The same list of categorical features as in the colon cancer case were then one-hot encoded.
 
 
@@ -407,11 +416,12 @@ The same list of categorical features as in the colon cancer case were then one-
 
 
 
-\subsection{Breast Cancer Data}
-\label{subsec:breastcancerdata}
+%\subsection{Breast Cancer Data}
+%\label{subsec:breastcancerdata}
 
-In this section we describe the data processing steps that were specific to the lung cancer model development. The four BREAST.txt files were imported into a pandas DataFrame object.
-This data was then filtered according to the conditions in Table~\ref{tab:breastfilter}.
+%In this section we describe the data processing steps that were specific to the lung cancer model development.
+ The four BREAST.txt files were imported into a pandas DataFrame object.
+This data was then filtered according to the conditions in Table~(\ref{tab:breastfilter}).
 The same list of categorical features as in the colon cancer case were then one-hot encoded.
 
 

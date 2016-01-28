@@ -2,20 +2,18 @@
 \contentsline {section}{\numberline {2}Methodology}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Data acquisition}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Data preparation and preprocessing}{4}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Colon Cancer Data}{6}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Lung Cancer Data}{7}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Breast Cancer Data}{7}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Traditional Survival Analysis}{7}{subsection.2.6}
-\contentsline {section}{\numberline {3}Machine Learning Survival Analysis with Censored Data}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Transformation of Censored Data for Machine Learning}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {2.3}Data Filters}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Traditional Survival Analysis}{8}{subsection.2.4}
+\contentsline {section}{\numberline {3}Machine Learning Survival Analysis with Censored Data}{10}{section.3}
+\contentsline {subsection}{\numberline {3.1}Transformation of Censored Data for Machine Learning}{10}{subsection.3.1}
 \contentsline {section}{\numberline {4}Prediction Models}{14}{section.4}
 \contentsline {subsection}{\numberline {4.1}Training and Test Partitions}{16}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Decision Trees and Random Forests}{17}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.2}Decision Trees and Random Forests}{16}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}MLP Neural Networks}{18}{subsection.4.3}
 \contentsline {section}{\numberline {5}Results}{18}{section.5}
 \contentsline {subsection}{\numberline {5.1}Performance Metrics}{18}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Model Agreement}{19}{subsection.5.2}
-\contentsline {section}{\numberline {6}Survival Curve Prediction Apps}{19}{section.6}
+\contentsline {section}{\numberline {6}Survival Curve Prediction Apps}{20}{section.6}
 \contentsline {section}{\numberline {7}Further Directions}{21}{section.7}
 \contentsline {section}{\numberline {A}Selected Features}{21}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{22}{subsection.A.1}
