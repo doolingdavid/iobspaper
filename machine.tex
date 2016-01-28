@@ -576,9 +576,14 @@ Both random forests and neural networks can be used not only as binary classifie
 of belonging to class 1 is exactly the hazard function corresponding to that value of \codewhite{months}: the probability of dying in that month,
 , given that the patient represented by the record has survived up to that month. The models learn $\lambda(\mathbf{X}, \codewhite{months})$.
 This prediction task should not be confused with the regression problem of trying to predict precisely in what month a patient will die.
+
+
 The hazard functions thus learned and predicted are intermediary products; what we are really pursuing are the survival functions for each patient that are derived from the learned and predicted hazard functions.
 From the resulting hazard functions for each unique patient, we can construct the
-resulting survival functions as presented in section~(\ref{subsec:pseudocode}) and Equation~(\ref{eq:hazardtosurvival}). %and explicitly given in python code in the notebooks at the github repository containing supplemental material for this study~\cite{supp}.
+resulting survival functions as presented in section~(\ref{subsec:pseudocode}) and Equation~(\ref{eq:hazardtosurvival}) and explicitly given in python code in the notebooks at the github repository containing supplemental material for this study~\cite{supp}.
+For each subject$\_i$, all input data minus \codewhite{months} and \codewhite{newtarget} is represented by $\mathbf{X}_{i}$. After the classfier models have trained with target \codewhite{newtarget} on the (very large) training set, each subject's survival function is computed in the corresponding (much smaller) test set.
+These functions are computed by using the model to predict $\lambda(\mathbf{X}_i, t_{j})$ for $j$ running from 0 to 120 months, and $\mathbf{X}_{i}$ corresponds to the single row corresponding to subject$\_i$ in the original untrasnformed dataset.
+
 
 In order to evaluate the performance of the learned models, we first construct three binary classifiers corresponding to whether or not a subject survived 6, 12, or 60 months after diagnosis. 
 This is done by iterating over all distinct patient indices in the test set, prediciting the full survival function, and capturing the values corresonding to 6, 12, and 60 months.  
@@ -594,14 +599,14 @@ If the survival function evaluted at 6 months is greater than or equal to .5 for
 \includegraphics[width=.90\textwidth,origin=c]{survivalexample.pdf}
 % "\includegraphics" is very powerful; the graphicx package is already loaded
 \caption{\label{fig:survivalexample} Example of the construction of the binary classifiers for 6, 12, and 60 months survival.
-A subjects hazard curve $h(\mathbf{X}, t)$ is predicted by the predictions models for times out to 120 months. The survival curve is then readily computed as in section~(\ref{subsec:pseudocode}). For this example, the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.}
+A subjects hazard curve $h(\mathbf{X}, t)$ is predicted by the model for times out to 120 months. The survival curve is then readily computed as in section~(\ref{subsec:pseudocode}). For this example, the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.}
 \end{center}
 \end{figure}
 
 
 
 It is necessary to apply some Boolean filters to the data in order to correctly assess the resulting classifiers, again because of censoring. For example, to construct AUC curves for the 6 month classifier, we restrict ourselves to considering
-subjects in the test data where either of the following mutually exlusive conditiions holds:
+subjects in the test data where either of the following mutually exlusive conditions holds:
 
 \begin{itemize}[noitemsep]
 \item \codewhite{survival\_months} >= 6 AND \codewhite{vital\_status\_recode} == 0
@@ -614,7 +619,7 @@ That is, we restrict ourselves to subsets of the data where we know for certain 
 \subsection{Training and Test Partitions}
 \label{subsec:traintest}
 
-After performing the data transformation adumbrated in section~(\ref{subsec:transformation}), it is necessary to be mindful of how we partition the data into training and testing data. Each subject that was represented by a single row in the original untransformed dataset now potentially is represented by multiple rows in the transformed dataset, and care must be taken to ensure that all of the rows corresponding to a particular subject are either assigned exclusively to the training set or to the testing set. 
+After performing the data transformation adumbrated in section~(\ref{subsec:transformation}), it is necessary to be mindful of how we partition the data into training and testing data. Each subject that was represented by a single row in the original untransformed dataset now potentially is represented by multiple rows in the transformed dataset, and care must be taken to ensure that all of the rows corresponding to a particular subject are either assigned exclusively to the training set or exclusive to the testing set. 
 An additional characteristic of this transformed data that requires careful treatment involves balancing. The transformation results in many new records with the target variable \codewhite{newtarget} == 0. The training and test sets must be chosen such that the ratio of the number of records with \codewhite{newtarget} == 0 to that of the number of records with \codewhite{newtarget} == 1 is the same in the training and test datasets.
 This ratio turns out to be $\approx 396$ for the breast cancer data, $\approx  99$ for the colon cancer data, and 
 $\approx 22.75$ for the lung cancer data. 
@@ -624,8 +629,8 @@ $\approx 22.75$ for the lung cancer data.
 The models described below are trained to learn the values of \codewhite{newtarget}, which is a binary variable: a value of '0' indicating that the subject is still alive at the given month, while a value of '1' indicates that the patient died at that particular value of \codewhite{months}. The random forests and neural networks described below are binary classifiers with the target \codewhite{newtarget}. Fortunately, both the random forests and neural networks are capable of not only performing strict class prediction, i.e. predicting whether \codewhite{newtarget} is '0' or '1', but are also able to predict the \textit{probablity} of \codewhite{newtarget} being '0' or '1'., and thus learning the hazard function.
 
 
-Finally, we emphasize the crucial point that features \codewhite{survival\_months} and \\
-\codewhite{vital\_status\_recode\_Dead} are dropped from both the training and and testing data, and are replaced with the features \codewhite{months} and \codewhite{newtarget}, as illustrated in Tables~(\ref{tab:originaldead},~\ref{tab:originalalive},~\ref{tab:transformeddead},~\ref{tab:transformedalive}). The information of which subjects represent censored data (\codewhite{vital\_status\_recode\_Dead} == 0) and which died is retained and recoverable trough the \codewhite{newindex} variable and is needed for proper evaluation of the performance metrics; when evaluating AUC curves for the 6, 12, and 60 month binary classifiers, we need to limit the test data to those subjects that we know definitively whether or not they survived 6, 12 or 60 months respectively. This requirement will necessitate the elmination of some of the censored data when computing some of the performance metrics.
+Finally, we emphasize the crucial point that the features \codewhite{survival\_months} and \\
+\codewhite{vital\_status\_recode\_Dead} are dropped from both the training and and testing data, and are replaced with the features \codewhite{months} and \codewhite{newtarget}, as illustrated in Tables~(\ref{tab:originaldead},~\ref{tab:originalalive},~\ref{tab:transformeddead},~\ref{tab:transformedalive}). The information of which subjects represent censored data (\codewhite{vital\_status\_recode\_Dead} == 0) and which died is retained and recoverable trough the \codewhite{newindex} variable and is needed for proper evaluation of the performance metrics; when evaluating AUC curves for the 6, 12, and 60 month binary classifiers, we need to limit the test data to those subjects that we know definitively whether or not they survived 6, 12 or 60 months respectively. This requirement will necessitate the elmination of some of the censored data when computing some of the performance metrics. We introduce the two machine learning algorithms used in this study below, chosen because of their high performance in machine learning competitions and their complementary methods, so that their mutual agreement on the test datasets can be taken as indication that they are actually learning useful information, which will be shown in section~(\ref{sec:results}).
 
 %\begin{equation}
 %(\codewhite{survival\_months} >= 6 \& \codewhite{vital\_status\_recode\_Dead} == 0) \| 
