@@ -17,14 +17,14 @@ Both of these methods make use of the partial information to provide unbiased es
 Incorrect treatment of survival data still seen in practice, and leading to biased results, includes simply excluding all subjects with a censored survival time from any survival analysis, and \emph{imputing} (replacing) the censored (last-seen) date with some reasonable value. Both of these techniques destroy the partial information contained in the censored observations and nullify the validity of the resulting estimates for the hazard rate and survival rate~\cite{cam}.
 
 In 1958, Edward L. Kaplan and Paul Meier collaborated to publish the seminal paper on how to estimate the hazard and survival rates for data containing censored observations~\cite{Kaplan1958457}.
-The method is straightforward and for small datasets can be performed by hand. As an example, consider the survival data shown  in Table~(\ref{tab:censoredexample}). The Kaplan-Meier calculation of the survival curve, the first step is to  
+The method is straightforward and for small datasets can be performed by hand. As an example, consider the survival data shown  in Table~(\ref{tab:censoredexample}). In the Kaplan-Meier calculation of the survival curve, the first step is to  
 sort the subjects in Table~(\ref{tab:censoredexample}) labeled 0 through 9 by \emph{Survival Time} in ascending order.  
 This process results in the first two columns (\emph{Censored Status}, and \emph{Survival Times}) in Table~(\ref{tab:kaplanexample}).
 The \emph{At Risk} column decreases by one for each row; in every row a subject has either been censored out of the study or has died. The hazard rate is then computed for each value of \emph{Survival Time} (necessarily a discrete function because the number of subjects is countable), by dividing the value in \emph{Censored Status} by the value in 
-\emph{At Risk}. The hazard function is shown in \emph{Prob of Dying} in Table~(\ref{tab:kaplanexample}).
+\emph{At Risk}. The hazard function is shown in the \emph{Hazard Function} column in Table~(\ref{tab:kaplanexample}).
 It is then straightforward to calculate the survival function; 1 - hazard function represents the probability of not dying in the next interval of time, assuming that the subject has survived up until now and is represented by column \emph{Prob of Surv}. 
 The cumulative survival probability can then be obtained by sucessively multiplying all these individual time-slice probabilities together. In order to survive 2.4 years, first the subject has to survive .5 years, then survive .75 years, 2.3 years and 2.4 years. The probability of surviving 2.4 years is then the product of these 3 probabilities and is given as .666 in Table(\ref{tab:kaplanexample}) in the \emph{Survival Function} column.
-
+The Kaplan-Meier survival estimate corresponding to the data given in Table~(\ref{tab:censoredexample}) is shown in Table~(\ref{tab:kaplanexample}).
 
 
 
@@ -63,15 +63,12 @@ The cumulative survival probability can then be obtained by sucessively multiply
 
 
 
-
-The Kaplan-Meier survival estimate corresponding to the data given in Table~(\ref{tab:censoredexample}) is shown in Table~(\ref{tab:kaplanexample}).
-
 \begin{table}[tbp]
 \begin{center}
 \rowcolors{1}{white}{light-gray}
 \begin{tabular}{lrrrrrr}
 \toprule
-{} &  Censored Status &  Survival Time &  At Risk &  Prob of Dying &  Prob of Surv & Survival Function \\
+{} &  Censored Status &  Survival Time &  At Risk &  Hazard Function &  Prob of Surv & Survival Function \\
 \midrule
 4 &                0 &            0.50 &              10 &       0.000000 &      1.000000 &      1.000000 \\
 0 &                1 &            0.75 &               9 &       0.111111 &      0.888889 &      0.888889 \\
@@ -94,10 +91,10 @@ The Kaplan-Meier survival estimate corresponding to the data given in Table~(\re
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
-After the above one-hot encoding procedure, the new variable
-\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
-\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:breastkaplan}).
+%With just the above data preparation, it is possible to construct traditional Kaplan-Meier %estimates of the survival curves for the colon cancer population represented by this subset of %the data.
+%After the above one-hot encoding procedure, the new variable
+%\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable %= 1, or else that the patient's record is right-censored if this variable = 0.
+%\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is %needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:breastkaplan}).
 
 \begin{figure}[tbp]
 \centering 
@@ -140,10 +137,12 @@ After the above one-hot encoding procedure, the new variable
 \end{figure}
 
 
-
-The above Kaplan-Meier estimates of the survival curves for colon (Figure~(\ref{fig:colonkaplan})), lung 
+After the above one-hot encoding procedure, the new variable
+\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
+\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimates for the SEER datasets.
+The Kaplan-Meier estimates of the survival curves for colon (Figure~(\ref{fig:colonkaplan})), lung 
 (Figure~(\ref{fig:lungkaplan})), and breast cancer (Figure~(\ref{fig:breastkaplan})) are constructed from the full population of cancer patients in the respective datasets.
-An unsatisfactory consequence is that these estimates are highly course-grained, and not very meaningful to an indivual. Patients with very disparate characteristics are given the same prognosis by these Kaplan-Meier survival curve estimates. Therefore it is desirable to find robust predictors for survival curves of individual subjects where the input is an individual record as opposed to a population. In section~(\ref{subsec:transformation}) we present the data transformation that allows for machine learning to be applied to censored data.
+An unsatisfactory feature of these curves is that these estimates are based on populations and data with enough heterogeneity to make them not very meaningful to an indivual. Patients with very disparate characteristics are given the same prognosis by these Kaplan-Meier survival curve estimates. Therefore it is desirable to find robust predictors for survival curves of individual subjects where the input is an individual record as opposed to a population. In section~(\ref{subsec:transformation}) we present the data transformation that allows for machine learning to be applied to censored data.
 
 
 
