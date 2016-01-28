@@ -271,8 +271,9 @@ An added benefit of this shift from the single categorical variable \codewhite{S
 \subsection{Colon Cancer Data}
 \label{subsec:coloncancerdata}
 
-In this section we describe the data processing steps that were specific to the colon cancer model development. The four COLRECT.txt files were imported into a pandas DataFrame object.
-This data was then filtered according to the conditions in Table~\ref{tab:colonfilter}.
+%In this section we describe the data processing steps that were specific to the colon cancer model development.
+ The four COLRECT.txt files were imported into a pandas DataFrame object.
+This data was then filtered according to the conditions in Table~(\ref{tab:colonfilter}).
 
 
 
@@ -308,7 +309,7 @@ This data was then filtered according to the conditions in Table~\ref{tab:colonf
 
 
 The following categorical features were one-hot encoded as described in 
-section~\ref{subsec:dataprep}:
+section~(\ref{subsec:dataprep}):
 
 \begin{itemize}[noitemsep]
 \item \codewhite{SEX},
@@ -323,27 +324,27 @@ section~\ref{subsec:dataprep}:
 \item \codewhite{MONTH OF DIAGNOSIS},
 \item  \codewhite{VITAL STATUS RECODE}.
 \end{itemize}
-The \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng} variables as illustrated in Table~\ref{tab:nmhead}.
+The \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with the \codewhite{elevation}, \codewhite{lat}, and \codewhite{lng} variables as illustrated in Table~(\ref{tab:nmhead}).
 
-With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
-After the above one-hot encoding procedure, the new variable
-\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
-\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:colonkaplan}).
-
-
+%With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves %for the colon cancer population represented by this subset of the data.
+%After the above one-hot encoding procedure, the new variable
+%\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the %patient's record is right-censored if this variable = 0.
+%\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the %Kaplan-Meier estimate shown in Figure~(\ref{fig:colonkaplan}).
 
 
-\begin{figure}[tbp]
-\centering 
+
+
+%\begin{figure}[tbp]
+%\centering 
 %\begin{center}/\end{center} takes some additional vertical space
 %\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
 %\hfill
-\begin{center}
-\includegraphics[width=.90\textwidth,origin=c]{colonkaplan.pdf}
+%\begin{center}
+%\includegraphics[width=.90\textwidth,origin=c]{colonkaplan.pdf}
 % "\includegraphics" is very powerful; the graphicx package is already loaded
-\caption{\label{fig:colonkaplan} Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted with 113072 observations, 71804 censored.}
-\end{center}
-\end{figure}
+%\caption{\label{fig:colonkaplan} Traditional Kaplan-Meier estimate of the survival curve for all colon cancer patients. Fitted %with 113072 observations, 71804 censored.}
+%\end{center}
+%\end{figure}
 
 
 
@@ -382,10 +383,10 @@ The same list of categorical features as in the colon cancer case were then one-
 \end{table}
 
 
-With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
-After the above one-hot encoding procedure, the new variable
-\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
-\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:lungkaplan}).
+%With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves %for the colon cancer population represented by this subset of the data.
+%After the above one-hot encoding procedure, the new variable
+%\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the %patient's record is right-censored if this variable = 0.
+%\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the %Kaplan-Meier estimate shown in Figure~(\ref{fig:lungkaplan}).
 
 
 
