@@ -446,7 +446,7 @@ Before applying machine learning models trained with these datasets, we review i
 \section{Transformation of Censored Data for Machine Learning}
 \label{subsec:transformation}
 
-In this section we describe an inuitive way to transform right-censored data appropriately so that it may be used as input to machine learning algorithms that learn the hazard fuction described in section~\ref{subsec:survprimer}. The full details of this transformation, and a large inspiration for this study, can be flound in this blog post~\cite{kuhn}.
+In this section we describe an inuitive way to transform right-censored data appropriately so that it may be used as input to machine learning algorithms that learn the hazard fuction described in section~(\ref{subsec:survprimer}). The full details of this transformation, and a large inspiration for this study, can be flound in this blog post~\cite{kuhn}.
 
 The overall philosophy of the Kaplan-Meier estimate of the survival curve for a population differs fundamentally from the methods described below and used in this study. 
 The Kaplan-Meier estimate of the survival curve is given by
@@ -455,7 +455,7 @@ The Kaplan-Meier estimate of the survival curve is given by
 \hat{S}(t) = \prod_{t_i < t} \frac{n_i - d_i}{n_i}
 \end{equation}
 where $d_i$ are the number of death events at time $t$ and $n_t$ is the number of subjects at risk of death just prior to time $t$. 
-Equation~\ref{eq:kaplanmeier} uses the entire data set to arrive at an estimate of the entire population survival curve. In contrast, the method described below uses the entire data set to learn a model so as to predict hazard and survival curves for all of the individual records in the data set.
+Equation~(\ref{eq:kaplanmeier}) uses the entire data set to arrive at an estimate of the entire population survival curve. In contrast, the method described below uses the entire data set to learn a model so as to predict hazard and survival curves for all of the individual records in the data set.
 
 The key observation is to note that the hazard function can be directly learned via standard machine learning methods. It can be rewritten as
 \begin{equation}
@@ -480,9 +480,9 @@ S(t) &  = & P(T \geq a_{1}, T \geq a_{2}, \cdots , T \geq a_{j+1}) \\
 
 
 
-Treating $T$ is just another covariate is the key to the transformation. Each datapoint in the hidden classification problem is the combination of an $\mathbf{X}_{i}$ in the orginal dataset plus some month $t$, and the classification problem is "did point $\mathbf{X}_{i}$ die in month $t$.'' We will call this new variable $D_{it}$ (\codewhite{newtarget}).
+Treating $T$ as just another covariate is the key to the transformation. Each datapoint in the hidden classification problem is the combination of an $\mathbf{X}_{i}$ in the orginal dataset plus some month $t$, and the classification problem is "did point $\mathbf{X}_{i}$ die in month $t$.'' We will call this new variable $D_{it}$ (\codewhite{newtarget}).
 We can transform our original data set into a new one, with one row for each month that each $\mathbf{X}_{i}$ is in the sample; train a standard classifier on this new dataset with $D_{it}$ as the target, and derive a survival model from the orginal dataset.
-Psuedocode for this transformation is found in section~\ref{subsec:pseudocode}.
+Psuedocode for this transformation is found in section~(\ref{subsec:pseudocode}).
 
 Explicit examples will help make this transformation clear.
 The untransformed datapoint represented Table~(\ref{tab:originaldead}) is transformed to the multiple records shown in Table~(\ref{tab:transformeddead}). All uncensored data is transformed in this way. All censored data is similarly transformed. 
@@ -559,10 +559,10 @@ newindex &                &                &        &            \\
 \end{center}
 \end{table}
 
-One obvious side effect of this transformation is that it explodes the data size.
+One obvious side effect of this transformation is that it explodes the length of the dataset.
 For this study, the original, untransformed colon cancer DataFrame has shape $(113072, 106)$, and the total transformed colon cancer DataFrame has shape $(4165251, 106)$.
 Similary, the original, untransformed lung cancer DataFrame has shape $(177089, 118)$, and the total transformed lung cancer DataFrame has shape $(3079931, 118)$.
-The biggest explosion in data size occured with the breast cancer data. 
+The biggest explosion in dataset size occured with the breast cancer data, which is a consequence of the relatively high survival rates in breast cancer. A subject who is censored with a recorded survival months of 48 will contribute an extra 48 rows to the transformed dataset.  
 The original, untransformed breast cancer DataFrame has shape $(329949, 70)$, and the total transformed breast cancer DataFrame has shape $(15085711, 70)$.
 Traning machine learning algorithms on such large datasets, even after splitting into training and testing sets described below, require large RAM. All computations for this study were performed on a Dell XPS 8700 Desktop with 32GB of RAM.
 
@@ -571,7 +571,10 @@ Traning machine learning algorithms on such large datasets, even after splitting
 \label{sec:predmodels}
 
 With the datasets transformed as described in section~(\ref{subsec:transformation}), we are now able to split them into training and testing sets in the usual manner.
-The classifier models described in this section are learning the hazard function: given all of the data given in sections~(\ref{subsec:lungfeatures}, ~\ref{subsec:colonfeatures}, ~\ref{subsec:breastfeatures}), which includes the field \codewhite{months} (the months after diagnosis), the models predict the target variable \codewhite{newtarget}, which represents the probability of dying in that month, given that the patient represented by the record has survived up to that month. The models learn $\lambda(\mathbf{X}, \codewhite{months})$.
+The classifier models described in this section are learning the hazard function: given all of the data given in sections~(\ref{subsec:lungfeatures}, ~\ref{subsec:colonfeatures}, ~\ref{subsec:breastfeatures}), which includes the field \codewhite{months} (the months after diagnosis), the models predict the target variable \codewhite{newtarget}, which is a binary class label equal to 1 if the subject died in that month and 0 otherwise.
+Both random forests and neural networks can be used not only as binary classifiers, but also have the ability to predict the \emph{probabilities} of belonging to either class encoded by \codewhite{newtarget}. In particular, the predicted probability 
+of belonging to class 1 is exactly the hazard function corresponding to that value of \codewhite{months}: the probability of dying in that month,
+, given that the patient represented by the record has survived up to that month. The models learn $\lambda(\mathbf{X}, \codewhite{months})$.
 This prediction task should not be confused with the regression problem of trying to predict precisely in what month a patient will die.
 The hazard functions thus learned and predicted are intermediary products; what we are really pursuing are the survival functions for each patient that are derived from the learned and predicted hazard functions.
 From the resulting hazard functions for each unique patient, we can construct the
