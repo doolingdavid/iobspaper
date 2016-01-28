@@ -392,17 +392,17 @@ After the above one-hot encoding procedure, the new variable
 
 
 
-\begin{figure}[tbp]
-\centering 
+%\begin{figure}[tbp]
+%\centering 
 %\begin{center}/\end{center} takes some additional vertical space
 %\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
 %\hfill
-\begin{center}
-\includegraphics[width=.90\textwidth,origin=c]{lungkaplan.pdf}
+%\begin{center}
+%\includegraphics[width=.90\textwidth,origin=c]{lungkaplan.pdf}
 % "\includegraphics" is very powerful; the graphicx package is already loaded
-\caption{\label{fig:lungkaplan} Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted with 177089 observatins, 47409 censored.}
-\end{center}
-\end{figure}
+%\caption{\label{fig:lungkaplan} Traditional Kaplan-Meier estimate of the survival curve for all lung cancer patients. Fitted %with 177089 observatins, 47409 censored.}
+%\end{center}
+%\end{figure}
 
 
 
@@ -440,22 +440,22 @@ The same list of categorical features as in the colon cancer case were then one-
 
 
 
-With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves for the colon cancer population represented by this subset of the data.
-After the above one-hot encoding procedure, the new variable
-\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the patient's record is right-censored if this variable = 0.
-\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the Kaplan-Meier estimate shown in Figure~(\ref{fig:breastkaplan}).
+%With just the above data preparation, it is possible to construct traditional Kaplan-Meier estimates of the survival curves %for the colon cancer population represented by this subset of the data.
+%After the above one-hot encoding procedure, the new variable
+%\codewhite{vital\_status\_recode\_Dead} indicates that the patient is deceased if this variable = 1, or else that the %patient's record is right-censored if this variable = 0.
+%\codewhite{SURVIVAL MONTHS} and \codewhite{vital\_status\_recode\_Dead} are all that is needed to construct the %Kaplan-Meier estimate shown in Figure~(\ref{fig:breastkaplan}).
 
-\begin{figure}[tbp]
-\centering 
+%\begin{figure}[tbp]
+%\centering 
 %\begin{center}/\end{center} takes some additional vertical space
 %\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
 %\hfill
-\begin{center}
-\includegraphics[width=.90\textwidth,origin=c]{breastkaplan.pdf}
+%\begin{center}
+%\includegraphics[width=.90\textwidth,origin=c]{breastkaplan.pdf}
 % "\includegraphics" is very powerful; the graphicx package is already loaded
-\caption{\label{fig:breastkaplan} Traditional Kaplan-Meier estimate of the survival curve for all breast cancer patients. Fitted with 329949 observatins, 292279 censored.}
-\end{center}
-\end{figure}
+%\caption{\label{fig:breastkaplan} Traditional Kaplan-Meier estimate of the survival curve for all breast cancer patients. %Fitted with 329949 observatins, 292279 censored.}
+%\end{center}
+%\end{figure}
 
 
 Before applying machine learning models trained with these data sets, we review in section~(\ref{subsec:survprimer}) the sailent features of survival analysis and censored data. We then describe in detail a method that takes full advantage of all the data, including the right-censored data, and which involves a simple and intuitive transformation, culminating in the full set of features and target variables listed in sections~(\ref{subsec:colonfeatures},~\ref{subsec:lungfeatures},~\ref{subsec:breastfeatures}).
@@ -469,9 +469,6 @@ Before applying machine learning models trained with these data sets, we review 
 \label{sec:surv}
 
 
-The above Kaplan-Meier estimates of the survival curves for colon (Figure~(\ref{fig:colonkaplan}), lung 
-(Figure~(\ref{fig:lungkaplan}), and breast cancer (Figure~(\ref{fig:breastkaplan}) are constructed from the full population of cancer patients in the respective datasets.
-An unsatisfactory consequence is that these estimates are highly course-grained, and not very meaningful to an indivual. Patients with very disparate characteristics are given the same prognosis by these Kaplan-Meier survival curve estimates. Therefore it is desirable to find robust predictors for survival curves of individual subjects where the input is an individual record as opposed to a population. In section~(\ref{subsec:survprimer}) we briefly review the pertinent features of survival analyis, before presenting in section~(\ref{subsec:transformation}) the data transformation that allows for machine learning to be applied to censored data.
 
 
 % https://openaccess.leidenuniv.nl/bitstream/handle/1887/11456/01.pdf?sequence=6
