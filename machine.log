@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  29 JAN 2016 14:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  29 JAN 2016 14:33
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -657,7 +657,7 @@ Package pdftex.def Info: lungbox.pdf used on input line 906.
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.945     \end{enumerate}
-                         ] <boston1940.png, id=623, 511.9125pt x 481.8pt>
+                         ] <boston1940.png, id=625, 511.9125pt x 481.8pt>
 File: boston1940.png Graphic file (type png)
 
 <use boston1940.png>
@@ -736,6 +736,10 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1599.
 
 Package rerunfilecheck Info: File `machine.out' has not changed.
 (rerunfilecheck)             Checksum: 874C7140F534B83AEFC0DBCC56438533;1884.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1599.
  ) 
 Here is how much of TeX's memory you used:
@@ -774,9 +778,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on machine.pdf (41 pages, 669786 bytes).
+Output written on machine.pdf (41 pages, 670305 bytes).
 PDF statistics:
- 1646 PDF objects out of 1728 (max. 8388607)
+ 1649 PDF objects out of 1728 (max. 8388607)
  146 named destinations out of 1000 (max. 500000)
  259 words of extra memory for PDF output out of 10000 (max. 10000000)
 
