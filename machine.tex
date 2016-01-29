@@ -616,46 +616,18 @@ For each subject$\_i$, all input data minus \codewhite{months} and \codewhite{ne
 These functions are computed by using the model to predict $\lambda(\mathbf{X}_i, t_{j})$ for $j$ running from 0 to 120 months, and $\mathbf{X}_{i}$ corresponds to the single row corresponding to subject$\_i$ in the original untrasnformed dataset.
 
 
-In order to evaluate the performance of the learned models, we first construct three binary classifiers corresponding to whether or not a subject survived 6, 12, or 60 months after diagnosis. 
-This is done by iterating over all distinct patient indices in the test set, prediciting the full survival function, and capturing the values corresonding to 6, 12, and 60 months.  
-If the survival function evaluted at 6 months is greater than or equal to .5 for a given subject, then the 6 months binary classifier predicts that that subject will be alive 6 months after diagnosis. Similarly, if the survival function evaluted at 60 months is less than .5, then the 12 months binary classifier predicts that that subject will be dead 12 months after diagnosis. Figure~(\ref{fig:survivalexample}) illustrates the method; in this case the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.
 
-
-\begin{figure}[tbp]
-\centering 
-%\begin{center}/\end{center} takes some additional vertical space
-%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
-%\hfill
-\begin{center}
-\includegraphics[width=.90\textwidth,origin=c]{survivalexample.pdf}
-% "\includegraphics" is very powerful; the graphicx package is already loaded
-\caption{\label{fig:survivalexample} Example of the construction of the binary classifiers for 6, 12, and 60 months survival.
-A subjects hazard curve $h(\mathbf{X}, t)$ is predicted by the model for times out to 120 months. The survival curve is then readily computed as in section~(\ref{subsec:pseudocode}). For this example, the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.}
-\end{center}
-\end{figure}
-
-
-Because of censoring it is necessary to apply some Boolean filters to the data in order to correctly assess the resulting classifiers.
-To construct AUC curves for the 6 month classifier, we restrict ourselves to considering
-subjects in the test data where either of the following mutually exlusive conditions holds:
-
-\begin{itemize}[noitemsep]
-\item \codewhite{survival\_months} >= 6 AND \codewhite{vital\_status\_recode} == 0
-\item \codewhite{vital\_status\_recode} == 1
-\end{itemize}
-
-That is, we restrict ourselves to subsets of the data where we know for certain whether or not the subject survived at least 6 months. Similarly for the 12 and 60 months surivival classifiers. 
 
 
 
 \subsection{Decision Trees and Random Forests}
 
-\textbf{Decision tree} classifiers are attractive models because they can be intrepeted easily. Like the name decision tree suggests, we can think of this model as breaking down our data by making decisions based on asking a series of questions.
+\emph{Decision tree} classifiers are attractive models because they can be intrepeted easily. Like the name decision tree suggests, we can think of this model as breaking down our data by making decisions based on asking a series of questions.
 Based on the features in our training set, the decision tree model learns a series of questions to infer the class labels of the samples. 
 
-\textbf{Random forests} have gained huge popularity in applications of machine learning during the last decade due to their good classification performance, scalability, and ease of use. Intuitively, a random forest can be considered as an \textit{ensemble of decision trees}. The idea behind ensemble learning is to combine \textbf{weak learners} to build a more robust model, a \textbf{strong learner}, that has a better generalization error and is less susceptible to overfitting. 
+\emph{Random forests} have gained huge popularity in applications of machine learning during the last decade due to their good classification performance, scalability, and ease of use. Intuitively, a random forest can be considered as an \\emph{ensemble of decision trees}. The idea behind ensemble learning is to combine \emph{weak learners} to build a more robust model, a \emph{strong learner}, that has a better generalization error and is less susceptible to overfitting. 
 
-The goal behind \textbf{ensemble methods} is to combine different classifiers into a meta-classifier that has a better generalization performance than each individual classifier alone. For example, assuming that we collected predictions from 10 experts, ensemble methods would allow us to strategically combine these predictions by the 10 experts to come up with a prediction that is more accurate and robust than the predictions by each individual expert. The individual decision trees that make an ensemble are called base learners, and as long as the error rate of each base learner is less than .50, the combined random forest will benefit from the affects of combining predictions to achieve a far greater accuracy.
+The goal behind \emph{ensemble methods} is to combine different classifiers into a meta-classifier that has a better generalization performance than each individual classifier alone. For example, assuming that we collected predictions from 10 experts, ensemble methods would allow us to strategically combine these predictions by the 10 experts to come up with a prediction that is more accurate and robust than the predictions by each individual expert. The individual decision trees that make an ensemble are called base learners, and as long as the error rate of each base learner is less than .50, the combined random forest will benefit from the affects of combining predictions to achieve a far greater accuracy.
 
 
 
@@ -730,6 +702,37 @@ Keras is a minimalist, highly modular neural networks library, written in Python
 
 \section{Results}
 \label{sec:results}
+
+
+In order to evaluate the performance of the learned models, we first construct three binary classifiers corresponding to whether or not a subject survived 6, 12, or 60 months after diagnosis. 
+This is done by iterating over all distinct patient indices in the test set, prediciting the full survival function, and capturing the values corresonding to 6, 12, and 60 months.  
+If the survival function evaluted at 6 months is greater than or equal to .5 for a given subject, then the 6 months binary classifier predicts that that subject will be alive 6 months after diagnosis. Similarly, if the survival function evaluted at 60 months is less than .5, then the 12 months binary classifier predicts that that subject will be dead 12 months after diagnosis. Figure~(\ref{fig:survivalexample}) illustrates the method; in this case the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.
+
+
+\begin{figure}[tbp]
+\centering 
+%\begin{center}/\end{center} takes some additional vertical space
+%\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
+%\hfill
+\begin{center}
+\includegraphics[width=.90\textwidth,origin=c]{survivalexample.pdf}
+% "\includegraphics" is very powerful; the graphicx package is already loaded
+\caption{\label{fig:survivalexample} Example of the construction of the binary classifiers for 6, 12, and 60 months survival.
+A subjects hazard curve $h(\mathbf{X}, t)$ is predicted by the model for times out to 120 months. The survival curve is then readily computed as in section~(\ref{subsec:pseudocode}). For this example, the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.}
+\end{center}
+\end{figure}
+
+
+Because of censoring it is necessary to apply some Boolean filters to the data in order to correctly assess the resulting classifiers.
+To construct AUC curves for the 6 month classifier, we restrict ourselves to considering
+subjects in the test data where either of the following mutually exlusive conditions holds:
+
+\begin{itemize}[noitemsep]
+\item \codewhite{survival\_months} >= 6 AND \codewhite{vital\_status\_recode} == 0
+\item \codewhite{vital\_status\_recode} == 1
+\end{itemize}
+
+That is, we restrict ourselves to subsets of the data where we know for certain whether or not the subject survived at least 6 months. Similarly for the 12 and 60 months surivival classifiers. 
 
 
 
