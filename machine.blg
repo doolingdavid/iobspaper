@@ -1,0 +1,16 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: machine.aux
+The style file: ieeetr.bst
+Database file #1: machinebib.bib
+Repeated entry---line 58 of file machinebib.bib
+ : @misc{deeplearning
+ :                   ,
+I'm skipping whatever remains of this entry
+"(" immediately follows a field name---line 282 of file machinebib.bib
+ : Usage-Count-
+ :             (Last-180-days) = {{4}},
+I'm skipping whatever remains of this entry
+"(" immediately follows a field name---line 338 of file machinebib.bib
+ : Usage-Count-
+ :             (Last-180-days) = {{9}},
+I'm skipping whatever remains of this entry
+(There were 3 error messages)
