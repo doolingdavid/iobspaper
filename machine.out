@@ -3,15 +3,15 @@
 \BOOKMARK [2][-]{subsection.2.1}{Data preparation and preprocessing}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Traditional Survival Analysis}{section.2}% 4
 \BOOKMARK [1][-]{section.3}{Transformation of Censored Data for Machine Learning}{}% 5
-\BOOKMARK [1][-]{section.4}{Prediction Models}{}% 6
-\BOOKMARK [2][-]{subsection.4.1}{Training and Test Partitions}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.2}{Decision Trees and Random Forests}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.3}{MLP Neural Networks}{section.4}% 9
-\BOOKMARK [1][-]{section.5}{Results}{}% 10
-\BOOKMARK [2][-]{subsection.5.1}{Performance Metrics}{section.5}% 11
-\BOOKMARK [2][-]{subsection.5.2}{Model Agreement}{section.5}% 12
-\BOOKMARK [1][-]{section.6}{Survival Curve Prediction Apps}{}% 13
-\BOOKMARK [1][-]{section.7}{Further Directions}{}% 14
+\BOOKMARK [1][-]{section.4}{Training and Test Partitions}{}% 6
+\BOOKMARK [1][-]{section.5}{Prediction Models}{}% 7
+\BOOKMARK [2][-]{subsection.5.1}{Decision Trees and Random Forests}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.2}{MLP Neural Networks}{section.5}% 9
+\BOOKMARK [1][-]{section.6}{Results}{}% 10
+\BOOKMARK [2][-]{subsection.6.1}{Performance Metrics}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.2}{Model Agreement}{section.6}% 12
+\BOOKMARK [1][-]{section.7}{Survival Curve Prediction Apps}{}% 13
+\BOOKMARK [1][-]{section.8}{Further Directions}{}% 14
 \BOOKMARK [1][-]{appendix.A}{Selected Features}{}% 15
 \BOOKMARK [2][-]{subsection.A.1}{Colon Cancer Feature Selection}{appendix.A}% 16
 \BOOKMARK [2][-]{subsection.A.2}{Lung Cancer Feature Selection}{appendix.A}% 17
