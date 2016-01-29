@@ -657,7 +657,7 @@ Figure~(\ref{fig:ensemble}) illustrates the power of ensemble methods; the Figur
 
 
 
-A big advantege of random forests is that there is very little need to worry excessively over your choice of hyperparameter values (the number of trees in the forest, the depth of each decision tree, the specific measure of information gain used to choose the node splitting, etc). The ensemble method is robust to noise from the individual decision trees, which helps to precent overfitting (memorizing the training dataset targets instead of generalizing from learned rules to perform successfuly on unseen data). The only parameter that has a clearly noticeable effect on performance is the number of trees to include in the forest; in general, the more trees the better the performance, but there is a price to pay in terms of computational cost. The number of trees for the forests trained in this study was relatively small, 20 trees for breast cancer and 25 for both the lung and colon cancer models. 
+A big advantage of random forests is that honing in on suitable hyperparameter values (the number of trees in the forest, the depth of each decision tree, the specific measure of information gain used to choose the node splitting, etc) is not very difficult. The ensemble method is robust to noise from the individual decision trees, which helps to precent overfitting (memorizing the training dataset targets instead of generalizing from learned rules to perform successfuly on unseen data). The only parameter that has a clearly noticeable effect on performance is the number of trees to include in the forest; in general, the more trees the better the performance, but there is a price to pay in terms of computational cost. The number of trees for the forests trained in this study was relatively small, 20 trees for breast cancer and 25 for both the lung and colon cancer models. 
 
 IOBS has chosen to use the Python scikit-learn implemenation of the Random Forest machine 
 learning classifier~\cite{rf}.
@@ -689,7 +689,7 @@ The model parameters for each cancer type are given in sections~(\ref{subsec:bre
 
 Neural networks are a biologically-inspired programming paradigm that enable computers to learn from observational data~\cite{deeplearning}.
 %As you may know, \textbf{deep learning} is getting a lot of press and is without any doubt the %hottest topic in the machine learning field.
-Deep learning can be understood as a set of algorithms that were developed to train \textbf{artificial neural networks} with many layers most efficiently.
+Deep learning can be understood as a set of algorithms that were developed to train artificial neural networks with many layers most efficiently.
  Neural networks are a hot topic not only in academic research, but also in big technology companies such as Facebook, Microsoft, and Google who invest heavily in artificial neural networks and deep learning research. As of today, complex neural networks powered by deep learning algorithms are considered as state-of-the-art when it comes to complex problem solving such as image and voice recognition.
 In addition, the pharmaceutical industry recently started to use deep learning techniques for drug discovery and toxicity prediction, and research has shown that these novel techniques substantially exceed the performance of traditional methods for virtual screening~\cite{toxicity}.
 
