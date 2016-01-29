@@ -843,9 +843,9 @@ For each cancer type (breast,colon, and lung), do the following:
 \end{itemize}
 
 
-This high level of agreement between two models lends confidence to the notion that they have both learned from the training data and are generalizing well. Figures~(\ref{fig:colonbox},~\ref{fig:breastbox},~\ref{fig:lungbox}) 
+The high level of agreement between two models lends confidence to the notion that they have both learned from the training data and are generalizing well. Figures~(\ref{fig:colonbox},~\ref{fig:breastbox},~\ref{fig:lungbox}) 
 show box plots of the value of the random forest prediction subtracted from the neural network prediction.
-We emphasize that when evaluating the model agreement, we put no restrictions on the distinct subjects in the respective test datasets; we are confronting the models against each, not some known ground truth as in the AUC performance metric calculations. The number of distinct subjects in all three of the colon cancer survival binary classifiers (6, 12, and 60 month survival) was 5654; for lung cancer the number of subjects entering into the calculation of Table~(\ref{tab:agree})
+We emphasize that when evaluating the model agreement, we put no restrictions on the distinct subjects in the respective test datasets; we are confronting the models against each other, not some known ground truth as in the AUC performance metric calculations. The number of distinct subjects in all three of the colon cancer survival binary classifiers (6, 12, and 60 month survival) was 5654; for lung cancer the number of subjects entering into the calculation of Table~(\ref{tab:agree})
  was 5313; and for breast cancer it was 3300.
 
 \begin{table}[tbp]
@@ -926,9 +926,15 @@ Lung & .861 & .883 & .900 \\
 CF this guy \url{http://kmplot.com/analysis/index.php?p=service&cancer=lung}
 
 
-Below is a list of some web applications developed by IOBS.
-For each of the cancer types (colon, breast, lung, and prostate), a model has been developed using random forests and one using neural networks. The models were evaluted using the AUC (Area Under Curve) performance evaluation metric on test data (data not used in the training of the models), typically achieving AUC scores  $\approx .8$, as shown in Table~(\ref{tab:AUC}).\footnote{``AUC | Kaggle,'' Kaggle Website, \url{https://www.kaggle.com/wiki/AUC}, accessed 11 Jan 2016.}
+The six models described in section~(\ref{sec:predmodels}), namely the random forest and MLP neural network models for each of the three cancer types considered in this study, have their full hyperparameter and architecture presented in section~(\ref{sec:architecture}). Python code for all six model training and evaluation is available at the githib respository containing supplemental material for this study~\cite{supp}.
 
+
+
+%%Below is a list of some web applications developed by IOBS.
+%For each of the cancer types (colon, breast, lung, and prostate), a model has been developed using random forests and %one using neural networks. The models were evaluted using the AUC (Area Under Curve) performance evaluation metric %on test data (data not used in the training of the models), typically achieving AUC scores  $\approx .8$, as shown in %Table~(\ref{tab:AUC}).\footnote{``AUC | Kaggle,'' Kaggle Website, \url{https://www.kaggle.com/wiki/AUC}, accessed 11 %Jan 2016.}
+
+Using the popular Flask microframework for web applications~\cite{flask}, we have deployed these models 
+on the Heroku Platform. Heroku is a cloud Platform-as-a-Service (PaaS) supporting several languages, including Python~\cite{heroku}. The list of freely accessible web applications below will hopefully allow readers not familiar with Python to experiment with the models. 
 
 
 \begin{enumerate}[noitemsep]
@@ -1387,6 +1393,10 @@ def pmf(h, X)
 
 
 \section{Model Architecture and Python Code}
+\label{sec:architecture}
+
+
+
 
 \subsection{Breast Random Forest Model}
 \label{subsec:breastrf}

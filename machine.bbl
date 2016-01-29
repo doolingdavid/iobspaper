@@ -140,6 +140,15 @@ E.~Kaplan and P.~Meier, ``Nonparametric estimation from incomplete
 {François Chollet}, ``Keras documentation.'' \url{http://keras.io/}, 2015
   (accessed 25 Jan 2016).
 
+\bibitem{flask}
+{Armin Ronacher}, ``{Welcome | Flask (A Python Microframework)},
+  howpublished={\url{http://flask.pocoo.org/}}, year="2014 (accessed 29 jan
+  2016)".''
+
+\bibitem{heroku}
+{Heroku}, ``{Heroku | Home}.'' \url{https://www.heroku.com/home}, 2016
+  (accessed 29 Jan 2016).
+
 \bibitem{kob4}
 {Kai Porter, KOB Eyewitness News 4}, ``Study links higher elevation with lower
   lung cancer risk.''

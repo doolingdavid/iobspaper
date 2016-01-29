@@ -13,4 +13,9 @@ I'm skipping whatever remains of this entry
  : Usage-Count-
  :             (Last-180-days) = {{9}},
 I'm skipping whatever remains of this entry
-(There were 3 error messages)
+I was expecting a `,' or a `}'---line 413 of file machinebib.bib
+ : 
+ : @misc{heroku,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There were 4 error messages)
