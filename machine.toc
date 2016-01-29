@@ -14,7 +14,7 @@
 \contentsline {section}{\numberline {8}Further Directions}{22}{section.8}
 \contentsline {section}{\numberline {A}Selected Features}{23}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Colon Cancer Feature Selection}{23}{subsection.A.1}
-\contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{25}{subsection.A.2}
+\contentsline {subsection}{\numberline {A.2}Lung Cancer Feature Selection}{26}{subsection.A.2}
 \contentsline {subsection}{\numberline {A.3}Breast Cancer Feature Selection}{28}{subsection.A.3}
 \contentsline {section}{\numberline {B}Pseudocode for the Data Transformation}{30}{appendix.B}
 \contentsline {section}{\numberline {C}Model Architecture and Python Code}{31}{appendix.C}

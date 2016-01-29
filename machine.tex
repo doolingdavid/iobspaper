@@ -774,21 +774,21 @@ That is, we restrict ourselves to subsets of the data where we know for certain 
 %\hline
 Model & 6 Months AUC & 12 Months AUC & 60 Months AUC \\ 
 \midrule
-Breast RF &  .846       &     .885           &  .844 \\ 
-Breast NN &   .855      &     .867      &    .836 \\ 
-Colon RF  &     .804          &      .806           &      .828           \\ 
-Colon NN   &     .797          &          .804         &   .841  \\ 
-Lung RF    &      .772               &        .796               &   .874  \\ 
-Lung NN    &        .765              &        .796               &  .875  \\
+Breast RF &  .846  (3035)     &     .885  (2797)         &  .844 (1392) \\ 
+Breast NN &   .855 (3035)    &     .867  (2797)    &    .836  (1392) \\ 
+Colon RF  &     .804 (5281)         &      .806 (5003)          &      .828   (3232)        \\ 
+Colon NN   &     .797 (5281)         &          .804 (5003)        &   .841 (3232) \\ 
+Lung RF    &      .772  (5019)             &        .796 (4860)              &   .874 (4143)  \\ 
+Lung NN    &        .765  (5019)            &        .796  (4860)             &  .875 (4143)  \\
 \bottomrule
 \end{tabular}
 \caption{\label{tab:AUC} AUC values for the Random Forest and Neural Networks model
-binary classifiers derived from the full survival curve predictions; see text for details.}
+binary classifiers derived from the full survival curve predictions; see text for details. The number of subjects that were used in the calculation of a given AUC score are given in parenthesis after the score. }
 \end{center}
 \end{table}
 
 The AUC scores for each of the 18 different binary classifiers are listed in Table~(\ref{tab:AUC}). We emphasize the treatment explained in section~(\ref{sec:predmodels})  concering the correct treatment of the censored test data when evaluating performance metrics.
-Namely, when computing the AUC for the 12 month survival curve classifiers, we restrict the test data subjects to those that in the untransformed data set that satisfy either of the following mutually exlusive conditions:
+Namely, when computing the AUC for the 12 month survival curve classifiers, we restrict the test data subjects to those that in the untransformed data set that satisfy either of the following mutually exclusive conditions:
 
 \begin{itemize}[noitemsep]
 \item \codewhite{survival\_months} >= 12 AND \codewhite{vital\_status\_recode} == 0
