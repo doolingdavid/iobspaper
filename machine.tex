@@ -726,7 +726,8 @@ This is done by iterating over all distinct patient indices in the test set, pre
 If the survival function evaluted at 6 months is greater than or equal to .5 for a given subject, then the 6 months binary classifier predicts that that subject will be alive 6 months after diagnosis. Similarly, if the survival function evaluted at 60 months is less than .5, then the 12 months binary classifier predicts that that subject will be dead 12 months after diagnosis. Figure~(\ref{fig:survivalexample}) illustrates the method; in this case the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.
 
 
-\begin{figure}[tbp]
+%\begin{figure}[tbp]
+\begin{figure}[H]
 \centering 
 %\begin{center}/\end{center} takes some additional vertical space
 %\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
@@ -735,7 +736,7 @@ If the survival function evaluted at 6 months is greater than or equal to .5 for
 \includegraphics[width=.90\textwidth,origin=c]{survivalexample.pdf}
 % "\includegraphics" is very powerful; the graphicx package is already loaded
 \caption{\label{fig:survivalexample} Example of the construction of the binary classifiers for 6, 12, and 60 months survival.
-A subjects hazard curve $h(\mathbf{X}, t)$ is predicted by the model for times out to 120 months. The survival curve is then readily computed as in section~(\ref{subsec:pseudocode}). For this example, the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.}
+A subjects hazard curve $\lambda(\mathbf{X}, t)$ is predicted by the model for times out to 120 months. The survival curve is then readily computed as in Equation~(\ref{eq:hazardtosurvival}). For this example, the 6-month and 12-month classifiers predict survival, while the 60-month classifier predicts expiry.}
 \end{center}
 \end{figure}
 
