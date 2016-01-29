@@ -6,7 +6,7 @@
 \BOOKMARK [1][-]{section.4}{Training and Test Partitions}{}% 6
 \BOOKMARK [1][-]{section.5}{Prediction Models}{}% 7
 \BOOKMARK [2][-]{subsection.5.1}{Decision Trees and Random Forests}{section.5}% 8
-\BOOKMARK [2][-]{subsection.5.2}{MLP Neural Networks}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{Multi-Layer Perceptron Neural Networks}{section.5}% 9
 \BOOKMARK [1][-]{section.6}{Results}{}% 10
 \BOOKMARK [2][-]{subsection.6.1}{Performance Metrics}{section.6}% 11
 \BOOKMARK [2][-]{subsection.6.2}{Model Agreement}{section.6}% 12

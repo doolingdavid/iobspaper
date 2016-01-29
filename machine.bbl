@@ -49,10 +49,6 @@ H.~Ishwaran and U.~Kogalur, ``Consistency of random survival forests,'' {\em
   2010.
 \newblock cited By 26.
 
-\bibitem{kuhn}
-{Ben Kuhn}, ``{Decision trees for survival analysis}.''
-  \url{http://www.benkuhn.net/survival-trees}, 2016 (accessed 14 Jan 2016).
-
 \bibitem{seerdoc}
 {National Cancer Institute, the Surveillance, Epidemiology, and End Results
   Program}, ``{Documentation for ASCII Text Data Files - SEER Datasets}.''
@@ -97,11 +93,28 @@ E.~Kaplan and P.~Meier, ``Nonparametric estimation from incomplete
   vol.~53, no.~282, pp.~457--481, 1958.
 \newblock cited By 34216.
 
+\bibitem{kuhn}
+{Ben Kuhn}, ``{Decision trees for survival analysis}.''
+  \url{http://www.benkuhn.net/survival-trees}, 2016 (accessed 14 Jan 2016).
+
 \bibitem{amstat}
 {Northeastern Illinois Chapter, American Statistical Association}, ``Survival
   analysis: Introduction.''
   \url{http://www.amstat.org/chapters/northeasternillinois/pastevents/presentations/summer05_Ibrahim_J.pdf},
   2005 (accessed 27 Jan 2016).
+
+\bibitem{wisdom}
+{James Surowiecki}, {\em The Wisdom of Crowds}.
+\newblock Doubleday, 2004.
+
+\bibitem{cassidy}
+{John Cassidy}, ``{What killed Intrade?}.''
+  \url{http://www.newyorker.com/news/john-cassidy/what-killed-intrade}, 13 Mar
+  2013 (accessed 25 Jan 2016).
+
+\bibitem{outliers}
+{Malcolm Gladwell}, {\em Outliers}.
+\newblock Back Bay Books, 2011.
 
 \bibitem{rf}
 {scikit-learn developers}, ``3.2.4.3.1.

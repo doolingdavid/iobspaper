@@ -582,7 +582,7 @@ The models described below are trained to learn the values of \codewhite{newtarg
 
 
 Finally, we emphasize the crucial point that the features \codewhite{survival\_months} and \\
-\codewhite{vital\_status\_recode\_Dead} are dropped from both the training and and testing data, and are replaced with the features \codewhite{months} and \codewhite{newtarget}, as illustrated in Tables~(\ref{tab:originaldead},~\ref{tab:originalalive},~\ref{tab:transformeddead},~\ref{tab:transformedalive}). The information of which subjects represent censored data (\codewhite{vital\_status\_recode\_Dead} == 0) and which died is retained and recoverable trough the \codewhite{newindex} variable and is needed for proper evaluation of the performance metrics; when evaluating AUC curves for the 6, 12, and 60 month binary classifiers, we need to limit the test data to those subjects that we know definitively whether or not they survived 6, 12 or 60 months respectively. This requirement will necessitate the elmination of some of the censored data when computing some of the performance metrics. We introduce the two machine learning algorithms used in this study below, chosen because of their high performance in machine learning competitions and their complementary methods, so that their mutual agreement on the test datasets can be taken as indication that they are actually learning useful information, which will be shown in section~(\ref{sec:results}).
+\codewhite{vital\_status\_recode\_Dead} are dropped from both the training and and testing data, and are replaced with the features \codewhite{months} and \codewhite{newtarget}, as illustrated in Tables~(\ref{tab:originaldead},~\ref{tab:originalalive},~\ref{tab:transformeddead},~\ref{tab:transformedalive}). The information of which subjects represent censored data (\codewhite{vital\_status\_recode\_Dead} == 0) and which died is retained and recoverable trough the \codewhite{newindex} variable and is needed for proper evaluation of the performance metrics; when evaluating AUC curves for the 6, 12, and 60 month binary classifiers, we need to limit the test data to those subjects that we know definitively whether or not they survived 6, 12 or 60 months respectively. This requirement will necessitate the elmination of some of the censored data when computing some of the performance metrics. We introduce the two machine learning algorithms used in this study below in section~(\ref{sec:predmodels}), chosen because of their high performance in machine learning competitions and their complementary methods, so that their mutual agreement on the test datasets can be taken as indication that they are actually learning useful information, which will be shown in section~(\ref{sec:results}).
 
 %\begin{equation}
 %(\codewhite{survival\_months} >= 6 \& \codewhite{vital\_status\_recode\_Dead} == 0) \| 
@@ -590,6 +590,14 @@ Finally, we emphasize the crucial point that the features \codewhite{survival\_m
 %\end{equation}
 
 
+Random Forests are made up of an ensemble of independet \textbf{Decision trees} that are purposefully exposed to only subsets of the data. The general philosophy is presented in the popular science book "The Wisdom of Crowds''~\cite{wisdom}.
+The idea is that a large number of independent non-expert opinions converge on the correct answer when averaged. The success of this philosophy of prediction was startingly shown by the success of the political and world event predictions made by the prediction market site Intrade, before its forced closure by the Commodity Futures Trading Commission~\cite{cassidy}. %\footnote{``What killed Intrade?``, John Cassidy, \textit{The New Yorker}, 10 Mar, 2013, %accessed 11 Jan 2016, \url{http://www.newyorker.com/news/john-cassidy/what-killed-%intrade}.} 
+ The other class of methods used by IOBS to develop predictive models are called neural networks, and are modelled on how the human brain learns high level concepts from lower level ones. 
+As opposed to the crowd-based wisdom of a random forest, a neural network is analgous to a seasoned expert. 
+%The philosophy behind the training and achieved accuracies of neural network classifiers and %predictors is that of going to a seasoned expert. 
+A Neural network learns from repeated exposure to the training data and improves its predictions with each pass over the data.
+ The general philosophy is simlar to that represented by the well-known maxim that it takes 10,000 hours to become an expert in any given field~\cite{outliers}.
+%\footnote{``The 10,000 Hour Rule,` Malcolm Gladwell, accessed 11 Jan 2016, \url{http://%gladwell.com/outliers/the-10000-hour-rule/}.}
 
 
 
@@ -642,6 +650,9 @@ Figure~(\ref{fig:ensemble}) illustrates the power of ensemble methods; the Figur
 \end{figure}
 
 
+
+A big advantege of random forests is that there is very little need to worry excessively over your choice of hyperparameter values (the number of trees in the forest, the depth of each decision tree, the specific measure of information gain used to choose the node splitting, etc). The ensemble method is robust to noise from the individual decision trees, which helps to precent overfitting (memorizing the training dataset targets instead of generalizing from learned rules to perform successfuly on unseen data). The only parameter that has a clearly noticeable effect on performance is the number of trees to include in the forest; in general, the more trees the better the performance, but there is a price to pay in terms of computational cost. The number of trees for the forests trained in this study was relatively small, 20 trees for breast cancer and 25 for both the lung and colon cancer models. 
+
 IOBS has chosen to use the Python scikit-learn implemenation of the Random Forest machine 
 learning classifier~\cite{rf}.
 Random Forests are frequent winners of the Kaggle machine learning competitions~\cite{kagglerf}.
@@ -667,7 +678,7 @@ The model parameters for each cancer type are given in sections~(\ref{subsec:bre
 
 
 
-\subsection{MLP Neural Networks}
+\subsection{Multi-Layer Perceptron Neural Networks}
 
 
 Neural networks are a biologically-inspired programming paradigm that enable computers to learn from observational data~\cite{deeplearning}.
@@ -676,7 +687,7 @@ Deep learning can be understood as a set of algorithms that were developed to tr
  Neural networks are a hot topic not only in academic research, but also in big technology companies such as Facebook, Microsoft, and Google who invest heavily in artificial neural networks and deep learning research. As of today, complex neural networks powered by deep learning algorithms are considered as state-of-the-art when it comes to complex problem solving such as image and voice recognition.
 In addition, the pharmaceutical industry recently started to use deep learning techniques for drug discovery and toxicity prediction, and research has shown that these novel techniques substantially exceed the performance of traditional methods for virtual screening~\cite{toxicity}.
 
-IOBS has chosen to use the neural network implementation Keras developed at MIT.
+IOBS has chosen to use the Multi-Layer Perceptron Neural Network (MLP neural network) implementation Keras developed at MIT.
 Keras was initially developed as part of the research effort of project ONEIROS (Open-ended Neuro-Electronic Intelligent Robot Operating System)~\cite{keras}.
 Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano. The model architecture for each cancer type are given in sections~(\ref{subsec:breastnn},~\ref{subsec:colonnn},~\ref{subsec:lungnn}). Training a neural network and choosing an appropriate architecture is as much art as science~\cite{deeplearning}, and the search for a good neural network architecture for the lung cancer case was more demanding than for the breast and colon. 
 
