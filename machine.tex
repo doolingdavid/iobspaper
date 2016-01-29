@@ -826,18 +826,18 @@ We limit evaluation data to subsets of the data where we know for certain whethe
 
 \subsection{Model Agreement}
 
-TO DO: Check if comorbidites are contributing to the outliers in the agreement boxplots that follow.
-Could mesh with the prevous work~\cite{ISI:000355882700012}.
+%TO DO: Check if comorbidites are contributing to the outliers in the agreement boxplots that follow.
+%Could mesh with the prevous work~\cite{ISI:000355882700012}.
 
 
 An additional means of validating the predictions of these models is by comparing their predictions to each other for the same set of input data. 
 Table~(\ref{tab:agree}) shows the strong agreement between the random forest and neural network classifiers for each cancer type. Python code showing how the values in Table~(\ref{tab:agree}) are computed is available in the files 
-\codewhite{NewPatientBreastCF.html}, \codewhite{NewPatientColonCF.html}, and \codewhite{NewPatientLung.html} in the GitHub repository containing supplemental matierial for this study~\cite{supp}. This table is computed as follows. 
+\codewhite{NewPatientBreastCF.html}, \codewhite{NewPatientColonCF.html}, and \codewhite{NewPatientLung.html} in the GitHub repository containing supplemental matierial for this study~\cite{supp}. Table~(\ref{tab:agree}) is computed as follows. 
 For each cancer type (breast,colon, and lung), do the following:
 
 \begin{itemize}[noitemsep]
 \item use the corresponding Random Forest and Neural Network models to compute the survival curves for all of the test subjects
-\item extract the values of the survival curve evaluted for 6, 12, and 60 months for both both models
+\item extract the values of the survival curve evaluted for 6, 12, and 60 months for both models
 \item if both models predict less than .5 or both models predict greater than or equal to .5, that counts as agreement
 \item otherwise, the models disagree
 \end{itemize}
@@ -845,7 +845,8 @@ For each cancer type (breast,colon, and lung), do the following:
 
 This high level of agreement between two models lends confidence to the notion that they have both learned from the training data and are generalizing well. Figures~(\ref{fig:colonbox},~\ref{fig:breastbox},~\ref{fig:lungbox}) 
 show box plots of the value of the random forest prediction subtracted from the neural network prediction.
-
+We emphasize that when evaluating the model agreement, we put no restrictions on the distinct subjects in the respective test datasets; we are confronting the models against each, not some known ground truth as in the AUC performance metric calculations. The number of distinct subjects in all three of the colon cancer survival binary classifiers (6, 12, and 60 month survival) was 5654; for lung cancer the number of subjects entering into the calculation of Table~(\ref{tab:agree})
+ was 5313; and for breast cancer it was 3300.
 
 \begin{table}[tbp]
 \begin{center}
@@ -865,12 +866,13 @@ Lung & .861 & .883 & .900 \\
 \end{table}
 
 \begin{figure}[tbp]
+%\begin{figure}[H]
 \centering 
 %\begin{center}/\end{center} takes some additional vertical space
 %\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{img1.pdf}
 %\hfill
 \begin{center}
-\includegraphics[width=.90\textwidth,origin=c]{breastbox.pdf}
+\includegraphics[width=.70\textwidth,origin=c]{breastbox.pdf}
 % "\includegraphics" is very powerful; the graphicx package is already loaded
 \caption{\label{fig:breastbox} Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for breast cancer. The plot shows the same quantity for the 12 and 60 months classifiers. It is apparent from the figures that the outliers are due to the neural network models predicting higher survival probablitlies than the random forest for some few cases. These differences were evaluated for the 3300 test patients in the breast cancer data.}
 \end{center}
@@ -903,7 +905,7 @@ Lung & .861 & .883 & .900 \\
 \begin{center}
 \includegraphics[width=.90\textwidth,origin=c]{lungbox.pdf}
 % "\includegraphics" is very powerful; the graphicx package is already loaded
-\caption{\label{fig:lungbox} Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5654 test patients in the colon cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig~\ref{fig:breastbox} and fig~\ref{fig:colonbox}.}
+\caption{\label{fig:lungbox} Box plots showing the distributions of the signed difference between the MLP model's prediction for the probability of surviving 6 months and the Random Forest model's prediction of the same quantity for lung cancer. The plot shows the same quantity for the 12 and 60 months classifiers. These differences were evaluated for the 5313 test patients in the lung cancer data. The Interquartile Ranges for lung cancer are visibly larger than those for breast cancer and colon cancer shown in fig~\ref{fig:breastbox} and fig~\ref{fig:colonbox}.}
 \end{center}
 \end{figure}
 
