@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  1 FEB 2016 09:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  1 FEB 2016 09:58
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -545,12 +545,6 @@ l.467
                                                   \fi \fi 
 l.467 
       ]
-Overfull \hbox (10.18616pt too wide) in paragraph at lines 479--481
-[]\T1/cmr/m/n/10.95 In the dis-crete time vari-able case which holds for the SE
-ER data where [][][][][][]
- []
-
-
 Underfull \vbox (badness 5681) has occurred while \output is active []
 
  [12pdfTeX warning (ext4): destination with the same identifier (name{figure.1}
@@ -806,7 +800,7 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on machine.pdf (44 pages, 674990 bytes).
+Output written on machine.pdf (44 pages, 674992 bytes).
 PDF statistics:
  1655 PDF objects out of 1728 (max. 8388607)
  149 named destinations out of 1000 (max. 500000)

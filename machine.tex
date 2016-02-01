@@ -417,7 +417,7 @@ and the \codewhite{STATE-COUNTY RECODE} variable was dropped and replaced with t
 
 
 
-Before applying machine learning models trained with these datasets, we review in section~(\ref{subsec:survprimer}) the sailent features of survival analysis and censored data. We then describe in detail a method that takes full advantage of all the data, including the right-censored data, and which involves a simple and intuitive transformation, culminating in the full set of features and target variables listed in sections~(\ref{subsec:colonfeatures},~\ref{subsec:lungfeatures},~\ref{subsec:breastfeatures}).
+Before applying machine learning models trained with these datasets, we review in section~(\ref{subsec:survprimer}) the sailent features of survival analysis and censored data. We then describe in detail a method that takes full advantage of all the data, including the right-censored data, and which involves a simple and intuitive transformation, culminating in the full set of features and target variable listed in sections~(\ref{subsec:colonfeatures},~\ref{subsec:lungfeatures},~\ref{subsec:breastfeatures}).
 
 
 \subsection{Traditional Survival Analysis}
@@ -463,7 +463,7 @@ The Kaplan-Meier estimate of the survival curve is given by
 \hat{S}(t) = \prod_{t_i < t} \frac{n_i - d_i}{n_i}
 \end{equation}
 where $d_i$ are the number of death events at time $t$ and $n_t$ is the number of subjects at risk of death just prior to time $t$. 
-Equation~(\ref{eq:kaplanmeier}) uses the entire data set to arrive at an estimate of the entire population survival curve. In contrast, the method described below uses the entire data set to learn a model so as to predict hazard and survival curves for all of the individual records in the data set.
+Equation~(\ref{eq:kaplanmeier}) uses the entire data set to arrive at an estimate of the entire population survival curve. In contrast, the method described below uses the entire data set to learn a model so as to predict hazard and survival curves from the data for as yet unseen individuals.
 
 The key observation is to note that the hazard function can be directly learned via standard machine learning methods. It can be rewritten as
 \begin{equation}
@@ -476,7 +476,7 @@ What is actually provided in the SEER data is the related variable \codewhite{SU
 $D$ is a Boolean variable, so $D = 1$ if $T = Y$, and $D = 0$ if $T < Y$.
 
 
-In the discrete time variable case which holds for the SEER data where \codewhite{SURVIVAL MONTHS} takes on integer values, the relationship between the hazard function and the survival function is given as follows~\cite{amstat}. Supppose that 
+In the discrete time variable case (which holds for the SEER data; \codewhite{SURVIVAL MONTHS} takes on integer values), the relationship between the hazard function and the survival function is given as follows~\cite{amstat}. Supppose that 
 $a_{j} < t \leq a_{j+1}$ where $a_{j}$ represents $j$ months. Then
 
 \begin{eqnarray}
