@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  1 FEB 2016 08:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  1 FEB 2016 08:44
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -448,19 +448,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `machine.toc'.
 
 
-[1] [2] [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
+[1] [2] [3] [4]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 174.
 
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
- [5]
+
+[5]
 Overfull \hbox (41.06541pt too wide) in paragraph at lines 267--278
  [] 
  []
@@ -784,7 +781,7 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on machine.pdf (43 pages, 673718 bytes).
+Output written on machine.pdf (43 pages, 673792 bytes).
 PDF statistics:
  1655 PDF objects out of 1728 (max. 8388607)
  149 named destinations out of 1000 (max. 500000)
