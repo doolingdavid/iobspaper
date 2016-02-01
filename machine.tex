@@ -122,7 +122,7 @@ The SEER program registries routinely collect data on patient demographics, prim
 
 
 
-One characterstic of the SEER data and that is shared by many datasets in the medical field 
+One characterstic of the SEER data that is shared by many datasets in the medical field 
 goes by the name of "censored data.''
 Observations are labeled censored when the survival time information is incomplete.
  The SEER data contains the number of months each patient survived, as well as an indicator variable showing whether or not the patient is still alive at the end of the data collection period.
@@ -136,7 +136,7 @@ Previous work applying machine learning methods to subsets of the SEER data incl
 Previous work applying machine learning methods based on decision trees to survival data in general have a long history, starting with Gordon et al.~\cite{Gordon19851065}. A summary of more recent developments concerning \emph{survival trees} is provided by Bou-Hamad et al.~\cite{Bou-Hamad201144}. These methods focus on altering the splitting critieria used in decision tree growth to account for the censoring, and use 1958 Kaplan-Meier methods at the resulting nodes for prediction purposes. These methods do not generalize to non-tree-based machine learning algorithms, though Ishwaran et al. have extended the methodology to \emph{random survival forests}, ensembles of \emph{survival trees}~\cite{Ishwaran20101056}.
 
 
-IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. Instead of modifying existing learning algorithms in drastic ways, exploring \emph{FrankenModels}, we focus attention on the input data. This approach allows for different machine learning algorithms to use the same data with no modification. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed to make predictions for the hazard function (
+IOBS has applied a little-known technique to transform the SEER data to make it amenable to more powerful machine learning methods. Instead of modifying existing learning algorithms in drastic ways, we focus attention on the input data. This approach allows for different machine learning algorithms to use the same data with no modification. The essential idea is to recast the problem to an appropriate discrete classification problem instead of a regression problem (predicting survival months). Treating months after diagnosis as just another discrete feature, the SEER data (or any other right-censored data) can be transformed to make predictions for the hazard function (
  probability of dying in the next month, given that the patient has not yet died).
 The full survival function can then be derived from the hazard function.
 %Details of this transformation can be found in this blog post \cite{kuhn} and are presented in %section~(\ref{subsec:transformation}).
