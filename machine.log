@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  1 FEB 2016 09:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  1 FEB 2016 10:23
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -630,7 +630,7 @@ l.703
 File: survivalexample.pdf Graphic file (type pdf)
 
 <use survivalexample.pdf>
-Package pdftex.def Info: survivalexample.pdf used on input line 744.
+Package pdftex.def Info: survivalexample.pdf used on input line 723.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -641,46 +641,46 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.804 \end{itemize}
+l.783 \end{itemize}
                     <./survivalexample.pdf>] [21pdfTeX warning (ext4): destinat
 ion with the same identifier (name{table.12}) has been already used, duplicate 
 ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.861 
+l.840 
       ]
-Overfull \hbox (17.05627pt too wide) in paragraph at lines 865--875
+Overfull \hbox (17.05627pt too wide) in paragraph at lines 844--854
  [] 
  []
 
 <breastbox.pdf, id=600, 433.62pt x 289.08pt>
 File: breastbox.pdf Graphic file (type pdf)
  <use breastbox.pdf>
-Package pdftex.def Info: breastbox.pdf used on input line 886.
+Package pdftex.def Info: breastbox.pdf used on input line 865.
 (pdftex.def)             Requested size: 301.14316pt x 200.77106pt.
 
 <colonbox.pdf, id=601, 433.62pt x 289.08pt>
 File: colonbox.pdf Graphic file (type pdf)
  <use colonbox.pdf>
-Package pdftex.def Info: colonbox.pdf used on input line 900.
+Package pdftex.def Info: colonbox.pdf used on input line 879.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
 <lungbox.pdf, id=602, 433.62pt x 289.08pt>
 File: lungbox.pdf Graphic file (type pdf)
  <use lungbox.pdf>
-Package pdftex.def Info: lungbox.pdf used on input line 917.
+Package pdftex.def Info: lungbox.pdf used on input line 896.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
  [22pdfTeX warning (ext4): destination with the same identifier (name{table.13}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.983 
+l.962 
       ] <boston1940.png, id=637, 511.9125pt x 481.8pt>
 File: boston1940.png Graphic file (type png)
  <use boston1940.png>
-Package pdftex.def Info: boston1940.png used on input line 1019.
+Package pdftex.def Info: boston1940.png used on input line 998.
 (pdftex.def)             Requested size: 409.53056pt x 385.4405pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -690,79 +690,79 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1060 
+l.1039 
        ] [24pdfTeX warning (ext4): destination with the same identifier (name{t
 able.15}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1090 
+l.1069 
        ] [25] [26] [27] [28] [29] [30] [31] [32]
 Underfull \vbox (badness 3428) has occurred while \output is active []
 
  [33]
-Overfull \hbox (39.4384pt too wide) in paragraph at lines 1542--1542
+Overfull \hbox (39.4384pt too wide) in paragraph at lines 1521--1521
 []\T1/cmtt/m/n/10.95 modelbreast.compile(loss='binary_crossentropy', optimizer=
 rms, class_mode="binary")[] 
  []
 
 [34]
-Overfull \hbox (33.78003pt too wide) in paragraph at lines 1575--1575
+Overfull \hbox (33.78003pt too wide) in paragraph at lines 1554--1554
 []\T1/cmtt/m/n/10.95 modelcolon.compile(loss='binary_crossentropy', optimizer=r
 ms, class_mode="binary")[] 
  []
 
 [35]
-Overfull \hbox (28.12166pt too wide) in paragraph at lines 1609--1609
+Overfull \hbox (28.12166pt too wide) in paragraph at lines 1588--1588
 []\T1/cmtt/m/n/10.95 modellung.compile(loss='binary_crossentropy', optimizer=rm
 s, class_mode="binary")[] 
  []
 
 (machine.bbl [36] [37])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1675.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1654.
  [38] [39pdfTeX warning (ext4): destination with the same identifier (name{figu
 re.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1675 \end{document}
+l.1654 \end{document}
                       <./lungdt.pdf>] [40pdfTeX warning (ext4): destination wit
 h the same identifier (name{figure.7}) has been already used, duplicate ignored
 
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1675 \end{document}
+l.1654 \end{document}
                       <./breastbox.pdf>] [41pdfTeX warning (ext4): destination 
 with the same identifier (name{figure.8}) has been already used, duplicate igno
 red
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1675 \end{document}
+l.1654 \end{document}
                       <./colonbox.pdf>] [42pdfTeX warning (ext4): destination w
 ith the same identifier (name{figure.9}) has been already used, duplicate ignor
 ed
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1675 \end{document}
+l.1654 \end{document}
                       <./lungbox.pdf>] [43pdfTeX warning (ext4): destination wi
 th the same identifier (name{figure.10}) has been already used, duplicate ignor
 ed
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1675 \end{document}
+l.1654 \end{document}
                       <./boston1940.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1675.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1654.
  (machine.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1675.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1675.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1654.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1654.
 
 Package rerunfilecheck Info: File `machine.out' has not changed.
 (rerunfilecheck)             Checksum: 874C7140F534B83AEFC0DBCC56438533;1884.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1675.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1654.
  ) 
 Here is how much of TeX's memory you used:
  8187 strings out of 493634
@@ -800,7 +800,7 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on machine.pdf (44 pages, 674992 bytes).
+Output written on machine.pdf (44 pages, 675198 bytes).
 PDF statistics:
  1655 PDF objects out of 1728 (max. 8388607)
  149 named destinations out of 1000 (max. 500000)
