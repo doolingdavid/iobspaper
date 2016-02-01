@@ -287,11 +287,16 @@ An added benefit of this shift from the single categorical variable \codewhite{S
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+This study focused on three different cancer types, namely colorectal cancer, lung cancer, and breast cancer. 
+In the SEER data, there are instances of subjects with multiple rows; whenever a subject, or patient, is diagnosed with a new tumor, an additional record is added. In this study, we restrict attention to the data corresponding to the first record of each subject; i.e., we wish to make models that predict survival prognosis based on the data available right after diagnosis. The full set of conditions defining the subsets of the SEER data used in this study follows below.
+
+
 
  The four COLRECT.txt files were imported into a pandas DataFrame object.
 This data was then filtered according to the conditions in Table~(\ref{tab:colonfilter}).
 The RESPIR.txt and BREAST.txt files were imported into separate dataframes in similar fashion and filtered according
 to the conditions in Table~(\ref{tab:lungfilter}) and Table~(\ref{tab:breastfilter}), respectively.
+The SEER variable \codewhite{CS TUMOR SIZE} records the tumor size in millimeters if known. But if not known, \codewhite{CS TUMOR SIZE} is given as '999', to indicate that the tumor size is "Unknown; size not stated; not stated in pateint record.'' In this study, we discard those records, as indicated in Tables~(\ref{tab:breastfilter},~\ref{tab:colonfilter},~\ref{tab:lungfilter}).
 
 
 
