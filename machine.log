@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  1 FEB 2016 08:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  1 FEB 2016 08:54
 entering extended mode
 **./machine.tex
 (machine.tex
@@ -448,16 +448,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `machine.toc'.
 
 
-[1] [2] [3] [4]
+[1] [2] [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 174.
 
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
-
-[5]
+ [5]
 Overfull \hbox (41.06541pt too wide) in paragraph at lines 267--278
  [] 
  []
@@ -497,19 +500,19 @@ Overfull \hbox (65.90366pt too wide) in paragraph at lines 69--85
  [] 
  []
 
-<colonkaplan.pdf, id=291, 433.62pt x 289.08pt>
+<colonkaplan.pdf, id=288, 433.62pt x 289.08pt>
 File: colonkaplan.pdf Graphic file (type pdf)
  <use colonkaplan.pdf>
 Package pdftex.def Info: colonkaplan.pdf used on input line 105.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<breastkaplan.pdf, id=292, 433.62pt x 289.08pt>
+<breastkaplan.pdf, id=289, 433.62pt x 289.08pt>
 File: breastkaplan.pdf Graphic file (type pdf)
  <use breastkaplan.pdf>
 Package pdftex.def Info: breastkaplan.pdf used on input line 120.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<lungkaplan.pdf, id=293, 433.62pt x 289.08pt>
+<lungkaplan.pdf, id=290, 433.62pt x 289.08pt>
 File: lungkaplan.pdf Graphic file (type pdf)
  <use lungkaplan.pdf>
 Package pdftex.def Info: lungkaplan.pdf used on input line 133.
@@ -596,13 +599,13 @@ Overfull \hbox (2.31937pt too wide) in paragraph at lines 592--594
 ], as il-lus-trated in Ta-bles ([][]8[][], [][]9[][], [][]10[][], [][]11[][]).
  []
 
-[15] [16] <ensemble.png, id=495, 397.485pt x 279.0425pt>
+[15] [16] <ensemble.png, id=492, 397.485pt x 279.0425pt>
 File: ensemble.png Graphic file (type png)
  <use ensemble.png>
 Package pdftex.def Info: ensemble.png used on input line 656.
 (pdftex.def)             Requested size: 298.113pt x 209.28136pt.
 
-<lungdt.pdf, id=502, 3033.3325pt x 490.83376pt>
+<lungdt.pdf, id=499, 3033.3325pt x 490.83376pt>
 File: lungdt.pdf Graphic file (type pdf)
  <use lungdt.pdf>
 Package pdftex.def Info: lungdt.pdf used on input line 680.
@@ -613,7 +616,7 @@ re.4}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.729 
-       <./ensemble.png>] <survivalexample.pdf, id=527, 433.62pt x 289.08pt>
+       <./ensemble.png>] <survivalexample.pdf, id=524, 433.62pt x 289.08pt>
 File: survivalexample.pdf Graphic file (type pdf)
 
 <use survivalexample.pdf>
@@ -637,19 +640,19 @@ Overfull \hbox (17.05627pt too wide) in paragraph at lines 856--866
  [] 
  []
 
-<breastbox.pdf, id=591, 433.62pt x 289.08pt>
+<breastbox.pdf, id=588, 433.62pt x 289.08pt>
 File: breastbox.pdf Graphic file (type pdf)
  <use breastbox.pdf>
 Package pdftex.def Info: breastbox.pdf used on input line 877.
 (pdftex.def)             Requested size: 301.14316pt x 200.77106pt.
 
-<colonbox.pdf, id=592, 433.62pt x 289.08pt>
+<colonbox.pdf, id=589, 433.62pt x 289.08pt>
 File: colonbox.pdf Graphic file (type pdf)
  <use colonbox.pdf>
 Package pdftex.def Info: colonbox.pdf used on input line 891.
 (pdftex.def)             Requested size: 387.18312pt x 258.13611pt.
 
-<lungbox.pdf, id=593, 433.62pt x 289.08pt>
+<lungbox.pdf, id=590, 433.62pt x 289.08pt>
 File: lungbox.pdf Graphic file (type pdf)
  <use lungbox.pdf>
 Package pdftex.def Info: lungbox.pdf used on input line 908.
@@ -661,7 +664,7 @@ Package pdftex.def Info: lungbox.pdf used on input line 908.
                                                   \fi \fi 
 l.950    \item r
                 andom forest: \url{http://lung-cancer.herokuapp.com/}]
-<boston1940.png, id=625, 511.9125pt x 481.8pt>
+<boston1940.png, id=622, 511.9125pt x 481.8pt>
 File: boston1940.png Graphic file (type png)
  <use boston1940.png>
 Package pdftex.def Info: boston1940.png used on input line 1010.
@@ -746,8 +749,8 @@ Package rerunfilecheck Info: File `machine.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1666.
  ) 
 Here is how much of TeX's memory you used:
- 8186 strings out of 493634
- 114128 string characters out of 3141304
+ 8185 strings out of 493634
+ 114117 string characters out of 3141304
  220618 words of memory out of 3000000
  11266 multiletter control sequences out of 15000+200000
  28631 words of font info for 76 fonts, out of 3000000 for 9000
@@ -781,9 +784,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on machine.pdf (43 pages, 673792 bytes).
+Output written on machine.pdf (43 pages, 671692 bytes).
 PDF statistics:
- 1655 PDF objects out of 1728 (max. 8388607)
- 149 named destinations out of 1000 (max. 500000)
+ 1647 PDF objects out of 1728 (max. 8388607)
+ 148 named destinations out of 1000 (max. 500000)
  259 words of extra memory for PDF output out of 10000 (max. 10000000)
 
